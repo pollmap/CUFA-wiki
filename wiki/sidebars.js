@@ -39,29 +39,11 @@ const sidebars = {
       type: 'category',
       label: '기술적 분석',
       items: [
-        'technical/overview',
-        {
-          type: 'category',
-          label: '기술적 지표',
-          items: [
-            'technical/indicators/rsi',
-            'technical/indicators/macd',
-            'technical/indicators/bollinger',
-            'technical/indicators/stochastic',
-            'technical/indicators/volume',
-          ],
-        },
-        {
-          type: 'category',
-          label: '차트 패턴',
-          items: [
-            'technical/patterns/head-shoulders',
-            'technical/patterns/triangles',
-            'technical/patterns/double-top-bottom',
-            'technical/patterns/flags-pennants',
-          ],
-        },
-        'technical/elliott-wave',
+        'technical/intro',
+        'technical/candlestick',
+        'technical/moving-average',
+        'technical/trend',
+        'technical/indicators',
       ],
     },
     {
@@ -72,30 +54,21 @@ const sidebars = {
           type: 'category',
           label: '부동산',
           items: [
-            'assets/real-estate/income-approach',
-            'assets/real-estate/cost-approach',
-            'assets/real-estate/comparison-approach',
-            'assets/real-estate/reits',
+            'assets/real-estate/intro',
           ],
         },
         {
           type: 'category',
-          label: '디지털자산',
+          label: '암호화폐',
           items: [
-            'assets/crypto/on-chain',
-            'assets/crypto/tokenomics',
-            'assets/crypto/nvt-ratio',
-            'assets/crypto/defi-metrics',
+            'assets/crypto/intro',
           ],
         },
         {
           type: 'category',
           label: '채권',
           items: [
-            'assets/bonds/pricing',
-            'assets/bonds/duration',
-            'assets/bonds/convexity',
-            'assets/bonds/spreads',
+            'assets/bonds/intro',
           ],
         },
         {
@@ -104,16 +77,14 @@ const sidebars = {
           items: [
             'assets/derivatives/options-basics',
             'assets/derivatives/greeks',
-            'assets/derivatives/black-scholes',
           ],
         },
       ],
     },
     {
       type: 'category',
-      label: '투자 거장',
+      label: '투자 대가',
       items: [
-        'masters/overview',
         'masters/graham',
         'masters/buffett',
         'masters/lynch',
@@ -131,9 +102,8 @@ const sidebars = {
         'calculators/dcf',
         'calculators/wacc',
         'calculators/graham-number',
-        'calculators/peg-screener',
-        'calculators/duration',
         'calculators/option-greeks',
+        'calculators/bond',
       ],
     },
     {
