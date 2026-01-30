@@ -204,6 +204,25 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '산업분석 (GICS)',
+      collapsed: true,
+      items: [
+        'industry-analysis/overview',
+        'industry-analysis/it/intro',
+        'industry-analysis/healthcare/intro',
+        'industry-analysis/financials/intro',
+        'industry-analysis/consumer-discretionary/intro',
+        'industry-analysis/consumer-staples/intro',
+        'industry-analysis/industrials/intro',
+        'industry-analysis/materials/intro',
+        'industry-analysis/energy/intro',
+        'industry-analysis/utilities/intro',
+        'industry-analysis/real-estate-sector/intro',
+        'industry-analysis/communication-services/intro',
+      ],
+    },
+    {
+      type: 'category',
       label: '기술적 분석',
       items: [
         'technical/intro',
