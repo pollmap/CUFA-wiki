@@ -84,6 +84,54 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '재무제표 분석',
+      collapsed: false,
+      items: [
+        'financial-analysis/overview',
+        {
+          type: 'category',
+          label: '수익성 분석',
+          items: [
+            'financial-analysis/profitability/margin-analysis',
+            'financial-analysis/profitability/return-analysis',
+            'financial-analysis/profitability/dupont',
+          ],
+        },
+        {
+          type: 'category',
+          label: '성장성 분석',
+          items: [
+            'financial-analysis/growth/revenue-growth',
+            'financial-analysis/growth/earnings-growth',
+            'financial-analysis/growth/sustainable-growth',
+          ],
+        },
+        {
+          type: 'category',
+          label: '안정성 분석',
+          items: [
+            'financial-analysis/stability/debt-ratio',
+            'financial-analysis/stability/liquidity',
+          ],
+        },
+        {
+          type: 'category',
+          label: '효율성 분석',
+          items: [
+            'financial-analysis/efficiency/asset-turnover',
+          ],
+        },
+        {
+          type: 'category',
+          label: '밸류에이션 멀티플',
+          items: [
+            'financial-analysis/valuation-multiples/overview',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: '기업 밸류에이션',
       collapsed: false,
       items: [
