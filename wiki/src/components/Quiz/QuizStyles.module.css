@@ -1,0 +1,563 @@
+/**
+ * Valuation Academy Quiz Components
+ * Korean finance education theme
+ */
+
+/* ========================================
+   Quiz Container
+   ======================================== */
+.quizContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.quizHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.quizTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.scoreDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+}
+
+/* ========================================
+   Progress Bar
+   ======================================== */
+.progressBarWrapper {
+  width: 100%;
+  height: 8px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--va-accent-purple, #8b5cf6) 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* ========================================
+   Score Summary
+   ======================================== */
+.scoreSummary {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #eff6ff 0%, #ede9fe 100%);
+  border-radius: 12px;
+}
+
+[data-theme='dark'] .scoreSummary {
+  background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
+}
+
+.scoreSummaryTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.scoreSummaryValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.scoreSummaryLabel {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1rem;
+}
+
+.retryButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.retryButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   Question Block (shared)
+   ======================================== */
+.questionBlock {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-color);
+  transition: border-color 0.3s;
+}
+
+.questionBlock.answered {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.questionText {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   Multiple Choice Options
+   ======================================== */
+.optionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.optionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s, transform 0.1s;
+  font-family: inherit;
+  color: inherit;
+}
+
+.optionButton:hover:not(.optionDisabled) {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  transform: translateX(4px);
+}
+
+.optionButton.optionSelected {
+  border-color: var(--ifm-color-primary);
+  background: rgba(26, 86, 219, 0.08);
+}
+
+.optionButton.optionCorrect {
+  border-color: var(--va-accent-green, #10b981);
+  background: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+}
+
+[data-theme='dark'] .optionButton.optionCorrect {
+  color: #6ee7b7;
+}
+
+.optionButton.optionWrong {
+  border-color: var(--va-accent-red, #ef4444);
+  background: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+}
+
+[data-theme='dark'] .optionButton.optionWrong {
+  color: #fca5a5;
+}
+
+.optionDisabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.optionIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-200);
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.optionCorrect .optionIndex {
+  background: var(--va-accent-green, #10b981);
+  color: white;
+}
+
+.optionWrong .optionIndex {
+  background: var(--va-accent-red, #ef4444);
+  color: white;
+}
+
+/* ========================================
+   True / False Buttons
+   ======================================== */
+.tfButtonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tfButton {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  background: var(--ifm-background-color);
+  font-family: inherit;
+  color: inherit;
+}
+
+.tfButton:hover:not(.tfDisabled) {
+  transform: translateY(-2px);
+}
+
+.tfButtonTrue:hover:not(.tfDisabled) {
+  border-color: var(--va-accent-green, #10b981);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.tfButtonFalse:hover:not(.tfDisabled) {
+  border-color: var(--va-accent-red, #ef4444);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.tfButton.tfCorrect {
+  border-color: var(--va-accent-green, #10b981);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.tfButton.tfWrong {
+  border-color: var(--va-accent-red, #ef4444);
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.tfDisabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+/* ========================================
+   Explanation Box
+   ======================================== */
+.explanationBox {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+.explanationCorrect {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--va-accent-green, #10b981);
+}
+
+.explanationWrong {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--va-accent-red, #ef4444);
+}
+
+.explanationLabel {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.hintButton {
+  background: none;
+  border: 1px dashed var(--va-accent-gold, #f59e0b);
+  color: var(--va-accent-gold, #f59e0b);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.hintButton:hover {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.hintBox {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 3px solid var(--va-accent-gold, #f59e0b);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  animation: fadeSlideIn 0.2s ease;
+}
+
+/* ========================================
+   Calculation Exercise
+   ======================================== */
+.calcInputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.calcInput {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: var(--ifm-font-family-monospace);
+  transition: border-color 0.2s;
+  background: var(--ifm-background-color);
+  color: inherit;
+}
+
+.calcInput:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.calcInput.calcCorrect {
+  border-color: var(--va-accent-green, #10b981);
+}
+
+.calcInput.calcWrong {
+  border-color: var(--va-accent-red, #ef4444);
+}
+
+.calcInputDisabled {
+  opacity: 0.85;
+  cursor: default;
+}
+
+.calcUnit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.submitButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Matching Game
+   ======================================== */
+.matchingTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.matchingBoard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .matchingBoard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matchingColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.matchingColumnLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: 0.25rem;
+}
+
+.matchingItem {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  cursor: grab;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s, box-shadow 0.2s;
+  user-select: none;
+}
+
+.matchingItem:hover:not(.matchedItem):not(.matchingItemDisabled) {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.matchingItemSelected {
+  border-color: var(--ifm-color-primary);
+  background: rgba(26, 86, 219, 0.08);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.15);
+}
+
+.matchingItemDragging {
+  opacity: 0.5;
+}
+
+.matchingItemDisabled {
+  cursor: default;
+}
+
+.matchingTarget {
+  padding: 0.75rem 1rem;
+  border: 2px dashed var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 0.9rem;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.matchingTarget:hover:not(.matchedItem):not(.matchingItemDisabled) {
+  border-color: var(--ifm-color-primary);
+  background: rgba(26, 86, 219, 0.05);
+}
+
+.matchingTargetActive {
+  border-color: var(--ifm-color-primary);
+  border-style: solid;
+  background: rgba(26, 86, 219, 0.08);
+}
+
+.matchedItem {
+  border-color: var(--va-accent-green, #10b981);
+  background: rgba(16, 185, 129, 0.1);
+  cursor: default;
+}
+
+.matchedWrong {
+  border-color: var(--va-accent-red, #ef4444);
+  background: rgba(239, 68, 68, 0.1);
+  animation: shake 0.4s ease;
+}
+
+.matchingScore {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ifm-color-primary);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 996px) {
+  .quizContainer {
+    padding: 1rem;
+  }
+
+  .tfButtonGroup {
+    gap: 0.5rem;
+  }
+
+  .tfButton {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .calcInputRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}

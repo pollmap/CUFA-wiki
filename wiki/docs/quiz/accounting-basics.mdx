@@ -1,0 +1,118 @@
+---
+id: accounting-basics
+title: "기초 회계 퀴즈"
+sidebar_label: "기초 회계 퀴즈"
+description: "Layer 1 기초 회계 학습 내용을 점검하는 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 기초 회계 퀴즈
+
+Layer 1 기초 회계에서 학습한 내용을 점검합니다. 재무제표의 구조, 회계 원칙, 핵심 개념을 얼마나 이해하고 있는지 확인하십시오.
+
+## 회계 원칙과 재무제표 구조
+
+<QuizContainer title="회계 기초 개념" totalQuestions={6}>
+
+<MultipleChoice
+  question="자산 = 부채 + 자본이라는 등식을 무엇이라 하는가?"
+  options={["회계등식", "대차평균의 원리", "수익비용대응원칙", "발생주의 원칙"]}
+  answer={0}
+  explanation="회계등식(Accounting Equation)은 복식부기의 핵심 원리로, 모든 거래는 이 등식의 균형을 유지하면서 기록됩니다. 차변(자산)과 대변(부채+자본)이 항상 일치해야 합니다."
+/>
+
+<MultipleChoice
+  question="발생주의 회계에서 매출을 인식하는 시점은?"
+  options={["현금을 수취한 시점", "재화나 용역을 제공한 시점", "계약을 체결한 시점", "세금계산서를 발행한 시점"]}
+  answer={1}
+  explanation="발생주의에서는 현금의 수수 시점이 아니라 수익 창출 활동이 완료된 시점에 매출을 인식합니다. K-IFRS 제1115호 '고객과의 계약에서 생기는 수익'에 따라 수행의무를 이행한 시점에 인식합니다."
+/>
+
+<TrueFalse
+  statement="현금흐름표에서 감가상각비는 영업활동현금흐름에서 차감됩니다."
+  answer={false}
+  explanation="감가상각비는 비현금 비용이므로 간접법에서 당기순이익에 가산됩니다. 손익계산서에서는 비용으로 차감되지만 실제 현금 유출이 없으므로 영업활동현금흐름 산출 시 다시 더해줍니다."
+/>
+
+<TrueFalse
+  statement="K-IFRS에서는 재무상태표의 자산을 유동성 배열법으로 표시합니다."
+  answer={true}
+  explanation="K-IFRS에서는 유동성이 높은 항목(유동자산)을 먼저, 낮은 항목(비유동자산)을 나중에 표시하는 유동성 배열법을 사용합니다."
+/>
+
+<CalculationExercise
+  question="매출 1,000억 원, 매출원가 600억 원, 판관비 200억 원일 때 영업이익은?"
+  answer={200}
+  unit="억 원"
+  hint="영업이익 = 매출 - 매출원가 - 판관비"
+  explanation="영업이익 = 1,000 - 600 - 200 = 200억 원입니다. 매출총이익(400억)에서 판관비를 차감하면 영업이익이 산출됩니다."
+/>
+
+<MatchingGame
+  title="재무제표 항목 매칭"
+  pairs={[
+    { left: "매출채권", right: "유동자산" },
+    { left: "사채", right: "비유동부채" },
+    { left: "이익잉여금", right: "자본" },
+    { left: "감가상각비", right: "비현금비용" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 현금흐름과 재무제표 연결
+
+<QuizContainer title="현금흐름 분석" totalQuestions={5}>
+
+<MultipleChoice
+  question="다음 중 영업활동현금흐름에 해당하는 것은?"
+  options={["설비 매입 대금 지급", "배당금 수령", "사채 발행 수입", "자기주식 취득"]}
+  answer={1}
+  explanation="K-IFRS에서 배당금 수령은 영업활동현금흐름으로 분류합니다. 설비 매입은 투자활동, 사채 발행과 자기주식 취득은 재무활동에 해당합니다."
+  hint="투자활동은 자산의 취득/처분, 재무활동은 자금의 조달/상환과 관련됩니다."
+/>
+
+<MultipleChoice
+  question="잉여현금흐름(FCF)을 산출하는 올바른 공식은?"
+  options={[
+    "영업이익 - 법인세 - CapEx",
+    "영업활동현금흐름 - 자본적지출(CapEx)",
+    "당기순이익 + 감가상각비",
+    "영업활동현금흐름 - 배당금 지급"
+  ]}
+  answer={1}
+  explanation="잉여현금흐름(FCF) = 영업활동현금흐름 - 자본적지출(CapEx)입니다. 기업이 영업으로 벌어들인 현금에서 사업 유지에 필요한 설비투자를 차감한 잔여분으로, DCF 밸류에이션의 핵심 입력값입니다."
+/>
+
+<TrueFalse
+  statement="당기순이익이 높은 기업은 반드시 영업활동현금흐름도 높습니다."
+  answer={false}
+  explanation="당기순이익과 영업활동현금흐름은 다를 수 있습니다. 매출채권 증가(수금 지연), 재고자산 증가, 감가상각비 차이 등으로 이익과 현금흐름 간 괴리가 발생합니다. 이 차이를 분석하면 '이익의 질'을 평가할 수 있습니다."
+/>
+
+<CalculationExercise
+  question="당기순이익 500억, 감가상각비 100억, 매출채권 증가 50억, CapEx 150억일 때 FCF는? (간접법 기준)"
+  answer={400}
+  unit="억 원"
+  hint="FCF = (당기순이익 + 감가상각비 - 운전자본 증가) - CapEx"
+  explanation="영업활동현금흐름 = 500 + 100 - 50 = 550억 원, FCF = 550 - 150 = 400억 원입니다. 감가상각비는 비현금비용으로 가산하고, 매출채권 증가는 현금 유출이므로 차감합니다."
+/>
+
+<CalculationExercise
+  question="유동자산 800억 원, 유동부채 400억 원일 때 유동비율은?"
+  answer={200}
+  unit="%"
+  hint="유동비율 = (유동자산 / 유동부채) × 100"
+  explanation="유동비율 = (800 / 400) × 100 = 200%입니다. 유동비율이 200% 이상이면 단기 지급능력이 양호한 것으로 평가합니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [Layer 1 기초 회계로 돌아가기](../foundation/overview.md) — 복습이 필요한 내용 재학습
+- [Layer 2 재무제표 분석 퀴즈](./financial-analysis.mdx) — 다음 단계 학습 확인
+- [밸류에이션 퀴즈](./valuation.mdx) — 심화 학습 확인

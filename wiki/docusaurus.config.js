@@ -89,6 +89,17 @@ const config = {
           },
           {
             type: 'dropdown',
+            label: '리스크 & 매매',
+            position: 'left',
+            items: [
+              { to: '/risk-management/overview', label: '리스크 관리' },
+              { to: '/risk-management/position-sizing', label: '포지션 사이징' },
+              { to: '/risk-management/portfolio-construction', label: '포트폴리오 구성' },
+              { to: '/trading-strategies/overview', label: '매매 전략' },
+            ],
+          },
+          {
+            type: 'dropdown',
             label: '참고 자료',
             position: 'left',
             items: [
@@ -97,6 +108,7 @@ const config = {
               { to: '/assets/bonds/intro', label: '채권' },
               { to: '/masters/graham', label: '투자 대가' },
               { to: '/glossary/a-c', label: '용어사전' },
+              { to: '/quiz/accounting-basics', label: '학습 퀴즈' },
             ],
           },
           {
