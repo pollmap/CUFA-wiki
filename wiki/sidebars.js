@@ -5,6 +5,7 @@ const sidebars = {
     'curriculum',
     'certifications',
     'finance-mbti',
+    'market-survivor',
 
     // ─────────────────────────────────────────────
     // 대 카테고리 1: 투자분석 체계 (4-Layer)
@@ -253,8 +254,11 @@ const sidebars = {
       label: '금융 산업 지식',
       collapsed: true,
       items: [
-        'banking-industry/index',
-        'insurance-industry/index',
+        'banking-industry/banking-industry',
+        'securities-industry/securities-industry',
+        'insurance-industry/insurance-industry',
+        'card-capital-industry/card-capital-industry',
+        'asset-management-industry/asset-management-industry',
         {
           type: 'category',
           label: '보험 계리',
@@ -275,14 +279,14 @@ const sidebars = {
       label: '금융권 기업 총람',
       collapsed: true,
       items: [
-        'companies/index',
-        'companies/banks',
-        'companies/securities',
-        'companies/insurance',
-        'companies/cards-capital',
-        'companies/savings-asset',
-        'companies/vc-fintech',
-        'companies/public-infra',
+        'companies/companies-overview',
+        'companies/companies-banks',
+        'companies/companies-securities',
+        'companies/companies-insurance',
+        'companies/companies-cards-capital',
+        'companies/companies-savings-asset',
+        'companies/companies-vc-fintech',
+        'companies/companies-public-infra',
       ],
     },
 
@@ -294,11 +298,11 @@ const sidebars = {
       label: '금융권 취업 가이드',
       collapsed: true,
       items: [
-        'career/index',
-        'career/job-categories',
-        'career/requirements',
-        'career/competitions',
-        'career/roadmap',
+        'career/career-overview',
+        'career/career-job-categories',
+        'career/career-requirements',
+        'career/career-competitions',
+        'career/career-roadmap',
       ],
     },
 
@@ -340,10 +344,10 @@ const sidebars = {
           label: '매매 전략',
           items: [
             'trading-strategies/overview',
-            'trading-strategies/value-investing',
-            'trading-strategies/momentum',
+            'trading-strategies/value-investing-strategies',
+            'trading-strategies/momentum-strategies',
             'trading-strategies/swing-trading',
-            'trading-strategies/quant',
+            'trading-strategies/quant-strategies',
             'trading-strategies/event-driven',
             'trading-strategies/market-microstructure',
           ],

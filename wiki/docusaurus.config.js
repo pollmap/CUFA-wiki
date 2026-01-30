@@ -97,7 +97,10 @@ module.exports = async function createConfigAsync() {
               position: 'left',
               items: [
                 { to: '/banking-industry/', label: '은행 산업 가이드' },
+                { to: '/securities-industry/', label: '증권 산업 가이드' },
                 { to: '/insurance-industry/', label: '보험 산업 가이드' },
+                { to: '/card-capital-industry/', label: '여신금융 산업 가이드' },
+                { to: '/asset-management-industry/', label: '자산운용 산업 가이드' },
                 { to: '/actuarial/overview', label: '보험 계리' },
                 { to: '/companies-overview', label: '금융권 기업 총람' },
                 { to: '/companies-banks', label: '은행' },
@@ -117,6 +120,7 @@ module.exports = async function createConfigAsync() {
                 { to: '/career-roadmap', label: '취업 로드맵' },
                 { to: '/certifications', label: '자격증 가이드' },
                 { to: '/finance-mbti', label: '금융 성향 테스트' },
+                { to: '/market-survivor', label: '투자 시뮬레이션' },
               ],
             },
             {
