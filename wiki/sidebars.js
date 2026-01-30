@@ -6,6 +6,132 @@ const sidebars = {
     'certifications',
     {
       type: 'category',
+      label: '기초 회계',
+      collapsed: false,
+      items: [
+        'foundation/overview',
+        {
+          type: 'category',
+          label: '회계 기초',
+          items: [
+            'foundation/accounting-basics/intro',
+            'foundation/accounting-basics/accrual-vs-cash',
+            'foundation/accounting-basics/accounting-equation',
+            'foundation/accounting-basics/double-entry',
+            'foundation/accounting-basics/k-gaap-vs-ifrs',
+          ],
+        },
+        {
+          type: 'category',
+          label: '재무상태표',
+          items: [
+            'foundation/balance-sheet/intro',
+            {
+              type: 'category',
+              label: '자산',
+              items: [
+                'foundation/balance-sheet/assets/current-assets',
+                'foundation/balance-sheet/assets/non-current-assets',
+                'foundation/balance-sheet/assets/intangibles',
+                'foundation/balance-sheet/assets/investment-property',
+              ],
+            },
+            {
+              type: 'category',
+              label: '부채',
+              items: [
+                'foundation/balance-sheet/liabilities/current-liabilities',
+                'foundation/balance-sheet/liabilities/non-current-liabilities',
+                'foundation/balance-sheet/liabilities/provisions',
+                'foundation/balance-sheet/liabilities/lease-liabilities',
+              ],
+            },
+            {
+              type: 'category',
+              label: '자본',
+              items: [
+                'foundation/balance-sheet/equity/components',
+                'foundation/balance-sheet/equity/retained-earnings',
+                'foundation/balance-sheet/equity/treasury-stock',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: '손익계산서',
+          items: [
+            'foundation/income-statement/intro',
+            'foundation/income-statement/operating-income',
+          ],
+        },
+        {
+          type: 'category',
+          label: '현금흐름표',
+          items: [
+            'foundation/cash-flow/intro',
+            'foundation/cash-flow/fcf-derivation',
+          ],
+        },
+        {
+          type: 'category',
+          label: '3표 연결',
+          items: [
+            'foundation/three-statement-link/intro',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '재무제표 분석',
+      collapsed: false,
+      items: [
+        'financial-analysis/overview',
+        {
+          type: 'category',
+          label: '수익성 분석',
+          items: [
+            'financial-analysis/profitability/margin-analysis',
+            'financial-analysis/profitability/return-analysis',
+            'financial-analysis/profitability/dupont',
+          ],
+        },
+        {
+          type: 'category',
+          label: '성장성 분석',
+          items: [
+            'financial-analysis/growth/revenue-growth',
+            'financial-analysis/growth/earnings-growth',
+            'financial-analysis/growth/sustainable-growth',
+          ],
+        },
+        {
+          type: 'category',
+          label: '안정성 분석',
+          items: [
+            'financial-analysis/stability/debt-ratio',
+            'financial-analysis/stability/liquidity',
+          ],
+        },
+        {
+          type: 'category',
+          label: '효율성 분석',
+          items: [
+            'financial-analysis/efficiency/asset-turnover',
+          ],
+        },
+        {
+          type: 'category',
+          label: '밸류에이션 멀티플',
+          items: [
+            'financial-analysis/valuation-multiples/overview',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: '기업 밸류에이션',
       collapsed: false,
       items: [
@@ -33,6 +159,66 @@ const sidebars = {
         },
         'valuation/residual-income',
         'valuation/lbo',
+      ],
+    },
+    {
+      type: 'category',
+      label: '기업분석',
+      collapsed: false,
+      items: [
+        'company-analysis/overview',
+        {
+          type: 'category',
+          label: '정성적 분석',
+          items: [
+            'company-analysis/qualitative/business-model',
+            'company-analysis/qualitative/competitive-advantage',
+            'company-analysis/qualitative/management',
+            'company-analysis/qualitative/governance',
+          ],
+        },
+        {
+          type: 'category',
+          label: '정량적 분석',
+          items: [
+            'company-analysis/quantitative/financial-modeling',
+            'company-analysis/quantitative/scenario-analysis',
+          ],
+        },
+        {
+          type: 'category',
+          label: '밸류에이션 실전',
+          items: [
+            'company-analysis/valuation-practice/dcf-practice',
+            'company-analysis/valuation-practice/sotp',
+          ],
+        },
+        {
+          type: 'category',
+          label: '보고서 작성',
+          items: [
+            'company-analysis/report-writing/equity-research',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '산업분석 (GICS)',
+      collapsed: true,
+      items: [
+        'industry-analysis/overview',
+        'industry-analysis/it/intro',
+        'industry-analysis/healthcare/intro',
+        'industry-analysis/financials/intro',
+        'industry-analysis/consumer-discretionary/intro',
+        'industry-analysis/consumer-staples/intro',
+        'industry-analysis/industrials/intro',
+        'industry-analysis/materials/intro',
+        'industry-analysis/energy/intro',
+        'industry-analysis/utilities/intro',
+        'industry-analysis/real-estate-sector/intro',
+        'industry-analysis/communication-services/intro',
       ],
     },
     {
