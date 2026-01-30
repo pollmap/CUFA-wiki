@@ -245,7 +245,34 @@ const sidebars = {
     },
 
     // ─────────────────────────────────────────────
-    // 대 카테고리 3: 분석 도구
+    // 대 카테고리 3: 리스크 관리 & 매매 전략
+    // ─────────────────────────────────────────────
+    {
+      type: 'category',
+      label: '리스크 관리 & 매매',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: '리스크 관리',
+          items: [
+            'risk-management/overview',
+            'risk-management/position-sizing',
+            'risk-management/portfolio-construction',
+          ],
+        },
+        {
+          type: 'category',
+          label: '매매 전략',
+          items: [
+            'trading-strategies/overview',
+          ],
+        },
+      ],
+    },
+
+    // ─────────────────────────────────────────────
+    // 대 카테고리 4: 분석 도구
     // ─────────────────────────────────────────────
     {
       type: 'category',
@@ -284,7 +311,21 @@ const sidebars = {
     },
 
     // ─────────────────────────────────────────────
-    // 대 카테고리 4: 참고 자료
+    // 대 카테고리 5: 학습 퀴즈
+    // ─────────────────────────────────────────────
+    {
+      type: 'category',
+      label: '학습 퀴즈',
+      collapsed: true,
+      items: [
+        'quiz/accounting-basics',
+        'quiz/financial-analysis',
+        'quiz/valuation',
+      ],
+    },
+
+    // ─────────────────────────────────────────────
+    // 대 카테고리 6: 참고 자료
     // ─────────────────────────────────────────────
     {
       type: 'category',

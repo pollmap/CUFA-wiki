@@ -1,0 +1,122 @@
+---
+id: financial-analysis
+title: "재무제표 분석 퀴즈"
+sidebar_label: "재무제표 분석 퀴즈"
+description: "Layer 2 재무제표 분석 학습 내용을 점검하는 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 재무제표 분석 퀴즈
+
+Layer 2에서 학습한 수익성, 성장성, 안정성, 효율성 분석과 밸류에이션 멀티플 개념을 점검합니다.
+
+## 수익성 분석
+
+<QuizContainer title="수익성 지표" totalQuestions={5}>
+
+<MultipleChoice
+  question="DuPont 분석에서 ROE를 분해하는 세 가지 요소는?"
+  options={[
+    "매출총이익률 × 자산회전율 × 부채비율",
+    "순이익률 × 자산회전율 × 재무레버리지",
+    "영업이익률 × 매출성장률 × 배당성향",
+    "EBITDA 마진 × 투하자본회전율 × 세율"
+  ]}
+  answer={1}
+  explanation="DuPont 분석: ROE = 순이익률(당기순이익/매출) × 자산회전율(매출/총자산) × 재무레버리지(총자산/자기자본). 이 분해를 통해 ROE의 원천이 수익성인지, 효율성인지, 레버리지인지 파악할 수 있습니다."
+/>
+
+<CalculationExercise
+  question="매출 5,000억, 당기순이익 250억, 총자산 10,000억, 자기자본 4,000억일 때 ROE는?"
+  answer={6.25}
+  unit="%"
+  hint="ROE = 당기순이익 / 자기자본 × 100"
+  explanation="ROE = 250 / 4,000 × 100 = 6.25%. DuPont으로 분해하면: 순이익률 5% × 자산회전율 0.5회 × 레버리지 2.5 = 6.25%입니다."
+/>
+
+<CalculationExercise
+  question="EBITDA 1,200억, 감가상각비 300억, 이자비용 100억일 때 이자보상배율은?"
+  answer={9}
+  unit="배"
+  hint="이자보상배율 = 영업이익 / 이자비용. 영업이익 = EBITDA - 감가상각비"
+  explanation="영업이익 = EBITDA 1,200 - 감가상각비 300 = 900억. 이자보상배율 = 900 / 100 = 9배. 일반적으로 3배 이상이면 안정적, 1.5배 미만이면 위험으로 판단합니다."
+/>
+
+<TrueFalse
+  statement="ROIC가 WACC보다 높으면 해당 기업은 경제적 가치를 창출하고 있습니다."
+  answer={true}
+  explanation="ROIC > WACC는 투하자본에 대한 수익률이 자본비용을 초과한다는 뜻으로, 기업이 경제적 부가가치(EVA)를 창출하고 있음을 의미합니다. 이는 밸류에이션에서 PBR > 1의 이론적 근거가 됩니다."
+/>
+
+<MatchingGame
+  title="수익성 지표 매칭"
+  pairs={[
+    { left: "매출총이익률", right: "원가경쟁력 측정" },
+    { left: "영업이익률", right: "본업의 수익성 측정" },
+    { left: "ROA", right: "총자산 대비 수익성" },
+    { left: "ROIC", right: "투하자본 대비 수익성" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 성장성과 안정성
+
+<QuizContainer title="성장성/안정성 분석" totalQuestions={5}>
+
+<MultipleChoice
+  question="지속가능성장률(SGR)의 올바른 공식은?"
+  options={[
+    "ROE × 매출성장률",
+    "ROE × (1 - 배당성향)",
+    "순이익성장률 × 자산회전율",
+    "매출성장률 × 영업이익률"
+  ]}
+  answer={1}
+  explanation="SGR = ROE × (1 - 배당성향) = ROE × 유보율. 외부 자금조달 없이 자기자본만으로 달성 가능한 최대 성장률입니다. 실제 매출성장률이 SGR을 초과하면 추가 자금조달이 필요합니다."
+/>
+
+<CalculationExercise
+  question="총부채 6,000억, 자기자본 4,000억일 때 부채비율은?"
+  answer={150}
+  unit="%"
+  hint="부채비율 = 총부채 / 자기자본 × 100"
+  explanation="부채비율 = 6,000 / 4,000 × 100 = 150%. 한국 기업 평균은 약 80~120% 수준이며, 200%를 초과하면 재무 위험이 높은 것으로 평가합니다."
+/>
+
+<TrueFalse
+  statement="당좌비율은 유동비율보다 보수적인 단기 지급능력 지표입니다."
+  answer={true}
+  explanation="당좌비율 = (유동자산 - 재고자산) / 유동부채 × 100. 현금화가 어려운 재고자산을 제외하므로 유동비율보다 보수적이며, 실질적인 단기 지급능력을 더 정확히 반영합니다."
+/>
+
+<MultipleChoice
+  question="현금전환주기(CCC)를 단축하는 방법이 아닌 것은?"
+  options={[
+    "매출채권 회수기간 단축",
+    "재고자산 보유기간 단축",
+    "매입채무 결제기간 연장",
+    "고정자산 투자 확대"
+  ]}
+  answer={3}
+  explanation="CCC = 재고자산 보유기간 + 매출채권 회수기간 - 매입채무 결제기간. 고정자산 투자는 CCC와 무관합니다. CCC가 짧을수록 운전자본 효율성이 높습니다."
+/>
+
+<CalculationExercise
+  question="재고자산 보유기간 45일, 매출채권 회수기간 30일, 매입채무 결제기간 60일일 때 현금전환주기(CCC)는?"
+  answer={15}
+  unit="일"
+  hint="CCC = 재고자산 보유기간 + 매출채권 회수기간 - 매입채무 결제기간"
+  explanation="CCC = 45 + 30 - 60 = 15일. 원재료를 매입해서 제품을 판매하고 현금을 회수하기까지 15일의 시차가 발생하며, 이 기간에 필요한 운전자본을 확보해야 합니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [Layer 2 재무제표 분석으로 돌아가기](../financial-analysis/overview.md) — 복습이 필요한 내용 재학습
+- [기초 회계 퀴즈](./accounting-basics.mdx) — 기초부터 다시 점검
+- [밸류에이션 퀴즈](./valuation.mdx) — 심화 학습 확인
