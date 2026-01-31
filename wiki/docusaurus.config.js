@@ -49,6 +49,10 @@ module.exports = async function createConfigAsync() {
           theme: {
             customCss: './src/css/custom.css',
           },
+          gtag: {
+            trackingID: 'G-XXXXXXXXXX', // TODO: Google Analytics에서 측정 ID 발급 후 교체
+            anonymizeIP: true, // IP 익명화 (GDPR 준수)
+          },
         }),
       ],
     ],
@@ -225,7 +229,7 @@ module.exports = async function createConfigAsync() {
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} 금융 위키. Built with Docusaurus.`,
+          copyright: `Copyright © ${new Date().getFullYear()} 금융 위키. Built with Docusaurus.<br/><img src="https://visitor-badge.laobi.icu/badge?page_id=pollmap.Value_Alpha&left_text=Total%20Visitors" alt="visitor badge"/>`,
         },
         prism: {
           theme: themes.github,
