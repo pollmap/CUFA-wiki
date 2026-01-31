@@ -93,7 +93,7 @@ GICS 11대 섹터별 분석 프레임워크를 학습합니다. 각 산업마다
 **투자 분석을 배우고 싶다면**
 - 입문: [기초 회계](./foundation/overview) → [재무제표 분석](./financial-analysis/overview) → [밸류에이션](./valuation/dcf/overview)
 - 중급: [산업분석](./industry-analysis/overview) → [기업분석](./company-analysis/overview) → [케이스 스터디](./case-studies/samsung-electronics)
-- 실습: [DCF 계산기](/calculators/dcf) · [WACC 계산기](/calculators/wacc) · [그레이엄 넘버 계산기](/calculators/graham-number)
+- 실습: [DCF 계산기](./calculators/dcf) · [WACC 계산기](./calculators/wacc) · [그레이엄 넘버 계산기](./calculators/graham-number)
 
 **금융권 취업을 준비한다면**
 - [금융 성향 테스트](./finance-mbti)로 적성 파악 → [직무 종류](./career/job-categories)에서 관심 직무 확인
