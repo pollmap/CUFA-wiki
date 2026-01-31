@@ -7,8 +7,8 @@ module.exports = async function createConfigAsync() {
   const katex = (await import('rehype-katex')).default;
 
   return {
-    title: 'Valuation Academy Wiki',
-    tagline: 'DCF부터 디지털자산까지, 모든 밸류에이션의 시작',
+    title: '이찬희의 금융 위키',
+    tagline: '투자분석부터 금융권 취업까지, 금융 학습의 모든 것',
     favicon: 'img/favicon.ico',
 
     url: 'https://pollmap.github.io',
@@ -67,7 +67,7 @@ module.exports = async function createConfigAsync() {
       ({
         image: 'img/valuation-academy-social.png',
         navbar: {
-          title: 'Valuation Academy',
+          title: '이찬희의 금융 위키',
           items: [
             {
               type: 'dropdown',
@@ -89,6 +89,19 @@ module.exports = async function createConfigAsync() {
                 { to: '/valuation/relative/overview', label: '상대가치평가' },
                 { to: '/valuation/lbo', label: 'LBO 모델링' },
                 { to: '/valuation/residual-income', label: '잔여이익모형' },
+              ],
+            },
+            {
+              type: 'dropdown',
+              label: '거시경제',
+              position: 'left',
+              items: [
+                { to: '/macro-overview', label: '거시경제 개요' },
+                { to: '/economic-indicators', label: '경제 지표' },
+                { to: '/central-banks', label: '중앙은행 & 통화정책' },
+                { to: '/fiscal-policy', label: '재정정책 & 정부' },
+                { to: '/money-and-currency', label: '화폐 & 환율' },
+                { to: '/business-cycles', label: '경기 순환 & 투자' },
               ],
             },
             {

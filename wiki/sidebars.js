@@ -247,7 +247,24 @@ const sidebars = {
     },
 
     // ─────────────────────────────────────────────
-    // 대 카테고리 3: 매매 전략 & 리스크 관리
+    // 대 카테고리 3: 거시경제
+    // ─────────────────────────────────────────────
+    {
+      type: 'category',
+      label: '거시경제',
+      collapsed: true,
+      items: [
+        'macroeconomics/macro-overview',
+        'macroeconomics/economic-indicators',
+        'macroeconomics/central-banks',
+        'macroeconomics/fiscal-policy',
+        'macroeconomics/money-and-currency',
+        'macroeconomics/business-cycles',
+      ],
+    },
+
+    // ─────────────────────────────────────────────
+    // 대 카테고리 4: 매매 전략 & 리스크 관리
     // ─────────────────────────────────────────────
     {
       type: 'category',
@@ -477,6 +494,8 @@ const sidebars = {
               label: '채권',
               items: [
                 'assets/bonds/intro',
+                'assets/bonds/government-bonds',
+                'assets/bonds/credit-analysis',
               ],
             },
             {
@@ -485,6 +504,8 @@ const sidebars = {
               items: [
                 'assets/derivatives/options-basics',
                 'assets/derivatives/greeks',
+                'assets/derivatives/futures',
+                'assets/derivatives/structured-products',
               ],
             },
           ],

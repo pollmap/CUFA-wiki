@@ -1,198 +1,214 @@
 ---
 id: curriculum
-title: 밸류에이션 마스터 커리큘럼
+title: 종합 학습 커리큘럼
 sidebar_label: 커리큘럼
-description: 4-Layer 투자분석 체계 기반의 체계적인 밸류에이션 학습 로드맵
-keywords: [커리큘럼, 학습경로, 밸류에이션 교육, 투자 교육, 4-Layer]
+description: 투자분석, 거시경제, 금융산업, 취업까지 - 이찬희의 금융 위키 전체 학습 로드맵
+keywords: [커리큘럼, 학습경로, 금융교육, 투자교육, 4-Layer]
 ---
 
-# 밸류에이션 마스터 커리큘럼
+# 종합 학습 커리큘럼
 
-투자의 세계에서 성공하기 위해서는 자산의 진정한 가치를 파악하는 능력이 필수적입니다. 이 커리큘럼은 **4-Layer 투자분석 체계**를 중심으로, 재무제표를 처음 접하는 초보자부터 기업 밸류에이션을 수행하는 전문가까지 모든 수준의 학습자가 체계적으로 역량을 쌓을 수 있도록 설계되었습니다.
-
-## 커리큘럼 구조 한눈에 보기
-
-| 단계 | 과정 | 핵심 목표 | 난이도 |
-|------|------|----------|--------|
-| **1단계** | Layer 1: 기초 회계 | 재무제표를 읽고 항목의 의미를 이해 | 입문 |
-| **2단계** | Layer 2: 재무제표 분석 | 재무비율로 기업의 건전성을 정량적으로 판단 | 입문~중급 |
-| **3단계** | 밸류에이션 방법론 | DCF, 상대가치평가 등 핵심 기법 습득 | 중급 |
-| **4단계** | Layer 3 + Layer 4: 산업분석 & 기업분석 | 실제 기업에 분석 프레임워크를 적용 | 중급~심화 |
-| **5단계** | 투자 대가 & 종합 | 투자 철학 정립, 종합적 투자 역량 완성 | 심화 |
+이 커리큘럼은 이찬희의 금융 위키에서 제공하는 모든 학습 콘텐츠를 목적별로 정리한 안내서입니다. 투자분석 역량을 체계적으로 쌓고 싶은 분, 금융권 취업을 준비하는 분, 거시경제와 금융 산업을 깊이 이해하고 싶은 분 모두를 위한 학습 경로를 제시합니다.
 
 ---
 
-## 4-Layer 투자분석 체계
+## 트랙 1: 투자분석 마스터
 
-### Layer 1: 기초 회계
+기초 회계부터 기업 밸류에이션까지, **4-Layer 투자분석 체계**를 중심으로 한 핵심 학습 경로입니다.
+
+### 1단계: 기초 회계 (Layer 1) — 입문
 
 재무제표의 구조와 각 항목의 의미를 학습합니다. 모든 밸류에이션의 출발점이며, 경험자라도 복습을 권장합니다.
 
-| 학습 모듈 | 핵심 내용 | 링크 |
-|----------|----------|------|
-| 회계 기초 | 발생주의, 회계 등식, 복식부기, K-GAAP vs IFRS | [바로가기](./foundation/accounting-basics/intro.md) |
-| 재무상태표 | 자산/부채/자본의 분류, 유동성 배열법, 운전자본 | [바로가기](./foundation/balance-sheet/intro.md) |
-| 손익계산서 | 수익인식 원칙, 비용 대응, 영업이익 vs 당기순이익 | [바로가기](./foundation/income-statement/intro.md) |
-| 현금흐름표 | 직접법 vs 간접법, 잉여현금흐름(FCF) 산출 | [바로가기](./foundation/cash-flow/intro.md) |
-| 3표 연결 | 세 재무제표의 상호 검증, 분식회계 적발 포인트 | [바로가기](./foundation/three-statement-link/intro.md) |
+- **회계 기초** — 발생주의, 회계 등식, 복식부기, K-GAAP vs IFRS → [바로가기](./foundation/accounting-basics/intro.md)
+- **재무상태표** — 자산/부채/자본의 분류, 유동성 배열법, 운전자본 → [바로가기](./foundation/balance-sheet/intro.md)
+- **손익계산서** — 수익인식 원칙, 비용 대응, 영업이익 vs 당기순이익 → [바로가기](./foundation/income-statement/intro.md)
+- **현금흐름표** — 직접법 vs 간접법, 잉여현금흐름(FCF) 산출 → [바로가기](./foundation/cash-flow/intro.md)
+- **3표 연결** — 세 재무제표의 상호 검증, 분식회계 적발 포인트 → [바로가기](./foundation/three-statement-link/intro.md)
 
 [Layer 1 시작하기 →](./foundation/overview.md)
 
-### Layer 2: 재무제표 분석
+### 2단계: 재무제표 분석 (Layer 2) — 입문~중급
 
 Layer 1에서 읽은 숫자의 의미를 해석합니다. 4가지 차원의 재무비율 분석과 밸류에이션 멀티플의 이론적 근거를 학습합니다.
 
-| 학습 모듈 | 핵심 내용 | 링크 |
-|----------|----------|------|
-| 수익성 분석 | 마진 분석, ROE/ROA/ROIC, DuPont 분석 | [바로가기](./financial-analysis/profitability/margin-analysis.md) |
-| 성장성 분석 | 매출/이익 성장률, 지속가능성장률(SGR) | [바로가기](./financial-analysis/growth/revenue-growth.md) |
-| 안정성 분석 | 부채비율, 이자보상배율, 유동성 비율 | [바로가기](./financial-analysis/stability/debt-ratio.md) |
-| 효율성 분석 | 자산회전율, 현금전환주기(CCC) | [바로가기](./financial-analysis/efficiency/asset-turnover.md) |
-| 밸류에이션 멀티플 | PER, PBR, EV/EBITDA의 이론적 근거 | [바로가기](./financial-analysis/valuation-multiples/overview.md) |
+- **수익성 분석** — 마진 분석, ROE/ROA/ROIC, DuPont 분석 → [바로가기](./financial-analysis/profitability/margin-analysis.md)
+- **성장성 분석** — 매출/이익 성장률, 지속가능성장률(SGR) → [바로가기](./financial-analysis/growth/revenue-growth.md)
+- **안정성 분석** — 부채비율, 이자보상배율, 유동성 비율 → [바로가기](./financial-analysis/stability/debt-ratio.md)
+- **효율성 분석** — 자산회전율, 현금전환주기(CCC) → [바로가기](./financial-analysis/efficiency/asset-turnover.md)
+- **밸류에이션 멀티플** — PER, PBR, EV/EBITDA의 이론적 근거 → [바로가기](./financial-analysis/valuation-multiples/overview.md)
 
 [Layer 2 시작하기 →](./financial-analysis/overview.md)
 
-### Layer 3: 산업분석
-
-GICS 11대 섹터별 분석 프레임워크를 학습합니다. 각 산업마다 고유한 KPI, 적합한 밸류에이션 방법, 한국 시장 특성을 다룹니다.
-
-| 섹터 | 핵심 KPI | 적합 밸류에이션 | 링크 |
-|------|---------|---------------|------|
-| IT/반도체 | ASP, 출하량, 가동률 | PER, EV/EBITDA | [바로가기](./industry-analysis/it/intro.md) |
-| 헬스케어 | 파이프라인, 임상 성공률 | EV/Sales, DCF | [바로가기](./industry-analysis/healthcare/intro.md) |
-| 금융 | NIM, 충당금, BIS비율 | PBR, PER | [바로가기](./industry-analysis/financials/intro.md) |
-| 경기소비재 | 동일점포 매출, 점유율 | PER, EV/EBITDA | [바로가기](./industry-analysis/consumer-discretionary/intro.md) |
-| 필수소비재 | 시장점유율, 원가 전가력 | PER, 배당수익률 | [바로가기](./industry-analysis/consumer-staples/intro.md) |
-| 산업재 | 수주잔고, Book-to-Bill | PER, EV/수주잔고 | [바로가기](./industry-analysis/industrials/intro.md) |
-| 소재 | 제품 스프레드, 가동률 | EV/EBITDA, PBR | [바로가기](./industry-analysis/materials/intro.md) |
-| 에너지 | 유가, 매장량, 생산량 | EV/EBITDA, PBR | [바로가기](./industry-analysis/energy/intro.md) |
-| 유틸리티 | 전력 판매량, 규제 요금 | PER, 배당수익률 | [바로가기](./industry-analysis/utilities/intro.md) |
-| 부동산 | NAV, Cap Rate, 공실률 | PBR(NAV), 배당수익률 | [바로가기](./industry-analysis/real-estate-sector/intro.md) |
-| 커뮤니케이션 | ARPU, MAU/DAU | EV/EBITDA, PER | [바로가기](./industry-analysis/communication-services/intro.md) |
-
-[Layer 3 시작하기 →](./industry-analysis/overview.md)
-
-### Layer 4: 기업분석
-
-개별 기업을 종합적으로 분석하고 투자 판단을 내립니다. 정성적/정량적 분석을 수행하고, DCF/SOTP 밸류에이션을 실전 적용하여 투자 보고서를 작성합니다.
-
-| 학습 모듈 | 핵심 내용 | 링크 |
-|----------|----------|------|
-| 정성적 분석 | 비즈니스 모델, 경쟁 우위, 경영진, 지배구조 | [바로가기](./company-analysis/qualitative/business-model.md) |
-| 정량적 분석 | 재무 모델링, 시나리오 분석 | [바로가기](./company-analysis/quantitative/financial-modeling.md) |
-| 밸류에이션 실전 | DCF 실전 적용, SOTP 분석 | [바로가기](./company-analysis/valuation-practice/dcf-practice.md) |
-| 보고서 작성 | 애널리스트 보고서 구조와 작성법 | [바로가기](./company-analysis/report-writing/equity-research.md) |
-
-[Layer 4 시작하기 →](./company-analysis/overview.md)
-
----
-
-## 밸류에이션 방법론
+### 3단계: 밸류에이션 방법론 — 중급
 
 실무에서 가장 널리 사용되는 밸류에이션 기법들을 심층적으로 학습합니다.
 
-### DCF 분석
+**DCF 분석**
 
-DCF(Discounted Cash Flow) 분석은 밸류에이션의 황금률입니다. 기업이 미래에 창출할 잉여현금흐름을 추정하고, 이를 적절한 할인율로 현재가치로 환산하여 기업가치를 산출합니다.
+기업이 미래에 창출할 잉여현금흐름을 추정하고, 적절한 할인율로 현재가치를 산출합니다.
 
-| 학습 주제 | 핵심 내용 |
-|----------|----------|
-| FCFF/FCFE | 산출 공식, 선택 기준, 조정 항목 |
-| WACC | CAPM, 베타 추정, 레버리지 조정 |
-| 재무추정 | 매출 성장, 마진 추정, CapEx, 운전자본 |
-| 터미널 가치 | 영구성장모형, 출구배수법, 민감도 분석 |
+- FCFF/FCFE 산출 공식, 선택 기준, 조정 항목
+- WACC — CAPM, 베타 추정, 레버리지 조정
+- 터미널 가치 — 영구성장모형, 출구배수법, 민감도 분석
 
-[DCF 분석 시작하기 →](/valuation/dcf/overview) | 실습: [DCF 계산기](/calculators/dcf), [WACC 계산기](/calculators/wacc)
+[DCF 분석 시작하기 →](/valuation/dcf/overview) · [DCF 계산기](/calculators/dcf) · [WACC 계산기](/calculators/wacc)
 
-### 상대가치평가
+**상대가치평가**
 
-상대가치평가는 유사한 기업들의 시장가격을 기준으로 대상 기업의 가치를 추정하는 방법입니다. PER, PBR, EV/EBITDA 등의 배수(multiple)를 사용합니다.
+유사한 기업들의 시장가격을 기준으로 대상 기업의 가치를 추정합니다.
 
-| 학습 주제 | 핵심 내용 |
-|----------|----------|
-| PER | Trailing vs Forward, 정상화 EPS, PEG |
-| PBR | ROE와의 관계, 청산가치, Tobin's Q |
-| EV/EBITDA | EV 계산, EBITDA 조정, 산업별 기준 |
-| 피어그룹 | 비교대상 선정, 배수 조정, Football Field |
+- PER — Trailing vs Forward, 정상화 EPS, PEG → [바로가기](/valuation/relative/per)
+- PBR — ROE와의 관계, 청산가치, Tobin's Q → [바로가기](/valuation/relative/pbr)
+- EV/EBITDA — EV 계산, EBITDA 조정, 산업별 기준 → [바로가기](/valuation/relative/ev-ebitda)
 
 [상대가치평가 시작하기 →](/valuation/relative/overview)
 
-### 잔여이익모형과 LBO
+**기타 밸류에이션**
 
-| 학습 주제 | 핵심 내용 |
-|----------|----------|
-| 잔여이익모형 | RI 개념, Clean Surplus, DDM과의 등가성, EVA/MVA |
-| LBO 모델링 | PE 투자 구조, Sources & Uses, 부채 스케줄, IRR/MOIC |
+- 잔여이익모형 — RI 개념, Clean Surplus, EVA/MVA → [바로가기](/valuation/residual-income)
+- LBO 모델링 — PE 투자 구조, 부채 스케줄, IRR/MOIC → [바로가기](/valuation/lbo)
 
-[잔여이익모형 →](/valuation/residual-income) | [LBO 모델링 →](/valuation/lbo)
+### 4단계: 산업분석 & 기업분석 (Layer 3 + 4) — 중급~심화
 
----
+GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 밸류에이션을 적용합니다.
 
-## 추가 학습 영역
+**산업분석 (Layer 3)**
 
-### 분석 도구
+- **IT/반도체** — ASP, 출하량, 가동률 → [바로가기](./industry-analysis/it/intro.md)
+- **헬스케어** — 파이프라인, 임상 성공률 → [바로가기](./industry-analysis/healthcare/intro.md)
+- **금융** — NIM, 충당금, BIS비율 → [바로가기](./industry-analysis/financials/intro.md)
+- **경기소비재** — 동일점포 매출, 점유율 → [바로가기](./industry-analysis/consumer-discretionary/intro.md)
+- **필수소비재** — 시장점유율, 원가 전가력 → [바로가기](./industry-analysis/consumer-staples/intro.md)
+- **산업재** — 수주잔고, Book-to-Bill → [바로가기](./industry-analysis/industrials/intro.md)
+- **소재** — 제품 스프레드, 가동률 → [바로가기](./industry-analysis/materials/intro.md)
+- **에너지** — 유가, 매장량, 생산량 → [바로가기](./industry-analysis/energy/intro.md)
+- **유틸리티** — 전력 판매량, 규제 요금 → [바로가기](./industry-analysis/utilities/intro.md)
+- **부동산** — NAV, Cap Rate, 공실률 → [바로가기](./industry-analysis/real-estate-sector/intro.md)
+- **커뮤니케이션** — ARPU, MAU/DAU → [바로가기](./industry-analysis/communication-services/intro.md)
 
-| 영역 | 핵심 내용 | 링크 |
-|------|----------|------|
-| 기술적 분석 | 캔들차트, 이동평균, RSI/MACD, 볼린저밴드, 피보나치 | [바로가기](/technical/intro) |
-| DCF 계산기 | 인터랙티브 DCF 모델 실습 | [바로가기](/calculators/dcf) |
-| WACC 계산기 | CAPM 기반 할인율 산출 | [바로가기](/calculators/wacc) |
-| 그레이엄 넘버 | 벤자민 그레이엄의 적정가치 산출 | [바로가기](/calculators/graham-number) |
+[Layer 3 시작하기 →](./industry-analysis/overview.md)
 
-### 자산별 분석
+**기업분석 (Layer 4)**
 
-| 자산 클래스 | 핵심 내용 | 링크 |
-|------------|----------|------|
-| 부동산 | 수익환원법, 원가법, REITs 분석 (FFO, NAV) | [바로가기](/assets/real-estate/intro) |
-| 암호화폐 | 온체인 분석, 토크노믹스, NVT, S2F | [바로가기](/assets/crypto/intro) |
-| 채권 | 가격결정, 듀레이션, 컨벡시티, 신용 스프레드 | [바로가기](/assets/bonds/intro) |
-| 파생상품 | 옵션 그릭스, Black-Scholes, 변동성 분석 | [바로가기](/assets/derivatives/options-basics) |
+- 정성적 분석 — 비즈니스 모델, 경쟁 우위, 경영진, 지배구조 → [바로가기](./company-analysis/qualitative/business-model.md)
+- 정량적 분석 — 재무 모델링, 시나리오 분석 → [바로가기](./company-analysis/quantitative/financial-modeling.md)
+- 밸류에이션 실전 — DCF 실전 적용, SOTP 분석 → [바로가기](./company-analysis/valuation-practice/dcf-practice.md)
+- 보고서 작성 — 애널리스트 보고서 구조와 작성법 → [바로가기](./company-analysis/report-writing/equity-research.md)
 
-### 투자 대가
+[Layer 4 시작하기 →](./company-analysis/overview.md)
 
-역사상 가장 성공한 투자자들의 철학과 전략을 심층 학습합니다.
+### 5단계: 실전 적용 & 종합 — 심화
 
-| 투자 대가 | 핵심 철학 | 링크 |
-|----------|----------|------|
-| 벤자민 그레이엄 | 안전마진, 그레이엄 넘버, Net-Net 전략 | [바로가기](/masters/graham) |
-| 워렌 버핏 | 경제적 해자, Owner's Earnings, 능력의 원 | [바로가기](/masters/buffett) |
-| 피터 린치 | 10배 주식, 6가지 주식 분류, 스토리 분석 | [바로가기](/masters/lynch) |
-| 필립 피셔 | 스커틀버트, 15포인트 체크리스트 | [바로가기](/masters/fisher) |
-| 레이 달리오 | 부채 사이클, 올웨더 포트폴리오 | [바로가기](/masters/dalio) |
-| 하워드 막스 | 2차적 사고, 사이클 투자 | [바로가기](/masters/marks) |
-| 조엘 그린블랫 | 마법공식 (이익수익률 + 자본수익률) | [바로가기](/masters/greenblatt) |
-| 제시 리버모어 | 추세추종, 피라미딩, 손절 원칙 | [바로가기](/masters/livermore) |
+- **기업 케이스 스터디** — 삼성전자, SK하이닉스, 현대차, 네이버, 셀트리온 실전 분석 → [바로가기](./case-studies/samsung-electronics.md)
+- **투자 대가의 철학** — 그레이엄, 버핏, 린치, 달리오, 막스 등 8명의 투자 철학 → [바로가기](/masters/graham)
+- **매매 전략** — 가치투자, 모멘텀, 스윙, 퀀트, 이벤트 드리븐 등 6대 전략 → [바로가기](./trading-strategies/overview.md)
+- **리스크 관리** — 포지션 사이징, 포트폴리오 구성 → [바로가기](/risk-management/overview)
 
 ---
 
-## 학습 로드맵
+## 트랙 2: 거시경제 & 매크로
 
-가치평가를 처음 접하는 분들을 위한 권장 학습 순서입니다. 각자의 수준에 맞게 진입점을 선택할 수 있습니다.
+금융시장을 움직이는 거시경제 변수와 정책을 체계적으로 학습합니다.
 
-**1단계: Layer 1 - 기초 회계** (입문)
-
-재무제표의 기본 구조를 이해합니다. 회계 등식, 발생주의, 복식부기의 원리를 배우고, 재무상태표/손익계산서/현금흐름표 각 항목의 의미와 3표의 연결 관계를 파악합니다. 특히 FCF(잉여현금흐름) 도출 과정을 이해하면 밸류에이션의 핵심 입력값을 스스로 산출할 수 있게 됩니다.
-
-**2단계: Layer 2 - 재무제표 분석** (입문~중급)
-
-재무비율을 통해 기업의 수익성, 성장성, 안정성, 효율성을 정량적으로 평가합니다. DuPont 분석으로 ROE의 원천을 파악하고, 밸류에이션 멀티플(PER, PBR, EV/EBITDA)의 이론적 근거를 학습합니다. 이 단계를 마치면 재무제표를 읽고 기업의 재무 건전성을 독립적으로 판단할 수 있습니다.
-
-**3단계: 밸류에이션 방법론** (중급)
-
-DCF 분석(FCFF/FCFE, WACC, 터미널 밸류)과 상대가치평가의 핵심 개념을 습득합니다. 이론적 학습과 함께 인터랙티브 계산기를 활용해 직접 실습합니다.
-
-**4단계: Layer 3 + Layer 4 - 산업분석 & 기업분석** (중급~심화)
-
-GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 재무 모델링과 시나리오 분석을 적용합니다. 비즈니스 모델, 경쟁 우위, 경영진, 지배구조에 대한 정성적 분석과 DCF/SOTP 밸류에이션 실전을 수행하여 투자 보고서를 작성합니다.
-
-**5단계: 투자 대가 & 종합** (심화)
-
-투자 대가들의 철학을 공부하면서 자신만의 투자 원칙을 정립합니다. 기술적 분석, 다양한 자산 클래스 분석을 병행하여 종합적인 투자 역량을 완성합니다.
+- **거시경제 개요** — 경기 순환론, 주요 경제학파, 한국 경제 특성 → [바로가기](./macroeconomics/overview.md)
+- **경제 지표 완전 가이드** — GDP, 실업률, 샴의 법칙, CPI/PPI/PCE, PMI, 경기선행지수 등 → [바로가기](./macroeconomics/economic-indicators.md)
+- **중앙은행과 통화정책** — 연준(Fed) 해부, 한국은행, FOMC, QE/QT, 금리 정책 → [바로가기](./macroeconomics/central-banks.md)
+- **재정정책과 정부의 역할** — 세입/세출, 국가채무, 금융세제, 재정건전성 → [바로가기](./macroeconomics/fiscal-policy.md)
+- **화폐와 환율** — 화폐의 역사, 환율 결정 이론, 기축통화, 외환시장 → [바로가기](./macroeconomics/money-and-currency.md)
+- **경기 순환과 투자 전략** — 경기 4국면별 자산 배분, 인플레이션/디플레이션, 투자 시계 모델 → [바로가기](./macroeconomics/business-cycles.md)
 
 ---
 
-## 다음 단계
+## 트랙 3: 금융 산업 지식
 
-- [자격증 가이드](/certifications) — 커리큘럼과 금융 자격증의 연계
-- [DCF 분석 시작하기](/valuation/dcf/overview) — 핵심 밸류에이션 기법 학습
-- [용어사전](/glossary/a-c) — 금융 용어 빠른 검색
+한국 금융 산업의 비즈니스 모델, 수익 구조, 규제 환경을 심층적으로 이해합니다.
+
+**5대 금융 산업 가이드**
+
+- **은행** — 예대마진, BIS비율, NIM, 대출 심사 → [바로가기](./banking-industry/index.md)
+- **증권** — 브로커리지, IB, 자기매매, WM → [바로가기](./securities-industry/index.md)
+- **보험** — 언더라이팅, IFRS17, 보험계리 → [바로가기](./insurance-industry/index.md)
+- **여신금융** — 카드수수료, 리스, 할부금융 → [바로가기](./card-capital-industry/index.md)
+- **자산운용** — AUM, 펀드 구조, 운용 전략 → [바로가기](./asset-management-industry/index.md)
+
+**금융권 기업 총람** — 170개 이상의 한국 금융 기업 카테고리별 정리
+
+- [개요](./companies/index.md) · [은행](./companies/banks.md) · [증권사](./companies/securities.md) · [보험사](./companies/insurance.md)
+- [카드/캐피탈](./companies/cards-capital.md) · [저축은행/자산운용](./companies/savings-asset.md) · [VC/핀테크](./companies/vc-fintech.md) · [공공/인프라](./companies/public-infra.md)
+
+---
+
+## 트랙 4: 금융권 취업 & 커리어
+
+금융권 취업을 준비하는 분들을 위한 현실적이고 체계적인 가이드입니다.
+
+- **취업 종합 가이드** — 금융권 취업 전체 개요 → [바로가기](./career/index.md)
+- **직무 종류 및 특성** — 15개 섹터, 50개 이상 직무 상세 소개 → [바로가기](./career/job-categories.md)
+- **합격 요건 분석** — 학력, 자격증, 어학, 인턴 등 → [바로가기](./career/requirements.md)
+- **대회 & 포트폴리오** — 금융권 공모전 총정리 → [바로가기](./career/competitions.md)
+- **취업 로드맵** — 학년별, 시기별 준비 전략 → [바로가기](./career/roadmap.md)
+- **자격증 가이드** — 국내외 금융 자격증 총정리 (CPA, CFA, 계리사, FRM 등) → [바로가기](./certifications.md)
+- **금융 성향 테스트** — 20문항으로 나에게 맞는 섹터/직무 찾기 → [바로가기](./finance-mbti.mdx)
+
+---
+
+## 트랙 5: 자산별 분석
+
+주식 외 다양한 자산 클래스의 특성과 밸류에이션 방법을 학습합니다.
+
+- **부동산** — 수익환원법, REITs, 재건축/재개발, 상업용 부동산 → [바로가기](/assets/real-estate/intro)
+- **채권** — 가격결정, 듀레이션, 수익률 곡선, 신용분석, 국채 → [바로가기](/assets/bonds/intro)
+- **암호화폐** — 블록체인, 비트코인, 이더리움, DeFi, 토큰이코노믹스 → [바로가기](/assets/crypto/intro)
+- **파생상품** — 옵션, 선물, 그릭스, 구조화 상품(ELS/DLS) → [바로가기](/assets/derivatives/options-basics)
+
+---
+
+## 분석 & 모델링 도구
+
+실습과 실전 분석을 위한 인터랙티브 도구 모음입니다.
+
+**밸류에이션 계산기**
+
+- [DCF 계산기](/calculators/dcf) · [WACC 계산기](/calculators/wacc) · [그레이엄 넘버](/calculators/graham-number)
+- [DuPont 분석기](/calculators/dupont-calculator) · [ROIC 계산기](/calculators/roic-calculator) · [DDM 계산기](/calculators/ddm-calculator)
+- [PER 밴드](/calculators/per-band-calculator) · [Football Field](/calculators/football-field-calculator) · [PEG 스크리너](/calculators/peg-screener)
+
+**리스크 & 채권 계산기**
+
+- [켈리 비율](/calculators/kelly-calculator) · [채권 가치평가](/calculators/bond-calculator) · [옵션 그릭스](/calculators/option-greeks)
+
+**기타 도구**
+
+- [기술적 분석 가이드](/technical/intro) — 캔들차트, 이동평균, RSI/MACD, 볼린저밴드 등
+- [모델링 도구 개요](/modeling-tools/overview) — 엑셀 모델링, Python 활용, 프로 분석 도구
+
+---
+
+## 인터랙티브 학습
+
+- [금융 성향 테스트 (Finance MBTI)](./finance-mbti.mdx) — 나에게 맞는 금융 섹터와 직무 찾기
+- [Market Survivor 투자 시뮬레이션](./market-survivor.mdx) — 역사적 시장 이벤트 기반 투자 게임
+- [회계 기초 퀴즈](/quiz/accounting-basics) · [재무분석 퀴즈](/quiz/financial-analysis) · [밸류에이션 퀴즈](/quiz/valuation)
+
+---
+
+## 학습 순서 추천
+
+각자의 목적에 따라 시작점을 선택하십시오.
+
+**처음부터 체계적으로 배우고 싶다면**
+
+1. [기초 회계](./foundation/overview.md) → 2. [재무제표 분석](./financial-analysis/overview.md) → 3. [밸류에이션](/valuation/dcf/overview) → 4. [산업분석](./industry-analysis/overview.md) → 5. [기업분석](./company-analysis/overview.md)
+
+**거시경제 흐름을 먼저 이해하고 싶다면**
+
+1. [거시경제 개요](./macroeconomics/overview.md) → 2. [경제 지표](./macroeconomics/economic-indicators.md) → 3. [중앙은행](./macroeconomics/central-banks.md) → 4. [경기 순환과 투자](./macroeconomics/business-cycles.md)
+
+**금융권 취업이 목적이라면**
+
+1. [금융 성향 테스트](./finance-mbti.mdx) → 2. [직무 종류](./career/job-categories.md) → 3. [합격 요건](./career/requirements.md) → 4. [자격증 가이드](./certifications.md) → 5. [기업 총람](./companies/index.md)
+
+**실전 투자 역량을 키우고 싶다면**
+
+1. [매매 전략 개요](./trading-strategies/overview.md) → 2. [리스크 관리](/risk-management/overview) → 3. [Market Survivor 게임](./market-survivor.mdx) → 4. [케이스 스터디](./case-studies/samsung-electronics.md)
