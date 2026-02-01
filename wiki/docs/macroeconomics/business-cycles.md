@@ -508,3 +508,11 @@ sidebar_label: 경기 순환 & 투자
 - 거시경제 환경이 예상과 달라질 경우의 대응 계획(플랜 B)을 준비합니다
 
 > **"투자에서 가장 위험한 네 단어는 '이번에는 다르다(This time is different)'이다."** — 존 템플턴 경
+
+## 참고 문헌
+
+- Burns & Mitchell, *Measuring Business Cycles*, NBER, 1946
+- Zarnowitz, Victor, *Business Cycles: Theory, History, Indicators, and Forecasting*, University of Chicago Press, 1992
+- National Bureau of Economic Research (NBER), Business Cycle Dating Committee
+- Reinhart & Rogoff, *This Time Is Different: Eight Centuries of Financial Folly*, Princeton University Press, 2009
+- Dalio, Ray, *Principles for Navigating Big Debt Crises*, Bridgewater Associates, 2018

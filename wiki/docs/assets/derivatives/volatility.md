@@ -288,6 +288,12 @@ $$\sigma_t^2 = \omega + \alpha \cdot r_{t-1}^2 + \beta \cdot \sigma_{t-1}^2$$
 
 ---
 
+## 참고 문헌
+
+- Gatheral, Jim, *The Volatility Surface*, Wiley, 2006
+- Sinclair, Euan, *Volatility Trading*, Wiley, 2nd ed., 2013
+- CBOE, *VIX White Paper*, 2019
+
 ## 관련 페이지
 
 - [옵션 기초](/docs/assets/derivatives/options-basics) - 옵션 기본 개념

@@ -306,6 +306,11 @@ MBS와 같이 경로 의존적(Path-dependent) 현금흐름을 가진 채권은 
 모든 수학적 모형은 현실의 단순화입니다. 듀레이션 분석은 수익률 곡선의 평행이동을 가정하지만 실제로는 비평행 이동이 빈번합니다. OAS 모형은 금리 변동성 가정에 민감하며, 가정된 변동성이 실현 변동성과 다를 경우 OAS가 왜곡됩니다. 부트스트래핑에서도 중간 만기 금리의 보간 방법에 따라 결과가 달라질 수 있습니다. 수학적 도구는 의사결정을 보조하는 것이지, 대체하는 것이 아닙니다.
 :::
 
+## 참고 문헌
+
+- Fabozzi, Frank, *Bond Markets, Analysis, and Strategies*, Pearson, 10th ed., 2021
+- Tuckman & Serrat, *Fixed Income Securities*, Wiley, 4th ed., 2022
+
 ## 관련 페이지
 
 채권 수학의 기초가 되는 가치평가 이론은 [채권 밸류에이션](/assets/bonds/intro)에서 학습하실 수 있습니다. 수학적 도구를 활용한 실전 전략은 [채권 투자 전략](/assets/bonds/bond-strategies)에서 다루고 있습니다. 회사채의 스프레드 분석에 대한 실무적 내용은 [회사채 투자 가이드](/assets/bonds/corporate-bonds)를, 국채 수익률 곡선의 분석은 [국채 투자 완전 가이드](/assets/bonds/government-bonds)를 참조하십시오.

@@ -28,7 +28,7 @@ module.exports = async function createConfigAsync() {
 
     i18n: {
       defaultLocale: 'ko',
-      locales: ['ko', 'en'],
+      locales: ['ko'],
     },
 
     presets: [
@@ -63,7 +63,7 @@ module.exports = async function createConfigAsync() {
         /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
         ({
           hashed: true,
-          language: ['ko', 'en'],
+          language: ['ko'],
           highlightSearchTermsOnTargetPage: true,
           explicitSearchResultPath: true,
           docsRouteBasePath: '/',

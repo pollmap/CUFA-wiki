@@ -307,6 +307,13 @@ Odean(1998)의 연구에 따르면, 개인투자자가 매도한 이익 포지�
 
 ---
 
+## 참고 문헌
+
+- Kahneman, Daniel, *Thinking, Fast and Slow*, Farrar Straus Giroux, 2011
+- Kahneman & Tversky, "Prospect Theory: An Analysis of Decision under Risk", *Econometrica*, 1979
+- Thaler, Richard, *Misbehaving*, W.W. Norton, 2015
+- Shiller, Robert, *Irrational Exuberance*, Princeton University Press, 3rd ed., 2015
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 심리적 편향과 리스크 관리의 연결

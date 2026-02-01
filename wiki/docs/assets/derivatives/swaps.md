@@ -246,6 +246,12 @@ $$CVA = \sum_{i=1}^{n} EE(t_i) \times PD(t_{i-1}, t_i) \times (1 - R)$$
 
 ---
 
+## 참고 문헌
+
+- Flavell, Richard, *Swaps and Other Derivatives*, Wiley, 2nd ed., 2010
+- ISDA, *2006 ISDA Definitions*
+- Bank of Korea, Money Market Statistics
+
 ## 관련 페이지
 
 - [선물](/docs/assets/derivatives/futures) - 선물 계약의 기초

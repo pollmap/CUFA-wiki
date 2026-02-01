@@ -286,6 +286,11 @@ EU ETS는 세계 최대의 탄소 배출권 거래 시장입니다.
 
 ---
 
+## 참고 문헌
+
+- Geman, Helyette, *Commodities and Commodity Derivatives*, Wiley, 2005
+- Gorton & Rouwenhorst, "Facts and Fantasies about Commodity Futures", *Financial Analysts Journal*, 2006
+
 ## 관련 페이지
 
 - [선물](/docs/assets/derivatives/futures) - 선물 계약의 기초

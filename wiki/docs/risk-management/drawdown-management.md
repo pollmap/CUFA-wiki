@@ -276,6 +276,11 @@ $$\text{필요 회복률} = \frac{1}{1 - \text{손실률}} - 1$$
 
 ---
 
+## 참고 문헌
+
+- Magdon-Ismail & Atiya, "Maximum Drawdown", *Risk Magazine*, 2004
+- Chekhlov et al., "Drawdown Measure in Portfolio Optimization", *International Journal of Theoretical and Applied Finance*, 2005
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 드로다운 관리의 이론적 기반

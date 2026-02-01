@@ -1,0 +1,115 @@
+---
+id: bonds-quiz
+title: "채권 퀴즈"
+sidebar_label: "채권 퀴즈"
+description: "채권 가격, 수익률, 듀레이션 및 채권 분석 전략에 대한 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 채권 퀴즈
+
+채권의 가격 결정 원리, 수익률 분석, 듀레이션과 컨벡시티 등 핵심 개념에 대한 이해도를 점검합니다. 채권 투자 전략과 신용 분석 능력을 확인하십시오.
+
+## 채권 가격과 수익률
+
+<QuizContainer title="채권 가격과 수익률" totalQuestions={6}>
+
+<MultipleChoice
+  question="금리가 상승하면 채권 가격은?"
+  options={["상승", "하락", "변동 없음", "만기에 따라 다름"]}
+  answer={1}
+  explanation="채권 가격은 미래 현금흐름을 시장금리로 할인한 현재가치입니다. 금리가 상승하면 할인율이 높아져 현재가치(채권 가격)가 하락합니다. 이를 금리 리스크(interest rate risk)라 합니다."
+/>
+
+<TrueFalse
+  statement="듀레이션이 긴 채권일수록 금리 변동에 더 민감하다."
+  answer={true}
+  explanation="듀레이션은 금리 변동에 대한 채권 가격의 민감도를 측정합니다. 듀레이션이 길수록 금리 1%p 변동 시 가격 변화폭이 큽니다. 예를 들어 수정듀레이션이 5인 채권은 금리 1%p 상승 시 약 5% 가격 하락이 예상됩니다."
+/>
+
+<MultipleChoice
+  question="수익률 곡선이 역전(inverted)될 때 일반적으로 의미하는 것은?"
+  options={["경기 호황", "경기 침체 신호", "인플레이션 상승", "통화 강세"]}
+  answer={1}
+  explanation="수익률 곡선 역전은 단기 금리가 장기 금리보다 높아진 상태입니다. 시장이 향후 경기 둔화로 금리 인하를 예상한다는 신호이며, 역사적으로 경기 침체의 선행 지표로 높은 예측력을 보여왔습니다."
+/>
+
+<CalculationExercise
+  question="액면가 10,000원, 표면금리 5%, 연 1회 이자지급, 잔존만기 3년, 시장금리 6%일 때 채권 이론가격은?"
+  answer={9733.4}
+  tolerance={50}
+  unit="원"
+  hint="PV = C/(1+r) + C/(1+r)² + (C+F)/(1+r)³"
+  explanation="PV = 500/1.06 + 500/1.06² + 10,500/1.06³ = 471.7 + 445.0 + 8,816.7 = 9,733.4원입니다. 시장금리(6%)가 표면금리(5%)보다 높으므로 채권은 액면가 이하(할인)에서 거래됩니다."
+/>
+
+<MultipleChoice
+  question="컨벡시티(Convexity)의 역할은?"
+  options={["듀레이션 추정 오차를 보정", "신용위험을 측정", "환율 리스크를 헤지", "유동성을 평가"]}
+  answer={0}
+  explanation="듀레이션은 가격-수익률 관계를 선형으로 근사하므로 큰 금리 변동 시 오차가 발생합니다. 컨벡시티는 이 비선형성(곡률)을 보정하여 더 정확한 가격 변화를 추정합니다. ΔP/P ≈ -D × Δy + ½ × C × (Δy)²"
+/>
+
+<MatchingGame
+  title="채권 핵심 용어 매칭"
+  pairs={[
+    { left: "듀레이션", right: "금리 민감도 측정" },
+    { left: "컨벡시티", right: "가격 곡률 보정" },
+    { left: "YTM", right: "만기보유 수익률" },
+    { left: "스프레드", right: "국채 대비 금리차" },
+    { left: "쿠폰", right: "표면 이자율" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 채권 분석 & 전략
+
+<QuizContainer title="채권 분석 & 전략" totalQuestions={5}>
+
+<MultipleChoice
+  question="바벨(Barbell) 전략이란?"
+  options={["중기채만 보유", "단기채와 장기채를 혼합", "회사채만 보유", "물가채만 보유"]}
+  answer={1}
+  explanation="바벨(Barbell) 전략은 단기채와 장기채에 집중 투자하고 중기채 비중을 줄이는 전략입니다. 단기채로 유동성과 재투자 유연성을 확보하고, 장기채로 높은 수익률을 추구합니다. 수익률 곡선이 평탄화될 때 유리합니다."
+/>
+
+<TrueFalse
+  statement="신용등급이 BBB- 이상이면 투자적격등급이다."
+  answer={true}
+  explanation="S&P, Fitch 기준 BBB- 이상, Moody's 기준 Baa3 이상이 투자적격등급(Investment Grade)입니다. 그 아래는 투기등급(High Yield/Junk Bond)으로 분류되며, 많은 기관투자자들은 투자적격등급 이상만 편입할 수 있습니다."
+/>
+
+<MultipleChoice
+  question="물가연동채(TIPS/물가채)의 주요 장점은?"
+  options={["높은 명목 수익률", "인플레이션 리스크 헤지", "높은 유동성", "세금 혜택"]}
+  answer={1}
+  explanation="물가연동채는 원금이 소비자물가지수(CPI)에 연동되어 조정되므로 인플레이션 리스크를 효과적으로 헤지할 수 있습니다. 실질 수익률을 확보하려는 투자자에게 적합하며, 인플레이션 기대가 높아질 때 상대적으로 유리합니다."
+/>
+
+<CalculationExercise
+  question="회사채 수익률 5.5%, 동일 만기 국채 수익률 3.8%일 때 신용 스프레드는?"
+  answer={170}
+  tolerance={1}
+  unit="bp"
+  hint="신용 스프레드 = (회사채 수익률 - 국채 수익률) × 100"
+  explanation="신용 스프레드 = (5.5% - 3.8%) × 100 = 170bp입니다. 1bp(basis point) = 0.01%입니다. 신용 스프레드는 기업의 부도 리스크에 대한 보상으로, 스프레드가 확대되면 시장이 신용위험을 더 높게 평가하고 있다는 의미입니다."
+/>
+
+<MultipleChoice
+  question="레포(Repo) 거래의 본질은?"
+  options={["채권을 담보로 한 단기 대출", "채권의 직접 매매", "이자율 스왑", "선물 거래"]}
+  answer={0}
+  explanation="레포(Repurchase Agreement)는 채권을 담보로 단기 자금을 빌리는 거래입니다. 매도자는 채권을 매도하면서 일정 기간 후 약간 높은 가격에 재매입할 것을 약속합니다. 매도가격과 재매입가격의 차이가 실질적인 이자에 해당합니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [거시경제 퀴즈](./macroeconomics) — 거시경제 이해도 확인
+- [파생상품 퀴즈](./derivatives) — 파생상품 학습 확인
+- [리스크 관리 퀴즈](./risk-management) — 리스크 관리 확인

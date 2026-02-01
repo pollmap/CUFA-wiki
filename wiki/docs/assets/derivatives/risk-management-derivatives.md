@@ -355,6 +355,12 @@ $$EAD = \alpha \times (RC + PFE)$$
 
 ---
 
+## 참고 문헌
+
+- Taleb, Nassim, *Dynamic Hedging*, Wiley, 1997
+- Basel Committee, "SA-CCR: Standardised approach for measuring counterparty credit risk", BIS, 2014
+- Financial Supervisory Service (Korea), Derivatives Regulation Guidelines
+
 ## 관련 페이지
 
 - [그릭스](/docs/assets/derivatives/greeks) - 옵션 민감도 지표

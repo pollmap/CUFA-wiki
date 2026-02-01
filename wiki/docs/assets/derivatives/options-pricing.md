@@ -305,6 +305,13 @@ $$dW_1 \cdot dW_2 = \rho \, dt$$
 
 ---
 
+## 참고 문헌
+
+- Black & Scholes, "The Pricing of Options and Corporate Liabilities", *Journal of Political Economy*, 1973
+- Cox, Ross & Rubinstein, "Option Pricing: A Simplified Approach", *Journal of Financial Economics*, 1979
+- Heston, Steven, "A Closed-Form Solution for Options with Stochastic Volatility", *Review of Financial Studies*, 1993
+- Hull, John C., *Options, Futures, and Other Derivatives*, Pearson, 11th ed., 2022
+
 ## 관련 페이지
 
 - [옵션 기초](/docs/assets/derivatives/options-basics) - 옵션 기본 개념

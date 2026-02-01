@@ -369,6 +369,11 @@ Reserve Risk 높음 → 차익 실현 고려 (낮은 신뢰, 높은 가격)
 
 ---
 
+## 참고 문헌
+
+- Nakamoto, Satoshi, "Bitcoin: A Peer-to-Peer Electronic Cash System", 2008
+- Burniske & Tatar, *Cryptoassets*, McGraw-Hill, 2018
+
 ## 관련 페이지
 
 - [비트코인](/docs/assets/crypto/bitcoin) — 비트코인 반감기와 밸류에이션

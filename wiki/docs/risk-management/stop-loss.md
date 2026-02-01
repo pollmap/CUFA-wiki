@@ -271,6 +271,11 @@ ATR은 과거 변동성을 기준으로 하므로, 변동성이 급격히 확대
 
 ---
 
+## 참고 문헌
+
+- Kaminski & Lo, "When Do Stop-Loss Rules Stop Losses?", *Journal of Financial Markets*, 2014
+- Schwager, Jack, *Market Wizards*, HarperBusiness, 1989
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 리스크 관리의 기본 원칙

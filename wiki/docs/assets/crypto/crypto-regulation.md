@@ -294,6 +294,12 @@ DeFi의 핵심 특성인 탈중앙화는 전통적 규제 체계와 근본적으
 
 ---
 
+## 참고 문헌
+
+- Financial Action Task Force (FATF), "Updated Guidance for Virtual Assets and VASPs", 2021
+- Financial Services Commission (FSC Korea), Virtual Asset User Protection Act, 2024
+- Financial Stability Board (FSB), "Global Regulatory Framework for Crypto-asset Activities", 2023
+
 ## 관련 페이지
 
 - [크립토 개요](/docs/assets/crypto/intro) — 디지털자산 기초

@@ -380,3 +380,10 @@ Fed 관계자들의 발언("Fedspeak")은 의도적으로 모호하게 설계되
 - 통화량(M2) 증가율의 추세를 점검합니다
 
 관련 경제 지표의 상세한 해석 방법은 [경제 지표 완전 가이드](./economic-indicators)를 참조하십시오.
+
+## 참고 문헌
+
+- Bernanke, Ben, *The Courage to Act*, W.W. Norton, 2015
+- Mishkin, Frederic, *The Economics of Money, Banking, and Financial Markets*, Pearson, 13th ed., 2021
+- Board of Governors of the Federal Reserve System (federalreserve.gov)
+- Bank of Korea (bok.or.kr)

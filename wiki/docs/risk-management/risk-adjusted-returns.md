@@ -313,6 +313,12 @@ $$M^2 = 0.035 + \frac{0.18}{0.25} \times (0.18 - 0.035) = 0.035 + 0.72 \times 0.
 
 ---
 
+## 참고 문헌
+
+- Sharpe, William, "Mutual Fund Performance", *Journal of Business*, 1966
+- Sortino & van der Meer, "Downside Risk", *Journal of Portfolio Management*, 1991
+- Modigliani & Modigliani, "Risk-Adjusted Performance", *Journal of Portfolio Management*, 1997
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 리스크 지표와 위험조정수익률의 관계

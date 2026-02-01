@@ -323,6 +323,11 @@ DeFi 프로토콜에 투자하거나 자금을 예치하기 전에 다음 항목
 
 ---
 
+## 참고 문헌
+
+- Schar, Fabian, "Decentralized Finance: On Blockchain- and Smart Contract-Based Financial Markets", *Federal Reserve Bank of St. Louis Review*, 2021
+- Harvey, Campbell et al., *DeFi and the Future of Finance*, Wiley, 2021
+
 ## 관련 페이지
 
 - [크립토 개요](/docs/assets/crypto/intro) — 디지털자산 분석 프레임워크

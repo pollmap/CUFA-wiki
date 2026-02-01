@@ -320,6 +320,12 @@ VaR는 "정상적인 시장 상황에서의 최대 예상 손실"을 알려줍�
 
 ---
 
+## 참고 문헌
+
+- Basel Committee, "Principles for sound stress testing practices and supervision", BIS, 2018
+- Bank of Korea, *Financial Stability Report* (annual publication)
+- IMF, *Global Financial Stability Report* (semi-annual publication)
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 스트레스 테스트의 이론적 위치

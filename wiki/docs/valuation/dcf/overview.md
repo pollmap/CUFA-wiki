@@ -245,6 +245,14 @@ A사는 연 매출 1,000억원 규모의 제조업체로, 안정적인 성장세
 
 ---
 
+## 참고 문헌
+
+- Damodaran, Aswath, *Investment Valuation*, Wiley, 3rd ed., 2012
+- Koller, Goedhart & Wessels, *Valuation: Measuring and Managing the Value of Companies* (McKinsey), Wiley, 7th ed., 2020
+- Rosenbaum & Pearl, *Investment Banking*, Wiley, 3rd ed., 2020
+- CFA Institute, *Equity Asset Valuation* (CFA Level II Curriculum)
+- Damodaran Online — pages.stern.nyu.edu/~adamodar/
+
 ## 관련 학습
 
 DCF 분석의 세부 주제에 대해 더 깊이 학습하려면 다음 문서들을 참고하십시오.
