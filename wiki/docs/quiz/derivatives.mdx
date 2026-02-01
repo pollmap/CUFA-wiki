@@ -1,0 +1,114 @@
+---
+title: "파생상품 퀴즈"
+sidebar_label: "파생상품 퀴즈"
+description: "옵션, 선물, 구조화상품에 대한 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 파생상품 퀴즈
+
+옵션의 기초 개념과 그릭스(Greeks), 선물 시장의 구조, 구조화상품에 대한 이해도를 점검합니다. 파생상품의 가격 결정 원리와 전략적 활용 능력을 확인하십시오.
+
+## 옵션 기초 & 그릭스
+
+<QuizContainer title="옵션 기초 & 그릭스" totalQuestions={6}>
+
+<MultipleChoice
+  question="콜옵션 매수자의 최대 손실은?"
+  options={["무한대", "행사가격", "프리미엄", "기초자산 가격"]}
+  answer={2}
+  explanation="콜옵션 매수자는 옵션이 행사되지 않을 경우 지불한 프리미엄만 손실됩니다. 반면 최대 수익은 이론적으로 무한대입니다. 이 비대칭적 손익 구조가 옵션의 핵심 특성입니다."
+/>
+
+<MultipleChoice
+  question="델타가 0.6인 콜옵션의 의미는?"
+  options={["60% 확률로 ITM 행사", "기초자산 1원 상승시 옵션 0.6원 상승", "옵션 만기까지 60일", "내재가치가 60%"]}
+  answer={1}
+  explanation="델타는 기초자산 가격 변화에 대한 옵션 가격의 민감도입니다. 델타 0.6은 기초자산이 1원 상승할 때 옵션 가격이 약 0.6원 상승한다는 의미입니다. 참고로 델타는 ITM 행사 확률의 근사치이기도 하지만, 가장 정확한 정의는 가격 민감도입니다."
+/>
+
+<TrueFalse
+  statement="Put-Call Parity에 의해 동일 조건의 콜과 풋 가격은 항상 같다."
+  answer={false}
+  explanation="Put-Call Parity: C - P = S - K × e^(-rT). 콜과 풋 가격이 같으려면 S = K × e^(-rT)여야 하며, 일반적으로 기초자산 가격(S)과 행사가격의 현재가치(K × e^(-rT))는 다르므로 콜과 풋 가격도 다릅니다."
+/>
+
+<MultipleChoice
+  question="감마(Gamma)가 가장 큰 옵션은?"
+  options={["Deep ITM", "Deep OTM", "ATM 근처 + 만기 임박", "만기가 먼 ITM"]}
+  answer={2}
+  explanation="감마는 ATM(등가격) 부근에서 가장 크며, 만기에 가까울수록 더욱 커집니다. 만기 직전 ATM 옵션은 기초자산의 작은 변화에도 ITM/OTM 전환이 일어나므로 델타가 급격히 변하게 됩니다. 이를 '감마 리스크'라 합니다."
+/>
+
+<CalculationExercise
+  question="행사가격 50,000원, 콜 프리미엄 3,000원일 때 손익분기점은?"
+  answer={53000}
+  tolerance={0}
+  unit="원"
+  hint="손익분기점 = 행사가격 + 프리미엄"
+  explanation="콜옵션 매수자의 손익분기점 = 행사가격 + 프리미엄 = 50,000 + 3,000 = 53,000원입니다. 기초자산 가격이 53,000원을 초과해야 실질적인 이익이 발생합니다."
+/>
+
+<MatchingGame
+  title="그릭스(Greeks) 매칭"
+  pairs={[
+    { left: "Delta", right: "기초자산 가격 민감도" },
+    { left: "Gamma", right: "델타의 변화율" },
+    { left: "Theta", right: "시간가치 소멸" },
+    { left: "Vega", right: "변동성 민감도" },
+    { left: "Rho", right: "금리 민감도" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 선물 & 구조화상품
+
+<QuizContainer title="선물 & 구조화상품" totalQuestions={5}>
+
+<MultipleChoice
+  question="선물 시장에서 콘탱고(Contango)란?"
+  options={["선물가격 > 현물가격", "선물가격 < 현물가격", "선물가격 = 현물가격", "선물 거래량 급증"]}
+  answer={0}
+  explanation="콘탱고(Contango)는 선물가격이 현물가격보다 높은 상태를 말합니다. 보관비용, 보험료 등의 보유비용(cost of carry)이 반영되어 나타납니다. 반대로 선물가격이 현물가격보다 낮은 상태를 백워데이션(Backwardation)이라 합니다."
+/>
+
+<TrueFalse
+  statement="ELS(주가연계증권)에서 녹인(Knock-In) 배리어에 도달하면 원금 손실이 발생할 수 있다."
+  answer={true}
+  explanation="ELS에서 녹인 배리어에 도달하면 원금보장 조건이 해제되어 기초자산의 하락률에 연동된 원금 손실이 발생할 수 있습니다. 녹인 배리어는 통상 기초자산 최초가격의 40~60% 수준으로 설정됩니다."
+/>
+
+<MultipleChoice
+  question="Iron Condor 전략의 최대 수익은?"
+  options={["무한대", "받은 순프리미엄", "스프레드 폭", "기초자산 가격"]}
+  answer={1}
+  explanation="Iron Condor는 OTM 풋 스프레드 매도 + OTM 콜 스프레드 매도를 결합한 전략입니다. 기초자산 가격이 일정 범위 내에 머물면 받은 순프리미엄 전액이 수익이 됩니다. 최대 손실은 스프레드 폭에서 순프리미엄을 차감한 금액입니다."
+/>
+
+<CalculationExercise
+  question="선물 1계약 증거금 1,000만원, 선물가격 350포인트(1포인트=25만원)일 때 레버리지 배율은?"
+  answer={8.75}
+  tolerance={0.1}
+  unit="배"
+  hint="레버리지 = 계약가치 / 증거금"
+  explanation="계약가치 = 350 × 250,000 = 87,500,000원. 레버리지 = 87,500,000 / 10,000,000 = 8.75배입니다. 높은 레버리지는 수익과 손실 모두를 증폭시키므로 철저한 리스크 관리가 필요합니다."
+/>
+
+<MultipleChoice
+  question="변동성 스마일(Volatility Smile)이 관찰되는 이유는?"
+  options={["시장의 효율성", "꼬리 리스크에 대한 헤지 수요", "거래 비용", "배당금 효과"]}
+  answer={1}
+  explanation="변동성 스마일은 OTM 옵션(특히 풋옵션)의 내재변동성이 ATM보다 높게 형성되는 현상입니다. 이는 극단적 하락(꼬리 리스크)에 대한 헤지 수요가 높아 OTM 풋의 프리미엄이 블랙-숄즈 모형 예측보다 비싸기 때문입니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [리스크 관리 퀴즈](./risk-management) — 리스크 측정 및 관리 확인
+- [채권 퀴즈](./bonds) — 채권 분석 학습 확인
+- [거시경제 퀴즈](./macroeconomics) — 거시경제 이해도 확인

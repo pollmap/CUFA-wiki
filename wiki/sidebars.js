@@ -152,17 +152,50 @@ const sidebars = {
           collapsed: true,
           items: [
             'industry-analysis/overview',
-            'industry-analysis/it/intro',
-            'industry-analysis/healthcare/intro',
-            'industry-analysis/financials/intro',
-            'industry-analysis/consumer-discretionary/intro',
-            'industry-analysis/consumer-staples/intro',
-            'industry-analysis/industrials/intro',
-            'industry-analysis/materials/intro',
-            'industry-analysis/energy/intro',
-            'industry-analysis/utilities/intro',
-            'industry-analysis/real-estate-sector/intro',
-            'industry-analysis/communication-services/intro',
+            {
+              type: 'category', label: 'IT/반도체', collapsed: true,
+              items: ['industry-analysis/it/intro', 'industry-analysis/it/key-metrics', 'industry-analysis/it/value-chain'],
+            },
+            {
+              type: 'category', label: '헬스케어', collapsed: true,
+              items: ['industry-analysis/healthcare/intro', 'industry-analysis/healthcare/key-metrics', 'industry-analysis/healthcare/value-chain'],
+            },
+            {
+              type: 'category', label: '금융', collapsed: true,
+              items: ['industry-analysis/financials/intro', 'industry-analysis/financials/key-metrics', 'industry-analysis/financials/value-chain'],
+            },
+            {
+              type: 'category', label: '경기소비재', collapsed: true,
+              items: ['industry-analysis/consumer-discretionary/intro', 'industry-analysis/consumer-discretionary/key-metrics', 'industry-analysis/consumer-discretionary/value-chain'],
+            },
+            {
+              type: 'category', label: '필수소비재', collapsed: true,
+              items: ['industry-analysis/consumer-staples/intro', 'industry-analysis/consumer-staples/key-metrics', 'industry-analysis/consumer-staples/value-chain'],
+            },
+            {
+              type: 'category', label: '산업재', collapsed: true,
+              items: ['industry-analysis/industrials/intro', 'industry-analysis/industrials/key-metrics', 'industry-analysis/industrials/value-chain'],
+            },
+            {
+              type: 'category', label: '소재', collapsed: true,
+              items: ['industry-analysis/materials/intro', 'industry-analysis/materials/key-metrics', 'industry-analysis/materials/value-chain'],
+            },
+            {
+              type: 'category', label: '에너지', collapsed: true,
+              items: ['industry-analysis/energy/intro', 'industry-analysis/energy/key-metrics', 'industry-analysis/energy/value-chain'],
+            },
+            {
+              type: 'category', label: '유틸리티', collapsed: true,
+              items: ['industry-analysis/utilities/intro', 'industry-analysis/utilities/key-metrics', 'industry-analysis/utilities/value-chain'],
+            },
+            {
+              type: 'category', label: '부동산', collapsed: true,
+              items: ['industry-analysis/real-estate-sector/intro', 'industry-analysis/real-estate-sector/key-metrics', 'industry-analysis/real-estate-sector/value-chain'],
+            },
+            {
+              type: 'category', label: '커뮤니케이션', collapsed: true,
+              items: ['industry-analysis/communication-services/intro', 'industry-analysis/communication-services/key-metrics', 'industry-analysis/communication-services/value-chain'],
+            },
           ],
         },
 
@@ -478,6 +511,11 @@ const sidebars = {
             'quiz/accounting-basics',
             'quiz/financial-analysis',
             'quiz/valuation',
+            'quiz/risk-management',
+            'quiz/derivatives',
+            'quiz/bonds',
+            'quiz/macroeconomics',
+            'quiz/industry-analysis',
           ],
         },
       ],

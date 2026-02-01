@@ -353,6 +353,13 @@ $$\text{TE} = \sigma(R_p - R_b) = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} (e_i - \bar
 
 ---
 
+## 참고 문헌
+
+- Jorion, Philippe, *Value at Risk*, McGraw-Hill, 3rd ed., 2006
+- RiskMetrics Group, *RiskMetrics Technical Document*, J.P. Morgan, 1996
+- Artzner et al., "Coherent Measures of Risk", *Mathematical Finance*, 1999
+- Basel Committee on Banking Supervision, "Minimum capital requirements for market risk", BIS, 2019
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 리스크의 유형과 관리 원칙

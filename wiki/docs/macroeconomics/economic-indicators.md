@@ -420,3 +420,10 @@ PMI는 GDP보다 1\~2개월 먼저 발표되므로 경기 방향의 조기 신�
 :::tip 경제 지표 이벤트 트레이딩
 주요 경제 지표 발표 전후에는 시장 변동성이 확대되는 경향이 있습니다. 특히 NFP, CPI, FOMC 결정은 "이벤트 리스크"로 분류되며, 이때 포지션 규모 관리와 손절 설정이 더욱 중요합니다. 경제 지표 서프라이즈에 대한 시장의 반응은 시장 참가자들의 포지셔닝과 센티먼트에 따라 달라질 수 있습니다.
 :::
+
+## 참고 문헌
+
+- Bureau of Labor Statistics (BLS), Employment and CPI data (bls.gov)
+- Bureau of Economic Analysis (BEA), GDP data (bea.gov)
+- Statistics Korea (KOSTAT), Economic indicators (kostat.go.kr)
+- The Conference Board, Leading Economic Index Methodology

@@ -143,8 +143,10 @@ Football Field Chart는 여러 방법론의 결과를 한눈에 비교하는 시
 - [PSR](/valuation/relative/psr)
 - [DCF 분석](/valuation/dcf/overview) — 내재가치 접근법
 
-## 참고자료
+## 참고 문헌
 
-- Damodaran, A. "Investment Valuation" Chapter 17-20
-- CFA Institute Level II - Market-Based Valuation
-- Rosenbaum & Pearl "Investment Banking" Chapter 1-2
+- Damodaran, Aswath, *The Little Book of Valuation*, Wiley, 2011
+- Damodaran, Aswath, *Investment Valuation*, Wiley, 3rd ed., 2012 — Chapter 17-20
+- Fernandez, Pablo, "Valuation using multiples: How do analysts reach their conclusions?", *IESE Business School Working Paper*, 2019
+- Rosenbaum & Pearl, *Investment Banking*, Wiley, 3rd ed., 2020
+- CFA Institute, *Equity Asset Valuation* — Level II Market-Based Valuation

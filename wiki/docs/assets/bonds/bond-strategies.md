@@ -274,6 +274,11 @@ LDI는 연기금, 보험회사 등 확정된 미래 지급 의무(부채)를 보
 실무에서는 단일 전략만 사용하는 것이 아니라 여러 전략을 조합합니다. 예를 들어, 코어 포트폴리오는 래더링으로 안정적 수익을 확보하면서, 위성(Satellite) 포트폴리오에서는 상대가치나 스프레드 트레이딩으로 초과 수익을 추구하는 "코어-위성(Core-Satellite)" 접근법이 널리 사용됩니다.
 :::
 
+## 참고 문헌
+
+- Ilmanen, Antti, *Expected Returns*, Wiley, 2011
+- Leibowitz, Martin, *Inside the Yield Book*, Bloomberg Press, 3rd ed., 2013
+
 ## 관련 페이지
 
 채권 투자의 기초 이론은 [채권 밸류에이션](/assets/bonds/intro)에서 학습하실 수 있습니다. 전략 실행에 필요한 수학적 도구는 [채권 수학 & 분석](/assets/bonds/bond-math)에서 다루고 있습니다. 국채 시장과 수익률 곡선에 대한 심층 분석은 [국채 투자 완전 가이드](/assets/bonds/government-bonds)를, 회사채 투자의 세부 사항은 [회사채 투자 가이드](/assets/bonds/corporate-bonds)를 참조하십시오. 레포와 단기금융시장에 대해서는 [레포 & 단기금융시장](/assets/bonds/repo-money-market)에서 확인하실 수 있습니다.

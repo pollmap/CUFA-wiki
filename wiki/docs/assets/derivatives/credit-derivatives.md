@@ -249,6 +249,11 @@ Nth-to-Default로 확장 가능: Second-to-Default, Third-to-Default 등.
 
 ---
 
+## 참고 문헌
+
+- Schonbucher, Philipp, *Credit Derivatives Pricing Models*, Wiley, 2003
+- O'Kane, Dominic, *Modelling Single-name and Multi-name Credit Derivatives*, Wiley, 2008
+
 ## 관련 페이지
 
 - [스왑](/docs/assets/derivatives/swaps) - CDS의 기본 구조와 스왑 개요

@@ -333,6 +333,11 @@ keywords: [옵션전략, 스프레드, 아이언콘도르, 아이언버터플라
 
 ---
 
+## 참고 문헌
+
+- Natenberg, Sheldon, *Option Volatility and Pricing*, McGraw-Hill, 2nd ed., 2014
+- McMillan, Lawrence, *Options as a Strategic Investment*, Prentice Hall, 5th ed., 2012
+
 ## 관련 페이지
 
 - [옵션 기초](/docs/assets/derivatives/options-basics) - 옵션의 기본 개념

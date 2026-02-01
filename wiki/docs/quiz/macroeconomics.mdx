@@ -1,0 +1,114 @@
+---
+title: "거시경제 퀴즈"
+sidebar_label: "거시경제 퀴즈"
+description: "경제 지표 해석과 중앙은행 통화정책에 대한 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 거시경제 퀴즈
+
+경제 지표의 해석 능력과 중앙은행 통화정책에 대한 이해도를 점검합니다. GDP, CPI, PMI 등 핵심 지표와 연준의 정책 결정 프레임워크를 정확히 이해하고 있는지 확인하십시오.
+
+## 경제 지표 해석
+
+<QuizContainer title="경제 지표 해석" totalQuestions={6}>
+
+<MultipleChoice
+  question="GDP 성장률이 2분기 연속 마이너스이면 일반적으로 무엇이라 하는가?"
+  options={["디플레이션", "기술적 경기침체", "스태그플레이션", "인플레이션"]}
+  answer={1}
+  explanation="GDP가 2분기 연속 마이너스 성장을 기록하면 '기술적 경기침체(technical recession)'라 합니다. 다만 NBER(미국 국가경제연구소) 등은 고용, 소득, 생산 등 다양한 지표를 종합적으로 고려하여 공식 경기침체를 선언합니다."
+/>
+
+<TrueFalse
+  statement="Core CPI는 에너지와 식품 가격을 제외한 물가지수이다."
+  answer={true}
+  explanation="근원 CPI(Core CPI)는 변동성이 큰 에너지와 식품 가격을 제외하여 기조적인 물가 추세를 파악하기 위한 지표입니다. 중앙은행이 통화정책 결정 시 헤드라인 CPI보다 근원 CPI를 더 중요하게 참고하는 경우가 많습니다."
+/>
+
+<MultipleChoice
+  question="샴의 법칙(Sahm Rule)이 발동되는 조건은?"
+  options={["실업률 3개월 이동평균이 최근 12개월 최저점보다 0.5%p 이상 상승", "CPI가 3% 초과", "GDP 성장률이 0% 이하", "장단기 금리차 역전"]}
+  answer={0}
+  explanation="샴의 법칙은 실업률의 3개월 이동평균이 직전 12개월 중 최저 3개월 이동평균보다 0.5%p 이상 상승하면 경기침체가 시작되었다고 판단합니다. 1970년 이후 모든 미국 경기침체를 사전에 포착한 높은 신뢰도의 지표입니다."
+/>
+
+<CalculationExercise
+  question="명목 GDP 2,200조원, 실질 GDP 2,000조원일 때 GDP 디플레이터는?"
+  answer={110}
+  tolerance={0.5}
+  unit=""
+  hint="GDP 디플레이터 = (명목 GDP / 실질 GDP) × 100"
+  explanation="GDP 디플레이터 = (2,200 / 2,000) × 100 = 110입니다. GDP 디플레이터가 100보다 크면 기준연도 대비 물가가 상승했음을 의미합니다. CPI와 달리 국내에서 생산된 모든 재화와 서비스의 가격 변동을 반영합니다."
+/>
+
+<MultipleChoice
+  question="PMI(구매관리자지수)가 50 미만이면 의미하는 것은?"
+  options={["제조업 확장", "제조업 수축", "서비스업 확장", "정상 범위"]}
+  answer={1}
+  explanation="PMI는 50을 기준으로 그 이상이면 경기 확장, 이하이면 경기 수축을 의미합니다. 신규주문, 생산, 고용, 공급업체 배송, 재고 등 5가지 항목을 가중평균하며, 경기 전환의 선행지표로 널리 활용됩니다."
+/>
+
+<MatchingGame
+  title="경제 지표 매칭"
+  pairs={[
+    { left: "CPI", right: "소비자물가지수" },
+    { left: "PPI", right: "생산자물가지수" },
+    { left: "PMI", right: "구매관리자지수" },
+    { left: "NFP", right: "비농업 고용지표" },
+    { left: "PCE", right: "개인소비지출 물가" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 중앙은행 & 통화정책
+
+<QuizContainer title="중앙은행 & 통화정책" totalQuestions={5}>
+
+<MultipleChoice
+  question="연준(Fed)의 듀얼 맨데이트는?"
+  options={["경제 성장과 환율 안정", "물가 안정과 최대 고용", "재정 건전성과 무역 균형", "금리 안정과 환율 방어"]}
+  answer={1}
+  explanation="미국 연방준비제도(Fed)는 '물가 안정(price stability)'과 '최대 고용(maximum employment)'이라는 이중 책무(dual mandate)를 가지고 있습니다. 연준은 PCE 물가지수 기준 연 2% 인플레이션을 목표로 합니다."
+/>
+
+<TrueFalse
+  statement="양적긴축(QT)은 중앙은행이 보유 자산을 축소하여 시중 유동성을 줄이는 정책이다."
+  answer={true}
+  explanation="양적긴축(Quantitative Tightening)은 양적완화(QE)의 반대로, 중앙은행이 보유한 국채나 MBS 등의 만기도래 자산을 재투자하지 않거나 시장에 매각하여 대차대조표를 축소하는 정책입니다. 이를 통해 시중 유동성이 감소하고 금리 상승 압력이 발생합니다."
+/>
+
+<MultipleChoice
+  question="테일러 준칙(Taylor Rule)에서 금리를 올려야 하는 상황은?"
+  options={["인플레이션이 목표치보다 높을 때", "실업률이 높을 때", "GDP 성장률이 낮을 때", "환율이 하락할 때"]}
+  answer={0}
+  explanation="Taylor Rule: i = r* + π + 0.5(π - π*) + 0.5(y - y*). 인플레이션(π)이 목표(π*)보다 높으면 금리를 올려 경기를 냉각시키고 물가를 안정시킵니다. 반대로 산출갭(y - y*)이 마이너스이면 금리를 낮추는 방향으로 작용합니다."
+/>
+
+<MultipleChoice
+  question="유동성 함정(Liquidity Trap)이란?"
+  options={["금리가 0%에 근접하여 추가 금리인하가 불가능한 상태", "시중은행의 지급준비율 초과", "통화승수가 무한대", "국채 유동성 부족"]}
+  answer={0}
+  explanation="유동성 함정은 금리가 제로(또는 그에 가까운) 수준에 도달하여 전통적인 금리인하 정책이 더 이상 효과를 발휘하지 못하는 상황입니다. 이 경우 양적완화(QE), 포워드 가이던스 등 비전통적 통화정책 수단을 활용해야 합니다. 일본의 장기 디플레이션이 대표적 사례입니다."
+/>
+
+<CalculationExercise
+  question="기준금리 3.5%, 소비자물가 상승률 4.2%, 실질금리는?"
+  answer={-0.7}
+  tolerance={0.1}
+  unit="%"
+  hint="실질금리 ≈ 명목금리 - 인플레이션"
+  explanation="피셔 방정식에 의해 실질금리 ≈ 명목금리 - 인플레이션 = 3.5% - 4.2% = -0.7%입니다. 실질금리가 마이너스라는 것은 예금의 실질 구매력이 감소한다는 의미이며, 차입자에게 유리한 환경입니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [산업분석 퀴즈](./industry-analysis) — 산업 핵심 지표 학습 확인
+- [채권 퀴즈](./bonds) — 채권 분석 복습
+- [리스크 관리 퀴즈](./risk-management) — 리스크 관리 확인

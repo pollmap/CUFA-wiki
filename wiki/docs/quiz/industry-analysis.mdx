@@ -1,0 +1,112 @@
+---
+title: "산업분석 퀴즈"
+sidebar_label: "산업분석 퀴즈"
+description: "산업 핵심 지표와 섹터별 분석 포인트에 대한 인터랙티브 퀴즈"
+---
+
+import { QuizContainer, MultipleChoice, TrueFalse, CalculationExercise, MatchingGame } from '@site/src/components/Quiz';
+
+# 산업분석 퀴즈
+
+산업별 핵심 지표의 의미와 섹터별 분석 포인트에 대한 이해도를 점검합니다. 반도체, 바이오, 금융, 에너지 등 주요 산업의 밸류에이션 특성과 핵심 드라이버를 정확히 이해하고 있는지 확인하십시오.
+
+## 산업 핵심 지표
+
+<QuizContainer title="산업 핵심 지표" totalQuestions={6}>
+
+<MultipleChoice
+  question="반도체 산업에서 ASP(Average Selling Price)가 중요한 이유는?"
+  options={["수익성과 직결", "부채 상환 능력 측정", "환율 리스크 평가", "시장점유율 측정"]}
+  answer={0}
+  explanation="ASP(평균판매가격)는 반도체 기업의 수익성을 좌우하는 핵심 지표입니다. 동일한 출하량이라도 ASP 변동에 따라 매출과 이익이 크게 달라집니다. 특히 메모리 반도체는 ASP 변동 사이클이 크므로 투자 시 ASP 추이를 면밀히 관찰해야 합니다."
+/>
+
+<TrueFalse
+  statement="ARPU(Average Revenue Per User)는 통신/플랫폼 기업의 핵심 수익성 지표이다."
+  answer={true}
+  explanation="ARPU(가입자당 평균매출)는 통신, OTT, 게임, SNS 등 가입자 기반 비즈니스의 수익 창출 능력을 측정하는 핵심 지표입니다. ARPU의 상승은 가입자로부터 더 많은 수익을 창출하고 있다는 의미이며, 가입자 수와 함께 매출 성장의 양대 축입니다."
+/>
+
+<MultipleChoice
+  question="은행의 NIM(순이자마진)이 하락하는 상황은?"
+  options={["기준금리 인상", "단기금리와 장기금리 스프레드 축소", "대출 수요 증가", "예금 감소"]}
+  answer={1}
+  explanation="NIM(Net Interest Margin)은 은행이 대출 금리와 예금 금리의 차이에서 얻는 수익률입니다. 단기금리(예금 조달 비용)와 장기금리(대출 수익) 간 스프레드가 축소되면 NIM이 하락합니다. 수익률 곡선 평탄화가 은행 수익성에 부정적인 이유입니다."
+/>
+
+<CalculationExercise
+  question="제약회사 파이프라인에서 임상 1상 성공률 약 10%, 약물 1개의 1상 진입 가치가 100억원이라면, rNPV(위험조정 순현재가치)는?"
+  answer={10}
+  tolerance={0.5}
+  unit="억원"
+  hint="rNPV = 가치 × 성공확률"
+  explanation="rNPV = 100억원 × 10% = 10억원입니다. 위험조정 순현재가치(risk-adjusted NPV)는 각 임상 단계의 성공확률을 가치에 곱하여 산출합니다. 임상 단계가 진행될수록 성공확률이 높아지므로 rNPV도 상승합니다."
+/>
+
+<MultipleChoice
+  question="Book-to-Bill Ratio가 1보다 크면?"
+  options={["수주잔고 감소", "수주가 매출보다 많아 성장 신호", "재고 과잉", "가동률 하락"]}
+  answer={1}
+  explanation="Book-to-Bill Ratio(수주/매출 비율)가 1보다 크다는 것은 신규 수주(Book)가 매출(Bill)보다 많다는 의미로, 향후 매출 성장이 예상되는 긍정적 신호입니다. 반도체 장비, 방산, 건설 등 수주 기반 산업에서 핵심적으로 관찰하는 지표입니다."
+/>
+
+<MatchingGame
+  title="산업별 핵심 지표 매칭"
+  pairs={[
+    { left: "NIM", right: "은행 순이자마진" },
+    { left: "ARPU", right: "가입자당 평균매출" },
+    { left: "ASP", right: "평균판매가격" },
+    { left: "Book-to-Bill", right: "수주/매출 비율" },
+    { left: "Cap Rate", right: "부동산 환원이익률" },
+  ]}
+/>
+
+</QuizContainer>
+
+## 섹터별 분석 포인트
+
+<QuizContainer title="섹터별 분석 포인트" totalQuestions={5}>
+
+<MultipleChoice
+  question="Porter의 5 Forces 중 '구매자의 교섭력'이 높은 산업은?"
+  options={["항공기 제조 (Boeing/Airbus 과점)", "대형마트 납품업체", "고급 명품 브랜드", "의료용 특수장비"]}
+  answer={1}
+  explanation="대형마트(이마트, 코스트코 등)는 소수의 거대 구매자로서 납품업체에 대해 강력한 교섭력을 행사합니다. 납품가 인하 요구, 판촉비 부담 등 다양한 형태로 나타나며, 납품업체의 수익성을 압박할 수 있습니다."
+/>
+
+<TrueFalse
+  statement="유틸리티 산업은 규제 요금 체계로 인해 수익 변동성이 상대적으로 낮다."
+  answer={true}
+  explanation="전력, 가스, 수도 등 유틸리티 산업은 정부의 요금 규제를 받아 매출이 상대적으로 안정적입니다. 경기 변동에 대한 민감도가 낮아 방어주(defensive stock)로 분류되며, 안정적인 배당 수익을 제공하는 경우가 많습니다."
+/>
+
+<MultipleChoice
+  question="경기소비재와 필수소비재의 핵심 차이점은?"
+  options={["매출 규모", "경기 민감도", "수출 비중", "배당 수익률"]}
+  answer={1}
+  explanation="핵심 차이는 경기 민감도입니다. 필수소비재(식품, 생활용품)는 경기와 무관하게 안정적 수요가 유지되는 반면, 경기소비재(자동차, 가전, 명품)는 소비자 심리와 소득 변화에 민감하게 반응합니다. 경기 확장기에는 경기소비재, 수축기에는 필수소비재가 상대적으로 유리합니다."
+/>
+
+<MultipleChoice
+  question="바이오 기업 밸류에이션에서 가장 적합한 방법은?"
+  options={["PER 비교", "EV/EBITDA", "rNPV (위험조정 순현재가치)", "PBR 비교"]}
+  answer={2}
+  explanation="매출이나 이익이 없는 바이오 기업은 전통적인 PER, EV/EBITDA 등의 지표를 적용하기 어렵습니다. rNPV는 파이프라인의 각 임상 단계별 성공확률, 예상 매출, 할인율을 반영하여 기업 가치를 산출하므로 바이오 기업에 가장 적합한 밸류에이션 방법입니다."
+/>
+
+<MultipleChoice
+  question="에너지 산업에서 '매장량 대체율(Reserve Replacement Ratio)'이 100% 미만이면?"
+  options={["새 유전 발견 성공", "생산량보다 매장량 추가가 적어 지속가능성 우려", "원가 절감 성공", "생산량 증가"]}
+  answer={1}
+  explanation="매장량 대체율이 100% 미만이면 생산하여 소모하는 매장량보다 신규로 추가하는 매장량이 적다는 뜻입니다. 장기적으로 생산량 감소가 불가피하며, 기업의 지속가능성에 대한 우려가 제기됩니다. 에너지 기업의 장기 성장성을 판단하는 핵심 지표입니다."
+/>
+
+</QuizContainer>
+
+---
+
+## 다음 단계
+
+- [거시경제 퀴즈](./macroeconomics) — 거시경제 이해도 확인
+- [밸류에이션 퀴즈](./valuation) — 가치평가 학습 확인
+- [재무제표 분석 퀴즈](./financial-analysis) — 재무분석 실력 확인

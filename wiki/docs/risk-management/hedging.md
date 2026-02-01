@@ -302,6 +302,11 @@ $$R_{\text{total}} \approx R_{\text{현지}} + R_{\text{환율}} + R_{\text{현�
 
 ---
 
+## 참고 문헌
+
+- Hull, John C., *Options, Futures, and Other Derivatives*, Pearson, 11th ed., 2022
+- Chance & Brooks, *Introduction to Derivatives and Risk Management*, Cengage, 2015
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 리스크 관리의 기본 원칙

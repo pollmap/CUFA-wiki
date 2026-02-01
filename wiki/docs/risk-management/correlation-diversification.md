@@ -251,6 +251,11 @@ $$\sigma_p = \sqrt{w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{1,2} \s
 
 ---
 
+## 참고 문헌
+
+- Markowitz, Harry, "Portfolio Selection", *Journal of Finance*, 1952
+- Ang & Chen, "Asymmetric Correlations of Equity Portfolios", *Journal of Financial Economics*, 2002
+
 ## 관련 페이지
 
 - [리스크 관리 개요](./overview) -- 분산투자의 이론적 기반

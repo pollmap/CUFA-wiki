@@ -322,6 +322,11 @@ CLO 에퀴티 트랜치는 가장 먼저 손실을 흡수하지만, 기초자산
 2008년 위기 이후 CDO 시장은 사실상 소멸했지만, CLO 시장은 강화된 규제 하에서 회복하여 위기 전 수준을 넘어섰습니다. CLO 2.0/3.0으로 불리는 신규 발행 CLO는 더 높은 후순위화, 엄격한 자산 적격 기준, 투명한 보고 체계를 갖추고 있습니다. 역사적으로 CLO의 AAA 트랜치는 2008년 위기에서도 부도가 발생하지 않았으며, 이는 워터폴 구조와 신용보강의 효과를 증명합니다.
 :::
 
+## 참고 문헌
+
+- Tavakoli, Janet, *Structured Finance and Collateralized Debt Obligations*, Wiley, 2nd ed., 2008
+- Gorton, Gary, "The Panic of 2007", *NBER Working Paper*, 2008
+
 ## 관련 페이지
 
 채권 투자의 기초 개념은 [채권 밸류에이션](/assets/bonds/intro)에서 학습하실 수 있습니다. 구조화 상품의 기초가 되는 신용 분석은 [신용분석](/assets/bonds/credit-analysis)를, 회사채의 구조와 조건은 [회사채 투자 가이드](/assets/bonds/corporate-bonds)를 참조하십시오. 구조화 상품의 자금 조달에 핵심적인 레포 시장은 [레포 & 단기금융시장](/assets/bonds/repo-money-market)에서, 수학적 분석 도구는 [채권 수학 & 분석](/assets/bonds/bond-math)에서 확인하실 수 있습니다.
