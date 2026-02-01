@@ -114,33 +114,63 @@ export default function GuidedDCF(): JSX.Element {
     setData((prev) => ({ ...prev, [key]: value }));
   };
 
-  // DCF Calculation
-  const result = useMemo(() => {
+  // DCF Calculation helper
+  const calcDCF = (d: StepData, waccOverride?: number, growthOverride?: number) => {
     const years = 5;
+    const w = waccOverride ?? d.wacc;
+    const g = growthOverride ?? d.terminalGrowth;
     const projections: { year: number; revenue: number; fcf: number; pvFcf: number }[] = [];
     let totalPvFcf = 0;
 
     for (let i = 1; i <= years; i++) {
-      const rev = data.revenue * Math.pow(1 + data.revenueGrowth / 100, i);
-      const ebit = rev * (data.operatingMargin / 100);
-      const nopat = ebit * (1 - data.taxRate / 100);
-      const da = rev * (data.daRatio / 100);
-      const capex = rev * (data.capexRatio / 100);
-      const nwc = rev * (data.nwcChange / 100);
+      const rev = d.revenue * Math.pow(1 + d.revenueGrowth / 100, i);
+      const ebit = rev * (d.operatingMargin / 100);
+      const nopat = ebit * (1 - d.taxRate / 100);
+      const da = rev * (d.daRatio / 100);
+      const capex = rev * (d.capexRatio / 100);
+      const nwc = rev * (d.nwcChange / 100);
       const fcf = nopat + da - capex - nwc;
-      const pvFcf = fcf / Math.pow(1 + data.wacc / 100, i);
+      const pvFcf = fcf / Math.pow(1 + w / 100, i);
       totalPvFcf += pvFcf;
       projections.push({ year: i, revenue: Math.round(rev), fcf: Math.round(fcf), pvFcf: Math.round(pvFcf) });
     }
 
     const lastFcf = projections[years - 1]?.fcf || 0;
-    const terminalValue = (lastFcf * (1 + data.terminalGrowth / 100)) / (data.wacc / 100 - data.terminalGrowth / 100);
-    const pvTerminal = terminalValue / Math.pow(1 + data.wacc / 100, years);
+    const diff = w / 100 - g / 100;
+    const terminalValue = diff > 0 ? (lastFcf * (1 + g / 100)) / diff : 0;
+    const pvTerminal = terminalValue / Math.pow(1 + w / 100, years);
     const enterpriseValue = totalPvFcf + pvTerminal;
-    const equityValue = enterpriseValue - data.netDebt;
-    const pricePerShare = data.sharesOutstanding > 0 ? (equityValue * 100000000) / (data.sharesOutstanding * 10000) : 0;
+    const equityValue = enterpriseValue - d.netDebt;
+    const pricePerShare = d.sharesOutstanding > 0 ? (equityValue * 100000000) / (d.sharesOutstanding * 10000) : 0;
 
     return { projections, totalPvFcf, terminalValue, pvTerminal, enterpriseValue, equityValue, pricePerShare };
+  };
+
+  const result = useMemo(() => calcDCF(data), [data]);
+
+  // Sensitivity analysis: WACC x Terminal Growth Rate
+  const sensitivity = useMemo(() => {
+    if (data.revenue <= 0 || data.sharesOutstanding <= 0) return null;
+    const baseWacc = data.wacc;
+    const baseGrowth = data.terminalGrowth;
+    const waccRange = [baseWacc - 2, baseWacc - 1, baseWacc, baseWacc + 1, baseWacc + 2]
+      .filter((w) => w > 0 && w > baseGrowth);
+    const growthRange = [baseGrowth - 1, baseGrowth - 0.5, baseGrowth, baseGrowth + 0.5, baseGrowth + 1]
+      .filter((g) => g >= 0);
+    const matrix: { wacc: number; growth: number; price: number }[][] = [];
+    for (const w of waccRange) {
+      const row: { wacc: number; growth: number; price: number }[] = [];
+      for (const g of growthRange) {
+        if (w / 100 <= g / 100) {
+          row.push({ wacc: w, growth: g, price: NaN });
+        } else {
+          const r = calcDCF(data, w, g);
+          row.push({ wacc: w, growth: g, price: Math.round(r.pricePerShare) });
+        }
+      }
+      matrix.push(row);
+    }
+    return { waccRange, growthRange, matrix, baseWacc, baseGrowth };
   }, [data]);
 
   const step = steps[currentStep];
@@ -306,6 +336,94 @@ export default function GuidedDCF(): JSX.Element {
               </div>
             ))}
           </div>
+
+          {/* Sensitivity Analysis Table */}
+          {sensitivity && (
+            <div style={{ marginTop: 24 }}>
+              <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 8px' }}>
+                민감도 분석 (주당 내재가치)
+              </h4>
+              <p style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-600)', margin: '0 0 12px' }}>
+                WACC와 영구 성장률 조합에 따른 주당 내재가치 변화를 보여줍니다. 음영 셀이 현재 입력 기준입니다.
+              </p>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse', textAlign: 'center' }}>
+                  <thead>
+                    <tr>
+                      <th style={{
+                        padding: '6px 8px', fontSize: 11,
+                        borderBottom: '2px solid var(--ifm-color-emphasis-300)',
+                        background: 'var(--ifm-color-emphasis-100)',
+                      }}>
+                        WACC \ g
+                      </th>
+                      {sensitivity.growthRange.map((g) => (
+                        <th
+                          key={g}
+                          style={{
+                            padding: '6px 8px',
+                            borderBottom: '2px solid var(--ifm-color-emphasis-300)',
+                            background: g === sensitivity.baseGrowth
+                              ? 'var(--ifm-color-primary-contrast-background)'
+                              : 'var(--ifm-color-emphasis-100)',
+                            fontWeight: g === sensitivity.baseGrowth ? 700 : 500,
+                          }}
+                        >
+                          {g.toFixed(1)}%
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sensitivity.matrix.map((row, ri) => (
+                      <tr key={ri}>
+                        <td style={{
+                          padding: '6px 8px', fontWeight: 600,
+                          borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+                          background: sensitivity.waccRange[ri] === sensitivity.baseWacc
+                            ? 'var(--ifm-color-primary-contrast-background)'
+                            : 'var(--ifm-color-emphasis-100)',
+                        }}>
+                          {sensitivity.waccRange[ri].toFixed(1)}%
+                        </td>
+                        {row.map((cell, ci) => {
+                          const isBase = cell.wacc === sensitivity.baseWacc && cell.growth === sensitivity.baseGrowth;
+                          const basePrice = result.pricePerShare;
+                          const diff = basePrice > 0 ? (cell.price - basePrice) / basePrice : 0;
+                          const bgColor = isBase
+                            ? 'var(--ifm-color-primary)'
+                            : isNaN(cell.price)
+                              ? 'var(--ifm-color-emphasis-200)'
+                              : diff > 0.15
+                                ? 'rgba(0,150,0,0.12)'
+                                : diff < -0.15
+                                  ? 'rgba(200,0,0,0.12)'
+                                  : 'transparent';
+                          return (
+                            <td
+                              key={ci}
+                              style={{
+                                padding: '6px 8px',
+                                borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+                                background: bgColor,
+                                color: isBase ? '#fff' : 'inherit',
+                                fontWeight: isBase ? 700 : 400,
+                              }}
+                            >
+                              {isNaN(cell.price) ? '-' : `${cell.price.toLocaleString()}`}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--ifm-color-emphasis-500)', marginTop: 8 }}>
+                단위: 원 | 초록 음영: +15% 이상 | 빨간 음영: -15% 이하 | 진한 셀: 현재 기준값
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -103,7 +103,9 @@ GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 밸�
 - **기업 케이스 스터디** — 삼성전자, SK하이닉스, 현대차, 네이버, 셀트리온 실전 분석 → [바로가기](./case-studies/samsung-electronics)
 - **투자 대가의 철학** — 그레이엄, 버핏, 린치, 달리오, 막스 등 8명의 투자 철학 → [바로가기](/masters/graham)
 - **매매 전략** — 가치투자, 모멘텀, 스윙, 퀀트, 이벤트 드리븐 등 6대 전략 → [바로가기](./trading-strategies/overview)
-- **리스크 관리** — 포지션 사이징, 포트폴리오 구성 → [바로가기](/risk-management/overview)
+- **리스크 관리** (11개 문서) — 포지션 사이징, 포트폴리오 구성, VaR·리스크 지표, 손절매, 헤지 전략, 행동재무학, 드로다운 관리, 상관관계·분산투자, 위험조정수익률, 스트레스 테스트 → [바로가기](/risk-management/overview)
+- **투자 대가 실전 스크리닝** — 그레이엄·버핏·린치·그린블랫 등 6인의 정량적 스크리닝 기준 → [바로가기](/masters/screening-criteria)
+- **DART 공시 분석 가이드** — 사업보고서 읽기, 주요사항보고서 해석, Open API 활용 → [바로가기](/company-analysis/dart-guide)
 
 ---
 
@@ -155,12 +157,27 @@ GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 밸�
 
 ## 트랙 5: 자산별 분석
 
-주식 외 다양한 자산 클래스의 특성과 밸류에이션 방법을 학습합니다.
+주식 외 다양한 자산 클래스의 특성과 밸류에이션 방법을 학습합니다. 각 자산군은 부동산 수준의 전문적 깊이로 구성되어 있습니다.
 
-- **부동산** — 수익환원법, REITs, 재건축/재개발, 상업용 부동산 → [바로가기](/assets/real-estate/intro)
-- **채권** — 가격결정, 듀레이션, 수익률 곡선, 신용분석, 국채 → [바로가기](/assets/bonds/intro)
-- **암호화폐** — 블록체인, 비트코인, 이더리움, DeFi, 토큰이코노믹스 → [바로가기](/assets/crypto/intro)
-- **파생상품** — 옵션, 선물, 그릭스, 구조화 상품(ELS/DLS) → [바로가기](/assets/derivatives/options-basics)
+**부동산** (16개 문서)
+- 입문 → 유형별 분류 → 등기·권리분석 → 매매·전세·월세 → 청약 → 분양·분양권 → 대출(LTV/DTI/DSR)
+- 세금 → 토지·임야·농지 → 경매·공매 → 재건축·재개발 → 임대사업 → 시장분석·앱 → 실전 가이드
+- [부동산 시작하기 →](/assets/real-estate/intro)
+
+**암호화폐** (12개 문서)
+- 입문 → 비트코인 → 이더리움 → 알트코인 → DeFi → L2·확장성 → 스테이킹·수익전략
+- NFT·토큰화 → 트레이딩 전략 → 보안·지갑 → 규제·세금 → 매크로·사이클
+- [암호화폐 시작하기 →](/assets/crypto/intro)
+
+**채권** (10개 문서)
+- 입문 → 국채 → 신용분석 → 회사채 → 채권전략 → 채권수학
+- 레포·단기금융 → 물가연동채 → 신흥국채권 → 구조화채권·증권화
+- [채권 시작하기 →](/assets/bonds/intro)
+
+**파생상품** (12개 문서)
+- 옵션 기초 → 그릭스 → 옵션 전략 심화 → 옵션 가격결정 → 이색옵션
+- 선물 → 변동성 분석 → 스왑 → 신용파생 → 원자재파생 → 구조화상품 → 리스크관리
+- [파생상품 시작하기 →](/assets/derivatives/options-basics)
 
 ---
 
@@ -187,18 +204,21 @@ GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 밸�
 
 ## 인터랙티브 학습
 
+**[도구 허브](./tools/tools-hub)** — 모든 인터랙티브 도구를 카테고리별로 한눈에 확인
+
 **자가 진단**
-- [금융 성향 테스트 (Finance MBTI)](./finance-mbti) — 나에게 맞는 금융 섹터와 직무 찾기
-- [Market Survivor 투자 시뮬레이션](./market-survivor) — 역사적 시장 이벤트 기반 투자 게임
+- [금융 성향 테스트 (Finance MBTI)](./finance-mbti) — 20문항 + 레이더 차트로 나에게 맞는 금융 섹터·직무 찾기
+- [Market Survivor 투자 시뮬레이션](./market-survivor) — 역사적 시장 이벤트 기반 투자 게임 (10라운드 랜덤 모드)
 - [회계 기초 퀴즈](/quiz/accounting-basics) · [재무분석 퀴즈](/quiz/financial-analysis) · [밸류에이션 퀴즈](/quiz/valuation)
 
 **분석 도구**
-- [실시간 시장 현황](./tools/market-overview) — 주요 지수, 환율, 금리 실시간 위젯
-- [경제 캘린더](./tools/economic-calendar) — FOMC, 금통위, CPI 등 경제 이벤트 일정
+- [실시간 시장 현황](./tools/market-overview) — KOSPI, S&P500, 환율, 금, 유가, BTC 실시간 위젯
+- [경제 캘린더](./tools/economic-calendar) — 194개 이벤트 (2025-2026), 5개국 경제지표, 월별 필터링
+- [Guided DCF 밸류에이션](./calculators/guided-dcf) — 5단계 가이드 + WACC×성장률 민감도 분석
 - [기업 비교 도구](./tools/company-comparison) — 두 기업의 재무 지표 비교 분석
-- [포트폴리오 시뮬레이터](./tools/portfolio-simulator) — 자산 배분 백테스트 도구
-- [한국 금융사 타임라인](./tools/finance-timeline) — 1997년 IMF부터 현재까지 주요 이벤트
-- [분석 템플릿 다운로드](./tools/templates) — DCF, 3-Statement 모델 등 Excel 템플릿
+- [포트폴리오 시뮬레이터](./tools/portfolio-simulator) — 13개 자산 클래스, 11년 백테스트, 5개 프리셋
+- [한국 금융사 타임라인](./tools/finance-timeline) — 1997년 IMF부터 현재까지 40+ 이벤트, 5개 카테고리
+- [분석 템플릿 다운로드](./tools/templates) — DCF, 3-Statement, LBO 등 9종 Excel 템플릿
 
 **학습 관리**
 - [학습 진도 추적](./tools/progress-tracker) — 학습 완료 현황 체크리스트
@@ -224,3 +244,10 @@ GICS 11대 섹터별 분석 프레임워크를 배우고, 실제 기업에 밸�
 **실전 투자 역량을 키우고 싶다면**
 
 1. [매매 전략 개요](./trading-strategies/overview) → 2. [리스크 관리](/risk-management/overview) → 3. [Market Survivor 게임](./market-survivor) → 4. [케이스 스터디](./case-studies/samsung-electronics)
+
+**대체 자산을 공부한다면**
+
+1. 관심 자산 선택: [부동산](/assets/real-estate/intro) · [암호화폐](/assets/crypto/intro) · [채권](/assets/bonds/intro) · [파생상품](/assets/derivatives/options-basics)
+2. 각 자산군의 입문 문서부터 순서대로 학습 (모든 자산군 10-16개 문서로 구성)
+3. 리스크 관리: [헤지 전략](/risk-management/hedging) · [상관관계·분산투자](/risk-management/correlation-diversification)
+4. 실습: [포트폴리오 시뮬레이터](./tools/portfolio-simulator)로 자산 배분 백테스트
