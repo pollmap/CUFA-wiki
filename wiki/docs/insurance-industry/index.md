@@ -1,5 +1,4 @@
 ---
-id: insurance-industry
 title: 보험 산업 완벽 가이드
 sidebar_label: 보험 산업
 description: 보험의 종류, 수익구조, 주요 직무, IFRS17까지 보험산업 전반을 다루는 가이드
@@ -190,7 +189,7 @@ P × n = S × n × q
 
 ## 3. 보험사의 수익구조
 
-보험사의 손익은 크게 **보험영업손익**과 **투자영업손익**으로 구분됩니다. 보험사의 수익구조를 이해하는 것은 보험사 [재무 분석](/financial-analysis/overview)과 [기업가치 평가](/docs/valuation)에 필수적입니다.
+보험사의 손익은 크게 **보험영업손익**과 **투자영업손익**으로 구분됩니다. 보험사의 수익구조를 이해하는 것은 보험사 [재무 분석](/financial-analysis/overview)과 [기업가치 평가](/valuation/dcf/overview)에 필수적입니다.
 
 ### 3.1 보험영업이익 (Underwriting Profit)
 

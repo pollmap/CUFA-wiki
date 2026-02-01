@@ -1,5 +1,4 @@
 ---
-id: banking-industry
 title: 은행 산업 완벽 가이드
 sidebar_label: 은행 산업
 description: 은행의 종류, 수익구조, 규제체계, 주요 업무를 체계적으로 정리한 가이드

@@ -1,5 +1,4 @@
 ---
-id: companies-crypto
 title: 암호화폐·블록체인 기업 총람
 sidebar_label: 암호화폐·블록체인
 description: 국내 암호화폐 거래소, 블록체인 인프라, 디파이 관련 기업 디렉토리. 두나무, 빗썸, 코인원, 해시드 등 주요 기업 정보를 정리했습니다.

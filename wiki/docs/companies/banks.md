@@ -1,5 +1,4 @@
 ---
-id: companies-banks
 title: 은행권 기업 총람
 sidebar_label: 은행
 description: 한국 은행권 전체 기업 디렉토리. 시중은행, 지방은행, 인터넷전문은행, 외국계은행의 기업 정보, 특징, 주요 직무를 정리했습니다.

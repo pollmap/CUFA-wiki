@@ -1,5 +1,4 @@
 ---
-id: card-capital-industry
 title: 여신금융(카드·캐피탈·리스) 산업 가이드
 sidebar_label: 여신금융 산업
 description: 카드사, 캐피탈, 리스 등 여신전문금융업의 구조, 수익모델, 주요 직무를 다룹니다

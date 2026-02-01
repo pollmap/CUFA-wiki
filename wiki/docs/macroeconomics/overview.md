@@ -1,5 +1,4 @@
 ---
-id: macro-overview
 title: 거시경제 개요
 sidebar_label: 거시경제 개요
 ---

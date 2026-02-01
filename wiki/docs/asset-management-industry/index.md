@@ -1,5 +1,4 @@
 ---
-id: asset-management-industry
 title: 자산운용 산업 완벽 가이드
 sidebar_label: 자산운용 산업
 description: 자산운용사의 구조, 펀드 운용, 수익모델, 주요 직무를 다루는 종합 가이드

@@ -1,5 +1,4 @@
 ---
-id: career-requirements
 title: 금융권 합격 요건 분석
 sidebar_label: 합격 요건
 description: 금융권 취업에 필요한 학력, 학점, 자격증, 어학, 인턴 경험 등을 섹터별로 현실적으로 분석합니다.

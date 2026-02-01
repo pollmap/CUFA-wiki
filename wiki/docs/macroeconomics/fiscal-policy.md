@@ -1,5 +1,4 @@
 ---
-id: fiscal-policy
 title: 재정정책과 정부의 역할
 sidebar_label: 재정정책 & 정부
 ---

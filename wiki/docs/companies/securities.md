@@ -1,5 +1,4 @@
 ---
-id: companies-securities
 title: 증권업권 기업 총람
 sidebar_label: 증권사
 description: 한국 증권업권 전체 기업 디렉토리. 대형·중견·중소 증권사와 선물사의 기업 정보, IB·S&T·리서치·WM 직무 특성을 정리했습니다.

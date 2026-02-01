@@ -1,5 +1,4 @@
 ---
-id: momentum-strategies
 title: 모멘텀 전략
 sidebar_label: 모멘텀 전략
 description: 가격 모멘텀, 이익 모멘텀, 듀얼 모멘텀의 이론과 실전 적용법, 한국시장 모멘텀 팩터를 상세히 다룹니다
