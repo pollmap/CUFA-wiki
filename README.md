@@ -1,160 +1,139 @@
-# Valuation Academy (밸류에이션 아카데미)
+# Value Alpha - 금융 위키
 
-> DCF부터 디지털자산까지, 모든 자산 클래스의 가치평가 방법론을 체계적으로 학습할 수 있는 하이브리드 LMS+Wiki 플랫폼
+> 투자분석부터 금융권 취업까지, 금융 학습의 모든 것
 
-## 🎯 프로젝트 개요
+**[pollmap.github.io/Value_Alpha](https://pollmap.github.io/Value_Alpha/)**
 
-Valuation Academy는 한국 최초의 원스톱 밸류에이션 교육 생태계를 목표로 합니다:
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpollmap.github.io%2FValue_Alpha&count_bg=%234CAF50&title_bg=%23555555&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
+[![GitHub Stars](https://img.shields.io/github/stars/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/commits)
 
-- **Khan Academy**의 마스터리 기반 학습
-- **Investopedia**의 사전식 참조
-- **CFA Institute**의 체계적 커리큘럼
-- **Open edX**의 XBlock으로 인터랙티브 도구 구현
-- **Claude API** 기반 RAG 시스템으로 AI 튜터 제공
+## 프로젝트 소개
 
-## 🏗️ 아키텍처
+Value Alpha는 한국어 금융 교육을 위한 오픈소스 위키 플랫폼입니다. 재무제표 기초부터 기업 밸류에이션, 금융권 취업 가이드까지 체계적으로 정리합니다.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    사용자 인터페이스 계층                        │
-├─────────────────┬─────────────────┬─────────────────────────────┤
-│   LMS (Open edX)│  Wiki (Docusaurus)│   AI 튜터 (Claude+RAG)    │
-│   · 코스 학습   │  · 레퍼런스 문서  │   · Q&A 챗봇              │
-│   · 퀴즈/평가   │  · 공식 사전      │   · 계산 설명             │
-│   · 진도 추적   │  · 케이스 스터디  │   · 학습 추천             │
-│   · XBlock 계산기│  · 용어 해설     │   · 개념 질의응답         │
-├─────────────────┴─────────────────┴─────────────────────────────┤
-│                    SSO 인증 계층 (Keycloak)                      │
-├─────────────────────────────────────────────────────────────────┤
-│                    데이터 계층                                   │
-│  PostgreSQL(유저) │ Weaviate(벡터) │ Redis(캐시) │ S3(미디어)  │
-└─────────────────────────────────────────────────────────────────┘
-```
+### 주요 특징
 
-## 📁 프로젝트 구조
+- **4-Layer 투자분석 체계**: 기초 회계 → 재무분석 → 산업분석 → 기업분석
+- **인터랙티브 도구**: DCF 계산기, WACC 계산기, 옵션 프라이서, 투자 시뮬레이터 등 15종
+- **금융권 취업 가이드**: 직무 분류, 진입 요건, 공모전/대회, 커리어 로드맵
+- **170+ 금융 기업 디렉토리**: 은행, 증권, 보험, 자산운용, VC/PE, 핀테크 등 전 섹터
+- **투자 대가 학습**: Graham, Buffett, Lynch, Fisher, Dalio, Marks, Greenblatt, Livermore
 
-```
-valuation-academy/
-├── docker-compose.yml              # 전체 서비스 오케스트레이션
-├── .env.example                    # 환경변수 템플릿
-│
-├── openedx/                        # Open edX LMS
-│   ├── config/                     # Tutor 설정 및 플러그인
-│   ├── themes/                     # 커스텀 테마
-│   └── courses/                    # 코스 콘텐츠 (OLX 포맷)
-│
-├── wiki/                           # Docusaurus Wiki
-│   ├── docs/                       # Wiki 문서
-│   └── src/components/             # React 컴포넌트
-│
-├── shared/                         # 공유 컴포넌트
-│   ├── calculators/                # React 계산기
-│   ├── ai-chat/                    # AI 챗봇 모듈
-│   └── types/                      # 공유 타입 정의
-│
-├── nginx/                          # 리버스 프록시
-└── scripts/                        # 유틸리티 스크립트
-```
+## 콘텐츠 구성
 
-## 🚀 빠른 시작
+| 카테고리 | 문서 수 | 내용 |
+|----------|---------|------|
+| 기초 회계 (Layer 1) | 23 | 재무상태표, 손익계산서, 현금흐름표, 주석 분석 |
+| 재무분석 (Layer 2) | 11 | 수익성, 성장성, 안정성, 효율성 분석 |
+| 산업분석 (Layer 3) | 12 | 포터 5 Forces, 시장 구조, 규제 환경 |
+| 기업분석 (Layer 4) | 10 | 경쟁우위, 경영진 평가, ESG |
+| 밸류에이션 | 12 | DCF, 상대가치, LBO, 잔여이익모형 |
+| 거시경제 | 6 | GDP, 금리, 인플레이션, 경기순환 |
+| 매매 전략 | 7 | 가치투자, 모멘텀, 퀀트, 스윙 트레이딩 |
+| 금융 산업 & 기업 | 22 | 6개 산업 가이드 + 170개 기업 총람 |
+| 취업 & 커리어 | 5 | 50+ 직무, 42+ 공모전, 자격증 가이드 |
+| 케이스 스터디 | 5 | 삼성전자, SK하이닉스, 현대차, 카카오, 네이버 |
+| 인터랙티브 도구 | 15+ | 계산기, 퀴즈, 시뮬레이터, MBTI 테스트 |
+| **합계** | **184+** | |
+
+## 인터랙티브 도구
+
+### 금융 계산기
+- **DCF Calculator** - 기업가치 산출 + 민감도 분석
+- **WACC Calculator** - 가중평균자본비용 계산
+- **Graham Number** - 그레이엄 넘버 + 안전마진
+- **PEG Screener** - PEG 기반 스크리닝
+- **Duration Calculator** - 채권 듀레이션/컨벡서티
+- **Option Pricer** - Black-Scholes 옵션 가격 + 그릭스
+- **Compound Interest** - 복리 계산기
+- **Mortgage Calculator** - 주택담보대출 계산기
+
+### 교육 도구
+- **Market Survivor** - 100년 금융 역사 투자 시뮬레이션 (50개 시나리오 중 10개 랜덤)
+- **Finance MBTI** - 금융 성향 테스트 (16개 유형)
+- **Quiz System** - 회계/재무/밸류에이션 퀴즈 (4가지 문제 유형)
+- **Progress Tracker** - 학습 진도 추적
+
+## 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| 프레임워크 | Docusaurus 3.4 |
+| 언어 | TypeScript, MDX |
+| 호스팅 | GitHub Pages |
+| 검색 | docusaurus-search-local (한국어/영어) |
+| 수식 | KaTeX (remark-math + rehype-katex) |
+| 차트 | Recharts |
+| 아이콘 | Lucide React |
+| CI/CD | GitHub Actions (빌드 검증 + 시크릿 스캔) |
+
+## 로컬 개발
 
 ### 사전 요구사항
 
-- Docker & Docker Compose
 - Node.js 18+
-- Git
+- npm 또는 yarn
 
 ### 설치 및 실행
 
 ```bash
-# 저장소 클론
-git clone https://github.com/your-org/valuation-academy.git
-cd valuation-academy
+git clone https://github.com/pollmap/Value_Alpha.git
+cd Value_Alpha/wiki
 
-# 환경변수 설정
-cp .env.example .env
-# .env 파일을 열어 필요한 값들을 설정
-
-# 개발 환경 시작
-./scripts/setup-dev.sh
-
-# 또는 Docker Compose로 직접 실행
-docker-compose up -d
+npm install
+npm run start
 ```
 
-### 접속 URL
+브라우저에서 `http://localhost:3000/Value_Alpha/` 접속
 
-| 서비스 | URL | 설명 |
-|--------|-----|------|
-| Wiki | http://localhost:4000 | Docusaurus 문서 사이트 |
-| LMS | http://lms.localhost:8000 | Open edX 학습 관리 시스템 |
-| Studio | http://studio.localhost:8001 | 코스 제작 도구 |
+### 빌드
 
-## 📚 커리큘럼
+```bash
+npm run build
+npm run serve
+```
 
-### 기초 트랙 (40시간)
-- F1. 재무제표 기초
-- F2. 기업분석 입문
-- F3. 가치평가 개념
-- F4. 투자의 기초 원리
+## 프로젝트 구조
 
-### 핵심 밸류에이션 트랙 (80시간)
-- C1. DCF 분석 완전 정복
-- C2. 상대가치평가 마스터
-- C3. 잔여이익모형과 EVA
-- C4. LBO 모델링
+```
+Value_Alpha/
+├── .github/workflows/          # CI/CD (deploy, PR validation)
+├── wiki/
+│   ├── docs/                   # 마크다운/MDX 문서 (184개)
+│   │   ├── foundation/         # Layer 1: 기초 회계
+│   │   ├── financial-analysis/ # Layer 2: 재무분석
+│   │   ├── industry-analysis/  # Layer 3: 산업분석
+│   │   ├── company-analysis/   # Layer 4: 기업분석
+│   │   ├── valuation/          # 밸류에이션
+│   │   ├── macroeconomics/     # 거시경제
+│   │   ├── career/             # 취업 가이드
+│   │   ├── companies/          # 금융 기업 디렉토리
+│   │   ├── masters/            # 투자 대가
+│   │   ├── calculators/        # 계산기 문서
+│   │   └── ...
+│   ├── src/
+│   │   ├── components/         # React 인터랙티브 컴포넌트 (15종)
+│   │   └── css/                # 커스텀 스타일
+│   ├── static/                 # 정적 파일
+│   ├── sidebars.js             # 사이드바 구조
+│   ├── docusaurus.config.js    # 사이트 설정
+│   └── package.json
+└── README.md
+```
 
-### 자산별 트랙 (100시간)
-- A1. 기술적 분석
-- A2. 부동산 밸류에이션
-- A3. 디지털자산 분석
-- A4. 채권 및 파생상품
+## 기여
 
-### 거장 트랙 (40시간)
-- 그레이엄, 버핏, 린치, 달리오, 막스, 피셔, 그린블랫, 리버모어
+기여를 환영합니다. [Issues](https://github.com/pollmap/Value_Alpha/issues)와 Pull Requests를 통해 참여할 수 있습니다.
 
-## 🧮 인터랙티브 계산기
+- PR 제목은 conventional commit 형식을 따릅니다: `feat:`, `fix:`, `docs:`, `refactor:` 등
+- PR 시 빌드 검증과 시크릿 스캔이 자동 실행됩니다
 
-- **DCF Calculator** - 기업가치 산출, 민감도 분석
-- **WACC Calculator** - 자본비용 계산
-- **Graham Number** - 그레이엄 넘버 및 안전마진
-- **PEG Screener** - PEG 기반 스크리닝
-- **Duration Calculator** - 채권 듀레이션
-- **Option Pricer** - Black-Scholes 옵션가격, 그릭스
-
-## 🤖 AI 튜터
-
-Claude API 기반 RAG 시스템으로 24시간 AI 튜터 제공:
-- 밸류에이션 관련 질문 답변
-- 금융 용어 및 공식 설명
-- 관련 문서 및 코스 추천
-- 맞춤형 학습 가이드
-
-## 📜 자격증 연계
-
-| 자격증 | 연계 모듈 |
-|--------|-----------|
-| 투자권유대행인 | F1-F4 기초 전체 |
-| 투자자산운용사 | F1-F4, C1-C2, A1 |
-| 금융투자분석사 | C1-C4, A4 |
-| CFA Level I/II | 전체 기초+핵심 |
-| 신용분석사 | F1-F2, C3, A4 |
-
-## 🛠️ 기술 스택
-
-- **LMS**: Open edX (Tutor)
-- **Wiki**: Docusaurus 3.x
-- **Frontend**: React 18, TypeScript
-- **Charts**: Recharts
-- **AI**: Claude API (Anthropic)
-- **Search**: Meilisearch / Algolia
-- **Auth**: Keycloak (OAuth 2.0 / OIDC)
-- **Infra**: Docker, Nginx
-
-## 📄 라이선스
+## 라이선스
 
 MIT License
 
-## 🤝 기여하기
+## 저자
 
-기여를 환영합니다! Issues와 Pull Requests를 통해 참여해주세요.
+이찬희 ([@pollmap](https://github.com/pollmap))
