@@ -6,10 +6,11 @@ const sidebars = {
     // ─────────────────────────────────────────────
     'intro',
     'curriculum',
+    'tools/tools-hub',
 
-    // ─────────────────────────────────────────────
-    // 대 카테고리 1: 투자분석 체계 (4-Layer)
-    // ─────────────────────────────────────────────
+    // ═════════════════════════════════════════════
+    // 대 카테고리 1: 투자분석 체계
+    // ═════════════════════════════════════════════
     {
       type: 'category',
       label: '투자분석 체계',
@@ -199,7 +200,7 @@ const sidebars = {
           ],
         },
 
-        // Layer 4: 기업분석
+        // Layer 4: 기업분석 + 케이스 스터디
         {
           type: 'category',
           label: 'Layer 4 · 기업분석',
@@ -240,87 +241,149 @@ const sidebars = {
               ],
             },
             'company-analysis/dart-guide',
+            {
+              type: 'category',
+              label: '케이스 스터디',
+              items: [
+                'case-studies/samsung-electronics',
+                'case-studies/sk-hynix',
+                'case-studies/hyundai-motor',
+                'case-studies/naver',
+                'case-studies/celltrion',
+              ],
+            },
+          ],
+        },
+
+        // 밸류에이션
+        {
+          type: 'category',
+          label: '밸류에이션',
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'DCF 분석',
+              items: [
+                'valuation/dcf/overview',
+                'valuation/dcf/fcff-fcfe',
+                'valuation/dcf/wacc',
+                'valuation/dcf/terminal-value',
+                'valuation/dcf/sensitivity',
+              ],
+            },
+            {
+              type: 'category',
+              label: '상대가치평가',
+              items: [
+                'valuation/relative/overview',
+                'valuation/relative/per',
+                'valuation/relative/pbr',
+                'valuation/relative/ev-ebitda',
+                'valuation/relative/psr',
+              ],
+            },
+            'valuation/residual-income',
+            'valuation/lbo',
           ],
         },
       ],
     },
 
-    // ─────────────────────────────────────────────
-    // 대 카테고리 2: 밸류에이션
-    // ─────────────────────────────────────────────
+    // ═════════════════════════════════════════════
+    // 대 카테고리 2: 자산 & 시장
+    // ═════════════════════════════════════════════
     {
       type: 'category',
-      label: '밸류에이션',
+      label: '자산 & 시장',
       collapsed: true,
       items: [
         {
           type: 'category',
-          label: 'DCF 분석',
+          label: '거시경제',
           items: [
-            'valuation/dcf/overview',
-            'valuation/dcf/fcff-fcfe',
-            'valuation/dcf/wacc',
-            'valuation/dcf/terminal-value',
-            'valuation/dcf/sensitivity',
+            'macroeconomics/overview',
+            'macroeconomics/economic-indicators',
+            'macroeconomics/central-banks',
+            'macroeconomics/fiscal-policy',
+            'macroeconomics/money-and-currency',
+            'macroeconomics/business-cycles',
           ],
         },
         {
           type: 'category',
-          label: '상대가치평가',
+          label: '채권',
           items: [
-            'valuation/relative/overview',
-            'valuation/relative/per',
-            'valuation/relative/pbr',
-            'valuation/relative/ev-ebitda',
-            'valuation/relative/psr',
+            'assets/bonds/intro',
+            'assets/bonds/government-bonds',
+            'assets/bonds/credit-analysis',
+            'assets/bonds/corporate-bonds',
+            'assets/bonds/bond-strategies',
+            'assets/bonds/bond-math',
+            'assets/bonds/repo-money-market',
+            'assets/bonds/inflation-linked',
+            'assets/bonds/emerging-market-bonds',
+            'assets/bonds/structured-credit',
           ],
         },
-        'valuation/residual-income',
-        'valuation/lbo',
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 3: 거시경제
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '거시경제',
-      collapsed: true,
-      items: [
-        'macroeconomics/overview',
-        'macroeconomics/economic-indicators',
-        'macroeconomics/central-banks',
-        'macroeconomics/fiscal-policy',
-        'macroeconomics/money-and-currency',
-        'macroeconomics/business-cycles',
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 4: 기업 케이스 스터디
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '기업 케이스 스터디',
-      collapsed: true,
-      items: [
-        'case-studies/samsung-electronics',
-        'case-studies/sk-hynix',
-        'case-studies/hyundai-motor',
-        'case-studies/naver',
-        'case-studies/celltrion',
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 5: 매매 전략 & 리스크 관리
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '매매 전략 & 리스크 관리',
-      collapsed: true,
-      items: [
+        {
+          type: 'category',
+          label: '파생상품',
+          items: [
+            'assets/derivatives/options-basics',
+            'assets/derivatives/greeks',
+            'assets/derivatives/futures',
+            'assets/derivatives/options-pricing',
+            'assets/derivatives/options-strategies',
+            'assets/derivatives/volatility',
+            'assets/derivatives/exotic-options',
+            'assets/derivatives/swaps',
+            'assets/derivatives/credit-derivatives',
+            'assets/derivatives/commodity-derivatives',
+            'assets/derivatives/structured-products',
+            'assets/derivatives/risk-management-derivatives',
+          ],
+        },
+        {
+          type: 'category',
+          label: '부동산',
+          items: [
+            'assets/real-estate/intro',
+            'assets/real-estate/housing-types',
+            'assets/real-estate/registration',
+            'assets/real-estate/transactions',
+            'assets/real-estate/subscription',
+            'assets/real-estate/presale',
+            'assets/real-estate/mortgage',
+            'assets/real-estate/taxes',
+            'assets/real-estate/land',
+            'assets/real-estate/auction',
+            'assets/real-estate/development',
+            'assets/real-estate/rental-business',
+            'assets/real-estate/market-analysis',
+            'assets/real-estate/practical-guide',
+            'assets/real-estate/residential',
+            'assets/real-estate/commercial',
+          ],
+        },
+        {
+          type: 'category',
+          label: '암호화폐',
+          items: [
+            'assets/crypto/intro',
+            'assets/crypto/bitcoin',
+            'assets/crypto/ethereum',
+            'assets/crypto/altcoins',
+            'assets/crypto/defi',
+            'assets/crypto/layer2-scaling',
+            'assets/crypto/staking-yield',
+            'assets/crypto/nft-tokenization',
+            'assets/crypto/crypto-trading',
+            'assets/crypto/crypto-security',
+            'assets/crypto/crypto-regulation',
+            'assets/crypto/crypto-macro',
+          ],
+        },
         {
           type: 'category',
           label: '매매 전략',
@@ -334,6 +397,17 @@ const sidebars = {
             'trading-strategies/market-microstructure',
           ],
         },
+      ],
+    },
+
+    // ═════════════════════════════════════════════
+    // 대 카테고리 3: 리스크 & 포트폴리오
+    // ═════════════════════════════════════════════
+    {
+      type: 'category',
+      label: '리스크 & 포트폴리오',
+      collapsed: true,
+      items: [
         {
           type: 'category',
           label: '리스크 관리',
@@ -351,15 +425,32 @@ const sidebars = {
             'risk-management/stress-testing',
           ],
         },
+        {
+          type: 'category',
+          label: '기술적 분석',
+          items: [
+            'technical/intro',
+            'technical/candlestick',
+            'technical/moving-average',
+            'technical/trend',
+            'technical/indicators',
+            'technical/bollinger',
+            'technical/volume',
+            'technical/fibonacci',
+            'technical/stochastic',
+            'technical/adx',
+            'technical/atr',
+          ],
+        },
       ],
     },
 
-    // ─────────────────────────────────────────────
-    // 대 카테고리 5: 금융 산업 & 기업
-    // ─────────────────────────────────────────────
+    // ═════════════════════════════════════════════
+    // 대 카테고리 4: 금융권 커리어
+    // ═════════════════════════════════════════════
     {
       type: 'category',
-      label: '금융 산업 & 기업',
+      label: '금융권 커리어',
       collapsed: true,
       items: [
         {
@@ -371,6 +462,7 @@ const sidebars = {
             'insurance-industry/index',
             'card-capital-industry/index',
             'asset-management-industry/index',
+            'crypto-industry/index',
             {
               type: 'category',
               label: '보험 계리',
@@ -397,56 +489,35 @@ const sidebars = {
             'companies/crypto',
           ],
         },
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 6: 금융권 취업 & 커리어
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '금융권 취업 & 커리어',
-      collapsed: true,
-      items: [
-        'career/index',
-        'career/job-categories',
-        'career/requirements',
-        'career/competitions',
-        'career/roadmap',
-        'certifications',
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 7: 분석 & 모델링 도구
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '분석 & 모델링 도구',
-      collapsed: true,
-      items: [
         {
           type: 'category',
-          label: '기술적 분석',
+          label: '취업 가이드',
           items: [
-            'technical/intro',
-            'technical/candlestick',
-            'technical/moving-average',
-            'technical/trend',
-            'technical/indicators',
-            'technical/bollinger',
-            'technical/volume',
-            'technical/fibonacci',
-            'technical/stochastic',
-            'technical/adx',
-            'technical/atr',
+            'career/index',
+            'career/job-categories',
+            'career/requirements',
+            'career/competitions',
+            'career/roadmap',
+            'certifications',
           ],
         },
+      ],
+    },
+
+    // ═════════════════════════════════════════════
+    // 대 카테고리 5: 도구 & 계산기
+    // ═════════════════════════════════════════════
+    {
+      type: 'category',
+      label: '도구 & 계산기',
+      collapsed: true,
+      items: [
         {
           type: 'category',
           label: '밸류에이션 계산기',
           items: [
             'calculators/dcf',
+            'calculators/guided-dcf',
             'calculators/wacc',
             'calculators/graham-number',
             'calculators/dupont',
@@ -455,7 +526,6 @@ const sidebars = {
             'calculators/per-band',
             'calculators/football-field',
             'calculators/peg-screener',
-            'calculators/guided-dcf',
           ],
         },
         {
@@ -477,21 +547,6 @@ const sidebars = {
             'modeling-tools/professional-analysis',
           ],
         },
-        'tools/templates',
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 8: 인터랙티브
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '인터랙티브',
-      collapsed: true,
-      items: [
-        'finance-mbti',
-        'market-survivor',
-        'tools/tools-hub',
         {
           type: 'category',
           label: '분석 도구',
@@ -502,8 +557,21 @@ const sidebars = {
             'tools/portfolio-simulator',
             'tools/finance-timeline',
             'tools/progress-tracker',
+            'tools/stats',
           ],
         },
+        'tools/templates',
+      ],
+    },
+
+    // ═════════════════════════════════════════════
+    // 대 카테고리 6: 학습 자료
+    // ═════════════════════════════════════════════
+    {
+      type: 'category',
+      label: '학습 자료',
+      collapsed: true,
+      items: [
         {
           type: 'category',
           label: '학습 퀴즈',
@@ -518,101 +586,11 @@ const sidebars = {
             'quiz/industry-analysis',
           ],
         },
-      ],
-    },
-
-    // ─────────────────────────────────────────────
-    // 대 카테고리 9: 참고 자료
-    // ─────────────────────────────────────────────
-    {
-      type: 'category',
-      label: '참고 자료',
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: '자산별 분석',
-          items: [
-            {
-              type: 'category',
-              label: '부동산',
-              items: [
-                'assets/real-estate/intro',
-                'assets/real-estate/housing-types',
-                'assets/real-estate/registration',
-                'assets/real-estate/transactions',
-                'assets/real-estate/subscription',
-                'assets/real-estate/presale',
-                'assets/real-estate/mortgage',
-                'assets/real-estate/taxes',
-                'assets/real-estate/land',
-                'assets/real-estate/auction',
-                'assets/real-estate/development',
-                'assets/real-estate/rental-business',
-                'assets/real-estate/market-analysis',
-                'assets/real-estate/practical-guide',
-                'assets/real-estate/residential',
-                'assets/real-estate/commercial',
-              ],
-            },
-            {
-              type: 'category',
-              label: '암호화폐',
-              items: [
-                'assets/crypto/intro',
-                'assets/crypto/bitcoin',
-                'assets/crypto/ethereum',
-                'assets/crypto/altcoins',
-                'assets/crypto/defi',
-                'assets/crypto/layer2-scaling',
-                'assets/crypto/staking-yield',
-                'assets/crypto/nft-tokenization',
-                'assets/crypto/crypto-trading',
-                'assets/crypto/crypto-security',
-                'assets/crypto/crypto-regulation',
-                'assets/crypto/crypto-macro',
-              ],
-            },
-            {
-              type: 'category',
-              label: '채권',
-              items: [
-                'assets/bonds/intro',
-                'assets/bonds/government-bonds',
-                'assets/bonds/credit-analysis',
-                'assets/bonds/corporate-bonds',
-                'assets/bonds/bond-strategies',
-                'assets/bonds/bond-math',
-                'assets/bonds/repo-money-market',
-                'assets/bonds/inflation-linked',
-                'assets/bonds/emerging-market-bonds',
-                'assets/bonds/structured-credit',
-              ],
-            },
-            {
-              type: 'category',
-              label: '파생상품',
-              items: [
-                'assets/derivatives/options-basics',
-                'assets/derivatives/greeks',
-                'assets/derivatives/futures',
-                'assets/derivatives/structured-products',
-                'assets/derivatives/options-strategies',
-                'assets/derivatives/volatility',
-                'assets/derivatives/options-pricing',
-                'assets/derivatives/exotic-options',
-                'assets/derivatives/swaps',
-                'assets/derivatives/credit-derivatives',
-                'assets/derivatives/commodity-derivatives',
-                'assets/derivatives/risk-management-derivatives',
-              ],
-            },
-          ],
-        },
         {
           type: 'category',
           label: '투자 대가',
           items: [
+            'masters/overview',
             'masters/graham',
             'masters/buffett',
             'masters/lynch',
@@ -635,8 +613,15 @@ const sidebars = {
             'glossary/s-z',
           ],
         },
+        'finance-mbti',
+        'market-survivor',
       ],
     },
+
+    // ─────────────────────────────────────────────
+    // 커뮤니티
+    // ─────────────────────────────────────────────
+    'community',
   ],
 };
 

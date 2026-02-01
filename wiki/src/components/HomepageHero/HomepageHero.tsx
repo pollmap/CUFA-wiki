@@ -76,7 +76,7 @@ const features = [
 ];
 
 const stats = [
-  { value: '184+', label: '문서' },
+  { value: '259+', label: '문서' },
   { value: '15+', label: '인터랙티브 도구' },
   { value: '170+', label: '금융 기업' },
   { value: '50+', label: '금융 직무' },
