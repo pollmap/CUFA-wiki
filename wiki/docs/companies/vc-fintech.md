@@ -1,5 +1,4 @@
 ---
-id: companies-vc-fintech
 title: VC/PEF & 핀테크 기업 총람
 sidebar_label: VC/PEF & 핀테크
 description: 한국 VC/PEF(벤처캐피탈·사모펀드)와 핀테크 기업 디렉토리. MBK파트너스, 한앤컴퍼니, 토스, 카카오페이 등 주요 기업의 정보와 직무를 정리했습니다.

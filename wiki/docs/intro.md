@@ -20,17 +20,17 @@ description: 가치평가부터 금융권 취업까지, 금융 학습의 모든 
 
 은행, 증권, 보험, 여신금융(카드·캐피탈), 자산운용 등 5대 금융 산업군의 비즈니스 모델, 수익 구조, 규제 환경, 주요 지표를 심층 분석합니다. 각 산업이 실제로 어떻게 돌아가는지를 이해하면 투자 분석과 취업 준비 모두에 도움이 됩니다.
 
-- [은행 산업 가이드](./banking-industry/index) — 예대마진, BIS비율, NIM 등
-- [증권 산업 가이드](./securities-industry/index) — 브로커리지, IB, 자기매매 등
-- [보험 산업 가이드](./insurance-industry/index) — 언더라이팅, IFRS17, 보험계리 등
-- [여신금융 산업 가이드](./card-capital-industry/index) — 카드수수료, 리스, 할부금융 등
-- [자산운용 산업 가이드](./asset-management-industry/index) — AUM, 펀드 구조, 운용 전략 등
+- [은행 산업 가이드](./banking-industry) — 예대마진, BIS비율, NIM 등
+- [증권 산업 가이드](./securities-industry) — 브로커리지, IB, 자기매매 등
+- [보험 산업 가이드](./insurance-industry) — 언더라이팅, IFRS17, 보험계리 등
+- [여신금융 산업 가이드](./card-capital-industry) — 카드수수료, 리스, 할부금융 등
+- [자산운용 산업 가이드](./asset-management-industry) — AUM, 펀드 구조, 운용 전략 등
 
 ### 금융권 기업 총람
 
 한국 금융권 170개 이상의 기업을 시중은행·지방은행·인터넷은행·외국계은행, 대형·중견·중소 증권사, 생명·손해보험, 카드·캐피탈, 저축은행, 자산운용, VC/PEF, 핀테크, 정책금융·규제기관 등으로 분류하여 정리했습니다.
 
-- [기업 총람 개요](./companies/index) — 전체 카테고리 안내
+- [기업 총람 개요](./companies) — 전체 카테고리 안내
 - [은행](./companies/banks) · [증권사](./companies/securities) · [보험사](./companies/insurance) · [카드·캐피탈](./companies/cards-capital)
 - [저축은행·자산운용](./companies/savings-asset) · [VC·핀테크](./companies/vc-fintech) · [공공·인프라](./companies/public-infra)
 
@@ -38,7 +38,7 @@ description: 가치평가부터 금융권 취업까지, 금융 학습의 모든 
 
 15개 금융 섹터별 50개 이상의 직무를 구체적으로 소개하고, 학력·자격증·스펙 요건, 공모전·대회 정보, 현실적인 취업 로드맵을 제공합니다. 낙관도 비관도 아닌 팩트 기반의 정보를 지향합니다.
 
-- [취업 종합 가이드](./career/index) — 금융권 취업 전체 개요
+- [취업 종합 가이드](./career) — 금융권 취업 전체 개요
 - [직무 종류 및 특성](./career/job-categories) — 15개 섹터, 50+ 직무 요약표 + 상세 분석
 - [합격 요건 분석](./career/requirements) — 섹터별 합격 요건 비교표
 - [대회 & 포트폴리오](./career/competitions) — 42개+ 금융권 공모전 총정리
@@ -98,10 +98,10 @@ GICS 11대 섹터별 분석 프레임워크를 학습합니다. 각 산업마다
 **금융권 취업을 준비한다면**
 - [금융 성향 테스트](./finance-mbti)로 적성 파악 → [직무 종류](./career/job-categories)에서 관심 직무 확인
 - [합격 요건](./career/requirements)과 [자격증 가이드](./certifications)로 준비 사항 점검
-- [기업 총람](./companies/index)에서 목표 기업 리서치
+- [기업 총람](./companies)에서 목표 기업 리서치
 
 **금융 산업을 이해하고 싶다면**
-- 관심 산업 선택: [은행](./banking-industry/index) · [증권](./securities-industry/index) · [보험](./insurance-industry/index) · [여신금융](./card-capital-industry/index) · [자산운용](./asset-management-industry/index)
+- 관심 산업 선택: [은행](./banking-industry) · [증권](./securities-industry) · [보험](./insurance-industry) · [여신금융](./card-capital-industry) · [자산운용](./asset-management-industry)
 - 각 산업의 비즈니스 모델, 수익 구조, 핵심 지표를 파악한 후 해당 섹터 기업 분석으로 연결
 
 **매매 전략을 공부한다면**

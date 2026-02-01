@@ -1,5 +1,4 @@
 ---
-id: quant-strategies
 title: 퀀트 전략
 sidebar_label: 퀀트 전략
 description: 퀀트 전략의 핵심인 팩터 투자, 멀티팩터 모델, 백테스팅, 포트폴리오 구성법, 과최적화 방지까지 체계적으로 다룹니다.

@@ -1,5 +1,4 @@
 ---
-id: money-and-currency
 title: 화폐와 환율
 sidebar_label: 화폐 & 환율
 ---

@@ -1,5 +1,4 @@
 ---
-id: value-investing-strategies
 title: 가치투자 전략 심화
 sidebar_label: 가치투자 전략
 description: Deep Value, GARP, 품질투자, 배당투자 등 가치투자의 세부 전략과 한국시장 적용법을 심층적으로 다룹니다

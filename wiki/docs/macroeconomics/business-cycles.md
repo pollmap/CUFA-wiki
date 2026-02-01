@@ -1,5 +1,4 @@
 ---
-id: business-cycles
 title: 경기 순환과 투자 전략
 sidebar_label: 경기 순환 & 투자
 ---

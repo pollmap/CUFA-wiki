@@ -1,5 +1,4 @@
 ---
-id: securities-industry
 title: 증권 산업 완벽 가이드
 sidebar_label: 증권 산업
 description: 증권사의 비즈니스 모델, 수익구조, 주요 부서, 규제체계, 업계 트렌드를 체계적으로 정리한 가이드

@@ -1,5 +1,4 @@
 ---
-id: economic-indicators
 title: 경제 지표 완전 가이드
 sidebar_label: 경제 지표
 ---

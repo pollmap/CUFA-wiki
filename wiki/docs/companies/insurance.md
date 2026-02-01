@@ -1,5 +1,4 @@
 ---
-id: companies-insurance
 title: 보험업권 기업 총람
 sidebar_label: 보험사
 description: 한국 보험업권 전체 기업 디렉토리. 생명보험, 손해보험, 재보험사의 기업 정보, 특징, 계리·언더라이팅·자산운용 등 주요 직무를 정리했습니다.

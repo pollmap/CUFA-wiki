@@ -1,5 +1,4 @@
 ---
-id: central-banks
 title: 중앙은행과 통화정책
 sidebar_label: 중앙은행 & 통화정책
 ---

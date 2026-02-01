@@ -237,4 +237,4 @@ keywords: [하워드 막스, 오크트리, 시장사이클, 2차적 사고, 위�
 - [벤저민 그레이엄](/masters/graham) - 안전마진 개념
 - [워렌 버핏](/masters/buffett) - 역발상 투자
 - [레이 달리오](/masters/dalio) - 사이클 이론
-- [상대가치평가](/valuation/relative/intro) - 시장 평가 수준 파악
+- [상대가치평가](/valuation/relative/overview) - 시장 평가 수준 파악

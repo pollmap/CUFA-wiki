@@ -1,5 +1,4 @@
 ---
-id: companies-cards-capital
 title: 카드사 & 캐피탈 기업 총람
 sidebar_label: 카드사 & 캐피탈
 description: 한국 카드사와 캐피탈(여신전문금융) 기업 디렉토리. 8개 전업 카드사와 13개 캐피탈사의 기업 정보, 특징, 주요 직무를 정리했습니다.
