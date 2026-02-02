@@ -2,38 +2,24 @@ import React, { useEffect, useState } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-function useVisitorCount() {
-  const [total, setTotal] = useState(0);
-  const [today, setToday] = useState(0);
+const COUNT_API = 'https://countapi.mileshilliard.com/api/v1';
+const COUNT_KEY = 'value-alpha-pageviews';
+
+function usePageViews() {
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    try {
-      const now = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-      const stored = localStorage.getItem('va_visitor');
-      let data = stored ? JSON.parse(stored) : { total: 0, today: 0, date: now };
+    const counted = sessionStorage.getItem('va_counted');
+    const endpoint = counted ? 'get' : 'hit';
+    if (!counted) sessionStorage.setItem('va_counted', '1');
 
-      // Reset daily count if date changed
-      if (data.date !== now) {
-        data.today = 0;
-        data.date = now;
-      }
-
-      // Increment only once per session
-      if (!sessionStorage.getItem('va_counted')) {
-        data.total += 1;
-        data.today += 1;
-        sessionStorage.setItem('va_counted', '1');
-      }
-
-      localStorage.setItem('va_visitor', JSON.stringify(data));
-      setTotal(data.total);
-      setToday(data.today);
-    } catch {
-      // localStorage unavailable
-    }
+    fetch(`${COUNT_API}/${endpoint}/${COUNT_KEY}`)
+      .then((r) => r.json())
+      .then((d) => setCount(d.value ?? d.count ?? 0))
+      .catch(() => {});
   }, []);
 
-  return { total, today };
+  return count;
 }
 
 const features = [
@@ -84,7 +70,7 @@ const stats = [
 
 export default function HomepageHero(): JSX.Element {
   const base = useBaseUrl('/');
-  const { total, today } = useVisitorCount();
+  const pageViews = usePageViews();
   const resolve = (path: string) => {
     const b = base.endsWith('/') ? base.slice(0, -1) : base;
     return `${b}${path}`;
@@ -124,25 +110,6 @@ export default function HomepageHero(): JSX.Element {
             </div>
           ))}
         </div>
-        <BrowserOnly>
-          {() => (total > 0 ? (
-            <div
-              style={{
-                marginTop: 20,
-                padding: '8px 20px',
-                background: 'rgba(255,255,255,0.15)',
-                borderRadius: 20,
-                display: 'inline-flex',
-                gap: 16,
-                fontSize: 13,
-              }}
-            >
-              <span>Total <strong>{total.toLocaleString()}</strong></span>
-              <span style={{ opacity: 0.5 }}>|</span>
-              <span>Today <strong>{today.toLocaleString()}</strong></span>
-            </div>
-          ) : null)}
-        </BrowserOnly>
       </div>
 
       {/* Feature Cards */}
@@ -240,6 +207,17 @@ export default function HomepageHero(): JSX.Element {
           투자 시뮬레이터
         </a>
       </div>
+
+      {/* Page Views */}
+      <BrowserOnly>
+        {() =>
+          pageViews != null ? (
+            <div style={{ textAlign: 'center', fontSize: 13, color: 'var(--ifm-color-emphasis-500)' }}>
+              Total Views: {pageViews.toLocaleString()}
+            </div>
+          ) : null
+        }
+      </BrowserOnly>
     </div>
   );
 }
