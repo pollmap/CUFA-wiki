@@ -1011,7 +1011,7 @@ a:hover {
   font-size: clamp(48px, 10vw, 96px);
   font-weight: 800;
   margin: 0 0 16px;
-  color: #fff;
+  color: #fff !important;
   letter-spacing: -0.03em;
   line-height: 0.95;
 }
