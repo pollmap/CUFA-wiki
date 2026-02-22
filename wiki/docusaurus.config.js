@@ -11,8 +11,8 @@ module.exports = async function createConfigAsync() {
     tagline: '투자분석부터 금융권 취업까지, 금융 학습의 모든 것',
     favicon: 'img/favicon.ico',
 
-    url: process.env.SITE_URL || 'https://cufa-wiki.vercel.app',
-    baseUrl: process.env.BASE_URL || '/',
+    url: process.env.SITE_URL || 'https://pollmap.github.io',
+    baseUrl: process.env.BASE_URL || '/Value_Alpha/',
 
     organizationName: 'pollmap',
     projectName: 'Value_Alpha',
