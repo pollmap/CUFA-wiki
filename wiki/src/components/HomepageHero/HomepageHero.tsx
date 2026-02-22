@@ -72,7 +72,7 @@ export default function HomepageHero(): JSX.Element {
               key={s.label}
               className="va-hero__stat"
               style={{
-                borderRight: i < stats.length - 1 ? '1px solid #333' : 'none',
+                borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
               }}
             >
               <div className="va-hero__stat-value">{s.value}</div>

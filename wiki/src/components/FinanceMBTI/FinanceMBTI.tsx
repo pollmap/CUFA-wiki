@@ -509,14 +509,14 @@ const FinanceMBTI: React.FC = () => {
     progressBarOuter: {
       width: '100%',
       height: 8,
-      backgroundColor: '#e5e7eb',
+      backgroundColor: 'rgba(255,255,255,0.08)',
       borderRadius: 4,
       marginBottom: 8,
       overflow: 'hidden',
     },
     progressBarInner: {
       height: '100%',
-      backgroundColor: '#2563eb',
+      backgroundColor: '#60a5fa',
       borderRadius: 4,
       transition: 'width 0.4s ease',
       width: `${progress}%`,
@@ -528,18 +528,18 @@ const FinanceMBTI: React.FC = () => {
       marginBottom: 24,
     },
     card: {
-      background: '#ffffff',
+      background: 'rgba(255,255,255,0.06)',
       borderRadius: 16,
       padding: '32px 28px',
-      boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-      border: '1px solid #e5e7eb',
+      boxShadow: 'none',
+      border: '1px solid rgba(255,255,255,0.08)',
       opacity: fadeIn ? 1 : 0,
       transform: fadeIn ? 'translateY(0)' : 'translateY(12px)',
       transition: 'opacity 0.3s ease, transform 0.3s ease',
     },
     questionNumber: {
       display: 'inline-block',
-      background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+      background: 'rgba(255,255,255,0.1)',
       color: '#fff',
       borderRadius: 20,
       padding: '4px 14px',
@@ -550,7 +550,7 @@ const FinanceMBTI: React.FC = () => {
     questionText: {
       fontSize: 20,
       fontWeight: 700,
-      color: '#111827',
+      color: '#ffffff',
       lineHeight: 1.5,
       marginBottom: 28,
       marginTop: 0,
@@ -560,26 +560,26 @@ const FinanceMBTI: React.FC = () => {
       width: '100%',
       padding: '16px 20px',
       marginBottom: 12,
-      border: '2px solid #e5e7eb',
+      border: '2px solid rgba(255,255,255,0.08)',
       borderRadius: 12,
-      backgroundColor: '#fafafa',
+      backgroundColor: 'rgba(255,255,255,0.04)',
       cursor: 'pointer',
       textAlign: 'left' as const,
       fontSize: 16,
       lineHeight: 1.5,
-      color: '#374151',
+      color: '#a0a0a0',
       fontWeight: 500,
       transition: 'all 0.2s ease',
     },
     choiceButtonHoverA: {
-      borderColor: '#2563eb',
-      backgroundColor: '#eff6ff',
-      color: '#1d4ed8',
+      borderColor: '#60a5fa',
+      backgroundColor: 'rgba(96,165,250,0.08)',
+      color: '#60a5fa',
     },
     choiceButtonHoverB: {
       borderColor: '#7c3aed',
-      backgroundColor: '#f5f3ff',
-      color: '#6d28d9',
+      backgroundColor: 'rgba(124,106,247,0.08)',
+      color: '#a78bfa',
     },
     choiceLabel: {
       display: 'inline-block',
@@ -595,7 +595,7 @@ const FinanceMBTI: React.FC = () => {
     },
     typeCode: {
       display: 'inline-block',
-      background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+      background: 'rgba(255,255,255,0.1)',
       color: '#fff',
       borderRadius: 12,
       padding: '8px 24px',
@@ -607,24 +607,24 @@ const FinanceMBTI: React.FC = () => {
     typeName: {
       fontSize: 26,
       fontWeight: 800,
-      color: '#111827',
+      color: '#ffffff',
       marginTop: 12,
       marginBottom: 8,
     },
     typeDesc: {
       fontSize: 16,
-      color: '#4b5563',
+      color: '#a0a0a0',
       lineHeight: 1.7,
       marginBottom: 0,
     },
     sectionTitle: {
       fontSize: 18,
       fontWeight: 700,
-      color: '#111827',
+      color: '#ffffff',
       marginBottom: 12,
       marginTop: 28,
       paddingBottom: 8,
-      borderBottom: '2px solid #e5e7eb',
+      borderBottom: '2px solid rgba(255,255,255,0.08)',
     },
     tag: {
       display: 'inline-block',
@@ -636,29 +636,29 @@ const FinanceMBTI: React.FC = () => {
       marginBottom: 8,
     },
     sectorTag: {
-      backgroundColor: '#eff6ff',
-      color: '#2563eb',
+      backgroundColor: 'rgba(96,165,250,0.08)',
+      color: '#60a5fa',
       textDecoration: 'none',
     },
     certTag: {
-      backgroundColor: '#f5f3ff',
-      color: '#7c3aed',
+      backgroundColor: 'rgba(124,106,247,0.08)',
+      color: '#a78bfa',
     },
     companyTag: {
-      backgroundColor: '#f0fdf4',
-      color: '#16a34a',
+      backgroundColor: 'rgba(16,185,129,0.08)',
+      color: '#10b981',
     },
     jobCard: {
-      background: '#f9fafb',
+      background: 'rgba(255,255,255,0.04)',
       borderRadius: 10,
       padding: '14px 18px',
       marginBottom: 10,
-      border: '1px solid #e5e7eb',
+      border: '1px solid rgba(255,255,255,0.08)',
     },
     jobTitle: {
       fontWeight: 700,
       fontSize: 15,
-      color: '#2563eb',
+      color: '#60a5fa',
       marginBottom: 4,
     },
     jobDesc: {
@@ -673,8 +673,8 @@ const FinanceMBTI: React.FC = () => {
       marginTop: 32,
       border: 'none',
       borderRadius: 12,
-      background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
-      color: '#fff',
+      background: '#ffffff',
+      color: '#000000',
       fontSize: 17,
       fontWeight: 700,
       cursor: 'pointer',
@@ -683,9 +683,9 @@ const FinanceMBTI: React.FC = () => {
     linkRow: {
       marginTop: 24,
       padding: '16px 20px',
-      background: '#f9fafb',
+      background: 'rgba(255,255,255,0.04)',
       borderRadius: 12,
-      border: '1px solid #e5e7eb',
+      border: '1px solid rgba(255,255,255,0.08)',
     },
     linkRowTitle: {
       fontSize: 14,
@@ -696,7 +696,7 @@ const FinanceMBTI: React.FC = () => {
     },
     link: {
       display: 'inline-block',
-      color: '#2563eb',
+      color: '#60a5fa',
       fontSize: 14,
       fontWeight: 500,
       marginRight: 16,
@@ -717,7 +717,7 @@ const FinanceMBTI: React.FC = () => {
     dimBarOuter: {
       flex: 1,
       height: 10,
-      backgroundColor: '#e5e7eb',
+      backgroundColor: 'rgba(255,255,255,0.08)',
       borderRadius: 5,
       margin: '0 10px',
       overflow: 'hidden',
@@ -798,7 +798,7 @@ const FinanceMBTI: React.FC = () => {
               <span
                 style={{
                   ...styles.dimLabel,
-                  color: isLeft ? '#2563eb' : '#94a3b8',
+                  color: isLeft ? '#60a5fa' : '#555555',
                   fontWeight: isLeft ? 700 : 400,
                   fontSize: 13,
                   width: 80,
@@ -812,7 +812,7 @@ const FinanceMBTI: React.FC = () => {
                   style={{
                     height: '100%',
                     width: `${leftPct}%`,
-                    background: '#2563eb',
+                    background: '#60a5fa',
                     borderRadius: '5px 0 0 5px',
                     transition: 'width 0.6s ease',
                   }}
@@ -821,7 +821,7 @@ const FinanceMBTI: React.FC = () => {
                   style={{
                     height: '100%',
                     width: `${rightPct}%`,
-                    background: '#7c3aed',
+                    background: '#a78bfa',
                     borderRadius: '0 5px 5px 0',
                     transition: 'width 0.6s ease',
                   }}
@@ -830,7 +830,7 @@ const FinanceMBTI: React.FC = () => {
               <span
                 style={{
                   ...styles.dimLabel,
-                  color: !isLeft ? '#7c3aed' : '#94a3b8',
+                  color: !isLeft ? '#a78bfa' : '#555555',
                   fontWeight: !isLeft ? 700 : 400,
                   fontSize: 13,
                   width: 80,
@@ -953,28 +953,28 @@ const ChoiceButton: React.FC<ChoiceButtonProps> = ({ label, text, onClick, varia
     width: '100%',
     padding: '16px 20px',
     marginBottom: 12,
-    border: '2px solid #e5e7eb',
+    border: '2px solid rgba(255,255,255,0.08)',
     borderRadius: 12,
-    backgroundColor: '#fafafa',
+    backgroundColor: 'rgba(255,255,255,0.04)',
     cursor: 'pointer',
     textAlign: 'left',
     fontSize: 16,
     lineHeight: 1.5,
-    color: '#374151',
+    color: '#a0a0a0',
     fontWeight: 500,
     transition: 'all 0.2s ease',
   };
 
   const hoverStyleA: React.CSSProperties = {
-    borderColor: '#2563eb',
-    backgroundColor: '#eff6ff',
-    color: '#1d4ed8',
+    borderColor: '#60a5fa',
+    backgroundColor: 'rgba(96,165,250,0.08)',
+    color: '#60a5fa',
   };
 
   const hoverStyleB: React.CSSProperties = {
     borderColor: '#7c3aed',
-    backgroundColor: '#f5f3ff',
-    color: '#6d28d9',
+    backgroundColor: 'rgba(124,106,247,0.08)',
+    color: '#a78bfa',
   };
 
   const hoverStyle = variant === 'A' ? hoverStyleA : hoverStyleB;
@@ -993,7 +993,7 @@ const ChoiceButton: React.FC<ChoiceButtonProps> = ({ label, text, onClick, varia
           fontWeight: 700,
           marginRight: 8,
           fontSize: 14,
-          color: hovered ? (variant === 'A' ? '#2563eb' : '#7c3aed') : '#9ca3af',
+          color: hovered ? (variant === 'A' ? '#60a5fa' : '#a78bfa') : '#555555',
         }}
       >
         {label}.

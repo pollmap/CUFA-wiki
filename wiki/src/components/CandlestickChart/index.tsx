@@ -73,10 +73,10 @@ const CandlestickChartInner: React.FC<CandlestickChartProps> = ({
           height: `${height}px`,
           borderRadius: '8px',
           overflow: 'hidden',
-          border: '1px solid var(--ifm-color-emphasis-300)',
+          border: '1px solid rgba(255,255,255,0.08)',
         }}
       />
-      <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: '0.8rem', color: '#a0a0a0', marginTop: '0.5rem' }}>
         * 차트 데이터는 TradingView 제공. 종목 검색 및 지표 추가가 가능합니다.
       </p>
     </div>

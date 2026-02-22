@@ -65,10 +65,10 @@ const styles = {
     padding: '0.625rem 0.5rem',
     fontSize: '0.875rem',
     fontWeight: active ? '600' : '400',
-    color: active ? '#1d4ed8' : '#6b7280',
-    backgroundColor: active ? '#eff6ff' : 'transparent',
+    color: active ? '#60a5fa' : '#6b7280',
+    backgroundColor: active ? 'rgba(96,165,250,0.08)' : 'transparent',
     border: 'none',
-    borderBottom: active ? '2px solid #2563eb' : '2px solid transparent',
+    borderBottom: active ? '2px solid #60a5fa' : '2px solid transparent',
     cursor: 'pointer',
     transition: 'all 0.15s ease',
     textAlign: 'center' as const,
@@ -87,14 +87,14 @@ const styles = {
   input: {
     width: '100%',
     padding: '0.5rem',
-    border: '1px solid #d1d5db',
+    border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: '0.5rem',
     fontSize: '0.875rem',
     boxSizing: 'border-box' as const,
   },
   hint: {
     fontSize: '0.75rem',
-    color: '#9ca3af',
+    color: '#6b7280',
     marginTop: '0.125rem',
   },
   card: (gradient: string): React.CSSProperties => ({
@@ -114,13 +114,13 @@ const styles = {
   },
   thCell: {
     padding: '0.5rem',
-    border: '1px solid #e5e7eb',
+    border: '1px solid rgba(255,255,255,0.08)',
     fontSize: '0.8125rem',
     fontWeight: '600' as const,
   },
   tdCell: {
     padding: '0.5rem',
-    border: '1px solid #e5e7eb',
+    border: '1px solid rgba(255,255,255,0.08)',
     textAlign: 'center' as const,
     fontSize: '0.8125rem',
   },
@@ -129,8 +129,8 @@ const styles = {
     alignItems: 'center',
     gap: '0.5rem',
     padding: '1rem',
-    backgroundColor: '#fef2f2',
-    border: '1px solid #fecaca',
+    backgroundColor: 'rgba(239,68,68,0.08)',
+    border: '1px solid rgba(239,68,68,0.2)',
     borderRadius: '0.5rem',
     marginBottom: '1.5rem',
   },
@@ -415,10 +415,10 @@ export const DDMCalculator: React.FC = () => {
           defaultValue=""
           style={{
             padding: '0.5rem 0.75rem',
-            border: '1px solid #d1d5db',
+            border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '0.5rem',
             fontSize: '0.875rem',
-            backgroundColor: 'white',
+            backgroundColor: 'rgba(255,255,255,0.06)',
             cursor: 'pointer',
           }}
         >
@@ -432,7 +432,7 @@ export const DDMCalculator: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', borderBottom: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: '1.5rem' }}>
         <button style={styles.tab(activeTab === 'gordon')} onClick={() => setActiveTab('gordon')}>
           Gordon Growth (단일 성장률)
         </button>
@@ -452,25 +452,25 @@ export const DDMCalculator: React.FC = () => {
       </div>
 
       {/* Formula display */}
-      <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>
+      <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>
         <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.375rem', marginTop: 0 }}>적용 공식</h4>
         {activeTab === 'gordon' && (
-          <code style={{ display: 'block', fontSize: '0.8125rem', color: '#475569' }}>
+          <code style={{ display: 'block', fontSize: '0.8125rem', color: '#a0a0a0' }}>
             P = DPS x (1 + g) / (Ke - g) = {gordon.dps.toLocaleString()} x (1 + {gordon.g}%) / ({gordon.ke}% - {gordon.g}%)
           </code>
         )}
         {activeTab === 'twostage' && (
           <>
-            <code style={{ display: 'block', fontSize: '0.8125rem', color: '#475569' }}>
+            <code style={{ display: 'block', fontSize: '0.8125rem', color: '#a0a0a0' }}>
               P = SUM[ DPS x (1+g1)^t / (1+Ke)^t ] + TV_n / (1+Ke)^n
             </code>
-            <code style={{ display: 'block', fontSize: '0.8125rem', color: '#475569', marginTop: '0.25rem' }}>
+            <code style={{ display: 'block', fontSize: '0.8125rem', color: '#a0a0a0', marginTop: '0.25rem' }}>
               TV_n = DPS_n x (1+g2) / (Ke - g2)
             </code>
           </>
         )}
         {activeTab === 'hmodel' && (
-          <code style={{ display: 'block', fontSize: '0.8125rem', color: '#475569' }}>
+          <code style={{ display: 'block', fontSize: '0.8125rem', color: '#a0a0a0' }}>
             P = DPS x (1+gn) / (Ke-gn) + DPS x H x (ga-gn) / (Ke-gn)
           </code>
         )}
@@ -480,7 +480,7 @@ export const DDMCalculator: React.FC = () => {
       {validationError && (
         <div style={styles.warningBox}>
           <span>&#9888;&#65039;</span>
-          <span style={{ color: '#b91c1c', fontSize: '0.875rem' }}>{validationError}</span>
+          <span style={{ color: '#ef4444', fontSize: '0.875rem' }}>{validationError}</span>
         </div>
       )}
 
@@ -489,22 +489,22 @@ export const DDMCalculator: React.FC = () => {
         <>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
             {/* 내재가치 */}
-            <div style={styles.card('linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)')}>
-              <p style={styles.cardLabel('#15803d')}>내재가치</p>
+            <div style={styles.card('rgba(16,185,129,0.08)')}>
+              <p style={styles.cardLabel('#10b981')}>내재가치</p>
               <p style={styles.cardValue}>{formatWon(activeResult.intrinsic)}</p>
             </div>
 
             {/* 배당수익률 */}
-            <div style={styles.card('linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)')}>
-              <p style={styles.cardLabel('#1d4ed8')}>배당수익률</p>
+            <div style={styles.card('rgba(96,165,250,0.08)')}>
+              <p style={styles.cardLabel('#60a5fa')}>배당수익률</p>
               <p style={styles.cardValue}>{(activeResult.dividendYield * 100).toFixed(2)}%</p>
               <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>DPS / 내재가치</p>
             </div>
 
             {/* TV 비중 (only for two-stage) */}
             {activeTab === 'twostage' && twoStageResult && (
-              <div style={styles.card('linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)')}>
-                <p style={styles.cardLabel('#b45309')}>TV 비중</p>
+              <div style={styles.card('rgba(245,158,11,0.08)')}>
+                <p style={styles.cardLabel('#f59e0b')}>TV 비중</p>
                 <p style={styles.cardValue}>{(twoStageResult.tvWeight * 100).toFixed(1)}%</p>
                 <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>
                   PV(TV) / 총 내재가치
@@ -515,8 +515,8 @@ export const DDMCalculator: React.FC = () => {
             {/* H-Model breakdown */}
             {activeTab === 'hmodel' && hModelResult && (
               <>
-                <div style={styles.card('linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)')}>
-                  <p style={styles.cardLabel('#7c3aed')}>안정가치 비중</p>
+                <div style={styles.card('rgba(124,106,247,0.08)')}>
+                  <p style={styles.cardLabel('#7c6af7')}>안정가치 비중</p>
                   <p style={styles.cardValue}>
                     {((hModelResult.stableComponent / hModelResult.intrinsic) * 100).toFixed(1)}%
                   </p>
@@ -535,31 +535,31 @@ export const DDMCalculator: React.FC = () => {
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                   <thead>
-                    <tr style={{ backgroundColor: '#f3f4f6' }}>
-                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'left', borderBottom: '1px solid #e5e7eb' }}>항목</th>
-                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>배당금</th>
-                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>현재가치</th>
+                    <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'left', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>항목</th>
+                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>배당금</th>
+                      <th style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>현재가치</th>
                     </tr>
                   </thead>
                   <tbody>
                     {twoStageResult.stage1Dividends.map(d => (
                       <tr key={d.year}>
-                        <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}>Year {d.year} (g1={twoStage.g1}%)</td>
-                        <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>{formatWon(d.dividend)}</td>
-                        <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>{formatWon(d.pv)}</td>
+                        <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>Year {d.year} (g1={twoStage.g1}%)</td>
+                        <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{formatWon(d.dividend)}</td>
+                        <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{formatWon(d.pv)}</td>
                       </tr>
                     ))}
-                    <tr style={{ backgroundColor: '#f9fafb' }}>
-                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}>1단계 PV 합계</td>
-                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}></td>
-                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '600' }}>{formatWon(twoStageResult.pvStage1)}</td>
+                    <tr style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}>
+                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>1단계 PV 합계</td>
+                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}></td>
+                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '600' }}>{formatWon(twoStageResult.pvStage1)}</td>
                     </tr>
                     <tr>
-                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}>터미널 가치 (TV)</td>
-                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>{formatWon(twoStageResult.terminalValue)}</td>
-                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>{formatWon(twoStageResult.pvTerminal)}</td>
+                      <td style={{ padding: '0.375rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>터미널 가치 (TV)</td>
+                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{formatWon(twoStageResult.terminalValue)}</td>
+                      <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{formatWon(twoStageResult.pvTerminal)}</td>
                     </tr>
-                    <tr style={{ fontWeight: 'bold', backgroundColor: '#f0fdf4' }}>
+                    <tr style={{ fontWeight: 'bold', backgroundColor: 'rgba(16,185,129,0.08)' }}>
                       <td style={{ padding: '0.375rem 0.75rem' }}>총 내재가치</td>
                       <td style={{ padding: '0.375rem 0.75rem' }}></td>
                       <td style={{ padding: '0.375rem 0.75rem', textAlign: 'right' }}>{formatWon(twoStageResult.intrinsic)}</td>
@@ -577,16 +577,16 @@ export const DDMCalculator: React.FC = () => {
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <tbody>
                   <tr>
-                    <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}>안정 성장 구성요소</td>
-                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>DPS x (1+gn) / (Ke-gn)</td>
-                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500' }}>{formatWon(hModelResult.stableComponent)}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>안정 성장 구성요소</td>
+                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>DPS x (1+gn) / (Ke-gn)</td>
+                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500' }}>{formatWon(hModelResult.stableComponent)}</td>
                   </tr>
                   <tr>
-                    <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb' }}>성장 프리미엄</td>
-                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>DPS x H x (ga-gn) / (Ke-gn)</td>
-                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500' }}>{formatWon(hModelResult.growthPremium)}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>성장 프리미엄</td>
+                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>DPS x H x (ga-gn) / (Ke-gn)</td>
+                    <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500' }}>{formatWon(hModelResult.growthPremium)}</td>
                   </tr>
-                  <tr style={{ fontWeight: 'bold', backgroundColor: '#f0fdf4' }}>
+                  <tr style={{ fontWeight: 'bold', backgroundColor: 'rgba(16,185,129,0.08)' }}>
                     <td style={{ padding: '0.5rem 0.75rem' }}>총 내재가치</td>
                     <td style={{ padding: '0.5rem 0.75rem' }}></td>
                     <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right' }}>{formatWon(hModelResult.intrinsic)}</td>
@@ -603,9 +603,9 @@ export const DDMCalculator: React.FC = () => {
               요구수익률(Ke)과 성장률(g) 변화에 따른 내재가치 (원) &mdash; Gordon Growth 기준
             </p>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ minWidth: '100%', borderCollapse: 'collapse', border: '1px solid #e5e7eb' }}>
+              <table style={{ minWidth: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <thead>
-                  <tr style={{ backgroundColor: '#f3f4f6' }}>
+                  <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                     <th style={{ ...styles.thCell, textAlign: 'left' }}>Ke \ g</th>
                     {sensitivityData.gValues.map(g => (
                       <th key={g} style={styles.thCell}>{g.toFixed(1)}%</th>
@@ -616,7 +616,7 @@ export const DDMCalculator: React.FC = () => {
                   {sensitivityData.rows.map((row, ri) => {
                     const isBaseRow = row.ke === activeKe;
                     return (
-                      <tr key={row.ke} style={{ backgroundColor: isBaseRow ? '#eff6ff' : 'transparent' }}>
+                      <tr key={row.ke} style={{ backgroundColor: isBaseRow ? 'rgba(96,165,250,0.08)' : 'transparent' }}>
                         <td style={{ ...styles.tdCell, textAlign: 'left', fontWeight: '500' }}>{row.ke.toFixed(1)}%</td>
                         {row.cells.map((cell, ci) => {
                           const isBaseCell = isBaseRow && sensitivityData.gValues[ci] === activeG;
@@ -625,7 +625,7 @@ export const DDMCalculator: React.FC = () => {
                               key={ci}
                               style={{
                                 ...styles.tdCell,
-                                backgroundColor: isBaseCell ? '#dbeafe' : 'transparent',
+                                backgroundColor: isBaseCell ? 'rgba(96,165,250,0.12)' : 'transparent',
                                 fontWeight: isBaseCell ? 'bold' : 'normal',
                               }}
                             >
@@ -648,9 +648,9 @@ export const DDMCalculator: React.FC = () => {
               향후 10년간 예상 주당 배당금 (DPS) 추이
             </p>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #e5e7eb' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <thead>
-                  <tr style={{ backgroundColor: '#f3f4f6' }}>
+                  <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                     <th style={{ ...styles.thCell, textAlign: 'left' }}>연도</th>
                     <th style={{ ...styles.thCell, textAlign: 'left' }}>현재</th>
                     {growthSimulation.map(row => (

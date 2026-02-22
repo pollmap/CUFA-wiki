@@ -231,9 +231,9 @@ module.exports = async function createConfigAsync() {
           additionalLanguages: ['python', 'bash', 'json'],
         },
         colorMode: {
-          defaultMode: 'light',
-          disableSwitch: false,
-          respectPrefersColorScheme: true,
+          defaultMode: 'dark',
+          disableSwitch: true,
+          respectPrefersColorScheme: false,
         },
       }),
   };

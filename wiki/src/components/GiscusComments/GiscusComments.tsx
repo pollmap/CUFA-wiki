@@ -75,7 +75,7 @@ export default function GiscusComments(): JSX.Element {
           style={{
             padding: '6px 14px',
             borderRadius: 6,
-            border: '1px solid var(--ifm-color-emphasis-300)',
+            border: '1px solid rgba(255,255,255,0.08)',
             background: filter === 'all' ? 'var(--ifm-color-primary)' : 'transparent',
             color: filter === 'all' ? '#fff' : 'inherit',
             cursor: 'pointer',
@@ -92,7 +92,7 @@ export default function GiscusComments(): JSX.Element {
             style={{
               padding: '6px 14px',
               borderRadius: 6,
-              border: '1px solid var(--ifm-color-emphasis-300)',
+              border: '1px solid rgba(255,255,255,0.08)',
               background: filter === c.key ? 'var(--ifm-color-primary)' : 'transparent',
               color: filter === c.key ? '#fff' : 'inherit',
               cursor: 'pointer',
@@ -117,7 +117,7 @@ export default function GiscusComments(): JSX.Element {
               padding: '8px 16px',
               borderRadius: 8,
               border: '2px solid var(--ifm-color-primary)',
-              color: 'var(--ifm-color-primary)',
+              color: '#ffffff',
               textDecoration: 'none',
               fontSize: 13,
               fontWeight: 700,
@@ -166,13 +166,13 @@ export default function GiscusComments(): JSX.Element {
                 display: 'block',
                 padding: '14px 16px',
                 borderRadius: 8,
-                border: '1px solid var(--ifm-color-emphasis-200)',
+                border: '1px solid rgba(255,255,255,0.08)',
                 textDecoration: 'none',
                 color: 'inherit',
                 transition: 'background 0.15s',
               }}
               onMouseOver={(e) => {
-                (e.currentTarget as HTMLElement).style.background = 'var(--ifm-color-emphasis-100)';
+                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)';
               }}
               onMouseOut={(e) => {
                 (e.currentTarget as HTMLElement).style.background = 'transparent';

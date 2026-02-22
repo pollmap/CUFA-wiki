@@ -69,47 +69,47 @@ export const WACCCalculator: React.FC = () => {
         {/* 입력 섹션 */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {/* CAPM 입력 */}
-          <div style={{ backgroundColor: '#eff6ff', padding: '1rem', borderRadius: '0.5rem' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#1e40af', marginBottom: '0.75rem' }}>
+          <div style={{ backgroundColor: 'rgba(96,165,250,0.08)', padding: '1rem', borderRadius: '0.5rem' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#60a5fa', marginBottom: '0.75rem' }}>
               자기자본비용 (CAPM)
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#1e40af', marginBottom: '0.25rem' }}>무위험이자율 (%)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#60a5fa', marginBottom: '0.25rem' }}>무위험이자율 (%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={inputs.riskFreeRate}
                   onChange={(e) => handleChange('riskFreeRate', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #bfdbfe', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(96,165,250,0.2)', borderRadius: '0.5rem' }}
                 />
-                <p style={{ fontSize: '0.625rem', color: '#3b82f6', marginTop: '0.25rem' }}>국고채 10년물</p>
+                <p style={{ fontSize: '0.625rem', color: '#60a5fa', marginTop: '0.25rem' }}>국고채 10년물</p>
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#1e40af', marginBottom: '0.25rem' }}>베타 (β)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#60a5fa', marginBottom: '0.25rem' }}>베타 (β)</label>
                 <input
                   type="number"
                   step="0.01"
                   value={inputs.beta}
                   onChange={(e) => handleChange('beta', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #bfdbfe', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(96,165,250,0.2)', borderRadius: '0.5rem' }}
                 />
-                <p style={{ fontSize: '0.625rem', color: '#3b82f6', marginTop: '0.25rem' }}>시장 대비 변동성</p>
+                <p style={{ fontSize: '0.625rem', color: '#60a5fa', marginTop: '0.25rem' }}>시장 대비 변동성</p>
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#1e40af', marginBottom: '0.25rem' }}>ERP (%)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#60a5fa', marginBottom: '0.25rem' }}>ERP (%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={inputs.marketRiskPremium}
                   onChange={(e) => handleChange('marketRiskPremium', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #bfdbfe', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(96,165,250,0.2)', borderRadius: '0.5rem' }}
                 />
-                <p style={{ fontSize: '0.625rem', color: '#3b82f6', marginTop: '0.25rem' }}>시장위험프리미엄</p>
+                <p style={{ fontSize: '0.625rem', color: '#60a5fa', marginTop: '0.25rem' }}>시장위험프리미엄</p>
               </div>
             </div>
-            <div style={{ marginTop: '0.75rem', padding: '0.5rem', backgroundColor: 'white', borderRadius: '0.25rem', border: '1px solid #bfdbfe' }}>
-              <span style={{ fontSize: '0.875rem', color: '#1e40af' }}>
+            <div style={{ marginTop: '0.75rem', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', border: '1px solid rgba(96,165,250,0.2)' }}>
+              <span style={{ fontSize: '0.875rem', color: '#60a5fa' }}>
                 Re = {inputs.riskFreeRate}% + {inputs.beta} × {inputs.marketRiskPremium}% =
                 <strong style={{ marginLeft: '0.25rem' }}>{result.costOfEquity.toFixed(2)}%</strong>
               </span>
@@ -117,32 +117,32 @@ export const WACCCalculator: React.FC = () => {
           </div>
 
           {/* 부채비용 입력 */}
-          <div style={{ backgroundColor: '#fffbeb', padding: '1rem', borderRadius: '0.5rem' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#92400e', marginBottom: '0.75rem' }}>부채비용</h3>
+          <div style={{ backgroundColor: 'rgba(245,158,11,0.08)', padding: '1rem', borderRadius: '0.5rem' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#f59e0b', marginBottom: '0.75rem' }}>부채비용</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#92400e', marginBottom: '0.25rem' }}>세전 부채비용 (%)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#f59e0b', marginBottom: '0.25rem' }}>세전 부채비용 (%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={inputs.costOfDebt}
                   onChange={(e) => handleChange('costOfDebt', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #fcd34d', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(245,158,11,0.2)', borderRadius: '0.5rem' }}
                 />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#92400e', marginBottom: '0.25rem' }}>법인세율 (%)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#f59e0b', marginBottom: '0.25rem' }}>법인세율 (%)</label>
                 <input
                   type="number"
                   step="1"
                   value={inputs.taxRate}
                   onChange={(e) => handleChange('taxRate', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #fcd34d', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(245,158,11,0.2)', borderRadius: '0.5rem' }}
                 />
               </div>
             </div>
-            <div style={{ marginTop: '0.75rem', padding: '0.5rem', backgroundColor: 'white', borderRadius: '0.25rem', border: '1px solid #fcd34d' }}>
-              <span style={{ fontSize: '0.875rem', color: '#92400e' }}>
+            <div style={{ marginTop: '0.75rem', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', border: '1px solid rgba(245,158,11,0.2)' }}>
+              <span style={{ fontSize: '0.875rem', color: '#f59e0b' }}>
                 Rd(세후) = {inputs.costOfDebt}% × (1 - {inputs.taxRate}%) =
                 <strong style={{ marginLeft: '0.25rem' }}>{result.afterTaxCostOfDebt.toFixed(2)}%</strong>
               </span>
@@ -150,25 +150,25 @@ export const WACCCalculator: React.FC = () => {
           </div>
 
           {/* 자본구조 입력 */}
-          <div style={{ backgroundColor: '#f3f4f6', padding: '1rem', borderRadius: '0.5rem' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#374151', marginBottom: '0.75rem' }}>자본구조</h3>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.04)', padding: '1rem', borderRadius: '0.5rem' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#a0a0a0', marginBottom: '0.75rem' }}>자본구조</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#374151', marginBottom: '0.25rem' }}>시가총액 (억원)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#a0a0a0', marginBottom: '0.25rem' }}>시가총액 (억원)</label>
                 <input
                   type="number"
                   value={inputs.equityValue}
                   onChange={(e) => handleChange('equityValue', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
                 />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#374151', marginBottom: '0.25rem' }}>이자부부채 (억원)</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#a0a0a0', marginBottom: '0.25rem' }}>이자부부채 (억원)</label>
                 <input
                   type="number"
                   value={inputs.debtValue}
                   onChange={(e) => handleChange('debtValue', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
                 />
               </div>
             </div>
@@ -192,10 +192,10 @@ export const WACCCalculator: React.FC = () => {
             borderRadius: '0.75rem',
             color: 'white'
           }}>
-            <p style={{ color: '#d1fae5', fontSize: '0.875rem', marginBottom: '0.25rem' }}>WACC (가중평균자본비용)</p>
+            <p style={{ color: '#10b981', fontSize: '0.875rem', marginBottom: '0.25rem' }}>WACC (가중평균자본비용)</p>
             <p style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>{result.wacc.toFixed(2)}%</p>
-            <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #34d399', fontSize: '0.875rem' }}>
-              <p style={{ color: '#d1fae5' }}>
+            <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(16,185,129,0.3)', fontSize: '0.875rem' }}>
+              <p style={{ color: '#10b981' }}>
                 = ({(result.equityWeight * 100).toFixed(0)}% × {result.costOfEquity.toFixed(1)}%) +
                 ({(result.debtWeight * 100).toFixed(0)}% × {result.afterTaxCostOfDebt.toFixed(1)}%)
               </p>
@@ -203,8 +203,8 @@ export const WACCCalculator: React.FC = () => {
           </div>
 
           {/* 자본구조 시각화 */}
-          <div style={{ backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
-            <h4 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.75rem' }}>자본구조</h4>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem' }}>
+            <h4 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#a0a0a0', marginBottom: '0.75rem' }}>자본구조</h4>
             <div style={{ height: '1.5rem', display: 'flex', borderRadius: '0.5rem', overflow: 'hidden' }}>
               <div
                 style={{
@@ -242,7 +242,7 @@ export const WACCCalculator: React.FC = () => {
           </div>
 
           {/* 분석 요약 */}
-          <div style={{ backgroundColor: '#f3f4f6', borderRadius: '0.5rem', padding: '1rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '0.5rem', padding: '1rem' }}>
             <table style={{ width: '100%', fontSize: '0.875rem' }}>
               <tbody>
                 <tr>
@@ -270,12 +270,12 @@ export const WACCCalculator: React.FC = () => {
           </div>
 
           {/* 공식 설명 */}
-          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem' }}>
             <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem' }}>공식</h4>
-            <code style={{ display: 'block', fontSize: '0.75rem', color: '#475569' }}>
+            <code style={{ display: 'block', fontSize: '0.75rem', color: '#a0a0a0' }}>
               WACC = (E/V) × Re + (D/V) × Rd × (1-T)
             </code>
-            <code style={{ display: 'block', fontSize: '0.75rem', color: '#475569', marginTop: '0.25rem' }}>
+            <code style={{ display: 'block', fontSize: '0.75rem', color: '#a0a0a0', marginTop: '0.25rem' }}>
               Re = Rf + β × (Rm - Rf)
             </code>
           </div>

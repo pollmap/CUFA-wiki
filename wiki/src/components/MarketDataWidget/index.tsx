@@ -85,10 +85,10 @@ const MarketDataWidgetInner: React.FC<MarketDataWidgetProps> = ({
         style={{
           borderRadius: '8px',
           overflow: 'hidden',
-          border: '1px solid var(--ifm-color-emphasis-300)',
+          border: '1px solid rgba(255,255,255,0.08)',
         }}
       />
-      <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: '0.8rem', color: '#a0a0a0', marginTop: '0.5rem' }}>
         * 실시간 데이터는 TradingView 제공. 15분 지연될 수 있습니다.
       </p>
     </div>

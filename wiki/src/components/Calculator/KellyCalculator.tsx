@@ -146,7 +146,7 @@ export const KellyCalculator: React.FC = () => {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.5rem 0.75rem',
-    border: '1px solid #d1d5db',
+    border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: '0.5rem',
     fontSize: '0.95rem',
     boxSizing: 'border-box' as const,
@@ -163,12 +163,12 @@ export const KellyCalculator: React.FC = () => {
     fontSize: '0.875rem',
     fontWeight: '600',
     marginBottom: '0.25rem',
-    color: '#374151',
+    color: '#a0a0a0',
   };
 
   const sublabelStyle: React.CSSProperties = {
     fontSize: '0.75rem',
-    color: '#9ca3af',
+    color: '#6b7280',
     marginBottom: '0.5rem',
   };
 
@@ -182,7 +182,7 @@ export const KellyCalculator: React.FC = () => {
 
       {/* Preset Scenarios */}
       <div style={{ marginBottom: '1.5rem' }}>
-        <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
+        <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#a0a0a0', marginBottom: '0.5rem' }}>
           프리셋 시나리오
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -193,12 +193,12 @@ export const KellyCalculator: React.FC = () => {
               style={{
                 padding: '0.5rem 1rem',
                 borderRadius: '0.5rem',
-                border: '1px solid #d1d5db',
-                background: '#f9fafb',
+                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(255,255,255,0.03)',
                 cursor: 'pointer',
                 fontSize: '0.8rem',
                 fontWeight: '500',
-                color: '#374151',
+                color: '#a0a0a0',
                 transition: 'all 0.15s',
               }}
               title={preset.description}
@@ -334,7 +334,7 @@ export const KellyCalculator: React.FC = () => {
 
       {/* Kelly Fraction Selector */}
       <div style={{ marginBottom: '2rem' }}>
-        <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
+        <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#a0a0a0', marginBottom: '0.5rem' }}>
           Kelly 비율 적용
         </p>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -351,8 +351,8 @@ export const KellyCalculator: React.FC = () => {
                 gap: '0.5rem',
                 padding: '0.75rem 1rem',
                 borderRadius: '0.5rem',
-                border: inputs.fraction === opt.key ? '2px solid #2563eb' : '1px solid #d1d5db',
-                backgroundColor: inputs.fraction === opt.key ? '#eff6ff' : '#fff',
+                border: inputs.fraction === opt.key ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.1)',
+                backgroundColor: inputs.fraction === opt.key ? 'rgba(96,165,250,0.08)' : 'rgba(255,255,255,0.06)',
                 cursor: 'pointer',
                 flex: '1 1 160px',
                 minWidth: '160px',
@@ -382,14 +382,14 @@ export const KellyCalculator: React.FC = () => {
             alignItems: 'center',
             gap: '0.5rem',
             padding: '1rem',
-            backgroundColor: '#fef2f2',
-            border: '1px solid #fecaca',
+            backgroundColor: 'rgba(239,68,68,0.08)',
+            border: '1px solid rgba(239,68,68,0.2)',
             borderRadius: '0.5rem',
             marginBottom: '1.5rem',
           }}
         >
           <span style={{ fontSize: '1.25rem' }}>🚫</span>
-          <span style={{ color: '#b91c1c', fontWeight: '600' }}>
+          <span style={{ color: '#ef4444', fontWeight: '600' }}>
             기대값이 음수입니다. 이 전략에 투자하지 마십시오.
           </span>
         </div>
@@ -401,14 +401,14 @@ export const KellyCalculator: React.FC = () => {
             alignItems: 'center',
             gap: '0.5rem',
             padding: '1rem',
-            backgroundColor: '#fef2f2',
-            border: '1px solid #fecaca',
+            backgroundColor: 'rgba(239,68,68,0.08)',
+            border: '1px solid rgba(239,68,68,0.2)',
             borderRadius: '0.5rem',
             marginBottom: '1.5rem',
           }}
         >
           <span style={{ fontSize: '1.25rem' }}>⚠️</span>
-          <span style={{ color: '#b91c1c', fontWeight: '600' }}>
+          <span style={{ color: '#ef4444', fontWeight: '600' }}>
             레버리지가 필요한 수준입니다. 실전에서는 권장하지 않습니다.
           </span>
         </div>
@@ -420,14 +420,14 @@ export const KellyCalculator: React.FC = () => {
             alignItems: 'center',
             gap: '0.5rem',
             padding: '1rem',
-            backgroundColor: '#fffbeb',
-            border: '1px solid #fde68a',
+            backgroundColor: 'rgba(245,158,11,0.08)',
+            border: '1px solid rgba(245,158,11,0.2)',
             borderRadius: '0.5rem',
             marginBottom: '1.5rem',
           }}
         >
           <span style={{ fontSize: '1.25rem' }}>⚠️</span>
-          <span style={{ color: '#92400e', fontWeight: '600' }}>
+          <span style={{ color: '#f59e0b', fontWeight: '600' }}>
             Kelly 비율이 매우 높습니다. Half Kelly 이하를 권장합니다.
           </span>
         </div>
@@ -448,26 +448,26 @@ export const KellyCalculator: React.FC = () => {
             <div
               style={{
                 ...cardBase,
-                background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+                background: 'rgba(245,158,11,0.08)',
               }}
             >
-              <p style={{ fontSize: '0.8rem', color: '#b45309', marginBottom: '0.25rem', fontWeight: '500' }}>
+              <p style={{ fontSize: '0.8rem', color: '#f59e0b', marginBottom: '0.25rem', fontWeight: '500' }}>
                 Full Kelly
               </p>
-              <p style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#92400e', margin: '0.25rem 0' }}>
+              <p style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#f59e0b', margin: '0.25rem 0' }}>
                 {results.fullKelly >= 0 ? formatPercent(results.fullKelly) : '해당 없음'}
               </p>
-              <p style={{ fontSize: '0.7rem', color: '#a16207' }}>최대 기하 성장률</p>
+              <p style={{ fontSize: '0.7rem', color: '#f59e0b' }}>최대 기하 성장률</p>
             </div>
 
             {/* Selected Kelly + Investment Amount */}
             <div
               style={{
                 ...cardBase,
-                background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                background: 'rgba(16,185,129,0.08)',
               }}
             >
-              <p style={{ fontSize: '0.8rem', color: '#15803d', marginBottom: '0.25rem', fontWeight: '500' }}>
+              <p style={{ fontSize: '0.8rem', color: '#10b981', marginBottom: '0.25rem', fontWeight: '500' }}>
                 {inputs.fraction === 'full' ? 'Full' : inputs.fraction === 'half' ? 'Half' : 'Quarter'} Kelly 적용
               </p>
               <p style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#166534', margin: '0.25rem 0' }}>
@@ -482,34 +482,34 @@ export const KellyCalculator: React.FC = () => {
             <div
               style={{
                 ...cardBase,
-                background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                background: 'rgba(96,165,250,0.08)',
               }}
             >
-              <p style={{ fontSize: '0.8rem', color: '#1d4ed8', marginBottom: '0.25rem', fontWeight: '500' }}>
+              <p style={{ fontSize: '0.8rem', color: '#60a5fa', marginBottom: '0.25rem', fontWeight: '500' }}>
                 기대수익률
               </p>
               <p
                 style={{
                   fontSize: '1.75rem',
                   fontWeight: 'bold',
-                  color: results.expectedReturn >= 0 ? '#1e40af' : '#b91c1c',
+                  color: results.expectedReturn >= 0 ? '#60a5fa' : '#ef4444',
                   margin: '0.25rem 0',
                 }}
               >
                 {results.expectedReturn >= 0 ? '+' : ''}
                 {results.expectedReturn.toFixed(2)}%
               </p>
-              <p style={{ fontSize: '0.7rem', color: '#3b82f6' }}>거래당 기대 수익</p>
+              <p style={{ fontSize: '0.7rem', color: '#60a5fa' }}>거래당 기대 수익</p>
             </div>
 
             {/* Win/Loss Ratio */}
             <div
               style={{
                 ...cardBase,
-                background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                background: 'rgba(124,106,247,0.08)',
               }}
             >
-              <p style={{ fontSize: '0.8rem', color: '#7c3aed', marginBottom: '0.25rem', fontWeight: '500' }}>
+              <p style={{ fontSize: '0.8rem', color: '#7c6af7', marginBottom: '0.25rem', fontWeight: '500' }}>
                 손익비 (W/L)
               </p>
               <p style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#6d28d9', margin: '0.25rem 0' }}>
@@ -531,22 +531,22 @@ export const KellyCalculator: React.FC = () => {
               Kelly 배수에 따른 기대 기하 성장률 비교 (거래당 로그 성장률)
             </p>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #e5e7eb' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <thead>
-                  <tr style={{ backgroundColor: '#f3f4f6' }}>
-                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'left', borderBottom: '2px solid #d1d5db', fontSize: '0.8rem' }}>
+                  <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
                       Kelly 배수
                     </th>
-                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid #d1d5db', fontSize: '0.8rem' }}>
+                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
                       배팅 비율
                     </th>
-                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid #d1d5db', fontSize: '0.8rem' }}>
+                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
                       투자금액 (만원)
                     </th>
-                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid #d1d5db', fontSize: '0.8rem' }}>
+                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
                       기대 성장률
                     </th>
-                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'center', borderBottom: '2px solid #d1d5db', fontSize: '0.8rem' }}>
+                    <th style={{ padding: '0.6rem 0.75rem', textAlign: 'center', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
                       평가
                     </th>
                   </tr>
@@ -564,22 +564,22 @@ export const KellyCalculator: React.FC = () => {
 
                     if (!row.viable || results.fullKelly <= 0) {
                       assessment = '투자 부적합';
-                      assessmentColor = '#b91c1c';
+                      assessmentColor = '#ef4444';
                     } else if (row.growthRate !== null && row.growthRate === -Infinity) {
                       assessment = '파산 위험';
-                      assessmentColor = '#b91c1c';
+                      assessmentColor = '#ef4444';
                     } else if (row.multiple > 1.0) {
                       assessment = '과도한 위험';
-                      assessmentColor = '#dc2626';
+                      assessmentColor = '#ef4444';
                     } else if (row.multiple === 1.0) {
                       assessment = '최대 성장';
-                      assessmentColor = '#d97706';
+                      assessmentColor = '#f59e0b';
                     } else if (row.multiple === 0.5) {
                       assessment = '권장 (안정적)';
-                      assessmentColor = '#16a34a';
+                      assessmentColor = '#10b981';
                     } else {
                       assessment = '보수적';
-                      assessmentColor = '#2563eb';
+                      assessmentColor = '#60a5fa';
                     }
 
                     const fractionVal = results.fullKelly > 0 ? row.fraction : 0;
@@ -590,11 +590,11 @@ export const KellyCalculator: React.FC = () => {
                         key={row.multiple}
                         style={{
                           backgroundColor: isSelected
-                            ? '#eff6ff'
+                            ? 'rgba(96,165,250,0.08)'
                             : isOptimal
-                              ? '#fffbeb'
+                              ? 'rgba(245,158,11,0.08)'
                               : 'transparent',
-                          borderBottom: '1px solid #e5e7eb',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                         }}
                       >
                         <td style={{ padding: '0.5rem 0.75rem', fontWeight: isSelected ? '700' : '500', fontSize: '0.85rem' }}>
@@ -621,13 +621,13 @@ export const KellyCalculator: React.FC = () => {
                               padding: '0.15rem 0.5rem',
                               borderRadius: '9999px',
                               backgroundColor:
-                                assessmentColor === '#16a34a'
-                                  ? '#dcfce7'
-                                  : assessmentColor === '#2563eb'
-                                    ? '#dbeafe'
-                                    : assessmentColor === '#d97706'
-                                      ? '#fef3c7'
-                                      : '#fee2e2',
+                                assessmentColor === '#10b981'
+                                  ? 'rgba(16,185,129,0.12)'
+                                  : assessmentColor === '#60a5fa'
+                                    ? 'rgba(96,165,250,0.12)'
+                                    : assessmentColor === '#f59e0b'
+                                      ? 'rgba(245,158,11,0.08)'
+                                      : 'rgba(239,68,68,0.15)',
                               color: assessmentColor,
                               fontWeight: '600',
                               fontSize: '0.75rem',
@@ -648,17 +648,17 @@ export const KellyCalculator: React.FC = () => {
           <div
             style={{
               padding: '1.25rem',
-              backgroundColor: '#f0f9ff',
-              border: '1px solid #bae6fd',
+              backgroundColor: 'rgba(96,165,250,0.08)',
+              border: '1px solid rgba(96,165,250,0.2)',
               borderRadius: '0.75rem',
               marginBottom: '1.5rem',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
               <span style={{ fontSize: '1.1rem' }}>📘</span>
-              <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: '700', color: '#0c4a6e' }}>실전 가이드</h3>
+              <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: '700', color: '#60a5fa' }}>실전 가이드</h3>
             </div>
-            <ul style={{ margin: 0, paddingLeft: '1.5rem', fontSize: '0.875rem', color: '#1e3a5f', lineHeight: '1.75' }}>
+            <ul style={{ margin: 0, paddingLeft: '1.5rem', fontSize: '0.875rem', color: '#a0a0a0', lineHeight: '1.75' }}>
               <li>
                 실전에서는 <strong>Half Kelly를 초과하지 않는 것</strong>이 일반적입니다.
               </li>
@@ -679,19 +679,19 @@ export const KellyCalculator: React.FC = () => {
           <div
             style={{
               padding: '1.25rem',
-              backgroundColor: '#f9fafb',
-              border: '1px solid #e5e7eb',
+              backgroundColor: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: '0.75rem',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
               <span style={{ fontSize: '1.1rem' }}>📐</span>
-              <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: '700', color: '#374151' }}>수식 설명</h3>
+              <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: '700', color: '#a0a0a0' }}>수식 설명</h3>
             </div>
             <div style={{ fontSize: '0.85rem', color: '#4b5563', lineHeight: '1.8' }}>
               <p style={{ marginBottom: '0.5rem' }}>
                 <strong>Kelly Criterion:</strong>{' '}
-                <code style={{ backgroundColor: '#e5e7eb', padding: '0.15rem 0.4rem', borderRadius: '0.25rem' }}>
+                <code style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '0.15rem 0.4rem', borderRadius: '0.25rem' }}>
                   f* = (b × p - q) / b
                 </code>
               </p>
@@ -711,7 +711,7 @@ export const KellyCalculator: React.FC = () => {
               </ul>
               <p style={{ marginTop: '0.5rem', marginBottom: 0 }}>
                 <strong>기대 기하 성장률:</strong>{' '}
-                <code style={{ backgroundColor: '#e5e7eb', padding: '0.15rem 0.4rem', borderRadius: '0.25rem' }}>
+                <code style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '0.15rem 0.4rem', borderRadius: '0.25rem' }}>
                   g = p × ln(1 + f × W) + q × ln(1 - f × L)
                 </code>
               </p>

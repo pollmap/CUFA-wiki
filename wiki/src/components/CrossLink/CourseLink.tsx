@@ -34,7 +34,8 @@ export const CourseLink: React.FC<CourseLinkProps> = ({
         alignItems: 'center',
         gap: '1rem',
         padding: '1rem 1.5rem',
-        background: 'linear-gradient(90deg, #dbeafe 0%, #ede9fe 100%)',
+        background: 'rgba(96,165,250,0.08)',
+        border: '1px solid rgba(96,165,250,0.2)',
         borderRadius: '8px',
         margin: '1.5rem 0',
         textDecoration: 'none',
@@ -48,7 +49,7 @@ export const CourseLink: React.FC<CourseLinkProps> = ({
       <div style={{ flex: 1 }}>
         <h4 style={{
           fontWeight: 600,
-          color: '#1f2937',
+          color: '#ffffff',
           margin: 0,
           marginBottom: description ? '0.25rem' : 0
         }}>

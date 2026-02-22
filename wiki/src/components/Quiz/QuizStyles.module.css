@@ -1,18 +1,19 @@
 /**
  * Valuation Academy Quiz Components
  * Korean finance education theme
+ * Bloomberg Terminal dark theme
  */
 
 /* ========================================
    Quiz Container
    ======================================== */
 .quizContainer {
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
-  background: var(--ifm-background-surface-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: rgba(255,255,255,0.04);
+  box-shadow: none;
 }
 
 .quizHeader {
@@ -31,6 +32,7 @@
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .scoreDisplay {
@@ -40,7 +42,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--ifm-color-primary);
-  background: var(--ifm-color-emphasis-100);
+  background: rgba(255,255,255,0.06);
   padding: 0.4rem 1rem;
   border-radius: 9999px;
 }
@@ -51,7 +53,7 @@
 .progressBarWrapper {
   width: 100%;
   height: 8px;
-  background: var(--ifm-color-emphasis-200);
+  background: rgba(255,255,255,0.08);
   border-radius: 9999px;
   margin-bottom: 1.5rem;
   overflow: hidden;
@@ -71,18 +73,15 @@
   text-align: center;
   padding: 2rem;
   margin-top: 1.5rem;
-  background: linear-gradient(135deg, #eff6ff 0%, #ede9fe 100%);
+  background: rgba(96,165,250,0.08);
   border-radius: 12px;
-}
-
-[data-theme='dark'] .scoreSummary {
-  background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
 }
 
 .scoreSummaryTitle {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
 .scoreSummaryValue {
@@ -94,7 +93,7 @@
 
 .scoreSummaryLabel {
   font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-600);
+  color: #a0a0a0;
   margin-bottom: 1rem;
 }
 
@@ -121,14 +120,14 @@
 .questionBlock {
   padding: 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
-  background: var(--ifm-background-color);
+  background: rgba(255,255,255,0.04);
   transition: border-color 0.3s;
 }
 
 .questionBlock.answered {
-  border-color: var(--ifm-color-emphasis-300);
+  border-color: rgba(255,255,255,0.12);
 }
 
 .questionText {
@@ -136,6 +135,7 @@
   font-weight: 600;
   margin-bottom: 1rem;
   line-height: 1.6;
+  color: #ffffff;
 }
 
 /* ========================================
@@ -153,20 +153,20 @@
   gap: 0.75rem;
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid var(--ifm-color-emphasis-200);
+  border: 2px solid rgba(255,255,255,0.08);
   border-radius: 8px;
-  background: var(--ifm-background-color);
+  background: rgba(255,255,255,0.04);
   font-size: 0.95rem;
   cursor: pointer;
   text-align: left;
   transition: border-color 0.2s, background 0.2s, transform 0.1s;
   font-family: inherit;
-  color: inherit;
+  color: #cccccc;
 }
 
 .optionButton:hover:not(.optionDisabled) {
   border-color: var(--ifm-color-primary);
-  background: var(--ifm-color-emphasis-100);
+  background: rgba(255,255,255,0.06);
   transform: translateX(4px);
 }
 
@@ -178,20 +178,12 @@
 .optionButton.optionCorrect {
   border-color: var(--va-accent-green, #10b981);
   background: rgba(16, 185, 129, 0.1);
-  color: #065f46;
-}
-
-[data-theme='dark'] .optionButton.optionCorrect {
   color: #6ee7b7;
 }
 
 .optionButton.optionWrong {
   border-color: var(--va-accent-red, #ef4444);
   background: rgba(239, 68, 68, 0.1);
-  color: #991b1b;
-}
-
-[data-theme='dark'] .optionButton.optionWrong {
   color: #fca5a5;
 }
 
@@ -207,10 +199,11 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--ifm-color-emphasis-200);
+  background: rgba(255,255,255,0.08);
   font-weight: 700;
   font-size: 0.8rem;
   flex-shrink: 0;
+  color: #cccccc;
 }
 
 .optionCorrect .optionIndex {
@@ -235,15 +228,15 @@
 .tfButton {
   flex: 1;
   padding: 1rem;
-  border: 2px solid var(--ifm-color-emphasis-200);
+  border: 2px solid rgba(255,255,255,0.08);
   border-radius: 10px;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.15s;
-  background: var(--ifm-background-color);
+  background: rgba(255,255,255,0.04);
   font-family: inherit;
-  color: inherit;
+  color: #cccccc;
 }
 
 .tfButton:hover:not(.tfDisabled) {
@@ -285,6 +278,7 @@
   font-size: 0.9rem;
   line-height: 1.6;
   animation: fadeSlideIn 0.3s ease;
+  color: #cccccc;
 }
 
 .explanationCorrect {
@@ -300,6 +294,7 @@
 .explanationLabel {
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: #ffffff;
 }
 
 .hintButton {
@@ -327,6 +322,7 @@
   border-radius: 0 6px 6px 0;
   font-size: 0.85rem;
   animation: fadeSlideIn 0.2s ease;
+  color: #cccccc;
 }
 
 /* ========================================
@@ -344,13 +340,13 @@
   flex: 1;
   min-width: 120px;
   padding: 0.6rem 0.75rem;
-  border: 2px solid var(--ifm-color-emphasis-200);
+  border: 2px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   font-size: 1rem;
   font-family: var(--ifm-font-family-monospace);
   transition: border-color 0.2s;
-  background: var(--ifm-background-color);
-  color: inherit;
+  background: rgba(255,255,255,0.04);
+  color: #ffffff;
 }
 
 .calcInput:focus {
@@ -375,7 +371,7 @@
 .calcUnit {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--ifm-color-emphasis-600);
+  color: #a0a0a0;
 }
 
 .submitButton {
@@ -409,6 +405,7 @@
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
 .matchingBoard {
@@ -434,25 +431,26 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--ifm-color-emphasis-500);
+  color: #6b7280;
   margin-bottom: 0.25rem;
 }
 
 .matchingItem {
   padding: 0.75rem 1rem;
-  border: 2px solid var(--ifm-color-emphasis-200);
+  border: 2px solid rgba(255,255,255,0.08);
   border-radius: 8px;
-  background: var(--ifm-background-color);
+  background: rgba(255,255,255,0.04);
   cursor: grab;
   font-size: 0.9rem;
   transition: border-color 0.2s, background 0.2s, transform 0.15s, box-shadow 0.2s;
   user-select: none;
+  color: #cccccc;
 }
 
 .matchingItem:hover:not(.matchedItem):not(.matchingItemDisabled) {
   border-color: var(--ifm-color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 .matchingItemSelected {
@@ -471,15 +469,16 @@
 
 .matchingTarget {
   padding: 0.75rem 1rem;
-  border: 2px dashed var(--ifm-color-emphasis-300);
+  border: 2px dashed rgba(255,255,255,0.12);
   border-radius: 8px;
-  background: var(--ifm-color-emphasis-100);
+  background: rgba(255,255,255,0.03);
   font-size: 0.9rem;
   min-height: 48px;
   display: flex;
   align-items: center;
   transition: border-color 0.2s, background 0.2s;
   cursor: pointer;
+  color: #a0a0a0;
 }
 
 .matchingTarget:hover:not(.matchedItem):not(.matchingItemDisabled) {

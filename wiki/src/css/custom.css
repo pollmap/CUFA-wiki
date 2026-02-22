@@ -1,36 +1,74 @@
 /**
  * CUFA wiki 커스텀 테마
- * 미니멀리즘 흑백 디자인
+ * Bloomberg Terminal 다크 스타일
  */
 
 /* ========================================
-   CSS 변수 (Light Mode)
+   CSS 변수 (Dark Mode Only)
    ======================================== */
 :root {
-  /* 모노크롬 컬러 */
-  --ifm-color-primary: #000000;
-  --ifm-color-primary-dark: #1a1a1a;
-  --ifm-color-primary-darker: #0d0d0d;
-  --ifm-color-primary-darkest: #000000;
-  --ifm-color-primary-light: #333333;
-  --ifm-color-primary-lighter: #666666;
-  --ifm-color-primary-lightest: #999999;
+  /* 모노크롬 (다크 기준) */
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #e5e5e5;
+  --ifm-color-primary-darker: #cccccc;
+  --ifm-color-primary-darkest: #999999;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
 
-  /* 악센트 (최소한) */
+  /* Docusaurus 다크 강제 */
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #0a0a0a;
+  --ifm-navbar-background-color: rgba(0, 0, 0, 0.95);
+  --ifm-footer-background-color: #000000;
+  --ifm-card-background-color: rgba(255, 255, 255, 0.04);
+  --ifm-color-emphasis-0: #000000;
+  --ifm-color-emphasis-100: rgba(255, 255, 255, 0.04);
+  --ifm-color-emphasis-200: rgba(255, 255, 255, 0.06);
+  --ifm-color-emphasis-300: rgba(255, 255, 255, 0.08);
+  --ifm-color-emphasis-400: rgba(255, 255, 255, 0.12);
+  --ifm-color-emphasis-500: #6b7280;
+  --ifm-color-emphasis-600: #a0a0a0;
+  --ifm-color-emphasis-700: #cccccc;
+  --ifm-color-emphasis-800: #e5e5e5;
+  --ifm-color-emphasis-900: #ffffff;
+  --ifm-color-emphasis-1000: #ffffff;
+
+  /* 성공/위험/경고 (다크 배경용) */
+  --ifm-color-success: #10b981;
+  --ifm-color-success-dark: #059669;
+  --ifm-color-success-contrast-background: rgba(16, 185, 129, 0.1);
+  --ifm-color-danger: #ef4444;
+  --ifm-color-danger-dark: #dc2626;
+  --ifm-color-danger-contrast-background: rgba(239, 68, 68, 0.1);
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-warning-dark: #d97706;
+  --ifm-color-warning-contrast-background: rgba(245, 158, 11, 0.1);
+  --ifm-color-info: #60a5fa;
+  --ifm-color-info-contrast-background: rgba(96, 165, 250, 0.1);
+  --ifm-color-primary-contrast-background: rgba(255, 255, 255, 0.04);
+
+  /* 악센트 */
   --va-accent-green: #10b981;
   --va-accent-red: #ef4444;
   --va-accent-gold: #f59e0b;
+  --va-accent-purple: #7c6af7;
+  --va-accent-blue: #60a5fa;
 
   /* 배경/표면 */
-  --va-bg: #ffffff;
-  --va-surface: #fafafa;
-  --va-border: #e5e5e5;
-  --va-border-hover: #000000;
+  --va-bg: #000000;
+  --va-surface: rgba(255, 255, 255, 0.03);
+  --va-border: rgba(255, 255, 255, 0.08);
+  --va-border-hover: rgba(255, 255, 255, 0.2);
+
+  /* Glass 카드 */
+  --va-glass-bg: rgba(255, 255, 255, 0.04);
+  --va-glass-border: rgba(255, 255, 255, 0.08);
 
   /* 텍스트 */
-  --va-text-primary: #000000;
-  --va-text-secondary: #666666;
-  --va-text-muted: #999999;
+  --va-text-primary: #ffffff;
+  --va-text-secondary: #a0a0a0;
+  --va-text-muted: #6b7280;
 
   /* 타이포그래피 */
   --ifm-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -49,24 +87,13 @@
   --ifm-global-radius: 0;
 }
 
-/* ========================================
-   다크 모드
-   ======================================== */
+/* data-theme dark 강제 (Docusaurus가 설정하는 값 오버라이드) */
 [data-theme='dark'] {
-  --ifm-color-primary: #ffffff;
-  --ifm-color-primary-dark: #e5e5e5;
   --ifm-background-color: #000000;
   --ifm-background-surface-color: #0a0a0a;
   --ifm-navbar-background-color: rgba(0, 0, 0, 0.95);
   --ifm-footer-background-color: #000000;
-
-  --va-bg: #000000;
-  --va-surface: #0a0a0a;
-  --va-border: #1a1a1a;
-  --va-border-hover: #ffffff;
-  --va-text-primary: #ffffff;
-  --va-text-secondary: #888888;
-  --va-text-muted: #555555;
+  --ifm-card-background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* ========================================
@@ -74,11 +101,20 @@
    ======================================== */
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* 도트 그리드 배경 */
+.main-wrapper {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* 스크롤바 */
@@ -92,78 +128,89 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--va-border);
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--va-text-secondary);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 ::selection {
-  background: var(--ifm-color-primary);
-  color: var(--va-bg);
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ========================================
+   Glass Card 유틸리티
+   ======================================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
 }
 
 /* ========================================
    공식 블록 스타일
    ======================================== */
 .formula-block {
-  background: var(--va-surface);
-  border-left: 2px solid var(--va-text-primary);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid #ffffff;
   padding: 1.5rem;
   margin: 1.5rem 0;
   font-family: var(--ifm-font-family-monospace);
   font-size: 1.1rem;
   overflow-x: auto;
+  color: #ffffff;
 }
 
 .formula-block code {
   background: transparent;
   padding: 0;
   font-size: inherit;
+  color: #ffffff;
 }
 
 /* ========================================
    핵심 용어 하이라이트
    ======================================== */
 .key-term {
-  background-color: #fef3c7;
+  background-color: rgba(245, 158, 11, 0.15);
   padding: 0.1rem 0.4rem;
   border-radius: 4px;
   font-weight: 600;
-}
-
-[data-theme='dark'] .key-term {
-  background-color: #78350f;
-  color: #fef3c7;
+  color: #f59e0b;
 }
 
 /* ========================================
    계산기 컨테이너
    ======================================== */
 .calculator-container {
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
-  background: var(--ifm-background-surface-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
 }
 
 .calculator-container h2 {
   margin-top: 0;
+  color: #ffffff;
 }
 
 /* ========================================
    수익/손실 색상
    ======================================== */
 .profit {
-  color: var(--va-accent-green);
+  color: #10b981;
   font-weight: 600;
 }
 
 .loss {
-  color: var(--va-accent-red);
+  color: #ef4444;
   font-weight: 600;
 }
 
@@ -175,18 +222,18 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background: var(--va-surface);
-  border: 1px solid var(--va-border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   margin: 1.5rem 0;
   text-decoration: none;
   transition: border-color var(--va-transition);
-  color: inherit;
+  color: #ffffff;
 }
 
 .course-link-box:hover {
-  border-color: var(--va-border-hover);
+  border-color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
 }
 
 /* ========================================
@@ -195,10 +242,10 @@ body {
 .master-quote {
   font-style: italic;
   font-size: 1.2rem;
-  border-left: 4px solid var(--va-accent-gold);
+  border-left: 4px solid #f59e0b;
   padding-left: 1.5rem;
   margin: 2rem 0;
-  color: var(--ifm-color-emphasis-700);
+  color: #cccccc;
 }
 
 .master-quote .author {
@@ -206,7 +253,7 @@ body {
   margin-top: 0.75rem;
   font-style: normal;
   font-weight: 600;
-  color: var(--va-accent-gold);
+  color: #f59e0b;
   font-size: 1rem;
 }
 
@@ -220,8 +267,8 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--va-text-primary);
-  color: var(--va-bg);
+  background: #ffffff;
+  color: #000000;
   border: none;
   cursor: pointer;
   z-index: 1000;
@@ -249,33 +296,18 @@ body {
 }
 
 .difficulty-beginner {
-  background: #d1fae5;
-  color: #065f46;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
 }
 
 .difficulty-intermediate {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
 }
 
 .difficulty-advanced {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-[data-theme='dark'] .difficulty-beginner {
-  background: #065f46;
-  color: #d1fae5;
-}
-
-[data-theme='dark'] .difficulty-intermediate {
-  background: #92400e;
-  color: #fef3c7;
-}
-
-[data-theme='dark'] .difficulty-advanced {
-  background: #991b1b;
-  color: #fee2e2;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
 }
 
 /* ========================================
@@ -298,44 +330,29 @@ table {
 }
 
 table th {
-  background-color: var(--va-text-primary);
-  color: var(--va-bg);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
   font-weight: 600;
   text-align: left;
 }
 
 table td {
-  color: var(--va-text-primary);
-  background-color: var(--va-bg);
+  color: #ffffff;
+  background-color: transparent;
 }
 
 table th,
 table td {
   padding: 0.75rem 1rem;
-  border: 1px solid var(--va-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 table tr:nth-child(even) td {
-  background-color: var(--va-surface);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 table tr:hover td {
-  background-color: var(--va-surface);
-}
-
-/* 다크모드 테이블 */
-[data-theme='dark'] table th {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-
-[data-theme='dark'] table td {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-[data-theme='dark'] table tr:nth-child(even) td {
-  background-color: #0a0a0a;
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* ========================================
@@ -343,21 +360,21 @@ table tr:hover td {
    ======================================== */
 .admonition {
   border-radius: 8px;
-  border: 1px solid var(--va-border);
-  background-color: var(--va-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 .admonition-heading h5 {
   font-size: 1rem;
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .admonition-content {
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .admonition-content p {
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 /* 어드모니션 타입별 스타일 (보더만 강조) */
@@ -366,30 +383,19 @@ table tr:hover td {
 }
 
 .admonition.admonition-tip {
-  border-left: 4px solid var(--va-accent-green);
+  border-left: 4px solid #10b981;
 }
 
 .admonition.admonition-info {
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #60a5fa;
 }
 
 .admonition.admonition-caution {
-  border-left: 4px solid var(--va-accent-gold);
+  border-left: 4px solid #f59e0b;
 }
 
 .admonition.admonition-danger {
-  border-left: 4px solid var(--va-accent-red);
-}
-
-[data-theme='dark'] .admonition {
-  background-color: #0a0a0a;
-  border-color: #333333;
-}
-
-[data-theme='dark'] .admonition-heading h5,
-[data-theme='dark'] .admonition-content,
-[data-theme='dark'] .admonition-content p {
-  color: #ffffff;
+  border-left: 4px solid #ef4444;
 }
 
 /* ========================================
@@ -397,8 +403,8 @@ table tr:hover td {
    ======================================== */
 pre {
   border-radius: 8px;
-  border: 1px solid var(--va-border);
-  background-color: #1a1a1a !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0a0a0a !important;
 }
 
 pre code {
@@ -407,29 +413,16 @@ pre code {
 
 code {
   border-radius: 4px;
-  background-color: var(--va-surface);
-  color: var(--va-text-primary);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
   padding: 0.2em 0.4em;
   font-size: 0.9em;
-  border: 1px solid var(--va-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* 인라인 코드 */
 p code, li code, td code {
-  background-color: var(--va-surface);
-  color: var(--va-text-primary);
-}
-
-[data-theme='dark'] code {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-[data-theme='dark'] p code,
-[data-theme='dark'] li code,
-[data-theme='dark'] td code {
-  background-color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.06);
   color: #ffffff;
 }
 
@@ -437,13 +430,10 @@ p code, li code, td code {
    검색 결과 하이라이트
    ======================================== */
 .search-result-match {
-  background-color: #fef08a;
+  background-color: rgba(245, 158, 11, 0.3);
   padding: 0 2px;
   border-radius: 2px;
-}
-
-[data-theme='dark'] .search-result-match {
-  background-color: #854d0e;
+  color: #fef3c7;
 }
 
 /* ========================================
@@ -454,21 +444,14 @@ p code, li code, td code {
   font-size: 14px;
   padding: 6px 12px 6px 32px;
   transition: width 0.3s ease, box-shadow 0.2s;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar__search-input:focus {
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-  width: 280px;
-}
-
-[data-theme='dark'] .navbar__search-input {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-[data-theme='dark'] .navbar__search-input:focus {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  width: 280px;
 }
 
 @media (max-width: 768px) {
@@ -490,14 +473,9 @@ p code, li code, td code {
 }
 
 mark {
-  background-color: #fef08a;
+  background-color: rgba(245, 158, 11, 0.3);
   padding: 0 2px;
   border-radius: 2px;
-  color: inherit;
-}
-
-[data-theme='dark'] mark {
-  background-color: #854d0e;
   color: #fef3c7;
 }
 
@@ -518,138 +496,81 @@ mark {
 }
 
 /* ========================================
-   푸터
-   ======================================== */
-.footer__title {
-  font-weight: 700;
-}
-
-.footer__link-item {
-  transition: color 0.2s;
-}
-
-.footer__link-item:hover {
-  color: var(--ifm-color-primary-lighter);
-}
-
-/* ========================================
    입력 필드 스타일
    ======================================== */
 input[type="number"],
 input[type="text"],
 textarea {
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
   font-family: inherit;
   font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 
 input[type="number"]:focus,
 input[type="text"]:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--va-text-primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-[data-theme='dark'] input[type="number"]:focus,
-[data-theme='dark'] input[type="text"]:focus,
-[data-theme='dark'] textarea:focus {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
-}
-
-/* 입력 필드 다크모드 */
-[data-theme='dark'] input[type="number"],
-[data-theme='dark'] input[type="text"],
-[data-theme='dark'] textarea {
-  background-color: #0a0a0a;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-[data-theme='dark'] input[type="number"]::placeholder,
-[data-theme='dark'] input[type="text"]::placeholder,
-[data-theme='dark'] textarea::placeholder {
-  color: #666666;
+input[type="number"]::placeholder,
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #6b7280;
 }
 
 /* Select 요소 */
 select {
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
   font-family: inherit;
   font-size: 1rem;
-  background-color: var(--va-bg);
-  color: var(--va-text-primary);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
   cursor: pointer;
 }
 
 select:focus {
   outline: none;
-  border-color: var(--va-text-primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme='dark'] select {
-  background-color: #0a0a0a;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-[data-theme='dark'] select:focus {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 /* Label 스타일 */
 label {
-  color: var(--va-text-primary);
-  font-weight: 500;
-}
-
-[data-theme='dark'] label {
   color: #ffffff;
+  font-weight: 500;
 }
 
 /* 일반 텍스트 스타일 */
 p, li, span {
-  color: var(--va-text-primary);
-}
-
-[data-theme='dark'] p,
-[data-theme='dark'] li,
-[data-theme='dark'] span {
   color: #ffffff;
 }
 
 /* 링크 스타일 */
 a {
-  color: var(--va-text-primary);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--va-text-secondary);
-  text-decoration: none;
-}
-
-[data-theme='dark'] a {
   color: #ffffff;
   text-decoration: none;
 }
 
-[data-theme='dark'] a:hover {
-  color: #cccccc;
+a:hover {
+  color: #a0a0a0;
+  text-decoration: none;
 }
 
 /* ========================================
    버튼 스타일
    ======================================== */
 .btn-primary {
-  background: var(--va-text-primary);
-  color: var(--va-bg);
+  background: #ffffff;
+  color: #000000;
   border: none;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
@@ -669,8 +590,8 @@ a:hover {
 /* 고스트 버튼 */
 .btn-ghost {
   background: transparent;
-  color: var(--va-text-primary);
-  border: 1px solid var(--va-border);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   cursor: pointer;
@@ -678,7 +599,7 @@ a:hover {
 }
 
 .btn-ghost:hover {
-  border-color: var(--va-border-hover);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ========================================
@@ -689,31 +610,31 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1px;
   margin: 2rem 0;
-  border: 1px solid var(--va-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card {
-  background: var(--va-bg);
+  background: transparent;
   border: none;
-  border-right: 1px solid var(--va-border);
-  border-bottom: 1px solid var(--va-border);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.5rem;
   transition: background var(--va-transition);
 }
 
 .card:hover {
-  background: var(--va-surface);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .card-title {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .card-description {
-  color: var(--va-text-secondary);
+  color: #a0a0a0;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -722,28 +643,30 @@ a:hover {
    네비게이션 바
    ======================================== */
 .navbar {
-  border-bottom: 1px solid var(--va-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: none;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
 }
 
 .navbar__title {
   font-weight: 800;
-  color: var(--va-text-primary);
+  color: #ffffff;
   letter-spacing: -0.02em;
 }
 
 .navbar__link {
   font-weight: 500;
   transition: opacity var(--va-transition);
-  color: var(--va-text-secondary);
+  color: #a0a0a0;
 }
 
 .navbar__link:hover {
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .navbar__link--active {
-  color: var(--va-text-primary);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -753,27 +676,27 @@ a:hover {
 .menu__link {
   transition: color var(--va-transition);
   padding: 0.5rem 0.75rem;
-  color: var(--va-text-secondary);
+  color: #a0a0a0;
 }
 
 .menu__link:hover {
   background: transparent;
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .menu__link--active {
-  background: var(--va-text-primary);
-  color: var(--va-bg) !important;
+  background: #ffffff;
+  color: #000000 !important;
   font-weight: 600;
 }
 
 .menu__link--active:hover {
-  background: var(--va-text-primary);
+  background: #ffffff;
 }
 
 .menu__list-item-collapsible .menu__link {
   font-weight: 600;
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 /* ========================================
@@ -781,15 +704,15 @@ a:hover {
    ======================================== */
 .table-of-contents__link {
   transition: color var(--va-transition);
-  color: var(--va-text-muted);
+  color: #6b7280;
 }
 
 .table-of-contents__link:hover {
-  color: var(--va-text-primary);
+  color: #ffffff;
 }
 
 .table-of-contents__link--active {
-  color: var(--va-text-primary);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -797,50 +720,74 @@ a:hover {
    문서 페이지
    ======================================== */
 .theme-doc-markdown h1 {
-  color: var(--va-text-primary);
+  color: #ffffff;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
 
 .theme-doc-markdown h2 {
-  border-bottom: 1px solid var(--va-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 0.5rem;
   margin-top: 2.5rem;
+  color: #ffffff;
+}
+
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  color: #ffffff;
 }
 
 /* ========================================
    푸터
    ======================================== */
 .footer {
-  border-top: 1px solid var(--va-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000000;
 }
 
 .footer__title {
   font-weight: 700;
+  color: #ffffff;
 }
 
 .footer__link-item {
   transition: color var(--va-transition);
+  color: #a0a0a0;
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+}
+
+.footer__copyright {
+  color: #6b7280;
 }
 
 /* ========================================
    페이지네이션
    ======================================== */
 .pagination-nav__link {
-  border: 1px solid var(--va-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color var(--va-transition);
   padding: 1rem 1.25rem;
+  background: transparent;
 }
 
 .pagination-nav__link:hover {
-  border-color: var(--va-border-hover);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .pagination-nav__sublabel {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--va-text-muted);
+  color: #6b7280;
+}
+
+.pagination-nav__label {
+  color: #ffffff;
 }
 
 /* ========================================
@@ -983,15 +930,15 @@ a:hover {
    유틸리티 클래스
    ======================================== */
 .text-muted {
-  color: var(--va-text-muted);
+  color: #6b7280;
 }
 
 .text-secondary {
-  color: var(--va-text-secondary);
+  color: #a0a0a0;
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--va-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ========================================
@@ -1019,7 +966,7 @@ a:hover {
 .va-hero__subtitle {
   font-size: clamp(14px, 2vw, 18px);
   margin: 0 0 48px;
-  color: #ccc;
+  color: #888;
   font-weight: 400;
   letter-spacing: 0.05em;
 }
@@ -1029,8 +976,8 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 0;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -1048,7 +995,7 @@ a:hover {
 
 .va-hero__stat-label {
   font-size: 11px;
-  color: #aaa;
+  color: #6b7280;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1058,15 +1005,15 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 0;
-  border: 1px solid var(--va-border, #e5e5e5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .va-feature-card {
   display: block;
   padding: 32px 24px;
-  border-right: 1px solid var(--va-border, #e5e5e5);
-  border-bottom: 1px solid var(--va-border, #e5e5e5);
-  background: var(--ifm-background-color, #fff);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
   text-decoration: none;
   color: inherit;
   transition: background 150ms ease;
@@ -1074,7 +1021,7 @@ a:hover {
 }
 
 .va-feature-card:hover {
-  background: var(--va-surface, #fafafa);
+  background: rgba(255, 255, 255, 0.04);
   text-decoration: none;
   color: inherit;
 }
@@ -1082,21 +1029,21 @@ a:hover {
 .va-feature-card__num {
   font-size: 48px;
   font-weight: 700;
-  color: var(--va-text-secondary, #666);
+  color: #6b7280;
   margin-bottom: 16px;
-  font-family: monospace;
+  font-family: var(--ifm-font-family-monospace);
 }
 
 .va-feature-card__title {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: var(--va-text-primary, #000);
+  color: #ffffff;
 }
 
 .va-feature-card__desc {
   font-size: 14px;
-  color: var(--va-text-secondary, #444);
+  color: #a0a0a0;
   line-height: 1.5;
 }
 
@@ -1104,7 +1051,7 @@ a:hover {
   position: absolute;
   bottom: 24px;
   right: 24px;
-  color: var(--va-text-muted, #999);
+  color: #6b7280;
   font-size: 18px;
 }
 
@@ -1113,7 +1060,7 @@ a:hover {
   display: flex;
   gap: 0;
   margin-top: 48px;
-  border: 1px solid var(--va-border, #e5e5e5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .va-cta__link {
@@ -1129,47 +1076,47 @@ a:hover {
 }
 
 .va-cta__link--primary {
-  background: var(--va-text-primary, #000);
-  color: var(--va-bg, #fff);
+  background: #ffffff;
+  color: #000000;
 }
 
 .va-cta__link--primary:hover {
   opacity: 0.8;
   text-decoration: none;
-  color: var(--va-bg, #fff);
+  color: #000000;
 }
 
 .va-cta__link--ghost {
   background: transparent;
-  color: var(--va-text-primary, #000);
-  border-left: 1px solid var(--va-border, #e5e5e5);
+  color: #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .va-cta__link--ghost:hover {
-  background: var(--va-surface, #fafafa);
+  background: rgba(255, 255, 255, 0.04);
   text-decoration: none;
-  color: var(--va-text-primary, #000);
+  color: #ffffff;
 }
 
 /* Disclaimer */
 .va-disclaimer {
   margin-top: 48px;
   padding: 24px;
-  border: 1px solid var(--va-border, #e5e5e5);
-  border-left: 3px solid var(--va-text-primary, #000);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #ffffff;
 }
 
 .va-disclaimer__title {
   font-weight: 700;
   margin-bottom: 12px;
   font-size: 14px;
-  color: var(--va-text-primary, #000);
+  color: #ffffff;
 }
 
 .va-disclaimer__body {
   margin: 0 0 12px;
   font-size: 13px;
-  color: var(--va-text-primary, #333);
+  color: #cccccc;
   line-height: 1.7;
   opacity: 0.8;
 }
@@ -1177,58 +1124,9 @@ a:hover {
 .va-disclaimer__note {
   margin: 0;
   font-size: 12px;
-  color: var(--va-text-primary, #333);
+  color: #a0a0a0;
   line-height: 1.6;
   opacity: 0.6;
-}
-
-/* Dark mode overrides for hero components */
-[data-theme='dark'] .va-feature-card {
-  background: var(--va-bg, #000);
-}
-
-[data-theme='dark'] .va-feature-card:hover {
-  background: var(--va-surface, #0a0a0a);
-}
-
-[data-theme='dark'] .va-feature-card__num {
-  color: #666;
-}
-
-[data-theme='dark'] .va-feature-card__desc {
-  color: var(--va-text-secondary, #aaa);
-}
-
-[data-theme='dark'] .va-cta__link--primary {
-  background: #fff;
-  color: #000;
-}
-
-[data-theme='dark'] .va-cta__link--ghost {
-  color: #fff;
-  border-left-color: var(--va-border, #1a1a1a);
-}
-
-[data-theme='dark'] .va-cta__link--ghost:hover {
-  background: var(--va-surface, #0a0a0a);
-  color: #fff;
-}
-
-[data-theme='dark'] .va-disclaimer {
-  border-color: var(--va-border, #1a1a1a);
-  border-left-color: #fff;
-}
-
-[data-theme='dark'] .va-disclaimer__title {
-  color: #fff;
-}
-
-[data-theme='dark'] .va-disclaimer__body {
-  color: #ddd;
-}
-
-[data-theme='dark'] .va-disclaimer__note {
-  color: #bbb;
 }
 
 /* ========================================
@@ -1282,7 +1180,7 @@ a:hover {
 
   .va-cta__link--ghost {
     border-left: none;
-    border-top: 1px solid var(--va-border, #e5e5e5);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .va-disclaimer {
@@ -1328,11 +1226,11 @@ a:hover {
 }
 
 /* ========================================
-   푸터 색상 대비 수정
+   푸터 다크 스타일 강화
    ======================================== */
 .footer--dark {
-  background: #111 !important;
-  border-top: 1px solid #333;
+  background: #000000 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer--dark .footer__title {
@@ -1340,7 +1238,7 @@ a:hover {
 }
 
 .footer--dark .footer__link-item {
-  color: #bbb;
+  color: #a0a0a0;
 }
 
 .footer--dark .footer__link-item:hover {
@@ -1348,10 +1246,19 @@ a:hover {
 }
 
 .footer--dark .footer__copyright {
-  color: #888;
+  color: #6b7280;
 }
 
 /* 네비게이션 로고 스타일 */
 .navbar__logo img {
   border-radius: 4px;
+}
+
+/* ========================================
+   Docusaurus 컬러모드 토글 숨기기
+   ======================================== */
+.navbar__items .colorModeToggle_DEke,
+[class*='colorModeToggle'],
+[class*='toggle_'] {
+  display: none !important;
 }

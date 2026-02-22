@@ -128,14 +128,14 @@ export default function OptionGreeksCalculator() {
     maxWidth: '900px',
     margin: '0 auto',
     padding: '24px',
-    backgroundColor: '#f8fafc',
+    backgroundColor: 'rgba(255,255,255,0.03)',
     borderRadius: '12px',
   };
 
   const headerStyle: React.CSSProperties = {
     textAlign: 'center',
     marginBottom: '24px',
-    color: '#1a365d',
+    color: '#e0e0e0',
   };
 
   const gridStyle: React.CSSProperties = {
@@ -154,12 +154,12 @@ export default function OptionGreeksCalculator() {
   const labelStyle: React.CSSProperties = {
     fontSize: '13px',
     fontWeight: 500,
-    color: '#4a5568',
+    color: '#a0a0a0',
   };
 
   const inputStyle: React.CSSProperties = {
     padding: '10px 12px',
-    border: '1px solid #e2e8f0',
+    border: '1px solid rgba(255,255,255,0.08)',
     borderRadius: '8px',
     fontSize: '14px',
     outline: 'none',
@@ -167,7 +167,7 @@ export default function OptionGreeksCalculator() {
   };
 
   const resultCardStyle: React.CSSProperties = {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(255,255,255,0.06)',
     borderRadius: '12px',
     padding: '20px',
     boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -183,29 +183,29 @@ export default function OptionGreeksCalculator() {
   const thStyle: React.CSSProperties = {
     padding: '12px 16px',
     textAlign: 'left',
-    borderBottom: '2px solid #e2e8f0',
-    color: '#4a5568',
+    borderBottom: '2px solid rgba(255,255,255,0.08)',
+    color: '#a0a0a0',
     fontWeight: 600,
   };
 
   const tdStyle: React.CSSProperties = {
     padding: '12px 16px',
-    borderBottom: '1px solid #f1f5f9',
+    borderBottom: '1px solid rgba(255,255,255,0.06)',
   };
 
   const valueStyle: React.CSSProperties = {
     fontWeight: 600,
-    color: '#1a365d',
+    color: '#e0e0e0',
   };
 
   const positiveStyle: React.CSSProperties = {
     ...valueStyle,
-    color: '#22543d',
+    color: '#10b981',
   };
 
   const negativeStyle: React.CSSProperties = {
     ...valueStyle,
-    color: '#c53030',
+    color: '#ef4444',
   };
 
   const moneyness = inputs.spotPrice > inputs.strikePrice ? 'ITM' : inputs.spotPrice < inputs.strikePrice ? 'OTM' : 'ATM';
@@ -214,7 +214,7 @@ export default function OptionGreeksCalculator() {
     <div style={containerStyle}>
       <div style={headerStyle}>
         <h2 style={{ margin: '0 0 8px', fontSize: '24px' }}>옵션 그릭스 계산기</h2>
-        <p style={{ margin: 0, color: '#718096', fontSize: '14px' }}>Black-Scholes 모형 기반</p>
+        <p style={{ margin: 0, color: '#6b7280', fontSize: '14px' }}>Black-Scholes 모형 기반</p>
       </div>
 
       <div style={gridStyle}>
@@ -280,7 +280,7 @@ export default function OptionGreeksCalculator() {
       {result && (
         <>
           <div style={resultCardStyle}>
-            <h3 style={{ margin: '0 0 16px', color: '#2d3748', fontSize: '16px' }}>옵션 가격</h3>
+            <h3 style={{ margin: '0 0 16px', color: '#a0a0a0', fontSize: '16px' }}>옵션 가격</h3>
             <table style={tableStyle}>
               <thead>
                 <tr>
@@ -319,7 +319,7 @@ export default function OptionGreeksCalculator() {
           </div>
 
           <div style={resultCardStyle}>
-            <h3 style={{ margin: '0 0 16px', color: '#2d3748', fontSize: '16px' }}>그릭스 (Greeks)</h3>
+            <h3 style={{ margin: '0 0 16px', color: '#a0a0a0', fontSize: '16px' }}>그릭스 (Greeks)</h3>
             <table style={tableStyle}>
               <thead>
                 <tr>
@@ -336,7 +336,7 @@ export default function OptionGreeksCalculator() {
                   </td>
                   <td style={{ ...tdStyle, ...positiveStyle }}>{result.callDelta.toFixed(4)}</td>
                   <td style={{ ...tdStyle, ...negativeStyle }}>{result.putDelta.toFixed(4)}</td>
-                  <td style={{ ...tdStyle, fontSize: '12px', color: '#718096' }}>기초자산 $1 변동 시 옵션가 변동</td>
+                  <td style={{ ...tdStyle, fontSize: '12px', color: '#6b7280' }}>기초자산 $1 변동 시 옵션가 변동</td>
                 </tr>
                 <tr>
                   <td style={tdStyle}>
@@ -344,7 +344,7 @@ export default function OptionGreeksCalculator() {
                   </td>
                   <td style={{ ...tdStyle, ...valueStyle }}>{result.gamma.toFixed(4)}</td>
                   <td style={{ ...tdStyle, ...valueStyle }}>{result.gamma.toFixed(4)}</td>
-                  <td style={{ ...tdStyle, fontSize: '12px', color: '#718096' }}>델타의 변화율</td>
+                  <td style={{ ...tdStyle, fontSize: '12px', color: '#6b7280' }}>델타의 변화율</td>
                 </tr>
                 <tr>
                   <td style={tdStyle}>
@@ -352,7 +352,7 @@ export default function OptionGreeksCalculator() {
                   </td>
                   <td style={{ ...tdStyle, ...negativeStyle }}>{result.callTheta.toFixed(4)}</td>
                   <td style={{ ...tdStyle, ...negativeStyle }}>{result.putTheta.toFixed(4)}</td>
-                  <td style={{ ...tdStyle, fontSize: '12px', color: '#718096' }}>일일 시간가치 소멸</td>
+                  <td style={{ ...tdStyle, fontSize: '12px', color: '#6b7280' }}>일일 시간가치 소멸</td>
                 </tr>
                 <tr>
                   <td style={tdStyle}>
@@ -360,7 +360,7 @@ export default function OptionGreeksCalculator() {
                   </td>
                   <td style={{ ...tdStyle, ...valueStyle }}>{result.vega.toFixed(4)}</td>
                   <td style={{ ...tdStyle, ...valueStyle }}>{result.vega.toFixed(4)}</td>
-                  <td style={{ ...tdStyle, fontSize: '12px', color: '#718096' }}>변동성 1%p 변동 시 옵션가 변동</td>
+                  <td style={{ ...tdStyle, fontSize: '12px', color: '#6b7280' }}>변동성 1%p 변동 시 옵션가 변동</td>
                 </tr>
                 <tr>
                   <td style={tdStyle}>
@@ -368,29 +368,29 @@ export default function OptionGreeksCalculator() {
                   </td>
                   <td style={{ ...tdStyle, ...positiveStyle }}>{result.callRho.toFixed(4)}</td>
                   <td style={{ ...tdStyle, ...negativeStyle }}>{result.putRho.toFixed(4)}</td>
-                  <td style={{ ...tdStyle, fontSize: '12px', color: '#718096' }}>금리 1%p 변동 시 옵션가 변동</td>
+                  <td style={{ ...tdStyle, fontSize: '12px', color: '#6b7280' }}>금리 1%p 변동 시 옵션가 변동</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div style={resultCardStyle}>
-            <h3 style={{ margin: '0 0 16px', color: '#2d3748', fontSize: '16px' }}>Black-Scholes 파라미터</h3>
+            <h3 style={{ margin: '0 0 16px', color: '#a0a0a0', fontSize: '16px' }}>Black-Scholes 파라미터</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <div>
-                <span style={{ color: '#718096', fontSize: '13px' }}>d1</span>
+                <span style={{ color: '#6b7280', fontSize: '13px' }}>d1</span>
                 <div style={valueStyle}>{result.d1.toFixed(4)}</div>
               </div>
               <div>
-                <span style={{ color: '#718096', fontSize: '13px' }}>d2</span>
+                <span style={{ color: '#6b7280', fontSize: '13px' }}>d2</span>
                 <div style={valueStyle}>{result.d2.toFixed(4)}</div>
               </div>
               <div>
-                <span style={{ color: '#718096', fontSize: '13px' }}>N(d1)</span>
+                <span style={{ color: '#6b7280', fontSize: '13px' }}>N(d1)</span>
                 <div style={valueStyle}>{normalCDF(result.d1).toFixed(4)}</div>
               </div>
               <div>
-                <span style={{ color: '#718096', fontSize: '13px' }}>N(d2)</span>
+                <span style={{ color: '#6b7280', fontSize: '13px' }}>N(d2)</span>
                 <div style={valueStyle}>{normalCDF(result.d2).toFixed(4)}</div>
               </div>
             </div>

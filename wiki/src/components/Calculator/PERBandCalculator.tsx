@@ -40,11 +40,11 @@ const PRESETS: PresetData[] = [
 ];
 
 const BAND_LABELS = [
-  { key: 'high', label: '5년 최고 PER', color: '#ef4444', bgColor: '#fef2f2' },
-  { key: 'plus1Sigma', label: '5년 평균+1\u03C3 PER', color: '#f97316', bgColor: '#fff7ed' },
-  { key: 'avg', label: '5년 평균 PER', color: '#3b82f6', bgColor: '#eff6ff' },
-  { key: 'minus1Sigma', label: '5년 평균-1\u03C3 PER', color: '#22c55e', bgColor: '#f0fdf4' },
-  { key: 'low', label: '5년 최저 PER', color: '#15803d', bgColor: '#f0fdf4' },
+  { key: 'high', label: '5년 최고 PER', color: '#ef4444', bgColor: 'rgba(239,68,68,0.08)' },
+  { key: 'plus1Sigma', label: '5년 평균+1\u03C3 PER', color: '#f97316', bgColor: 'rgba(245,158,11,0.08)' },
+  { key: 'avg', label: '5년 평균 PER', color: '#3b82f6', bgColor: 'rgba(96,165,250,0.08)' },
+  { key: 'minus1Sigma', label: '5년 평균-1\u03C3 PER', color: '#22c55e', bgColor: 'rgba(16,185,129,0.08)' },
+  { key: 'low', label: '5년 최저 PER', color: '#15803d', bgColor: 'rgba(16,185,129,0.08)' },
 ] as const;
 
 const formatNumber = (num: number): string => Math.round(num).toLocaleString();
@@ -95,28 +95,28 @@ export const PERBandCalculator: React.FC = () => {
 
     if (currentPrice < targetPrices[4]) {
       judgmentText = '극단적 저평가 구간';
-      judgmentColor = '#15803d';
-      judgmentBg = '#dcfce7';
+      judgmentColor = '#10b981';
+      judgmentBg = 'rgba(16,185,129,0.12)';
     } else if (currentPrice < targetPrices[3]) {
       judgmentText = '저평가 구간';
       judgmentColor = '#22c55e';
-      judgmentBg = '#f0fdf4';
+      judgmentBg = 'rgba(16,185,129,0.08)';
     } else if (currentPrice < targetPrices[2]) {
       judgmentText = '적정가치 하단';
       judgmentColor = '#3b82f6';
-      judgmentBg = '#eff6ff';
+      judgmentBg = 'rgba(96,165,250,0.08)';
     } else if (currentPrice < targetPrices[1]) {
       judgmentText = '적정가치 상단';
       judgmentColor = '#ca8a04';
-      judgmentBg = '#fefce8';
+      judgmentBg = 'rgba(245,158,11,0.08)';
     } else if (currentPrice < targetPrices[0]) {
       judgmentText = '고평가 구간';
       judgmentColor = '#f97316';
-      judgmentBg = '#fff7ed';
+      judgmentBg = 'rgba(245,158,11,0.08)';
     } else {
       judgmentText = '극단적 고평가 구간';
       judgmentColor = '#ef4444';
-      judgmentBg = '#fef2f2';
+      judgmentBg = 'rgba(239,68,68,0.08)';
     }
 
     return {
@@ -137,7 +137,7 @@ export const PERBandCalculator: React.FC = () => {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.5rem',
-    border: '1px solid #d1d5db',
+    border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: '0.5rem',
     fontSize: '0.875rem',
   };
@@ -245,13 +245,13 @@ export const PERBandCalculator: React.FC = () => {
           alignItems: 'center',
           gap: '0.5rem',
           padding: '1rem',
-          backgroundColor: '#fef2f2',
-          border: '1px solid #fecaca',
+          backgroundColor: 'rgba(239,68,68,0.08)',
+          border: '1px solid rgba(239,68,68,0.2)',
           borderRadius: '0.5rem',
           marginBottom: '1.5rem',
         }}>
           <span>⚠️</span>
-          <span style={{ color: '#b91c1c' }}>EPS가 0이면 PER을 계산할 수 없습니다.</span>
+          <span style={{ color: '#ef4444' }}>EPS가 0이면 PER을 계산할 수 없습니다.</span>
         </div>
       )}
 
@@ -260,20 +260,20 @@ export const PERBandCalculator: React.FC = () => {
         <>
           {/* 요약 카드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-            <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#1d4ed8', marginBottom: '0.25rem' }}>현재 PER</p>
+            <div style={{ background: 'rgba(96,165,250,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#60a5fa', marginBottom: '0.25rem' }}>현재 PER</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>{result.currentPER.toFixed(1)}x</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#7c3aed', marginBottom: '0.25rem' }}>Forward PER</p>
+            <div style={{ background: 'rgba(124,106,247,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#7c6af7', marginBottom: '0.25rem' }}>Forward PER</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>{result.forwardPER.toFixed(1)}x</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#15803d', marginBottom: '0.25rem' }}>평균 PER 적정가</p>
+            <div style={{ background: 'rgba(16,185,129,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#10b981', marginBottom: '0.25rem' }}>평균 PER 적정가</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>{formatPrice(result.targetPrices[2])}</p>
             </div>
             <div style={{
-              background: `linear-gradient(135deg, ${result.judgmentBg} 0%, ${result.judgmentBg} 100%)`,
+              background: result.judgmentBg,
               padding: '1rem',
               borderRadius: '0.75rem',
               border: `1px solid ${result.judgmentColor}33`,
@@ -289,9 +289,9 @@ export const PERBandCalculator: React.FC = () => {
             <div style={{
               position: 'relative',
               padding: '1.5rem 1rem',
-              backgroundColor: '#f9fafb',
+              backgroundColor: 'rgba(255,255,255,0.03)',
               borderRadius: '0.75rem',
-              border: '1px solid #e5e7eb',
+              border: '1px solid rgba(255,255,255,0.08)',
             }}>
               {/* Band bars */}
               {BAND_LABELS.map((band, i) => {
@@ -313,7 +313,7 @@ export const PERBandCalculator: React.FC = () => {
                     <div style={{
                       position: 'relative',
                       height: '1.5rem',
-                      backgroundColor: '#e5e7eb',
+                      backgroundColor: 'rgba(255,255,255,0.06)',
                       borderRadius: '0.375rem',
                       overflow: 'hidden',
                     }}>
@@ -394,21 +394,21 @@ export const PERBandCalculator: React.FC = () => {
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
-                  <tr style={{ backgroundColor: '#f3f4f6' }}>
-                    <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid #e5e7eb', fontSize: '0.85rem' }}>구간</th>
-                    <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid #e5e7eb', fontSize: '0.85rem' }}>PER</th>
-                    <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid #e5e7eb', fontSize: '0.85rem' }}>목표 주가</th>
-                    <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid #e5e7eb', fontSize: '0.85rem' }}>괴리율</th>
+                  <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                    <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>구간</th>
+                    <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>PER</th>
+                    <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>목표 주가</th>
+                    <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>괴리율</th>
                   </tr>
                 </thead>
                 <tbody>
                   {BAND_LABELS.map((band, i) => {
                     const upside = result.upsideDownside[i];
                     return (
-                      <tr key={band.key} style={{ backgroundColor: band.key === 'avg' ? '#eff6ff' : 'transparent' }}>
+                      <tr key={band.key} style={{ backgroundColor: band.key === 'avg' ? 'rgba(96,165,250,0.08)' : 'transparent' }}>
                         <td style={{
                           padding: '0.6rem 0.75rem',
-                          borderBottom: '1px solid #e5e7eb',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                           fontSize: '0.85rem',
                         }}>
                           <span style={{
@@ -425,7 +425,7 @@ export const PERBandCalculator: React.FC = () => {
                         <td style={{
                           padding: '0.6rem 0.75rem',
                           textAlign: 'center',
-                          borderBottom: '1px solid #e5e7eb',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                           fontSize: '0.85rem',
                           fontWeight: band.key === 'avg' ? 700 : 400,
                         }}>
@@ -434,7 +434,7 @@ export const PERBandCalculator: React.FC = () => {
                         <td style={{
                           padding: '0.6rem 0.75rem',
                           textAlign: 'right',
-                          borderBottom: '1px solid #e5e7eb',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                           fontSize: '0.85rem',
                           fontWeight: 600,
                         }}>
@@ -443,7 +443,7 @@ export const PERBandCalculator: React.FC = () => {
                         <td style={{
                           padding: '0.6rem 0.75rem',
                           textAlign: 'right',
-                          borderBottom: '1px solid #e5e7eb',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                           fontSize: '0.85rem',
                           fontWeight: 600,
                           color: upside >= 0 ? '#16a34a' : '#dc2626',
@@ -454,17 +454,17 @@ export const PERBandCalculator: React.FC = () => {
                     );
                   })}
                   {/* 현재가 행 */}
-                  <tr style={{ backgroundColor: '#fefce8' }}>
-                    <td style={{ padding: '0.6rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.85rem', fontWeight: 700 }}>
+                  <tr style={{ backgroundColor: 'rgba(245,158,11,0.08)' }}>
+                    <td style={{ padding: '0.6rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem', fontWeight: 700 }}>
                       ▶ 현재 주가
                     </td>
-                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', borderBottom: '1px solid #e5e7eb', fontSize: '0.85rem', fontWeight: 700 }}>
+                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem', fontWeight: 700 }}>
                       {result.forwardPER.toFixed(1)}x
                     </td>
-                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontSize: '0.85rem', fontWeight: 700 }}>
+                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem', fontWeight: 700 }}>
                       {formatPrice(inputs.currentPrice)}
                     </td>
-                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontSize: '0.85rem', fontWeight: 700, color: '#6b7280' }}>
+                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem', fontWeight: 700, color: '#6b7280' }}>
                       -
                     </td>
                   </tr>
@@ -495,7 +495,7 @@ export const PERBandCalculator: React.FC = () => {
                   {result.judgmentText}
                 </span>
               </div>
-              <div style={{ fontSize: '0.875rem', color: '#374151', lineHeight: 1.6 }}>
+              <div style={{ fontSize: '0.875rem', color: '#a0a0a0', lineHeight: 1.6 }}>
                 <p style={{ margin: '0 0 0.5rem 0' }}>
                   현재 주가 <strong>{formatPrice(inputs.currentPrice)}</strong>는
                   Forward PER <strong>{result.forwardPER.toFixed(1)}x</strong> 수준으로,
@@ -513,7 +513,7 @@ export const PERBandCalculator: React.FC = () => {
               <div style={{
                 marginTop: '1rem',
                 padding: '0.75rem',
-                backgroundColor: 'rgba(255,255,255,0.6)',
+                backgroundColor: 'rgba(255,255,255,0.04)',
                 borderRadius: '0.5rem',
                 fontSize: '0.8rem',
                 color: '#4b5563',
@@ -521,12 +521,12 @@ export const PERBandCalculator: React.FC = () => {
                 <div style={{ fontWeight: 600, marginBottom: '0.5rem' }}>PER Band 구간 해석</div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.25rem' }}>
                   {[
-                    { color: '#15803d', text: '최고PER 초과: 극단적 고평가' },
+                    { color: '#10b981', text: '최고PER 초과: 극단적 고평가' },
                     { color: '#f97316', text: '+1\u03C3 ~ 최고PER: 고평가 구간' },
                     { color: '#ca8a04', text: '평균 ~ +1\u03C3: 적정가치 상단' },
                     { color: '#3b82f6', text: '-1\u03C3 ~ 평균: 적정가치 하단' },
                     { color: '#22c55e', text: '최저 ~ -1\u03C3: 저평가 구간' },
-                    { color: '#15803d', text: '최저PER 미만: 극단적 저평가' },
+                    { color: '#10b981', text: '최저PER 미만: 극단적 저평가' },
                   ].map((item, idx) => (
                     <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                       <span style={{
@@ -548,9 +548,9 @@ export const PERBandCalculator: React.FC = () => {
           {/* 참고사항 */}
           <div style={{
             padding: '1rem',
-            backgroundColor: '#f9fafb',
+            backgroundColor: 'rgba(255,255,255,0.03)',
             borderRadius: '0.5rem',
-            border: '1px solid #e5e7eb',
+            border: '1px solid rgba(255,255,255,0.08)',
             fontSize: '0.8rem',
             color: '#6b7280',
             lineHeight: 1.6,

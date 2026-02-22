@@ -138,7 +138,7 @@ const ProgressTrackerInner: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '1rem', backgroundColor: 'var(--ifm-background-surface-color)', borderRadius: '8px', border: '1px solid var(--ifm-color-emphasis-300)' }}>
+    <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
         <h3 style={{ margin: 0 }}>학습 진도 추적</h3>
         <button
@@ -146,7 +146,7 @@ const ProgressTrackerInner: React.FC = () => {
           style={{
             padding: '0.5rem 1rem',
             borderRadius: '4px',
-            border: '1px solid var(--ifm-color-emphasis-300)',
+            border: '1px solid rgba(255,255,255,0.08)',
             backgroundColor: 'transparent',
             cursor: 'pointer',
             fontSize: '0.8rem',
@@ -164,20 +164,20 @@ const ProgressTrackerInner: React.FC = () => {
         </div>
         <div style={{
           height: '20px',
-          backgroundColor: 'var(--ifm-color-emphasis-200)',
+          backgroundColor: 'rgba(255,255,255,0.06)',
           borderRadius: '10px',
           overflow: 'hidden',
         }}>
           <div style={{
             height: '100%',
             width: `${progressPercent}%`,
-            backgroundColor: progressPercent === 100 ? '#52c41a' : 'var(--ifm-color-primary)',
+            backgroundColor: progressPercent === 100 ? '#10b981' : 'var(--ifm-color-primary)',
             transition: 'width 0.3s ease',
             borderRadius: '10px',
           }} />
         </div>
         {progressPercent === 100 && (
-          <p style={{ color: '#52c41a', marginTop: '0.5rem', fontWeight: 600 }}>
+          <p style={{ color: '#10b981', marginTop: '0.5rem', fontWeight: 600 }}>
             축하합니다! 모든 학습을 완료했습니다!
           </p>
         )}
@@ -194,8 +194,8 @@ const ProgressTrackerInner: React.FC = () => {
                 fontSize: '0.8rem',
                 padding: '0.2rem 0.5rem',
                 borderRadius: '4px',
-                backgroundColor: progress.percent === 100 ? '#52c41a' : 'var(--ifm-color-emphasis-200)',
-                color: progress.percent === 100 ? 'white' : 'inherit',
+                backgroundColor: progress.percent === 100 ? '#10b981' : 'rgba(255,255,255,0.06)',
+                color: progress.percent === 100 ? 'rgba(255,255,255,0.06)' : 'inherit',
               }}>
                 {progress.completed}/{progress.total}
               </span>
@@ -204,7 +204,7 @@ const ProgressTrackerInner: React.FC = () => {
             {/* 진도 바 */}
             <div style={{
               height: '8px',
-              backgroundColor: 'var(--ifm-color-emphasis-200)',
+              backgroundColor: 'rgba(255,255,255,0.06)',
               borderRadius: '4px',
               overflow: 'hidden',
               marginBottom: '0.75rem',
@@ -212,7 +212,7 @@ const ProgressTrackerInner: React.FC = () => {
               <div style={{
                 height: '100%',
                 width: `${progress.percent}%`,
-                backgroundColor: progress.percent === 100 ? '#52c41a' : 'var(--ifm-color-primary)',
+                backgroundColor: progress.percent === 100 ? '#10b981' : 'var(--ifm-color-primary)',
                 transition: 'width 0.3s ease',
               }} />
             </div>
@@ -228,7 +228,7 @@ const ProgressTrackerInner: React.FC = () => {
                     gap: '0.5rem',
                     padding: '0.5rem 0.75rem',
                     borderRadius: '4px',
-                    backgroundColor: completedItems.has(item.id) ? 'var(--ifm-color-success-contrast-background)' : 'var(--ifm-color-emphasis-100)',
+                    backgroundColor: completedItems.has(item.id) ? 'rgba(16,185,129,0.1)' : 'rgba(255,255,255,0.04)',
                     cursor: 'pointer',
                     fontSize: '0.9rem',
                     transition: 'background-color 0.2s',
@@ -242,7 +242,7 @@ const ProgressTrackerInner: React.FC = () => {
                   />
                   <span style={{
                     textDecoration: completedItems.has(item.id) ? 'line-through' : 'none',
-                    color: completedItems.has(item.id) ? 'var(--ifm-color-emphasis-600)' : 'inherit',
+                    color: completedItems.has(item.id) ? '#a0a0a0' : 'inherit',
                   }}>
                     {item.title}
                   </span>
@@ -253,7 +253,7 @@ const ProgressTrackerInner: React.FC = () => {
         );
       })}
 
-      <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)', marginTop: '1rem' }}>
+      <p style={{ fontSize: '0.8rem', color: '#a0a0a0', marginTop: '1rem' }}>
         * 진도는 브라우저에 저장됩니다. 다른 기기에서는 동기화되지 않습니다.
       </p>
     </div>

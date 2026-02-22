@@ -68,7 +68,7 @@ export const GrahamNumberCalculator: React.FC = () => {
               type="number"
               value={inputs.eps}
               onChange={(e) => setInputs({ ...inputs, eps: parseFloat(e.target.value) || 0 })}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               placeholder="원"
             />
           </div>
@@ -78,7 +78,7 @@ export const GrahamNumberCalculator: React.FC = () => {
               type="number"
               value={inputs.bvps}
               onChange={(e) => setInputs({ ...inputs, bvps: parseFloat(e.target.value) || 0 })}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               placeholder="원"
             />
           </div>
@@ -88,18 +88,18 @@ export const GrahamNumberCalculator: React.FC = () => {
               type="number"
               value={inputs.currentPrice}
               onChange={(e) => setInputs({ ...inputs, currentPrice: parseFloat(e.target.value) || 0 })}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               placeholder="원"
             />
           </div>
 
           {/* 공식 설명 */}
-          <div style={{ backgroundColor: '#f3f4f6', padding: '1rem', borderRadius: '0.5rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.04)', padding: '1rem', borderRadius: '0.5rem' }}>
             <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>그레이엄 넘버 공식:</p>
-            <div style={{ fontFamily: 'monospace', textAlign: 'center', padding: '0.5rem', backgroundColor: 'white', borderRadius: '0.25rem', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontFamily: 'monospace', textAlign: 'center', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', border: '1px solid rgba(255,255,255,0.08)' }}>
               √(22.5 × EPS × BVPS)
             </div>
-            <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '0.5rem' }}>
+            <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>
               * 22.5 = PER 15 × PBR 1.5 (그레이엄의 상한 기준)
             </p>
           </div>
@@ -111,9 +111,9 @@ export const GrahamNumberCalculator: React.FC = () => {
           <div style={{
             padding: '1.5rem',
             borderRadius: '0.75rem',
-            backgroundColor: result.isUndervalued ? '#d1fae5' : '#fee2e2'
+            backgroundColor: result.isUndervalued ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'
           }}>
-            <p style={{ fontSize: '0.875rem', color: result.isUndervalued ? '#065f46' : '#991b1b' }}>
+            <p style={{ fontSize: '0.875rem', color: result.isUndervalued ? '#10b981' : '#ef4444' }}>
               그레이엄 넘버
             </p>
             <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>
@@ -124,12 +124,12 @@ export const GrahamNumberCalculator: React.FC = () => {
                 result.isUndervalued ? (
                   <>
                     <span>✅</span>
-                    <span style={{ color: '#065f46' }}>저평가 (안전마진 {result.marginOfSafety.toFixed(1)}%)</span>
+                    <span style={{ color: '#10b981' }}>저평가 (안전마진 {result.marginOfSafety.toFixed(1)}%)</span>
                   </>
                 ) : (
                   <>
                     <span>❌</span>
-                    <span style={{ color: '#991b1b' }}>고평가 ({Math.abs(result.marginOfSafety).toFixed(1)}% 프리미엄)</span>
+                    <span style={{ color: '#ef4444' }}>고평가 ({Math.abs(result.marginOfSafety).toFixed(1)}% 프리미엄)</span>
                   </>
                 )
               )}
@@ -141,26 +141,26 @@ export const GrahamNumberCalculator: React.FC = () => {
             <div style={{
               padding: '1rem',
               borderRadius: '0.5rem',
-              backgroundColor: result.perCriteria ? '#d1fae5' : '#fee2e2'
+              backgroundColor: result.perCriteria ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'
             }}>
               <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>현재 PER</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
                 {result.currentPER > 0 ? `${result.currentPER.toFixed(1)}x` : 'N/A'}
               </p>
-              <p style={{ fontSize: '0.75rem', color: result.perCriteria ? '#065f46' : '#991b1b' }}>
+              <p style={{ fontSize: '0.75rem', color: result.perCriteria ? '#10b981' : '#ef4444' }}>
                 기준: ≤15x {result.perCriteria ? '✓' : '✗'}
               </p>
             </div>
             <div style={{
               padding: '1rem',
               borderRadius: '0.5rem',
-              backgroundColor: result.pbrCriteria ? '#d1fae5' : '#fee2e2'
+              backgroundColor: result.pbrCriteria ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'
             }}>
               <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>현재 PBR</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
                 {result.currentPBR > 0 ? `${result.currentPBR.toFixed(2)}x` : 'N/A'}
               </p>
-              <p style={{ fontSize: '0.75rem', color: result.pbrCriteria ? '#065f46' : '#991b1b' }}>
+              <p style={{ fontSize: '0.75rem', color: result.pbrCriteria ? '#10b981' : '#ef4444' }}>
                 기준: ≤1.5x {result.pbrCriteria ? '✓' : '✗'}
               </p>
             </div>
@@ -170,7 +170,7 @@ export const GrahamNumberCalculator: React.FC = () => {
           <div style={{
             padding: '1rem',
             borderRadius: '0.5rem',
-            backgroundColor: result.combinedCriteria ? '#d1fae5' : '#fee2e2'
+            backgroundColor: result.combinedCriteria ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>PER × PBR</span>
@@ -180,16 +180,16 @@ export const GrahamNumberCalculator: React.FC = () => {
                   : 'N/A'}
               </span>
             </div>
-            <p style={{ fontSize: '0.75rem', marginTop: '0.25rem', color: result.combinedCriteria ? '#065f46' : '#991b1b' }}>
+            <p style={{ fontSize: '0.75rem', marginTop: '0.25rem', color: result.combinedCriteria ? '#10b981' : '#ef4444' }}>
               그레이엄 복합 기준: ≤22.5 {result.combinedCriteria ? '✓' : '✗'}
             </p>
           </div>
 
           {/* 가격 비교 */}
           {result.grahamNumber > 0 && (
-            <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem' }}>
+            <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem' }}>
               <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.75rem' }}>가격 비교</h4>
-              <div style={{ position: 'relative', height: '2rem', backgroundColor: '#e5e7eb', borderRadius: '0.5rem', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '2rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', overflow: 'hidden' }}>
                 {/* 그레이엄 넘버 위치 */}
                 <div style={{
                   position: 'absolute',
@@ -210,7 +210,7 @@ export const GrahamNumberCalculator: React.FC = () => {
                   backgroundColor: inputs.currentPrice < result.grahamNumber ? '#3b82f6' : '#ef4444',
                   borderRadius: '50%',
                   transform: 'translate(-50%, -50%)',
-                  border: '2px solid white'
+                  border: '2px solid rgba(255,255,255,0.3)'
                 }} />
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem', fontSize: '0.75rem', color: '#6b7280' }}>
@@ -228,10 +228,10 @@ export const GrahamNumberCalculator: React.FC = () => {
         marginTop: '1.5rem',
         padding: '1rem',
         borderLeft: '4px solid #f59e0b',
-        backgroundColor: '#fffbeb',
+        backgroundColor: 'rgba(245,158,11,0.08)',
         borderRadius: '0 0.5rem 0.5rem 0'
       }}>
-        <p style={{ fontStyle: 'italic', color: '#78350f' }}>
+        <p style={{ fontStyle: 'italic', color: '#f59e0b' }}>
           "투자의 비결을 세 단어로 요약하면: 안전마진(Margin of Safety)."
         </p>
         <p style={{ fontWeight: '600', color: '#f59e0b', marginTop: '0.5rem', fontSize: '0.875rem' }}>

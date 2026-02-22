@@ -163,17 +163,17 @@ const PortfolioSimulatorInner: React.FC = () => {
   const categories = ['주식', '채권', '원자재', '대체', '현금'];
 
   return (
-    <div style={{ padding: '1.5rem', backgroundColor: 'var(--ifm-background-surface-color)', borderRadius: '12px', border: '1px solid var(--ifm-color-emphasis-300)' }}>
+    <div style={{ padding: '1.5rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
         <h3 style={{ margin: 0 }}>포트폴리오 백테스트 시뮬레이터</h3>
-        <div style={{ fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-600)' }}>
+        <div style={{ fontSize: '0.85rem', color: '#a0a0a0' }}>
           2014~2024년 (11년) 데이터 기반
         </div>
       </div>
 
       {/* 프리셋 버튼 */}
       <div style={{ marginBottom: '1.5rem' }}>
-        <div style={{ fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--ifm-color-emphasis-700)' }}>빠른 시작: 포트폴리오 프리셋</div>
+        <div style={{ fontSize: '0.85rem', marginBottom: '0.5rem', color: '#cccccc' }}>빠른 시작: 포트폴리오 프리셋</div>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           {[
             { key: 'aggressive', label: '공격형', desc: '주식 85%' },
@@ -188,14 +188,14 @@ const PortfolioSimulatorInner: React.FC = () => {
               style={{
                 padding: '0.5rem 1rem',
                 borderRadius: '6px',
-                border: selectedPreset === preset.key ? '2px solid var(--ifm-color-primary)' : '1px solid var(--ifm-color-emphasis-300)',
+                border: selectedPreset === preset.key ? '2px solid var(--ifm-color-primary)' : '1px solid rgba(255,255,255,0.08)',
                 backgroundColor: selectedPreset === preset.key ? 'var(--ifm-color-primary-contrast-background)' : 'transparent',
                 cursor: 'pointer',
                 fontSize: '0.85rem',
               }}
             >
               <div style={{ fontWeight: 600 }}>{preset.label}</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--ifm-color-emphasis-600)' }}>{preset.desc}</div>
+              <div style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>{preset.desc}</div>
             </button>
           ))}
         </div>
@@ -211,7 +211,7 @@ const PortfolioSimulatorInner: React.FC = () => {
           style={{
             padding: '0.5rem',
             borderRadius: '4px',
-            border: '1px solid var(--ifm-color-emphasis-300)',
+            border: '1px solid rgba(255,255,255,0.08)',
             width: '150px',
             fontFamily: 'monospace',
           }}
@@ -229,7 +229,7 @@ const PortfolioSimulatorInner: React.FC = () => {
               style={{
                 padding: '0.25rem 0.75rem',
                 borderRadius: '4px',
-                border: '1px solid var(--ifm-color-emphasis-300)',
+                border: '1px solid rgba(255,255,255,0.08)',
                 backgroundColor: 'transparent',
                 cursor: 'pointer',
                 fontSize: '0.8rem',
@@ -270,7 +270,7 @@ const PortfolioSimulatorInner: React.FC = () => {
 
             return (
               <div key={category} style={{ marginBottom: '1rem' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ifm-color-emphasis-600)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#a0a0a0', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
                   {category}
                 </div>
                 {visibleAssets.map(asset => (
@@ -315,38 +315,38 @@ const PortfolioSimulatorInner: React.FC = () => {
 
           {/* 핵심 지표 - 2x3 그리드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>CAGR</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>CAGR</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700, color: portfolioMetrics.cagr > 0 ? '#52c41a' : '#ff4d4f' }}>
                 {portfolioMetrics.cagr.toFixed(1)}%
               </div>
             </div>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>변동성</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>변동성</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>
                 {portfolioMetrics.volatility.toFixed(1)}%
               </div>
             </div>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>MDD</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>MDD</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ff4d4f' }}>
                 -{portfolioMetrics.maxDrawdown.toFixed(1)}%
               </div>
             </div>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>샤프</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>샤프</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700, color: portfolioMetrics.sharpeRatio > 0.5 ? '#52c41a' : 'inherit' }}>
                 {portfolioMetrics.sharpeRatio.toFixed(2)}
               </div>
             </div>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>소르티노</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>소르티노</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>
                 {portfolioMetrics.sortinoRatio.toFixed(2)}
               </div>
             </div>
-            <div style={{ padding: '0.75rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--ifm-color-emphasis-600)' }}>승률</div>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.7rem', color: '#a0a0a0' }}>승률</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>
                 {portfolioMetrics.winRate.toFixed(0)}%
               </div>
@@ -407,7 +407,7 @@ const PortfolioSimulatorInner: React.FC = () => {
           </div>
 
           {/* 추가 정보 */}
-          <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)' }}>
+          <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#a0a0a0' }}>
             <div>• 최대낙폭 시점: {portfolioMetrics.maxDrawdownYear || 'N/A'}</div>
             <div>• 손익비: {portfolioMetrics.gainLossRatio.toFixed(2)} (양의 평균 / 음의 평균)</div>
             <div>• 칼마비율: {portfolioMetrics.calmarRatio.toFixed(2)} (CAGR / MDD)</div>
@@ -415,8 +415,8 @@ const PortfolioSimulatorInner: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: 'var(--ifm-color-emphasis-100)', borderRadius: '8px' }}>
-        <div style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-700)' }}>
+      <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px' }}>
+        <div style={{ fontSize: '0.8rem', color: '#cccccc' }}>
           <strong>참고사항</strong>
           <ul style={{ margin: '0.5rem 0 0 0', paddingLeft: '1.25rem' }}>
             <li>과거 성과가 미래 수익을 보장하지 않습니다</li>

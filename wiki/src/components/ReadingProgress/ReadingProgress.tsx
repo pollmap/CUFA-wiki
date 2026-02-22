@@ -126,9 +126,9 @@ export function MarkAsRead(): JSX.Element {
         style={{
           padding: '10px 24px',
           borderRadius: 8,
-          border: isRead ? '2px solid var(--ifm-color-success)' : '2px solid var(--ifm-color-emphasis-300)',
+          border: isRead ? '2px solid var(--ifm-color-success)' : '2px solid rgba(255,255,255,0.08)',
           background: isRead ? 'var(--ifm-color-success-contrast-background)' : 'transparent',
-          color: isRead ? 'var(--ifm-color-success-dark)' : 'var(--ifm-color-emphasis-600)',
+          color: isRead ? 'var(--ifm-color-success-dark)' : '#a0a0a0',
           fontWeight: 600,
           fontSize: 14,
           cursor: 'pointer',
@@ -214,20 +214,20 @@ export default function ReadingProgress(): JSX.Element {
               style={{
                 padding: '16px 20px',
                 borderRadius: 10,
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                background: 'var(--ifm-card-background-color, #fff)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'rgba(255,255,255,0.04)',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                 <span style={{ fontWeight: 600, fontSize: 14 }}>{cat.name}</span>
-                <span style={{ fontSize: 13, color: 'var(--ifm-color-emphasis-600)' }}>
+                <span style={{ fontSize: 13, color: '#a0a0a0' }}>
                   {catRead}/{cat.paths.length} ({catPct}%)
                 </span>
               </div>
               <div
                 style={{
                   height: 6,
-                  background: 'var(--ifm-color-emphasis-200)',
+                  background: 'rgba(255,255,255,0.08)',
                   borderRadius: 3,
                   overflow: 'hidden',
                 }}
@@ -254,9 +254,9 @@ export default function ReadingProgress(): JSX.Element {
           style={{
             padding: '8px 16px',
             borderRadius: 6,
-            border: '1px solid var(--ifm-color-emphasis-300)',
+            border: '1px solid rgba(255,255,255,0.08)',
             background: 'transparent',
-            color: 'var(--ifm-color-emphasis-600)',
+            color: '#a0a0a0',
             fontSize: 13,
             cursor: 'pointer',
           }}
