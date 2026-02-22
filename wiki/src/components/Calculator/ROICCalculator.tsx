@@ -344,7 +344,7 @@ export const ROICCalculator: React.FC = () => {
         }}>
           <p style={{ fontSize: '0.75rem', color: '#d1d5db', marginBottom: '0.25rem' }}>WACC</p>
           <p style={{ fontSize: '1.75rem', fontWeight: 'bold', margin: 0 }}>{formatDecimal(inputs.wacc)}%</p>
-          <p style={{ fontSize: '0.625rem', color: '#9ca3af', marginTop: '0.25rem' }}>가중평균자본비용</p>
+          <p style={{ fontSize: '0.625rem', color: '#6b7280', marginTop: '0.25rem' }}>가중평균자본비용</p>
         </div>
 
         {/* EVA Spread card */}
@@ -366,8 +366,8 @@ export const ROICCalculator: React.FC = () => {
         {/* EVA card */}
         <div style={{
           background: result.eva >= 0
-            ? 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)'
-            : 'linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)',
+            ? 'rgba(16,185,129,0.08)'
+            : 'rgba(239,68,68,0.08)',
           padding: '1rem',
           borderRadius: '0.75rem',
           color: result.eva >= 0 ? '#166534' : '#991b1b',
@@ -430,26 +430,26 @@ export const ROICCalculator: React.FC = () => {
       <div style={{ marginBottom: '2rem' }}>
         <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>ROIC 트리 분해 (DuPont Decomposition)</h3>
         <div style={{
-          backgroundColor: isPositive ? '#f0fdf4' : '#fef2f2',
-          border: `1px solid ${isPositive ? '#bbf7d0' : '#fecaca'}`,
+          backgroundColor: isPositive ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
+          border: `1px solid ${isPositive ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}`,
           borderRadius: '0.75rem',
           padding: '1.25rem',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '0.5rem', fontSize: '1rem' }}>
             {/* NOPAT Margin */}
-            <div style={{ textAlign: 'center', padding: '0.75rem 1rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', border: '1px solid #e5e7eb', minWidth: '120px' }}>
+            <div style={{ textAlign: 'center', padding: '0.75rem 1rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.08)', minWidth: '120px' }}>
               <p style={{ fontSize: '0.7rem', color: '#6b7280', marginBottom: '0.25rem' }}>NOPAT Margin</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#60a5fa', margin: 0 }}>{formatDecimal(result.nopatMargin)}%</p>
-              <p style={{ fontSize: '0.6rem', color: '#9ca3af', marginTop: '0.25rem' }}>NOPAT / 매출액</p>
+              <p style={{ fontSize: '0.6rem', color: '#6b7280', marginTop: '0.25rem' }}>NOPAT / 매출액</p>
             </div>
 
             <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#6b7280' }}>x</span>
 
             {/* Capital Turnover */}
-            <div style={{ textAlign: 'center', padding: '0.75rem 1rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', border: '1px solid #e5e7eb', minWidth: '120px' }}>
+            <div style={{ textAlign: 'center', padding: '0.75rem 1rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.08)', minWidth: '120px' }}>
               <p style={{ fontSize: '0.7rem', color: '#6b7280', marginBottom: '0.25rem' }}>Capital Turnover</p>
-              <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#7c3aed', margin: 0 }}>{formatDecimal(result.capitalTurnover)}x</p>
-              <p style={{ fontSize: '0.6rem', color: '#9ca3af', marginTop: '0.25rem' }}>매출액 / 투하자본</p>
+              <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#7c6af7', margin: 0 }}>{formatDecimal(result.capitalTurnover)}x</p>
+              <p style={{ fontSize: '0.6rem', color: '#6b7280', marginTop: '0.25rem' }}>매출액 / 투하자본</p>
             </div>
 
             <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#6b7280' }}>=</span>
@@ -458,7 +458,7 @@ export const ROICCalculator: React.FC = () => {
             <div style={{
               textAlign: 'center',
               padding: '0.75rem 1rem',
-              backgroundColor: isPositive ? '#dcfce7' : '#fee2e2',
+              backgroundColor: isPositive ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.15)',
               borderRadius: '0.5rem',
               border: `2px solid ${isPositive ? '#22c55e' : '#ef4444'}`,
               minWidth: '120px',
@@ -472,12 +472,12 @@ export const ROICCalculator: React.FC = () => {
           </div>
 
           {/* Detail formula */}
-          <div style={{ marginTop: '1rem', padding: '0.5rem 0.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.375rem', border: '1px solid #e5e7eb' }}>
-            <code style={{ fontSize: '0.75rem', color: '#475569' }}>
+          <div style={{ marginTop: '1rem', padding: '0.5rem 0.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.375rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>
               NOPAT = {formatNumber(inputs.ebit)} x (1 - {inputs.taxRate}%) = {formatNumber(result.nopat)}억원
             </code>
             <br />
-            <code style={{ fontSize: '0.75rem', color: '#475569' }}>
+            <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>
               IC = {formatNumber(inputs.totalAssets)} - {formatNumber(inputs.currentLiabilities)} - {formatNumber(inputs.cash)} = {formatNumber(result.investedCapital)}억원
             </code>
           </div>
@@ -515,11 +515,11 @@ export const ROICCalculator: React.FC = () => {
           {/* Judgment scale */}
           <div style={{ marginTop: '1rem', fontSize: '0.7rem', color: '#6b7280' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: '500px', margin: '0 auto' }}>
-              <span style={{ color: '#991b1b' }}>가치 파괴</span>
+              <span style={{ color: '#ef4444' }}>가치 파괴</span>
               <span style={{ color: '#f59e0b' }}>No Moat</span>
-              <span style={{ color: '#3b82f6' }}>소폭 창출</span>
-              <span style={{ color: '#166534' }}>양호</span>
-              <span style={{ color: '#065f46' }}>탁월</span>
+              <span style={{ color: '#60a5fa' }}>소폭 창출</span>
+              <span style={{ color: '#10b981' }}>양호</span>
+              <span style={{ color: '#10b981' }}>탁월</span>
             </div>
             <div style={{ position: 'relative', height: '8px', background: 'linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6, #22c55e, #059669)', borderRadius: '4px', maxWidth: '500px', margin: '0.25rem auto 0' }}>
               {(() => {
@@ -548,52 +548,52 @@ export const ROICCalculator: React.FC = () => {
       {/* EVA Valuation Bridge */}
       <div style={{ marginBottom: '2rem' }}>
         <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>EVA 기업가치 Bridge</h3>
-        <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.75rem', padding: '1.25rem' }}>
+        <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.75rem', padding: '1.25rem' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ backgroundColor: '#f1f5f9' }}>
-                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid #cbd5e1', fontSize: '0.875rem' }}>항목</th>
-                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid #cbd5e1', fontSize: '0.875rem' }}>금액 (억원)</th>
-                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid #cbd5e1', fontSize: '0.875rem' }}>산출 근거</th>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.875rem' }}>항목</th>
+                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.875rem' }}>금액 (억원)</th>
+                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.1)', fontSize: '0.875rem' }}>산출 근거</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>투하자본 (IC)</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500' }}>{formatNumber(result.investedCapital)}</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}>총자산 - 비이자부 유동부채 - 초과현금</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>투하자본 (IC)</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500' }}>{formatNumber(result.investedCapital)}</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}>총자산 - 비이자부 유동부채 - 초과현금</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>EVA (연간)</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500', color: result.eva >= 0 ? '#166534' : '#991b1b' }}>{formatNumber(result.eva)}</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}>(ROIC - WACC) x IC</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>EVA (연간)</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500', color: result.eva >= 0 ? '#166534' : '#991b1b' }}>{formatNumber(result.eva)}</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}>(ROIC - WACC) x IC</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>(+) PV(EVA) 영구가치</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500', color: result.pvEVA >= 0 ? '#166534' : '#991b1b' }}>{formatNumber(result.pvEVA)}</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}>EVA / WACC (영구가치 가정)</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>(+) PV(EVA) 영구가치</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500', color: result.pvEVA >= 0 ? '#166534' : '#991b1b' }}>{formatNumber(result.pvEVA)}</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}>EVA / WACC (영구가치 가정)</td>
               </tr>
               <tr style={{ fontWeight: '600' }}>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>= 기업가치 (Firm Value)</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb' }}>{formatNumber(result.firmValue)}</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}>IC + PV(EVA)</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>= 기업가치 (Firm Value)</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{formatNumber(result.firmValue)}</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}>IC + PV(EVA)</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>(+) 초과현금</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500' }}>{formatNumber(inputs.cash)}</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}>영업에 불필요한 현금</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>(+) 초과현금</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500' }}>{formatNumber(inputs.cash)}</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}>영업에 불필요한 현금</td>
               </tr>
-              <tr style={{ fontWeight: 'bold', backgroundColor: '#f0fdf4' }}>
+              <tr style={{ fontWeight: 'bold', backgroundColor: 'rgba(16,185,129,0.08)' }}>
                 <td style={{ padding: '0.75rem', fontSize: '0.875rem' }}>= 자기자본가치 (Equity Value)</td>
                 <td style={{ padding: '0.75rem', textAlign: 'right' }}>{formatNumber(result.equityValue)}</td>
                 <td style={{ padding: '0.75rem', fontSize: '0.75rem', color: '#6b7280' }}>Firm Value + 초과현금</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.875rem' }}>(/) 발행주식수</td>
-                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid #e5e7eb', fontWeight: '500' }}>{inputs.shares.toLocaleString()}백만주</td>
-                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid #e5e7eb', fontSize: '0.75rem', color: '#6b7280' }}></td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.875rem' }}>(/) 발행주식수</td>
+                <td style={{ padding: '0.5rem 0.75rem', textAlign: 'right', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: '500' }}>{inputs.shares.toLocaleString()}백만주</td>
+                <td style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: '0.75rem', color: '#6b7280' }}></td>
               </tr>
-              <tr style={{ fontWeight: 'bold', backgroundColor: '#eff6ff' }}>
+              <tr style={{ fontWeight: 'bold', backgroundColor: 'rgba(96,165,250,0.08)' }}>
                 <td style={{ padding: '0.75rem', fontSize: '0.875rem' }}>= 주당 가치</td>
                 <td style={{ padding: '0.75rem', textAlign: 'right', fontSize: '1.125rem', color: '#60a5fa' }}>{formatNumber(result.valuePerShare)}원</td>
                 <td style={{ padding: '0.75rem', fontSize: '0.75rem', color: '#6b7280' }}>Equity Value / 주식수</td>
@@ -604,15 +604,15 @@ export const ROICCalculator: React.FC = () => {
       </div>
 
       {/* Formula reference */}
-      <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem' }}>
+      <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem' }}>
         <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem' }}>주요 공식</h4>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>NOPAT = EBIT x (1 - Tax Rate)</code>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>투하자본(IC) = 총자산 - 비이자부 유동부채 - 초과현금</code>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>ROIC = NOPAT / IC</code>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>EVA = (ROIC - WACC) x IC</code>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>ROIC = NOPAT Margin x Capital Turnover</code>
-          <code style={{ fontSize: '0.75rem', color: '#475569' }}>Firm Value = IC + EVA / WACC (perpetuity)</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>NOPAT = EBIT x (1 - Tax Rate)</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>투하자본(IC) = 총자산 - 비이자부 유동부채 - 초과현금</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>ROIC = NOPAT / IC</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>EVA = (ROIC - WACC) x IC</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>ROIC = NOPAT Margin x Capital Turnover</code>
+          <code style={{ fontSize: '0.75rem', color: '#a0a0a0' }}>Firm Value = IC + EVA / WACC (perpetuity)</code>
         </div>
       </div>
     </div>
