@@ -1,18 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "docusaurus",
   "build": {
     "env": {
-      "SITE_URL": "https://$VERCEL_PROJECT_PRODUCTION_URL",
       "BASE_URL": "/"
     }
   },
   "buildCommand": "cd wiki && npm install && npm run build",
   "outputDirectory": "wiki/build",
   "installCommand": "cd wiki && npm install",
-  "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "headers": [
     {
       "source": "/(.*)",
