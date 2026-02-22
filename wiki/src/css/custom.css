@@ -1263,7 +1263,6 @@ a:hover {
    Docusaurus 컬러모드 토글 숨기기
    ======================================== */
 .navbar__items .colorModeToggle_DEke,
-[class*='colorModeToggle'],
-[class*='toggle_'] {
+[class*='colorModeToggle'] {
   display: none !important;
 }
