@@ -391,7 +391,7 @@ export const ROICCalculator: React.FC = () => {
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '0.25rem' }}>
                     <span style={{ fontWeight: '500' }}>ROIC</span>
-                    <span style={{ fontWeight: '600', color: result.roic >= 0 ? '#1d4ed8' : '#dc2626' }}>{formatDecimal(result.roic)}%</span>
+                    <span style={{ fontWeight: '600', color: result.roic >= 0 ? '#60a5fa' : '#ef4444' }}>{formatDecimal(result.roic)}%</span>
                   </div>
                   <div style={{ height: '1.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.375rem', overflow: 'hidden' }}>
                     <div style={{
@@ -535,7 +535,7 @@ export const ROICCalculator: React.FC = () => {
                     width: '16px',
                     height: '16px',
                     backgroundColor: 'rgba(255,255,255,0.06)',
-                    border: '3px solid #1f2937',
+                    border: '3px solid #e0e0e0',
                     borderRadius: '50%',
                   }} />
                 );
