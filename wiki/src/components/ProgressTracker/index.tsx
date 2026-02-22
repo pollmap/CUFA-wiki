@@ -195,7 +195,7 @@ const ProgressTrackerInner: React.FC = () => {
                 padding: '0.2rem 0.5rem',
                 borderRadius: '4px',
                 backgroundColor: progress.percent === 100 ? '#10b981' : 'rgba(255,255,255,0.06)',
-                color: progress.percent === 100 ? 'rgba(255,255,255,0.06)' : 'inherit',
+                color: progress.percent === 100 ? '#ffffff' : 'inherit',
               }}>
                 {progress.completed}/{progress.total}
               </span>

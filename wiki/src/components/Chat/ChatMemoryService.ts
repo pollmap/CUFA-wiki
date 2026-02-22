@@ -48,19 +48,26 @@ function getInitialState(): MemoryState {
   };
 }
 
+// 메모리 캐시: loadState()의 반복적인 JSON 파싱을 방지
+let cachedState: MemoryState | null = null;
+
 function loadState(): MemoryState {
+  if (cachedState) return cachedState;
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      return JSON.parse(saved);
+      cachedState = JSON.parse(saved);
+      return cachedState!;
     }
   } catch (e) {
     console.error('[ChatMemory] Failed to load state:', e);
   }
-  return getInitialState();
+  cachedState = getInitialState();
+  return cachedState;
 }
 
 function saveState(state: MemoryState): void {
+  cachedState = state;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch (e) {
@@ -195,6 +202,7 @@ export function deleteSession(sessionId: string): void {
 
 /** 전체 메모리 초기화 */
 export function clearAllMemory(): void {
+  cachedState = null;
   localStorage.removeItem(STORAGE_KEY);
 }
 
