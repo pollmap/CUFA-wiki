@@ -89,7 +89,7 @@ const MiniChart: React.FC<MiniChartProps> = ({ symbol, width = '100%', height = 
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
       }}
     />
   );
@@ -158,7 +158,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({ symbols, height = 500 }
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -226,7 +226,7 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({ tabs, height = 450 }) =
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -278,7 +278,7 @@ const Screener: React.FC<ScreenerProps> = ({ market, height = 550 }) => {
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -336,7 +336,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ dataSource, height = 500 }) => {
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -388,7 +388,7 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({ symbol, height = 
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -438,7 +438,7 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({ currencies, height = 
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -488,7 +488,7 @@ const ForexHeatmap: React.FC<ForexHeatmapProps> = ({ currencies, height = 400 })
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -538,7 +538,7 @@ const EconomicCalendarWidget: React.FC<EconomicCalendarWidgetProps> = ({ height 
       style={{
         borderRadius: '8px',
         overflow: 'hidden',
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1rem',
       }}
     />
@@ -819,7 +819,7 @@ const RealTimeDataDashboardInner: React.FC = () => {
           flexWrap: 'wrap',
           gap: '0.5rem',
           marginBottom: '1.5rem',
-          borderBottom: '1px solid var(--ifm-color-emphasis-300)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
           paddingBottom: '0.5rem',
         }}
       >
@@ -833,7 +833,7 @@ const RealTimeDataDashboardInner: React.FC = () => {
               borderRadius: '6px',
               cursor: 'pointer',
               fontWeight: activeTab === tab.id ? 600 : 400,
-              backgroundColor: activeTab === tab.id ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-100)',
+              backgroundColor: activeTab === tab.id ? 'var(--ifm-color-primary)' : 'rgba(255,255,255,0.04)',
               color: activeTab === tab.id ? 'white' : 'var(--ifm-font-color-base)',
               transition: 'all 0.2s ease',
             }}
@@ -851,10 +851,10 @@ const RealTimeDataDashboardInner: React.FC = () => {
         style={{
           marginTop: '2rem',
           padding: '1rem',
-          backgroundColor: 'var(--ifm-color-emphasis-100)',
+          backgroundColor: 'rgba(255,255,255,0.04)',
           borderRadius: '8px',
           fontSize: '0.85rem',
-          color: 'var(--ifm-color-emphasis-700)',
+          color: '#cccccc',
         }}
       >
         <p style={{ margin: 0 }}>

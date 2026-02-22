@@ -82,18 +82,18 @@ const containerStyle: React.CSSProperties = {
   maxWidth: '960px',
   margin: '0 auto',
   padding: '28px',
-  backgroundColor: '#f8fafc',
+  backgroundColor: 'rgba(255,255,255,0.03)',
   borderRadius: '12px',
 };
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'center',
   marginBottom: '20px',
-  color: '#1a365d',
+  color: '#e0e0e0',
 };
 
 const sectionCardStyle: React.CSSProperties = {
-  backgroundColor: '#ffffff',
+  backgroundColor: 'rgba(255,255,255,0.06)',
   borderRadius: '12px',
   padding: '20px 24px',
   boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
@@ -115,12 +115,12 @@ const inputGroupStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   fontSize: '13px',
   fontWeight: 600,
-  color: '#4a5568',
+  color: '#a0a0a0',
 };
 
 const inputStyle: React.CSSProperties = {
   padding: '10px 12px',
-  border: '1px solid #e2e8f0',
+  border: '1px solid rgba(255,255,255,0.08)',
   borderRadius: '8px',
   fontSize: '14px',
   outline: 'none',
@@ -136,7 +136,7 @@ const radioGroupStyle: React.CSSProperties = {
 
 const radioLabelStyle: React.CSSProperties = {
   fontSize: '13px',
-  color: '#4a5568',
+  color: '#a0a0a0',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
@@ -153,13 +153,13 @@ const presetBarStyle: React.CSSProperties = {
 
 const presetBtnStyle = (active: boolean): React.CSSProperties => ({
   padding: '7px 14px',
-  border: active ? '2px solid #2b6cb0' : '1px solid #cbd5e0',
+  border: active ? '2px solid #60a5fa' : '1px solid rgba(255,255,255,0.1)',
   borderRadius: '20px',
   cursor: 'pointer',
   fontWeight: active ? 600 : 400,
   fontSize: '13px',
-  backgroundColor: active ? '#ebf4ff' : '#ffffff',
-  color: active ? '#2b6cb0' : '#4a5568',
+  backgroundColor: active ? 'rgba(96,165,250,0.12)' : 'rgba(255,255,255,0.06)',
+  color: active ? '#60a5fa' : '#a0a0a0',
   transition: 'all 0.15s',
 });
 
@@ -204,10 +204,10 @@ const tableStyle: React.CSSProperties = {
 
 const thStyle: React.CSSProperties = {
   padding: '10px 8px',
-  borderBottom: '2px solid #e2e8f0',
+  borderBottom: '2px solid rgba(255,255,255,0.08)',
   textAlign: 'right',
   fontWeight: 600,
-  color: '#2d3748',
+  color: '#a0a0a0',
   whiteSpace: 'nowrap',
 };
 
@@ -215,15 +215,15 @@ const thLeftStyle: React.CSSProperties = { ...thStyle, textAlign: 'left' };
 
 const tdStyle: React.CSSProperties = {
   padding: '8px',
-  borderBottom: '1px solid #f1f5f9',
+  borderBottom: '1px solid rgba(255,255,255,0.06)',
   textAlign: 'right',
-  color: '#4a5568',
+  color: '#a0a0a0',
 };
 
 const tdLeftStyle: React.CSSProperties = { ...tdStyle, textAlign: 'left', fontWeight: 500 };
 
 const totalRowBg: React.CSSProperties = {
-  backgroundColor: '#f7fafc',
+  backgroundColor: 'rgba(255,255,255,0.04)',
   fontWeight: 600,
 };
 
@@ -231,7 +231,7 @@ const sectionTitleStyle: React.CSSProperties = {
   margin: '0 0 14px',
   fontSize: '16px',
   fontWeight: 700,
-  color: '#2d3748',
+  color: '#a0a0a0',
 };
 
 // ── Component ───────────────────────────────────────────────────────────────
@@ -580,7 +580,7 @@ export const BondCalculator: React.FC = () => {
                       <td
                         style={{
                           ...tdStyle,
-                          color: Math.abs(row.error) < 1 ? '#6b7280' : '#b45309',
+                          color: Math.abs(row.error) < 1 ? '#6b7280' : '#f59e0b',
                         }}
                       >
                         {row.error >= 0 ? '+' : ''}

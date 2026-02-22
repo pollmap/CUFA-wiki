@@ -189,7 +189,7 @@ export default function GuidedDCF(): JSX.Element {
               style={{
                 padding: '8px 16px',
                 borderRadius: 8,
-                border: selectedPreset === key ? '2px solid var(--ifm-color-primary)' : '1px solid var(--ifm-color-emphasis-300)',
+                border: selectedPreset === key ? '2px solid var(--ifm-color-primary)' : '1px solid rgba(255,255,255,0.08)',
                 background: selectedPreset === key ? 'var(--ifm-color-primary-contrast-background)' : 'transparent',
                 fontWeight: selectedPreset === key ? 700 : 400,
                 cursor: 'pointer',
@@ -210,7 +210,7 @@ export default function GuidedDCF(): JSX.Element {
             onClick={() => setCurrentStep(i)}
             style={{
               flex: 1, height: 6, borderRadius: 3, cursor: 'pointer',
-              background: i <= currentStep ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-200)',
+              background: i <= currentStep ? 'var(--ifm-color-primary)' : 'rgba(255,255,255,0.08)',
               transition: 'background 0.3s',
             }}
           />
@@ -219,14 +219,14 @@ export default function GuidedDCF(): JSX.Element {
 
       {/* Step Content */}
       <div style={{
-        border: '1px solid var(--ifm-color-emphasis-300)',
+        border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 12,
         padding: 24,
         marginBottom: 24,
-        background: 'var(--ifm-card-background-color, #fff)',
+        background: 'rgba(255,255,255,0.04)',
       }}>
         <h3 style={{ fontSize: 18, fontWeight: 700, margin: '0 0 8px' }}>{step.title}</h3>
-        <p style={{ fontSize: 13, color: 'var(--ifm-color-emphasis-600)', lineHeight: 1.7, margin: '0 0 20px' }}>
+        <p style={{ fontSize: 13, color: '#a0a0a0', lineHeight: 1.7, margin: '0 0 20px' }}>
           {step.desc}
         </p>
 
@@ -245,7 +245,7 @@ export default function GuidedDCF(): JSX.Element {
                 step={f.step}
                 style={{
                   width: '100%', padding: '10px 12px', borderRadius: 8,
-                  border: '1px solid var(--ifm-color-emphasis-300)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   fontSize: 15, fontWeight: 600,
                 }}
               />
@@ -259,7 +259,7 @@ export default function GuidedDCF(): JSX.Element {
             disabled={currentStep === 0}
             style={{
               padding: '10px 20px', borderRadius: 8,
-              border: '1px solid var(--ifm-color-emphasis-300)',
+              border: '1px solid rgba(255,255,255,0.08)',
               background: 'transparent', cursor: currentStep === 0 ? 'not-allowed' : 'pointer',
               opacity: currentStep === 0 ? 0.4 : 1,
             }}
@@ -271,7 +271,7 @@ export default function GuidedDCF(): JSX.Element {
             disabled={isLastStep}
             style={{
               padding: '10px 20px', borderRadius: 8, border: 'none',
-              background: isLastStep ? 'var(--ifm-color-emphasis-300)' : 'var(--ifm-color-primary)',
+              background: isLastStep ? 'rgba(255,255,255,0.1)' : 'var(--ifm-color-primary)',
               color: '#fff', fontWeight: 700, cursor: isLastStep ? 'not-allowed' : 'pointer',
             }}
           >
@@ -294,7 +294,7 @@ export default function GuidedDCF(): JSX.Element {
           <div style={{ overflowX: 'auto', marginBottom: 16 }}>
             <table style={{ width: '100%', fontSize: 13, borderCollapse: 'collapse' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid var(--ifm-color-emphasis-300)' }}>
+                <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.08)' }}>
                   <th style={{ padding: '6px 8px', textAlign: 'left' }}>연도</th>
                   <th style={{ padding: '6px 8px', textAlign: 'right' }}>매출</th>
                   <th style={{ padding: '6px 8px', textAlign: 'right' }}>FCF</th>
@@ -303,7 +303,7 @@ export default function GuidedDCF(): JSX.Element {
               </thead>
               <tbody>
                 {result.projections.map((p) => (
-                  <tr key={p.year} style={{ borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>
+                  <tr key={p.year} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                     <td style={{ padding: '6px 8px' }}>Year {p.year}</td>
                     <td style={{ padding: '6px 8px', textAlign: 'right' }}>{formatNum(p.revenue)}</td>
                     <td style={{ padding: '6px 8px', textAlign: 'right' }}>{formatNum(p.fcf)}</td>
@@ -327,12 +327,12 @@ export default function GuidedDCF(): JSX.Element {
                 key={item.label}
                 style={{
                   padding: 12, borderRadius: 8, textAlign: 'center',
-                  background: 'var(--ifm-card-background-color, #fff)',
-                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-600)', marginBottom: 4 }}>{item.label}</div>
-                <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ifm-color-primary)' }}>{item.value}</div>
+                <div style={{ fontSize: 12, color: '#a0a0a0', marginBottom: 4 }}>{item.label}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#ffffff' }}>{item.value}</div>
               </div>
             ))}
           </div>
@@ -343,7 +343,7 @@ export default function GuidedDCF(): JSX.Element {
               <h4 style={{ fontSize: 14, fontWeight: 700, margin: '0 0 8px' }}>
                 민감도 분석 (주당 내재가치)
               </h4>
-              <p style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-600)', margin: '0 0 12px' }}>
+              <p style={{ fontSize: 12, color: '#a0a0a0', margin: '0 0 12px' }}>
                 WACC와 영구 성장률 조합에 따른 주당 내재가치 변화를 보여줍니다. 음영 셀이 현재 입력 기준입니다.
               </p>
               <div style={{ overflowX: 'auto' }}>
@@ -352,8 +352,8 @@ export default function GuidedDCF(): JSX.Element {
                     <tr>
                       <th style={{
                         padding: '6px 8px', fontSize: 11,
-                        borderBottom: '2px solid var(--ifm-color-emphasis-300)',
-                        background: 'var(--ifm-color-emphasis-100)',
+                        borderBottom: '2px solid rgba(255,255,255,0.08)',
+                        background: 'rgba(255,255,255,0.04)',
                       }}>
                         WACC \ g
                       </th>
@@ -362,10 +362,10 @@ export default function GuidedDCF(): JSX.Element {
                           key={g}
                           style={{
                             padding: '6px 8px',
-                            borderBottom: '2px solid var(--ifm-color-emphasis-300)',
+                            borderBottom: '2px solid rgba(255,255,255,0.08)',
                             background: g === sensitivity.baseGrowth
                               ? 'var(--ifm-color-primary-contrast-background)'
-                              : 'var(--ifm-color-emphasis-100)',
+                              : 'rgba(255,255,255,0.04)',
                             fontWeight: g === sensitivity.baseGrowth ? 700 : 500,
                           }}
                         >
@@ -379,10 +379,10 @@ export default function GuidedDCF(): JSX.Element {
                       <tr key={ri}>
                         <td style={{
                           padding: '6px 8px', fontWeight: 600,
-                          borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
                           background: sensitivity.waccRange[ri] === sensitivity.baseWacc
                             ? 'var(--ifm-color-primary-contrast-background)'
-                            : 'var(--ifm-color-emphasis-100)',
+                            : 'rgba(255,255,255,0.04)',
                         }}>
                           {sensitivity.waccRange[ri].toFixed(1)}%
                         </td>
@@ -393,7 +393,7 @@ export default function GuidedDCF(): JSX.Element {
                           const bgColor = isBase
                             ? 'var(--ifm-color-primary)'
                             : isNaN(cell.price)
-                              ? 'var(--ifm-color-emphasis-200)'
+                              ? 'rgba(255,255,255,0.08)'
                               : diff > 0.15
                                 ? 'rgba(0,150,0,0.12)'
                                 : diff < -0.15
@@ -404,7 +404,7 @@ export default function GuidedDCF(): JSX.Element {
                               key={ci}
                               style={{
                                 padding: '6px 8px',
-                                borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+                                borderBottom: '1px solid rgba(255,255,255,0.08)',
                                 background: bgColor,
                                 color: isBase ? '#fff' : 'inherit',
                                 fontWeight: isBase ? 700 : 400,

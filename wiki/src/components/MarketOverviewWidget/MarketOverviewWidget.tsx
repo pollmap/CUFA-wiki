@@ -98,7 +98,7 @@ export default function MarketOverviewWidget(): JSX.Element {
             disabled={loading}
             style={{
               padding: '4px 12px', borderRadius: 6, fontSize: 12,
-              border: '1px solid var(--ifm-color-emphasis-300)',
+              border: '1px solid rgba(255,255,255,0.08)',
               background: 'transparent', cursor: loading ? 'not-allowed' : 'pointer',
             }}
           >
@@ -130,14 +130,14 @@ export default function MarketOverviewWidget(): JSX.Element {
             style={{
               padding: '14px 16px',
               borderRadius: 10,
-              border: '1px solid var(--ifm-color-emphasis-200)',
-              background: 'var(--ifm-card-background-color, #fff)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(255,255,255,0.04)',
             }}
           >
-            <div style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-600)', marginBottom: 4 }}>{item.name}</div>
+            <div style={{ fontSize: 12, color: '#a0a0a0', marginBottom: 4 }}>{item.name}</div>
             <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 2 }}>
               {loading ? (
-                <span style={{ display: 'inline-block', width: 60, height: 20, background: 'var(--ifm-color-emphasis-200)', borderRadius: 4, animation: 'pulse 1.5s ease infinite' }} />
+                <span style={{ display: 'inline-block', width: 60, height: 20, background: 'rgba(255,255,255,0.08)', borderRadius: 4, animation: 'pulse 1.5s ease infinite' }} />
               ) : item.price}
             </div>
             {!loading && item.change !== '-' && (

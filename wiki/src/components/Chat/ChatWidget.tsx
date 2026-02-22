@@ -284,9 +284,9 @@ ${memoryContext}`;
     right: '0',
     width: '380px',
     height: '520px',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0a0a0a',
     borderRadius: '16px',
-    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2)',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.6)',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
@@ -305,7 +305,7 @@ ${memoryContext}`;
     flex: 1,
     overflowY: 'auto',
     padding: '16px',
-    backgroundColor: '#f7fafc',
+    backgroundColor: '#0a0a0a',
   };
 
   const messageStyle = (isUser: boolean): React.CSSProperties => ({
@@ -331,9 +331,9 @@ ${memoryContext}`;
     maxWidth: '75%',
     padding: '12px 16px',
     borderRadius: isUser ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
-    backgroundColor: isUser ? '#1a365d' : '#ffffff',
-    color: isUser ? '#ffffff' : '#2d3748',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    backgroundColor: isUser ? '#1a365d' : 'rgba(255,255,255,0.06)',
+    color: isUser ? '#ffffff' : '#e0e0e0',
+    boxShadow: 'none',
     lineHeight: '1.5',
     whiteSpace: 'pre-wrap',
     wordBreak: 'break-word',
@@ -341,8 +341,8 @@ ${memoryContext}`;
 
   const inputContainerStyle: React.CSSProperties = {
     padding: '12px 16px',
-    borderTop: '1px solid #e2e8f0',
-    backgroundColor: '#ffffff',
+    borderTop: '1px solid rgba(255,255,255,0.1)',
+    backgroundColor: '#0a0a0a',
     display: 'flex',
     gap: '10px',
     alignItems: 'flex-end',
@@ -351,7 +351,7 @@ ${memoryContext}`;
   const textareaStyle: React.CSSProperties = {
     flex: 1,
     padding: '10px 14px',
-    border: '2px solid #e2e8f0',
+    border: '2px solid rgba(255,255,255,0.1)',
     borderRadius: '12px',
     resize: 'none',
     fontFamily: 'inherit',
@@ -367,7 +367,7 @@ ${memoryContext}`;
     width: '40px',
     height: '40px',
     borderRadius: '12px',
-    backgroundColor: isLoading || !input.trim() ? '#cbd5e0' : '#1a365d',
+    backgroundColor: isLoading || !input.trim() ? 'rgba(255,255,255,0.1)' : '#1a365d',
     border: 'none',
     cursor: isLoading || !input.trim() ? 'not-allowed' : 'pointer',
     display: 'flex',
@@ -391,18 +391,18 @@ ${memoryContext}`;
   const welcomeStyle: React.CSSProperties = {
     textAlign: 'center',
     padding: '40px 20px',
-    color: '#718096',
+    color: '#6b7280',
   };
 
   // --- 히스토리 뷰 렌더링 ---
   const renderHistoryView = () => (
-    <div style={{ flex: 1, overflowY: 'auto', backgroundColor: '#f7fafc' }}>
-      <div style={{ padding: '12px 16px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontWeight: 600, fontSize: '14px', color: '#2d3748' }}>대화 기록 ({sessions.length})</span>
+    <div style={{ flex: 1, overflowY: 'auto', backgroundColor: '#0a0a0a' }}>
+      <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontWeight: 600, fontSize: '14px', color: '#e0e0e0' }}>대화 기록 ({sessions.length})</span>
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
             onClick={startNewSession}
-            style={{ ...iconButtonStyle, color: '#1a365d', background: '#e2e8f0', borderRadius: '8px', padding: '6px 10px', fontSize: '12px' }}
+            style={{ ...iconButtonStyle, color: '#1a365d', background: 'rgba(255,255,255,0.1)', borderRadius: '8px', padding: '6px 10px', fontSize: '12px' }}
             title="새 대화"
           >
             <Plus size={14} />
@@ -410,7 +410,7 @@ ${memoryContext}`;
           </button>
           <button
             onClick={handleClearAll}
-            style={{ ...iconButtonStyle, color: '#e53e3e', background: '#fed7d7', borderRadius: '8px', padding: '6px 10px', fontSize: '12px' }}
+            style={{ ...iconButtonStyle, color: '#e53e3e', background: 'rgba(239,68,68,0.15)', borderRadius: '8px', padding: '6px 10px', fontSize: '12px' }}
             title="전체 삭제"
           >
             <Trash2 size={14} />
@@ -418,7 +418,7 @@ ${memoryContext}`;
         </div>
       </div>
       {sessions.length === 0 ? (
-        <div style={{ padding: '40px 20px', textAlign: 'center', color: '#a0aec0' }}>
+        <div style={{ padding: '40px 20px', textAlign: 'center', color: '#6b7280' }}>
           <History size={32} style={{ marginBottom: '12px', opacity: 0.5 }} />
           <p style={{ margin: 0, fontSize: '14px' }}>대화 기록이 없습니다</p>
         </div>
@@ -429,31 +429,31 @@ ${memoryContext}`;
             onClick={() => loadSession(s.id)}
             style={{
               padding: '12px 16px',
-              borderBottom: '1px solid #edf2f7',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
               cursor: 'pointer',
-              backgroundColor: s.id === sessionId ? '#ebf8ff' : 'transparent',
+              backgroundColor: s.id === sessionId ? 'rgba(96,165,250,0.1)' : 'transparent',
               transition: 'background-color 0.15s',
             }}
-            onMouseEnter={(e) => { if (s.id !== sessionId) e.currentTarget.style.backgroundColor = '#f0f5ff'; }}
+            onMouseEnter={(e) => { if (s.id !== sessionId) e.currentTarget.style.backgroundColor = 'rgba(96,165,250,0.06)'; }}
             onMouseLeave={(e) => { if (s.id !== sessionId) e.currentTarget.style.backgroundColor = 'transparent'; }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: 500, fontSize: '13px', color: '#2d3748', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                <div style={{ fontWeight: 500, fontSize: '13px', color: '#e0e0e0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {s.title}
                 </div>
-                <div style={{ fontSize: '11px', color: '#a0aec0', marginTop: '4px' }}>
+                <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '4px' }}>
                   {new Date(s.updatedAt).toLocaleDateString('ko-KR')} · {s.messageCount}개 메시지
                 </div>
                 {s.summary && (
-                  <div style={{ fontSize: '11px', color: '#718096', marginTop: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {s.summary.slice(0, 80)}...
                   </div>
                 )}
               </div>
               <button
                 onClick={(e) => handleDeleteSession(s.id, e)}
-                style={{ ...iconButtonStyle, color: '#a0aec0', padding: '4px' }}
+                style={{ ...iconButtonStyle, color: '#6b7280', padding: '4px' }}
                 title="삭제"
               >
                 <Trash2 size={14} />
@@ -467,8 +467,8 @@ ${memoryContext}`;
 
   // --- 검색 뷰 렌더링 ---
   const renderSearchView = () => (
-    <div style={{ flex: 1, overflowY: 'auto', backgroundColor: '#f7fafc', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '12px 16px', borderBottom: '1px solid #e2e8f0' }}>
+    <div style={{ flex: 1, overflowY: 'auto', backgroundColor: '#0a0a0a', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div style={{ display: 'flex', gap: '8px' }}>
           <input
             type="text"
@@ -479,7 +479,7 @@ ${memoryContext}`;
             style={{
               flex: 1,
               padding: '8px 12px',
-              border: '2px solid #e2e8f0',
+              border: '2px solid rgba(255,255,255,0.1)',
               borderRadius: '8px',
               fontSize: '13px',
               outline: 'none',
@@ -496,7 +496,7 @@ ${memoryContext}`;
       </div>
       <div style={{ flex: 1, overflowY: 'auto' }}>
         {searchResults.length === 0 ? (
-          <div style={{ padding: '40px 20px', textAlign: 'center', color: '#a0aec0' }}>
+          <div style={{ padding: '40px 20px', textAlign: 'center', color: '#6b7280' }}>
             <Search size={32} style={{ marginBottom: '12px', opacity: 0.5 }} />
             <p style={{ margin: 0, fontSize: '14px' }}>
               {searchQuery ? '검색 결과가 없습니다' : '키워드를 입력하세요'}
@@ -504,7 +504,7 @@ ${memoryContext}`;
           </div>
         ) : (
           <>
-            <div style={{ padding: '8px 16px', fontSize: '12px', color: '#718096' }}>
+            <div style={{ padding: '8px 16px', fontSize: '12px', color: '#6b7280' }}>
               {searchResults.length}개 결과
             </div>
             {searchResults.map((r, i) => (
@@ -513,17 +513,17 @@ ${memoryContext}`;
                 onClick={() => loadSession(r.sessionId)}
                 style={{
                   padding: '10px 16px',
-                  borderBottom: '1px solid #edf2f7',
+                  borderBottom: '1px solid rgba(255,255,255,0.06)',
                   cursor: 'pointer',
                   transition: 'background-color 0.15s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#f0f5ff'; }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(96,165,250,0.06)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
               >
-                <div style={{ fontSize: '11px', color: '#a0aec0', marginBottom: '4px' }}>
+                <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '4px' }}>
                   {r.sessionTitle} · {r.message.role === 'user' ? '사용자' : 'AI'}
                 </div>
-                <div style={{ fontSize: '13px', color: '#2d3748', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                <div style={{ fontSize: '13px', color: '#e0e0e0', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                   {r.message.content}
                 </div>
               </div>
@@ -549,7 +549,7 @@ ${memoryContext}`;
               궁금한 점을 질문해주세요.
             </p>
             {Memory.getMemoryStats().sessionCount > 0 && (
-              <p style={{ margin: '12px 0 0', fontSize: '12px', color: '#a0aec0' }}>
+              <p style={{ margin: '12px 0 0', fontSize: '12px', color: '#6b7280' }}>
                 이전 대화가 {Memory.getMemoryStats().sessionCount}개 저장되어 있습니다.
               </p>
             )}

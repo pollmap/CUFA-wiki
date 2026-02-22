@@ -59,15 +59,15 @@ const CompanyComparisonInner: React.FC = () => {
   const getComparisonColor = (val1: number, val2: number, higherIsBetter: boolean = true) => {
     if (val1 === val2) return 'inherit';
     const isBetter = higherIsBetter ? val1 > val2 : val1 < val2;
-    return isBetter ? '#52c41a' : '#ff4d4f';
+    return isBetter ? '#10b981' : '#ff4d4f';
   };
 
   const renderRow = (label: string, val1: number, val2: number, suffix: string = '', higherIsBetter: boolean = true, skipComparison: boolean = false) => (
     <tr>
-      <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)', fontWeight: 500 }}>{label}</td>
+      <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)', fontWeight: 500 }}>{label}</td>
       <td style={{
         padding: '0.75rem',
-        borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
         textAlign: 'right',
         fontFamily: 'monospace',
         color: skipComparison ? 'inherit' : getComparisonColor(val1, val2, higherIsBetter),
@@ -77,7 +77,7 @@ const CompanyComparisonInner: React.FC = () => {
       </td>
       <td style={{
         padding: '0.75rem',
-        borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
         textAlign: 'right',
         fontFamily: 'monospace',
         color: skipComparison ? 'inherit' : getComparisonColor(val2, val1, higherIsBetter),
@@ -89,7 +89,7 @@ const CompanyComparisonInner: React.FC = () => {
   );
 
   return (
-    <div style={{ padding: '1rem', backgroundColor: 'var(--ifm-background-surface-color)', borderRadius: '8px', border: '1px solid var(--ifm-color-emphasis-300)' }}>
+    <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
       <h3 style={{ marginTop: 0 }}>기업 비교 도구</h3>
 
       {/* 기업 선택 */}
@@ -99,7 +99,7 @@ const CompanyComparisonInner: React.FC = () => {
           <select
             value={company1}
             onChange={(e) => setCompany1(e.target.value)}
-            style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid var(--ifm-color-emphasis-300)', minWidth: '150px' }}
+            style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.08)', minWidth: '150px' }}
           >
             {SAMPLE_COMPANIES.map(c => (
               <option key={c.ticker} value={c.name}>{c.name}</option>
@@ -111,7 +111,7 @@ const CompanyComparisonInner: React.FC = () => {
           <select
             value={company2}
             onChange={(e) => setCompany2(e.target.value)}
-            style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid var(--ifm-color-emphasis-300)', minWidth: '150px' }}
+            style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.08)', minWidth: '150px' }}
           >
             {SAMPLE_COMPANIES.map(c => (
               <option key={c.ticker} value={c.name}>{c.name}</option>
@@ -124,30 +124,30 @@ const CompanyComparisonInner: React.FC = () => {
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
             <thead>
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-200)' }}>
-                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid var(--ifm-color-emphasis-300)', width: '40%' }}>지표</th>
-                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid var(--ifm-color-emphasis-300)', width: '30%' }}>{data1.name}</th>
-                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid var(--ifm-color-emphasis-300)', width: '30%' }}>{data2.name}</th>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+                <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.08)', width: '40%' }}>지표</th>
+                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.08)', width: '30%' }}>{data1.name}</th>
+                <th style={{ padding: '0.75rem', textAlign: 'right', borderBottom: '2px solid rgba(255,255,255,0.08)', width: '30%' }}>{data2.name}</th>
               </tr>
             </thead>
             <tbody>
               {/* 기본 정보 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>기본 정보</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>섹터</td>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)', textAlign: 'right' }}>{data1.sector}</td>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)', textAlign: 'right' }}>{data2.sector}</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>섹터</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'right' }}>{data1.sector}</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'right' }}>{data2.sector}</td>
               </tr>
               <tr>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>시가총액</td>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)', textAlign: 'right', fontFamily: 'monospace' }}>{formatMarketCap(data1.marketCap)}</td>
-                <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--ifm-color-emphasis-200)', textAlign: 'right', fontFamily: 'monospace' }}>{formatMarketCap(data2.marketCap)}</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>시가총액</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'right', fontFamily: 'monospace' }}>{formatMarketCap(data1.marketCap)}</td>
+                <td style={{ padding: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'right', fontFamily: 'monospace' }}>{formatMarketCap(data2.marketCap)}</td>
               </tr>
 
               {/* 밸류에이션 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>밸류에이션</td>
               </tr>
               {renderRow('PER', data1.per, data2.per, 'x', false)}
@@ -155,7 +155,7 @@ const CompanyComparisonInner: React.FC = () => {
               {renderRow('EV/EBITDA', data1.evEbitda, data2.evEbitda, 'x', false)}
 
               {/* 수익성 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>수익성</td>
               </tr>
               {renderRow('ROE', data1.roe, data2.roe, '%', true)}
@@ -164,14 +164,14 @@ const CompanyComparisonInner: React.FC = () => {
               {renderRow('영업이익률', data1.opm, data2.opm, '%', true)}
 
               {/* 성장성 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>성장성</td>
               </tr>
               {renderRow('매출 성장률', data1.revenueGrowth, data2.revenueGrowth, '%', true)}
               {renderRow('이익 성장률', data1.earningsGrowth, data2.earningsGrowth, '%', true)}
 
               {/* 안정성 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>안정성</td>
               </tr>
               {renderRow('부채비율', data1.debtRatio, data2.debtRatio, '%', false)}
@@ -179,7 +179,7 @@ const CompanyComparisonInner: React.FC = () => {
               {renderRow('이자보상배율', data1.interestCoverage, data2.interestCoverage, 'x', true)}
 
               {/* 배당 */}
-              <tr style={{ backgroundColor: 'var(--ifm-color-emphasis-100)' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                 <td colSpan={3} style={{ padding: '0.5rem 0.75rem', fontWeight: 700 }}>배당</td>
               </tr>
               {renderRow('배당수익률', data1.dividend, data2.dividend, '%', true)}
@@ -188,7 +188,7 @@ const CompanyComparisonInner: React.FC = () => {
         </div>
       )}
 
-      <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)', marginTop: '1rem' }}>
+      <p style={{ fontSize: '0.8rem', color: '#a0a0a0', marginTop: '1rem' }}>
         * 녹색: 비교 우위, 빨간색: 비교 열위. 금융업종은 일부 지표가 적용되지 않습니다.
         <br />
         * 데이터는 예시용이며 실제 수치와 다를 수 있습니다.

@@ -30,16 +30,16 @@ function getPEG(per: number | null, growthRate: number): number | null {
 }
 
 function getPEGVerdict(peg: number | null): { label: string; color: string; bgColor: string } {
-  if (peg === null) return { label: 'N/A', color: '#6b7280', bgColor: '#f3f4f6' };
-  if (peg < 0.5) return { label: '매우 저평가', color: '#064e3b', bgColor: '#d1fae5' };
-  if (peg < 1.0) return { label: '저평가', color: '#065f46', bgColor: '#dcfce7' };
-  if (peg < 1.5) return { label: '적정', color: '#1e40af', bgColor: '#dbeafe' };
-  if (peg < 2.0) return { label: '다소 고평가', color: '#9a3412', bgColor: '#ffedd5' };
-  return { label: '고평가', color: '#991b1b', bgColor: '#fee2e2' };
+  if (peg === null) return { label: 'N/A', color: '#6b7280', bgColor: 'rgba(255,255,255,0.04)' };
+  if (peg < 0.5) return { label: '매우 저평가', color: '#10b981', bgColor: 'rgba(16,185,129,0.15)' };
+  if (peg < 1.0) return { label: '저평가', color: '#10b981', bgColor: 'rgba(16,185,129,0.12)' };
+  if (peg < 1.5) return { label: '적정', color: '#60a5fa', bgColor: 'rgba(96,165,250,0.12)' };
+  if (peg < 2.0) return { label: '다소 고평가', color: '#f59e0b', bgColor: 'rgba(245,158,11,0.08)' };
+  return { label: '고평가', color: '#ef4444', bgColor: 'rgba(239,68,68,0.15)' };
 }
 
 function getBarColor(peg: number | null): string {
-  if (peg === null) return '#d1d5db';
+  if (peg === null) return 'rgba(255,255,255,0.1)';
   if (peg < 0.5) return '#047857';
   if (peg < 1.0) return '#10b981';
   if (peg < 1.5) return '#3b82f6';
@@ -126,7 +126,7 @@ export const PEGCalculator: React.FC = () => {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.35rem 0.5rem',
-    border: '1px solid #d1d5db',
+    border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: '0.375rem',
     fontSize: '0.85rem',
     boxSizing: 'border-box',
@@ -136,11 +136,11 @@ export const PEGCalculator: React.FC = () => {
     padding: '0.6rem 0.5rem',
     fontSize: '0.8rem',
     fontWeight: 600,
-    color: '#374151',
-    borderBottom: '2px solid #e5e7eb',
+    color: '#a0a0a0',
+    borderBottom: '2px solid rgba(255,255,255,0.08)',
     textAlign: 'left',
     whiteSpace: 'nowrap',
-    backgroundColor: '#f9fafb',
+    backgroundColor: 'rgba(255,255,255,0.04)',
   };
 
   const thSortableStyle: React.CSSProperties = {
@@ -151,7 +151,7 @@ export const PEGCalculator: React.FC = () => {
 
   const tdStyle: React.CSSProperties = {
     padding: '0.5rem',
-    borderBottom: '1px solid #f3f4f6',
+    borderBottom: '1px solid rgba(255,255,255,0.04)',
     fontSize: '0.85rem',
     verticalAlign: 'middle',
   };
@@ -251,9 +251,9 @@ export const PEGCalculator: React.FC = () => {
                       onClick={() => removeStock(s.id)}
                       style={{
                         padding: '0.25rem 0.5rem',
-                        border: '1px solid #fca5a5',
+                        border: '1px solid rgba(239,68,68,0.2)',
                         borderRadius: '0.375rem',
-                        backgroundColor: '#fff',
+                        backgroundColor: 'rgba(255,255,255,0.06)',
                         color: '#ef4444',
                         cursor: 'pointer',
                         fontSize: '0.8rem',
@@ -273,10 +273,10 @@ export const PEGCalculator: React.FC = () => {
         onClick={addStock}
         style={{
           padding: '0.5rem 1rem',
-          border: '1px solid #3b82f6',
+          border: '1px solid rgba(96,165,250,0.2)',
           borderRadius: '0.5rem',
-          backgroundColor: '#eff6ff',
-          color: '#2563eb',
+          backgroundColor: 'rgba(96,165,250,0.08)',
+          color: '#60a5fa',
           cursor: 'pointer',
           fontWeight: 600,
           fontSize: '0.875rem',
@@ -300,7 +300,7 @@ export const PEGCalculator: React.FC = () => {
                   width: '85px',
                   fontSize: '0.8rem',
                   fontWeight: 500,
-                  color: '#374151',
+                  color: '#a0a0a0',
                   textAlign: 'right',
                   paddingRight: '8px',
                   overflow: 'hidden',
@@ -309,7 +309,7 @@ export const PEGCalculator: React.FC = () => {
                 }}>
                   {s.name}
                 </div>
-                <div style={{ flex: 1, position: 'relative', height: '22px', backgroundColor: '#f3f4f6', borderRadius: '4px', overflow: 'visible' }}>
+                <div style={{ flex: 1, position: 'relative', height: '22px', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '4px', overflow: 'visible' }}>
                   <div style={{
                     width: `${barWidth}%`,
                     height: '100%',
@@ -326,7 +326,7 @@ export const PEGCalculator: React.FC = () => {
                       transform: 'translateY(-50%)',
                       fontSize: '0.75rem',
                       fontWeight: 600,
-                      color: '#374151',
+                      color: '#a0a0a0',
                       whiteSpace: 'nowrap',
                     }}>
                       {s.peg.toFixed(2)}
@@ -394,8 +394,8 @@ export const PEGCalculator: React.FC = () => {
               padding: '0.75rem 1rem',
               borderRadius: '0.5rem',
               border: '1px solid',
-              borderColor: s.isGARP ? '#86efac' : '#e5e7eb',
-              backgroundColor: s.isGARP ? '#f0fdf4' : '#fff',
+              borderColor: s.isGARP ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.08)',
+              backgroundColor: s.isGARP ? 'rgba(16,185,129,0.08)' : 'rgba(255,255,255,0.06)',
             }}>
               <div style={{
                 width: '28px',
@@ -407,7 +407,7 @@ export const PEGCalculator: React.FC = () => {
                 fontWeight: 700,
                 fontSize: '0.85rem',
                 color: '#fff',
-                backgroundColor: idx === 0 ? '#f59e0b' : idx === 1 ? '#9ca3af' : idx === 2 ? '#b45309' : '#d1d5db',
+                backgroundColor: idx === 0 ? '#f59e0b' : idx === 1 ? '#6b7280' : idx === 2 ? '#f59e0b' : 'rgba(255,255,255,0.1)',
                 flexShrink: 0,
               }}>
                 <span style={{ color: idx < 3 ? '#fff' : '#6b7280' }}>{idx + 1}</span>
@@ -419,11 +419,11 @@ export const PEGCalculator: React.FC = () => {
                     <span style={{
                       padding: '0.1rem 0.5rem',
                       borderRadius: '9999px',
-                      backgroundColor: '#dcfce7',
-                      color: '#166534',
+                      backgroundColor: 'rgba(16,185,129,0.12)',
+                      color: '#10b981',
                       fontSize: '0.7rem',
                       fontWeight: 700,
-                      border: '1px solid #86efac',
+                      border: '1px solid rgba(16,185,129,0.2)',
                     }}>
                       GARP 추천
                     </span>
@@ -434,7 +434,7 @@ export const PEGCalculator: React.FC = () => {
                 </div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>PEG</div>
+                <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>PEG</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: getBarColor(s.peg) }}>
                   {s.peg !== null ? s.peg.toFixed(2) : 'N/A'}
                 </div>
@@ -453,7 +453,7 @@ export const PEGCalculator: React.FC = () => {
             </div>
           ))}
           {garpRanked.length === 0 && (
-            <p style={{ color: '#9ca3af', fontSize: '0.85rem', textAlign: 'center', padding: '1rem' }}>
+            <p style={{ color: '#6b7280', fontSize: '0.85rem', textAlign: 'center', padding: '1rem' }}>
               유효한 PEG를 계산할 수 있는 종목이 없습니다. EPS와 성장률이 양수인지 확인하세요.
             </p>
           )}
@@ -464,21 +464,21 @@ export const PEGCalculator: React.FC = () => {
       <div style={{
         padding: '1.25rem',
         borderRadius: '0.75rem',
-        backgroundColor: '#f0f9ff',
-        border: '1px solid #bae6fd',
+        backgroundColor: 'rgba(96,165,250,0.08)',
+        border: '1px solid rgba(96,165,250,0.2)',
         marginBottom: '1.5rem',
       }}>
-        <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0c4a6e', marginBottom: '0.75rem', marginTop: 0 }}>
+        <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#60a5fa', marginBottom: '0.75rem', marginTop: 0 }}>
           PEG 해석 가이드
         </h4>
         <ul style={{ margin: 0, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <li style={{ fontSize: '0.85rem', color: '#1e3a5f' }}>
+          <li style={{ fontSize: '0.85rem', color: '#a0a0a0' }}>
             <strong>PEG &lt; 1:</strong> 성장 대비 저평가 (피터 린치 매수 기준)
           </li>
-          <li style={{ fontSize: '0.85rem', color: '#1e3a5f' }}>
+          <li style={{ fontSize: '0.85rem', color: '#a0a0a0' }}>
             <strong>성장률 기준:</strong> 향후 3~5년 평균 EPS 성장률을 사용해야 합니다
           </li>
-          <li style={{ fontSize: '0.85rem', color: '#1e3a5f' }}>
+          <li style={{ fontSize: '0.85rem', color: '#a0a0a0' }}>
             <strong>주의:</strong> 적자 기업이나 성장률이 음수인 경우 PEG가 의미 없습니다
           </li>
         </ul>
@@ -488,10 +488,10 @@ export const PEGCalculator: React.FC = () => {
       <div style={{
         padding: '1rem',
         borderLeft: '4px solid #8b5cf6',
-        backgroundColor: '#f5f3ff',
+        backgroundColor: 'rgba(124,106,247,0.08)',
         borderRadius: '0 0.5rem 0.5rem 0',
       }}>
-        <p style={{ fontStyle: 'italic', color: '#4c1d95', margin: 0 }}>
+        <p style={{ fontStyle: 'italic', color: '#7c6af7', margin: 0 }}>
           "PEG가 1 미만인 주식을 찾아라. 그것이 성장주를 싸게 사는 비결이다.
           어떤 기업의 PER이 성장률과 같다면 적정가치이고, PER이 성장률의 절반이라면 매우 매력적이다."
         </p>

@@ -304,9 +304,9 @@ const ECONOMIC_EVENTS: EconomicEvent[] = [
 const styles = {
   container: {
     padding: '1.25rem',
-    backgroundColor: 'var(--ifm-background-surface-color)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
     borderRadius: '12px',
-    border: '1px solid var(--ifm-color-emphasis-200)',
+    border: '1px solid rgba(255,255,255,0.08)',
   } as React.CSSProperties,
 
   header: {
@@ -328,7 +328,7 @@ const styles = {
     display: 'flex',
     gap: '1rem',
     fontSize: '0.82rem',
-    color: 'var(--ifm-color-emphasis-600)',
+    color: '#a0a0a0',
   } as React.CSSProperties,
 
   filtersRow: {
@@ -341,7 +341,7 @@ const styles = {
   select: {
     padding: '0.45rem 0.7rem',
     borderRadius: '6px',
-    border: '1px solid var(--ifm-color-emphasis-300)',
+    border: '1px solid rgba(255,255,255,0.08)',
     backgroundColor: 'var(--ifm-background-color)',
     color: 'var(--ifm-font-color-base)',
     fontSize: '0.85rem',
@@ -352,7 +352,7 @@ const styles = {
   tableWrapper: {
     overflowX: 'auto' as const,
     borderRadius: '8px',
-    border: '1px solid var(--ifm-color-emphasis-200)',
+    border: '1px solid rgba(255,255,255,0.08)',
   } as React.CSSProperties,
 
   table: {
@@ -364,14 +364,14 @@ const styles = {
   th: {
     padding: '0.65rem 0.75rem',
     textAlign: 'left' as const,
-    borderBottom: '2px solid var(--ifm-color-emphasis-300)',
-    backgroundColor: 'var(--ifm-color-emphasis-100)',
+    borderBottom: '2px solid rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
     fontWeight: 600,
     fontSize: '0.8rem',
     textTransform: 'uppercase' as const,
     letterSpacing: '0.03em',
     whiteSpace: 'nowrap' as const,
-    color: 'var(--ifm-color-emphasis-700)',
+    color: '#cccccc',
   } as React.CSSProperties,
 
   thCenter: {
@@ -384,7 +384,7 @@ const styles = {
 
   td: {
     padding: '0.6rem 0.75rem',
-    borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+    borderBottom: '1px solid rgba(255,255,255,0.08)',
     whiteSpace: 'nowrap' as const,
   } as React.CSSProperties,
 
@@ -411,9 +411,9 @@ const styles = {
     borderRadius: '8px',
     fontSize: '0.68rem',
     fontWeight: 600,
-    backgroundColor: '#e6f7ff',
-    color: '#0958d9',
-    border: '1px solid #91caff',
+    backgroundColor: 'rgba(96,165,250,0.15)',
+    color: '#60a5fa',
+    border: '1px solid rgba(96,165,250,0.3)',
   } as React.CSSProperties,
 
   footer: {
@@ -439,7 +439,7 @@ const styles = {
   monthBtn: (active: boolean) => ({
     padding: '0.3rem 0.55rem',
     borderRadius: '6px',
-    border: active ? '1px solid var(--ifm-color-primary)' : '1px solid var(--ifm-color-emphasis-300)',
+    border: active ? '1px solid var(--ifm-color-primary)' : '1px solid rgba(255,255,255,0.08)',
     backgroundColor: active ? 'var(--ifm-color-primary)' : 'transparent',
     color: active ? '#fff' : 'var(--ifm-font-color-base)',
     fontSize: '0.78rem',
@@ -548,17 +548,17 @@ const EconomicCalendarInner: React.FC = () => {
   const getRowStyle = (ev: EconomicEvent): React.CSSProperties => {
     if (isUpcoming(ev.date)) {
       return {
-        borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
         backgroundColor: 'rgba(22, 119, 255, 0.06)',
       };
     }
     if (isPast(ev.date)) {
       return {
-        borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
         opacity: 0.55,
       };
     }
-    return { borderBottom: '1px solid var(--ifm-color-emphasis-200)' };
+    return { borderBottom: '1px solid rgba(255,255,255,0.08)' };
   };
 
   return (
@@ -664,7 +664,7 @@ const EconomicCalendarInner: React.FC = () => {
                     <td style={styles.td}>{ev.time}</td>
                     <td style={styles.td}>
                       {ev.country}{' '}
-                      <span style={{ fontSize: '0.78rem', color: 'var(--ifm-color-emphasis-600)' }}>
+                      <span style={{ fontSize: '0.78rem', color: '#a0a0a0' }}>
                         {COUNTRY_NAMES[ev.country]}
                       </span>
                     </td>
@@ -682,7 +682,7 @@ const EconomicCalendarInner: React.FC = () => {
                       <span
                         style={{
                           fontSize: '0.75rem',
-                          color: 'var(--ifm-color-emphasis-600)',
+                          color: '#a0a0a0',
                         }}
                       >
                         {CATEGORY_LABELS[ev.category]}

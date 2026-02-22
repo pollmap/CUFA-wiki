@@ -31,7 +31,7 @@
 
 .tagline {
   font-size: 1rem;
-  color: #666666;
+  color: #a0a0a0;
   margin: 0;
 }
 
@@ -43,7 +43,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #666666;
+  color: #a0a0a0;
   margin: 0 0 1.25rem 0;
 }
 
@@ -74,7 +74,7 @@
 
 .divider {
   height: 1px;
-  background-color: #1a1a1a;
+  background-color: rgba(255,255,255,0.08);
   margin-bottom: 2rem;
 }
 
@@ -88,13 +88,13 @@
 
 .copyright {
   font-size: 0.9rem;
-  color: #555555;
+  color: #6b7280;
   margin: 0;
 }
 
 .credit {
   font-size: 0.85rem;
-  color: #444444;
+  color: #6b7280;
   margin: 0;
 }
 

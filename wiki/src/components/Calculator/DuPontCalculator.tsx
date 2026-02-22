@@ -172,10 +172,10 @@ export const DuPontCalculator: React.FC = () => {
           style={{
             width: '100%',
             padding: '0.5rem',
-            border: '1px solid #d1d5db',
+            border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '0.5rem',
             fontSize: '0.875rem',
-            backgroundColor: 'white',
+            backgroundColor: 'rgba(255,255,255,0.06)',
           }}
         >
           {PRESETS.map((p) => (
@@ -187,7 +187,7 @@ export const DuPontCalculator: React.FC = () => {
       </div>
 
       {/* 모드 탭 */}
-      <div style={{ display: 'flex', marginBottom: '1.5rem', borderRadius: '0.5rem', overflow: 'hidden', border: '1px solid #d1d5db' }}>
+      <div style={{ display: 'flex', marginBottom: '1.5rem', borderRadius: '0.5rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
         <button
           onClick={() => setMode('3factor')}
           style={{
@@ -197,8 +197,8 @@ export const DuPontCalculator: React.FC = () => {
             cursor: 'pointer',
             fontWeight: '600',
             fontSize: '0.875rem',
-            backgroundColor: mode === '3factor' ? '#2563eb' : '#f3f4f6',
-            color: mode === '3factor' ? 'white' : '#374151',
+            backgroundColor: mode === '3factor' ? '#60a5fa' : 'rgba(255,255,255,0.04)',
+            color: mode === '3factor' ? '#000000' : '#a0a0a0',
             transition: 'all 0.2s',
           }}
         >
@@ -210,12 +210,12 @@ export const DuPontCalculator: React.FC = () => {
             flex: 1,
             padding: '0.75rem',
             border: 'none',
-            borderLeft: '1px solid #d1d5db',
+            borderLeft: '1px solid rgba(255,255,255,0.1)',
             cursor: 'pointer',
             fontWeight: '600',
             fontSize: '0.875rem',
-            backgroundColor: mode === '5factor' ? '#2563eb' : '#f3f4f6',
-            color: mode === '5factor' ? 'white' : '#374151',
+            backgroundColor: mode === '5factor' ? '#60a5fa' : 'rgba(255,255,255,0.04)',
+            color: mode === '5factor' ? '#000000' : '#a0a0a0',
             transition: 'all 0.2s',
           }}
         >
@@ -234,7 +234,7 @@ export const DuPontCalculator: React.FC = () => {
               step="0.1"
               value={inputs.revenue}
               onChange={(e) => handleChange('revenue', e.target.value)}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
             />
           </div>
           <div>
@@ -244,7 +244,7 @@ export const DuPontCalculator: React.FC = () => {
               step="0.1"
               value={inputs.netIncome}
               onChange={(e) => handleChange('netIncome', e.target.value)}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
             />
           </div>
           <div>
@@ -254,7 +254,7 @@ export const DuPontCalculator: React.FC = () => {
               step="0.1"
               value={inputs.totalAssets}
               onChange={(e) => handleChange('totalAssets', e.target.value)}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
             />
           </div>
           <div>
@@ -264,7 +264,7 @@ export const DuPontCalculator: React.FC = () => {
               step="0.1"
               value={inputs.equity}
               onChange={(e) => handleChange('equity', e.target.value)}
-              style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+              style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
             />
           </div>
           {mode === '5factor' && (
@@ -276,7 +276,7 @@ export const DuPontCalculator: React.FC = () => {
                   step="0.1"
                   value={inputs.ebt}
                   onChange={(e) => handleChange('ebt', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
                 />
               </div>
               <div>
@@ -286,7 +286,7 @@ export const DuPontCalculator: React.FC = () => {
                   step="0.1"
                   value={inputs.ebit}
                   onChange={(e) => handleChange('ebit', e.target.value)}
-                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #d1d5db', borderRadius: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
                 />
               </div>
             </>
@@ -299,35 +299,35 @@ export const DuPontCalculator: React.FC = () => {
         <>
           {/* 결과 카드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-            <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#1d4ed8', marginBottom: '0.25rem' }}>순이익률</p>
+            <div style={{ background: 'rgba(96,165,250,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#60a5fa', marginBottom: '0.25rem' }}>순이익률</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{formatPercent(threeFactorResult.netProfitMargin)}%</p>
-              <p style={{ fontSize: '0.75rem', color: '#3b82f6', marginTop: '0.25rem' }}>순이익 / 매출액</p>
+              <p style={{ fontSize: '0.75rem', color: '#60a5fa', marginTop: '0.25rem' }}>순이익 / 매출액</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#15803d', marginBottom: '0.25rem' }}>총자산회전율</p>
+            <div style={{ background: 'rgba(16,185,129,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#10b981', marginBottom: '0.25rem' }}>총자산회전율</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{formatTimes(threeFactorResult.assetTurnover)}x</p>
-              <p style={{ fontSize: '0.75rem', color: '#22c55e', marginTop: '0.25rem' }}>매출액 / 총자산</p>
+              <p style={{ fontSize: '0.75rem', color: '#10b981', marginTop: '0.25rem' }}>매출액 / 총자산</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#7c3aed', marginBottom: '0.25rem' }}>재무레버리지</p>
+            <div style={{ background: 'rgba(124,106,247,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#7c6af7', marginBottom: '0.25rem' }}>재무레버리지</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{formatTimes(threeFactorResult.equityMultiplier)}x</p>
               <p style={{ fontSize: '0.75rem', color: '#8b5cf6', marginTop: '0.25rem' }}>총자산 / 자기자본</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.875rem', color: '#b45309', marginBottom: '0.25rem' }}>ROE</p>
+            <div style={{ background: 'rgba(245,158,11,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.875rem', color: '#f59e0b', marginBottom: '0.25rem' }}>ROE</p>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{formatPercent(threeFactorResult.roe)}%</p>
-              <p style={{ fontSize: '0.75rem', color: '#d97706', marginTop: '0.25rem' }}>3요소의 곱</p>
+              <p style={{ fontSize: '0.75rem', color: '#f59e0b', marginTop: '0.25rem' }}>3요소의 곱</p>
             </div>
           </div>
 
           {/* 수식 표시 */}
-          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem', marginBottom: '2rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem', marginBottom: '2rem' }}>
             <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem' }}>3-Factor DuPont 공식</h4>
-            <div style={{ fontFamily: 'monospace', fontSize: '0.875rem', color: '#475569', textAlign: 'center', padding: '0.5rem', backgroundColor: 'white', borderRadius: '0.25rem', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '0.875rem', color: '#a0a0a0', textAlign: 'center', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', border: '1px solid rgba(255,255,255,0.08)' }}>
               ROE = 순이익률 x 자산회전율 x 재무레버리지
             </div>
-            <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#64748b', textAlign: 'center', marginTop: '0.5rem' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#6b7280', textAlign: 'center', marginTop: '0.5rem' }}>
               {formatPercent(threeFactorResult.netProfitMargin)}% x {formatTimes(threeFactorResult.assetTurnover)} x {formatTimes(threeFactorResult.equityMultiplier)} = {formatPercent(threeFactorResult.roe)}%
             </div>
           </div>
@@ -339,47 +339,47 @@ export const DuPontCalculator: React.FC = () => {
         <>
           {/* 결과 카드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '0.75rem', marginBottom: '2rem' }}>
-            <div style={{ background: 'linear-gradient(135deg, #fef2f2 0%, #fecaca 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.8rem', color: '#b91c1c', marginBottom: '0.25rem' }}>세금부담률</p>
+            <div style={{ background: 'rgba(239,68,68,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.8rem', color: '#ef4444', marginBottom: '0.25rem' }}>세금부담률</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{formatPercent(fiveFactorResult.taxBurden)}%</p>
-              <p style={{ fontSize: '0.7rem', color: '#dc2626', marginTop: '0.25rem' }}>순이익 / 세전이익</p>
+              <p style={{ fontSize: '0.7rem', color: '#ef4444', marginTop: '0.25rem' }}>순이익 / 세전이익</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #fffbeb 0%, #fde68a 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.8rem', color: '#92400e', marginBottom: '0.25rem' }}>이자부담률</p>
+            <div style={{ background: 'rgba(245,158,11,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.8rem', color: '#f59e0b', marginBottom: '0.25rem' }}>이자부담률</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{formatPercent(fiveFactorResult.interestBurden)}%</p>
-              <p style={{ fontSize: '0.7rem', color: '#b45309', marginTop: '0.25rem' }}>세전이익 / 영업이익</p>
+              <p style={{ fontSize: '0.7rem', color: '#f59e0b', marginTop: '0.25rem' }}>세전이익 / 영업이익</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.8rem', color: '#1d4ed8', marginBottom: '0.25rem' }}>영업이익률</p>
+            <div style={{ background: 'rgba(96,165,250,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.8rem', color: '#60a5fa', marginBottom: '0.25rem' }}>영업이익률</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{formatPercent(fiveFactorResult.operatingMargin)}%</p>
-              <p style={{ fontSize: '0.7rem', color: '#3b82f6', marginTop: '0.25rem' }}>영업이익 / 매출액</p>
+              <p style={{ fontSize: '0.7rem', color: '#60a5fa', marginTop: '0.25rem' }}>영업이익 / 매출액</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.8rem', color: '#15803d', marginBottom: '0.25rem' }}>총자산회전율</p>
+            <div style={{ background: 'rgba(16,185,129,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.8rem', color: '#10b981', marginBottom: '0.25rem' }}>총자산회전율</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{formatTimes(fiveFactorResult.assetTurnover)}x</p>
-              <p style={{ fontSize: '0.7rem', color: '#22c55e', marginTop: '0.25rem' }}>매출액 / 총자산</p>
+              <p style={{ fontSize: '0.7rem', color: '#10b981', marginTop: '0.25rem' }}>매출액 / 총자산</p>
             </div>
-            <div style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)', padding: '1rem', borderRadius: '0.75rem' }}>
-              <p style={{ fontSize: '0.8rem', color: '#7c3aed', marginBottom: '0.25rem' }}>재무레버리지</p>
+            <div style={{ background: 'rgba(124,106,247,0.08)', padding: '1rem', borderRadius: '0.75rem' }}>
+              <p style={{ fontSize: '0.8rem', color: '#7c6af7', marginBottom: '0.25rem' }}>재무레버리지</p>
               <p style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{formatTimes(fiveFactorResult.equityMultiplier)}x</p>
               <p style={{ fontSize: '0.7rem', color: '#8b5cf6', marginTop: '0.25rem' }}>총자산 / 자기자본</p>
             </div>
           </div>
 
           {/* ROE 결과 카드 */}
-          <div style={{ background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)', padding: '1.5rem', borderRadius: '0.75rem', marginBottom: '2rem', textAlign: 'center' }}>
-            <p style={{ fontSize: '0.875rem', color: '#b45309', marginBottom: '0.25rem' }}>ROE (5-Factor)</p>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#92400e' }}>{formatPercent(fiveFactorResult.roe)}%</p>
-            <p style={{ fontSize: '0.75rem', color: '#d97706', marginTop: '0.25rem' }}>5요소의 곱</p>
+          <div style={{ background: 'rgba(245,158,11,0.08)', padding: '1.5rem', borderRadius: '0.75rem', marginBottom: '2rem', textAlign: 'center' }}>
+            <p style={{ fontSize: '0.875rem', color: '#f59e0b', marginBottom: '0.25rem' }}>ROE (5-Factor)</p>
+            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#f59e0b' }}>{formatPercent(fiveFactorResult.roe)}%</p>
+            <p style={{ fontSize: '0.75rem', color: '#f59e0b', marginTop: '0.25rem' }}>5요소의 곱</p>
           </div>
 
           {/* 수식 표시 */}
-          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem', marginBottom: '2rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem', marginBottom: '2rem' }}>
             <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem' }}>5-Factor DuPont 공식</h4>
-            <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#475569', textAlign: 'center', padding: '0.5rem', backgroundColor: 'white', borderRadius: '0.25rem', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#a0a0a0', textAlign: 'center', padding: '0.5rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', border: '1px solid rgba(255,255,255,0.08)' }}>
               ROE = 세금부담률 x 이자부담률 x 영업이익률 x 자산회전율 x 레버리지
             </div>
-            <div style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: '#64748b', textAlign: 'center', marginTop: '0.5rem' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: '#6b7280', textAlign: 'center', marginTop: '0.5rem' }}>
               {formatPercent(fiveFactorResult.taxBurden)}% x {formatPercent(fiveFactorResult.interestBurden)}% x {formatPercent(fiveFactorResult.operatingMargin)}% x {formatTimes(fiveFactorResult.assetTurnover)} x {formatTimes(fiveFactorResult.equityMultiplier)} = {formatPercent(fiveFactorResult.roe)}%
             </div>
           </div>
@@ -390,13 +390,13 @@ export const DuPontCalculator: React.FC = () => {
       {waterfallData.length > 0 && (
         <div style={{ marginBottom: '2rem' }}>
           <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>요소별 분해 시각화</h3>
-          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.5rem', padding: '1rem' }}>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '1rem' }}>
             {waterfallData.map((item, index) => (
               <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: index < waterfallData.length - 1 ? '0.75rem' : 0 }}>
-                <div style={{ width: '5.5rem', fontSize: '0.8rem', fontWeight: '500', color: '#374151', flexShrink: 0 }}>
+                <div style={{ width: '5.5rem', fontSize: '0.8rem', fontWeight: '500', color: '#a0a0a0', flexShrink: 0 }}>
                   {item.label}
                 </div>
-                <div style={{ flex: 1, height: '1.75rem', backgroundColor: '#e5e7eb', borderRadius: '0.25rem', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ flex: 1, height: '1.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.25rem', overflow: 'hidden', position: 'relative' }}>
                   <div
                     style={{
                       width: `${Math.max((Math.abs(item.value) / maxWaterfallValue) * 100, 3)}%`,
@@ -430,16 +430,16 @@ export const DuPontCalculator: React.FC = () => {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
               <thead>
-                <tr style={{ backgroundColor: '#f3f4f6' }}>
-                  <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid #e5e7eb' }}>업종</th>
-                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid #e5e7eb', color: '#1d4ed8' }}>순이익률</th>
-                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid #e5e7eb', color: '#15803d' }}>자산회전율</th>
-                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid #e5e7eb', color: '#7c3aed' }}>레버리지</th>
+                <tr style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>업종</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid rgba(255,255,255,0.08)', color: '#60a5fa' }}>순이익률</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid rgba(255,255,255,0.08)', color: '#10b981' }}>자산회전율</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'center', borderBottom: '2px solid rgba(255,255,255,0.08)', color: '#7c6af7' }}>레버리지</th>
                 </tr>
               </thead>
               <tbody>
                 {BENCHMARKS.map((bm, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid #e5e7eb' }}>
+                  <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                     <td style={{ padding: '0.5rem 0.75rem', fontWeight: '500' }}>{bm.label}</td>
                     <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center' }}>
                       {bm.netMargin[0]}~{bm.netMargin[1]}%
@@ -453,15 +453,15 @@ export const DuPontCalculator: React.FC = () => {
                   </tr>
                 ))}
                 {/* 현재 기업 행 */}
-                <tr style={{ backgroundColor: '#fffbeb', fontWeight: '600', borderTop: '2px solid #f59e0b' }}>
+                <tr style={{ backgroundColor: 'rgba(245,158,11,0.08)', fontWeight: '600', borderTop: '2px solid #f59e0b' }}>
                   <td style={{ padding: '0.5rem 0.75rem' }}>현재 입력값</td>
-                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#1d4ed8' }}>
+                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#60a5fa' }}>
                     {formatPercent(threeFactorResult.netProfitMargin)}%
                   </td>
-                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#15803d' }}>
+                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#10b981' }}>
                     {formatTimes(threeFactorResult.assetTurnover)}x
                   </td>
-                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#7c3aed' }}>
+                  <td style={{ padding: '0.5rem 0.75rem', textAlign: 'center', color: '#7c6af7' }}>
                     {formatTimes(threeFactorResult.equityMultiplier)}x
                   </td>
                 </tr>
@@ -471,7 +471,7 @@ export const DuPontCalculator: React.FC = () => {
 
           {/* 벤치마크 시각적 게이지 */}
           <div style={{ marginTop: '1.5rem' }}>
-            <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.75rem', color: '#374151' }}>
+            <h4 style={{ fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.75rem', color: '#a0a0a0' }}>
               업종 범위 내 위치 (가장 유사한 업종 대비)
             </h4>
             {BENCHMARKS.map((bm, i) => {
@@ -480,22 +480,22 @@ export const DuPontCalculator: React.FC = () => {
               const leverageValue = threeFactorResult.equityMultiplier;
 
               return (
-                <div key={i} style={{ marginBottom: '1rem', padding: '0.75rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-                  <p style={{ fontSize: '0.8rem', fontWeight: '600', marginBottom: '0.5rem', color: '#374151' }}>{bm.label}</p>
+                <div key={i} style={{ marginBottom: '1rem', padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <p style={{ fontSize: '0.8rem', fontWeight: '600', marginBottom: '0.5rem', color: '#a0a0a0' }}>{bm.label}</p>
                   {/* 순이익률 */}
                   <div style={{ marginBottom: '0.5rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#6b7280', marginBottom: '0.15rem' }}>
                       <span>순이익률</span>
                       <span>{netMarginValue.toFixed(1)}% (범위: {bm.netMargin[0]}~{bm.netMargin[1]}%)</span>
                     </div>
-                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: '#e5e7eb', borderRadius: '0.5rem', overflow: 'visible' }}>
+                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', overflow: 'visible' }}>
                       {/* 범위 표시 */}
                       <div style={{
                         position: 'absolute',
                         left: '25%',
                         width: '50%',
                         height: '100%',
-                        backgroundColor: '#dbeafe',
+                        backgroundColor: 'rgba(96,165,250,0.12)',
                         borderRadius: '0.5rem',
                       }} />
                       {/* 현재값 마커 */}
@@ -508,7 +508,7 @@ export const DuPontCalculator: React.FC = () => {
                         backgroundColor: getBenchmarkColor(netMarginValue, bm.netMargin),
                         borderRadius: '50%',
                         transform: 'translate(-50%, -50%)',
-                        border: '2px solid white',
+                        border: '2px solid rgba(255,255,255,0.3)',
                         boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }} />
@@ -520,13 +520,13 @@ export const DuPontCalculator: React.FC = () => {
                       <span>자산회전율</span>
                       <span>{assetTurnoverValue.toFixed(2)}x (범위: {bm.assetTurnover[0]}~{bm.assetTurnover[1]}x)</span>
                     </div>
-                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: '#e5e7eb', borderRadius: '0.5rem', overflow: 'visible' }}>
+                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', overflow: 'visible' }}>
                       <div style={{
                         position: 'absolute',
                         left: '25%',
                         width: '50%',
                         height: '100%',
-                        backgroundColor: '#dcfce7',
+                        backgroundColor: 'rgba(16,185,129,0.12)',
                         borderRadius: '0.5rem',
                       }} />
                       <div style={{
@@ -538,7 +538,7 @@ export const DuPontCalculator: React.FC = () => {
                         backgroundColor: getBenchmarkColor(assetTurnoverValue, bm.assetTurnover),
                         borderRadius: '50%',
                         transform: 'translate(-50%, -50%)',
-                        border: '2px solid white',
+                        border: '2px solid rgba(255,255,255,0.3)',
                         boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }} />
@@ -550,13 +550,13 @@ export const DuPontCalculator: React.FC = () => {
                       <span>레버리지</span>
                       <span>{leverageValue.toFixed(2)}x (범위: {bm.leverage[0]}~{bm.leverage[1]}x)</span>
                     </div>
-                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: '#e5e7eb', borderRadius: '0.5rem', overflow: 'visible' }}>
+                    <div style={{ position: 'relative', height: '0.75rem', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '0.5rem', overflow: 'visible' }}>
                       <div style={{
                         position: 'absolute',
                         left: '25%',
                         width: '50%',
                         height: '100%',
-                        backgroundColor: '#f3e8ff',
+                        backgroundColor: 'rgba(124,106,247,0.12)',
                         borderRadius: '0.5rem',
                       }} />
                       <div style={{
@@ -568,7 +568,7 @@ export const DuPontCalculator: React.FC = () => {
                         backgroundColor: getBenchmarkColor(leverageValue, bm.leverage),
                         borderRadius: '50%',
                         transform: 'translate(-50%, -50%)',
-                        border: '2px solid white',
+                        border: '2px solid rgba(255,255,255,0.3)',
                         boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
                         zIndex: 1,
                       }} />
@@ -599,14 +599,14 @@ export const DuPontCalculator: React.FC = () => {
       <div style={{
         marginTop: '1rem',
         padding: '1rem',
-        borderLeft: '4px solid #2563eb',
-        backgroundColor: '#eff6ff',
+        borderLeft: '4px solid #60a5fa',
+        backgroundColor: 'rgba(96,165,250,0.08)',
         borderRadius: '0 0.5rem 0.5rem 0',
       }}>
-        <p style={{ fontWeight: '600', color: '#1e40af', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
+        <p style={{ fontWeight: '600', color: '#60a5fa', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
           듀퐁 분석 해석 가이드
         </p>
-        <ul style={{ fontSize: '0.8rem', color: '#1e40af', margin: 0, paddingLeft: '1.25rem', lineHeight: '1.8' }}>
+        <ul style={{ fontSize: '0.8rem', color: '#60a5fa', margin: 0, paddingLeft: '1.25rem', lineHeight: '1.8' }}>
           <li><strong>순이익률</strong>이 높으면 → 가격 경쟁력 또는 비용 효율성이 뛰어남</li>
           <li><strong>자산회전율</strong>이 높으면 → 자산 활용 효율이 높음 (박리다매형)</li>
           <li><strong>재무레버리지</strong>가 높으면 → 부채를 활용한 수익 확대 (위험도 증가)</li>

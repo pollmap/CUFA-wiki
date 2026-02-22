@@ -86,9 +86,9 @@ const FinanceTimelineInner: React.FC = () => {
   }, {} as Record<number, TimelineEvent[]>);
 
   return (
-    <div style={{ padding: '1rem', backgroundColor: 'var(--ifm-background-surface-color)', borderRadius: '8px', border: '1px solid var(--ifm-color-emphasis-300)' }}>
+    <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
       <h3 style={{ marginTop: 0 }}>한국 금융사 타임라인</h3>
-      <p style={{ color: 'var(--ifm-color-emphasis-700)', marginBottom: '1.5rem' }}>
+      <p style={{ color: '#cccccc', marginBottom: '1.5rem' }}>
         1997년 IMF 외환위기부터 현재까지 한국 금융시장의 주요 이벤트
       </p>
 
@@ -101,7 +101,7 @@ const FinanceTimelineInner: React.FC = () => {
             borderRadius: '20px',
             border: 'none',
             cursor: 'pointer',
-            backgroundColor: selectedCategory === 'all' ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-200)',
+            backgroundColor: selectedCategory === 'all' ? 'var(--ifm-color-primary)' : 'rgba(255,255,255,0.08)',
             color: selectedCategory === 'all' ? 'white' : 'inherit',
           }}
         >
@@ -116,7 +116,7 @@ const FinanceTimelineInner: React.FC = () => {
               borderRadius: '20px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: selectedCategory === key ? CATEGORY_COLORS[key].bg : 'var(--ifm-color-emphasis-200)',
+              backgroundColor: selectedCategory === key ? CATEGORY_COLORS[key].bg : 'rgba(255,255,255,0.08)',
               color: selectedCategory === key ? 'white' : 'inherit',
             }}
           >
@@ -134,7 +134,7 @@ const FinanceTimelineInner: React.FC = () => {
           top: 0,
           bottom: 0,
           width: '2px',
-          backgroundColor: 'var(--ifm-color-emphasis-300)',
+          backgroundColor: 'rgba(255,255,255,0.1)',
         }} />
 
         {Object.entries(groupedByDecade).sort(([a], [b]) => Number(a) - Number(b)).map(([decade, events]) => (
@@ -171,13 +171,13 @@ const FinanceTimelineInner: React.FC = () => {
                   height: '12px',
                   borderRadius: '50%',
                   backgroundColor: CATEGORY_COLORS[event.category].bg,
-                  border: '2px solid white',
-                  boxShadow: '0 0 0 2px var(--ifm-color-emphasis-300)',
+                  border: '2px solid #000000',
+                  boxShadow: '0 0 0 2px rgba(255,255,255,0.1)',
                 }} />
 
                 {/* 이벤트 카드 */}
                 <div style={{
-                  backgroundColor: 'var(--ifm-color-emphasis-100)',
+                  backgroundColor: 'rgba(255,255,255,0.04)',
                   padding: '1rem',
                   borderRadius: '8px',
                   borderLeft: `4px solid ${CATEGORY_COLORS[event.category].bg}`,
@@ -186,7 +186,7 @@ const FinanceTimelineInner: React.FC = () => {
                     <div>
                       <span style={{
                         fontSize: '0.8rem',
-                        color: 'var(--ifm-color-emphasis-600)',
+                        color: '#a0a0a0',
                       }}>
                         {event.year}년 {event.month ? `${event.month}월` : ''}
                       </span>
@@ -217,7 +217,7 @@ const FinanceTimelineInner: React.FC = () => {
                   <p style={{
                     margin: '0.5rem 0 0 0',
                     fontSize: '0.9rem',
-                    color: 'var(--ifm-color-emphasis-700)',
+                    color: '#cccccc',
                   }}>
                     {event.description}
                   </p>
@@ -228,7 +228,7 @@ const FinanceTimelineInner: React.FC = () => {
         ))}
       </div>
 
-      <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)', marginTop: '1rem' }}>
+      <p style={{ fontSize: '0.8rem', color: '#a0a0a0', marginTop: '1rem' }}>
         * KOSPI 변동률은 해당 이벤트 발생 전후 최대 하락/상승폭 기준입니다.
       </p>
     </div>

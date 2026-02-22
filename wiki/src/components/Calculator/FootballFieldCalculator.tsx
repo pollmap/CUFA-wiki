@@ -105,8 +105,8 @@ export const FootballFieldCalculator: React.FC = () => {
         low: inputs.dcfLow,
         mid: inputs.dcfMid,
         high: inputs.dcfHigh,
-        color: '#2563eb',
-        bgColor: '#dbeafe',
+        color: '#60a5fa',
+        bgColor: 'rgba(96,165,250,0.12)',
       },
       {
         label: 'PER',
@@ -114,7 +114,7 @@ export const FootballFieldCalculator: React.FC = () => {
         mid: forwardEPS * perMid,
         high: forwardEPS * perHigh,
         color: '#16a34a',
-        bgColor: '#dcfce7',
+        bgColor: 'rgba(16,185,129,0.12)',
       },
       {
         label: 'PBR',
@@ -122,7 +122,7 @@ export const FootballFieldCalculator: React.FC = () => {
         mid: bps * pbrMid,
         high: bps * pbrHigh,
         color: '#9333ea',
-        bgColor: '#f3e8ff',
+        bgColor: 'rgba(124,106,247,0.12)',
       },
       {
         label: 'EV/EBITDA',
@@ -130,7 +130,7 @@ export const FootballFieldCalculator: React.FC = () => {
         mid: inputs.evEbitdaMid,
         high: inputs.evEbitdaHigh,
         color: '#d97706',
-        bgColor: '#fef3c7',
+        bgColor: 'rgba(245,158,11,0.12)',
       },
       {
         label: '52주 범위',
@@ -138,7 +138,7 @@ export const FootballFieldCalculator: React.FC = () => {
         mid: (inputs.week52Low + inputs.week52High) / 2,
         high: inputs.week52High,
         color: '#6b7280',
-        bgColor: '#f3f4f6',
+        bgColor: 'rgba(255,255,255,0.04)',
       },
     ];
   }, [inputs]);
@@ -192,7 +192,7 @@ export const FootballFieldCalculator: React.FC = () => {
   const inputFieldStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.5rem',
-    border: '1px solid #d1d5db',
+    border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: '0.5rem',
     fontSize: '0.875rem',
     boxSizing: 'border-box',
@@ -203,7 +203,7 @@ export const FootballFieldCalculator: React.FC = () => {
     fontSize: '0.8rem',
     fontWeight: 500,
     marginBottom: '0.2rem',
-    color: '#374151',
+    color: '#a0a0a0',
   };
 
   const sectionTitleStyle: React.CSSProperties = {
@@ -211,8 +211,8 @@ export const FootballFieldCalculator: React.FC = () => {
     fontWeight: 700,
     marginBottom: '0.75rem',
     paddingBottom: '0.4rem',
-    borderBottom: '2px solid #e5e7eb',
-    color: '#111827',
+    borderBottom: '2px solid rgba(255,255,255,0.08)',
+    color: '#e0e0e0',
   };
 
   const renderInput = (label: string, field: keyof FootballFieldInputs, unit?: string) => (
@@ -250,20 +250,20 @@ export const FootballFieldCalculator: React.FC = () => {
               padding: '0.35rem 0.9rem',
               marginRight: '0.5rem',
               marginBottom: '0.25rem',
-              border: '1px solid #d1d5db',
+              border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '0.5rem',
-              backgroundColor: '#f9fafb',
+              backgroundColor: 'rgba(255,255,255,0.03)',
               cursor: 'pointer',
               fontSize: '0.85rem',
               fontWeight: 500,
-              color: '#374151',
+              color: '#a0a0a0',
               transition: 'background-color 0.15s',
             }}
             onMouseEnter={(e) => {
-              (e.target as HTMLButtonElement).style.backgroundColor = '#e5e7eb';
+              (e.target as HTMLButtonElement).style.backgroundColor = 'rgba(255,255,255,0.08)';
             }}
             onMouseLeave={(e) => {
-              (e.target as HTMLButtonElement).style.backgroundColor = '#f9fafb';
+              (e.target as HTMLButtonElement).style.backgroundColor = 'rgba(255,255,255,0.03)';
             }}
           >
             {preset.name}
@@ -279,7 +279,7 @@ export const FootballFieldCalculator: React.FC = () => {
         marginBottom: '2rem',
       }}>
         {/* 기본 정보 */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={sectionTitleStyle}>기본 정보</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('현재 주가', 'currentPrice', '원')}
@@ -288,8 +288,8 @@ export const FootballFieldCalculator: React.FC = () => {
         </div>
 
         {/* DCF */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
-          <div style={{ ...sectionTitleStyle, color: '#2563eb' }}>DCF 밸류에이션</div>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ ...sectionTitleStyle, color: '#60a5fa' }}>DCF 밸류에이션</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('DCF 하단', 'dcfLow', '원/주')}
             {renderInput('DCF 중간', 'dcfMid', '원/주')}
@@ -298,7 +298,7 @@ export const FootballFieldCalculator: React.FC = () => {
         </div>
 
         {/* PER */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={{ ...sectionTitleStyle, color: '#16a34a' }}>PER 밸류에이션</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('Forward EPS', 'forwardEPS', '원')}
@@ -311,7 +311,7 @@ export const FootballFieldCalculator: React.FC = () => {
         </div>
 
         {/* PBR */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={{ ...sectionTitleStyle, color: '#9333ea' }}>PBR 밸류에이션</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('BPS', 'bps', '원')}
@@ -324,7 +324,7 @@ export const FootballFieldCalculator: React.FC = () => {
         </div>
 
         {/* EV/EBITDA */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={{ ...sectionTitleStyle, color: '#d97706' }}>EV/EBITDA 밸류에이션</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('주당 적용가 하단', 'evEbitdaLow', '원')}
@@ -334,7 +334,7 @@ export const FootballFieldCalculator: React.FC = () => {
         </div>
 
         {/* 52주 범위 */}
-        <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.75rem', border: '1px solid #e5e7eb' }}>
+        <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem', border: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={{ ...sectionTitleStyle, color: '#6b7280' }}>52주 가격범위</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {renderInput('52주 최저가', 'week52Low', '원')}
@@ -346,12 +346,12 @@ export const FootballFieldCalculator: React.FC = () => {
       {/* Football Field Chart */}
       <div style={{
         padding: '1.5rem',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'rgba(255,255,255,0.06)',
         borderRadius: '0.75rem',
-        border: '1px solid #e5e7eb',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1.5rem',
       }}>
-        <h3 style={{ margin: '0 0 1.25rem 0', fontSize: '1.1rem', fontWeight: 700, color: '#111827' }}>
+        <h3 style={{ margin: '0 0 1.25rem 0', fontSize: '1.1rem', fontWeight: 700, color: '#e0e0e0' }}>
           Football Field Chart
         </h3>
 
@@ -391,9 +391,9 @@ export const FootballFieldCalculator: React.FC = () => {
                   flex: 1,
                   position: 'relative',
                   height: '100%',
-                  backgroundColor: '#fafafa',
+                  backgroundColor: 'rgba(255,255,255,0.03)',
                   borderRadius: '4px',
-                  border: '1px solid #f0f0f0',
+                  border: '1px solid rgba(255,255,255,0.06)',
                 }}>
                   {/* The range bar */}
                   <div style={{
@@ -419,7 +419,7 @@ export const FootballFieldCalculator: React.FC = () => {
                     backgroundColor: range.color,
                     borderRadius: '50%',
                     zIndex: 3,
-                    boxShadow: '0 0 0 2px #fff',
+                    boxShadow: '0 0 0 2px rgba(255,255,255,0.3)',
                   }} />
 
                   {/* Current price vertical line */}
@@ -443,7 +443,7 @@ export const FootballFieldCalculator: React.FC = () => {
                     bottom: '-2px',
                     transform: 'translateX(-50%)',
                     fontSize: '0.65rem',
-                    color: '#9ca3af',
+                    color: '#6b7280',
                     whiteSpace: 'nowrap',
                     zIndex: 4,
                   }}>
@@ -457,7 +457,7 @@ export const FootballFieldCalculator: React.FC = () => {
                     bottom: '-2px',
                     transform: 'translateX(-50%)',
                     fontSize: '0.65rem',
-                    color: '#9ca3af',
+                    color: '#6b7280',
                     whiteSpace: 'nowrap',
                     zIndex: 4,
                   }}>
@@ -512,7 +512,7 @@ export const FootballFieldCalculator: React.FC = () => {
             marginTop: '12px',
           }}>
             <div style={{ width: '90px', flexShrink: 0 }} />
-            <div style={{ flex: 1, position: 'relative', height: '24px', borderTop: '1px solid #e5e7eb' }}>
+            <div style={{ flex: 1, position: 'relative', height: '24px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {axisTicks.map((tick) => {
                 const pos = toPercent(tick);
                 return (
@@ -521,7 +521,7 @@ export const FootballFieldCalculator: React.FC = () => {
                     left: `${pos}%`,
                     transform: 'translateX(-50%)',
                     fontSize: '0.65rem',
-                    color: '#9ca3af',
+                    color: '#6b7280',
                     top: '4px',
                     whiteSpace: 'nowrap',
                   }}>
@@ -538,12 +538,12 @@ export const FootballFieldCalculator: React.FC = () => {
       {/* Summary Table */}
       <div style={{
         padding: '1.5rem',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'rgba(255,255,255,0.06)',
         borderRadius: '0.75rem',
-        border: '1px solid #e5e7eb',
+        border: '1px solid rgba(255,255,255,0.08)',
         marginBottom: '1.5rem',
       }}>
-        <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', fontWeight: 700, color: '#111827' }}>
+        <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', fontWeight: 700, color: '#e0e0e0' }}>
           밸류에이션 요약
         </h3>
 
@@ -554,14 +554,14 @@ export const FootballFieldCalculator: React.FC = () => {
             fontSize: '0.85rem',
           }}>
             <thead>
-              <tr style={{ backgroundColor: '#f9fafb' }}>
+              <tr style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}>
                 {['방법론', '하단 (원)', '중간 (원)', '상단 (원)', '현재가 대비 (중간)'].map((h) => (
                   <th key={h} style={{
                     padding: '0.65rem 0.75rem',
                     textAlign: h === '방법론' ? 'left' : 'right',
-                    borderBottom: '2px solid #e5e7eb',
+                    borderBottom: '2px solid rgba(255,255,255,0.08)',
                     fontWeight: 600,
-                    color: '#374151',
+                    color: '#a0a0a0',
                     whiteSpace: 'nowrap',
                   }}>
                     {h}
@@ -574,7 +574,7 @@ export const FootballFieldCalculator: React.FC = () => {
                 const upside = ((range.mid - inputs.currentPrice) / inputs.currentPrice) * 100;
                 const isPositive = upside >= 0;
                 return (
-                  <tr key={range.label} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                  <tr key={range.label} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                     <td style={{
                       padding: '0.6rem 0.75rem',
                       fontWeight: 700,
@@ -594,7 +594,7 @@ export const FootballFieldCalculator: React.FC = () => {
                     <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', color: '#6b7280' }}>
                       {formatKRW(range.low)}
                     </td>
-                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', fontWeight: 600, color: '#111827' }}>
+                    <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', fontWeight: 600, color: '#e0e0e0' }}>
                       {formatKRW(range.mid)}
                     </td>
                     <td style={{ padding: '0.6rem 0.75rem', textAlign: 'right', color: '#6b7280' }}>
@@ -621,14 +621,14 @@ export const FootballFieldCalculator: React.FC = () => {
         padding: '1.5rem',
         borderRadius: '0.75rem',
         border: '2px solid',
-        borderColor: consensus.upside >= 0 ? '#bbf7d0' : '#fecaca',
-        backgroundColor: consensus.upside >= 0 ? '#f0fdf4' : '#fef2f2',
+        borderColor: consensus.upside >= 0 ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)',
+        backgroundColor: consensus.upside >= 0 ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
       }}>
         <h3 style={{
           margin: '0 0 1rem 0',
           fontSize: '1.1rem',
           fontWeight: 700,
-          color: consensus.upside >= 0 ? '#166534' : '#991b1b',
+          color: consensus.upside >= 0 ? '#10b981' : '#ef4444',
         }}>
           종합 판단
         </h3>
@@ -640,7 +640,7 @@ export const FootballFieldCalculator: React.FC = () => {
         }}>
           <div>
             <div style={{ fontSize: '0.8rem', color: '#6b7280', marginBottom: '0.2rem' }}>현재 주가</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111827' }}>
+            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#e0e0e0' }}>
               {formatKRW(inputs.currentPrice)}원
             </div>
           </div>
@@ -648,7 +648,7 @@ export const FootballFieldCalculator: React.FC = () => {
             <div style={{ fontSize: '0.8rem', color: '#6b7280', marginBottom: '0.2rem' }}>
               컨센서스 목표가 (중간 평균)
             </div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111827' }}>
+            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#e0e0e0' }}>
               {formatKRW(consensus.avgMid)}원
             </div>
           </div>
@@ -666,7 +666,7 @@ export const FootballFieldCalculator: React.FC = () => {
           </div>
           <div>
             <div style={{ fontSize: '0.8rem', color: '#6b7280', marginBottom: '0.2rem' }}>밸류에이션 범위</div>
-            <div style={{ fontSize: '1rem', fontWeight: 600, color: '#374151' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 600, color: '#a0a0a0' }}>
               {formatKRW(consensus.overallLow)} ~ {formatKRW(consensus.overallHigh)}원
             </div>
           </div>
@@ -676,11 +676,11 @@ export const FootballFieldCalculator: React.FC = () => {
         <div style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          backgroundColor: consensus.upside >= 0 ? '#dcfce7' : '#fee2e2',
+          backgroundColor: consensus.upside >= 0 ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.15)',
           borderRadius: '0.5rem',
           fontSize: '0.85rem',
           lineHeight: 1.6,
-          color: '#374151',
+          color: '#a0a0a0',
         }}>
           {consensus.upside >= 10 ? (
             <>
@@ -710,10 +710,10 @@ export const FootballFieldCalculator: React.FC = () => {
       <div style={{
         marginTop: '1.25rem',
         padding: '0.75rem 1rem',
-        backgroundColor: '#f3f4f6',
+        backgroundColor: 'rgba(255,255,255,0.04)',
         borderRadius: '0.5rem',
         fontSize: '0.75rem',
-        color: '#9ca3af',
+        color: '#6b7280',
         lineHeight: 1.5,
       }}>
         * 본 계산기는 교육 목적으로 제작되었으며, 투자 권유가 아닙니다.
