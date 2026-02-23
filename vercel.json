@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "build": {
     "env": {
       "SITE_URL": "https://$VERCEL_PROJECT_PRODUCTION_URL",
@@ -11,7 +12,7 @@
   "installCommand": "cd wiki && npm install",
   "framework": null,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/404.html" }
   ],
   "headers": [
     {
