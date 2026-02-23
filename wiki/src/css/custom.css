@@ -650,8 +650,7 @@ a:hover {
 .navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(12px);
+  background: #000000;
 }
 
 .navbar__title {
@@ -678,13 +677,16 @@ a:hover {
 /* ========================================
    사이드바
    ======================================== */
-/* 모바일 사이드바가 다른 요소(navbar, chat fab) 위에 표시되도록 z-index 보장 */
+/* 모바일 사이드바 풀스크린 오버레이 */
 .navbar-sidebar {
   z-index: var(--ifm-z-index-overlay);
+  background: #000000;
+  width: 100vw !important;
 }
 
 .navbar-sidebar__backdrop {
   z-index: calc(var(--ifm-z-index-overlay) - 1);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .menu__link {
