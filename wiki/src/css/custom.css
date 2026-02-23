@@ -804,6 +804,31 @@ a:hover {
   color: #ffffff;
 }
 
+/* 네비바 줄바꿈 방지 */
+.navbar__inner {
+  flex-wrap: nowrap;
+}
+
+.navbar__items {
+  white-space: nowrap;
+}
+
+/* 네비바 중간 화면 대응 (996px~1200px에서 텍스트 넘침 방지) */
+@media (min-width: 997px) and (max-width: 1200px) {
+  .navbar__item {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .navbar__link {
+    font-size: 0.8rem;
+  }
+
+  .navbar__title {
+    font-size: 0.9rem;
+  }
+}
+
 /* ========================================
    반응형
    ======================================== */
