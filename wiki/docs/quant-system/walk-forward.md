@@ -1,71 +1,311 @@
 ---
 sidebar_position: 5
-title: "Walk-Forward 검증"
-description: "과최적화 탐지를 위한 N-fold OOS 검증"
+title: Walk-Forward OOS 검증
+description: N-fold 롤링/확장 윈도우 Walk-Forward 검증, 과최적화 탐지, Capital Ladder 연동
 ---
 
-# Walk-Forward 검증
+# Walk-Forward OOS 검증
 
-## 과최적화란?
+## 왜 Walk-Forward인가
 
-In-Sample 데이터에서만 좋은 성과를 보이고, 실전(Out-of-Sample)에서 실패하는 전략.
-
-```
-IS에서 Sharpe 2.0 → OOS에서 Sharpe -0.5
-= 과최적화 (전략이 아닌 노이즈를 학습)
-```
-
-## Walk-Forward 방법론
-
-데이터를 N개 폴드로 나누어 순차적으로 검증:
+백테스트에서 높은 수익률을 보인 전략이 실전에서 실패하는 가장 큰 원인은 **과최적화(Overfitting)**이다. In-Sample(IS) 데이터에 과도하게 맞춰진 전략은 노이즈를 패턴으로 학습한 것이며, Out-of-Sample(OOS)에서 성과가 급락한다.
 
 ```
-전체 데이터: [====================================]
-
-Fold 1: [Train 70%  ][Test 30%]
-Fold 2:        [Train 70%  ][Test 30%]
-Fold 3:              [Train 70%  ][Test 30%]
-Fold 4:                    [Train 70%  ][Test 30%]
-Fold 5:                          [Train 70%  ][Test 30%]
+과최적화의 징후:
+  IS Sharpe: 2.5  --> OOS Sharpe: -0.3
+  IS Win Rate: 65% --> OOS Win Rate: 42%
+  IS Max DD: -5%  --> OOS Max DD: -28%
 ```
 
-## 두 가지 모드
+Walk-Forward 검증은 이 문제를 체계적으로 탐지하는 유일한 방법이다.
 
-### Rolling Window
-- 각 폴드가 독립적으로 이동
-- 데이터 효율이 낮지만 과적합 탐지에 강함
+---
 
-### Anchored (Expanding Window)
-- 학습 시작점 고정, 점점 확장
-- 더 많은 학습 데이터 → 안정적이지만 최근 데이터 편향
+## 기본 개념
 
-## 핵심 지표
+### In-Sample vs Out-of-Sample
 
-### IS→OOS Sharpe Degradation
+| 구분 | IS (In-Sample) | OOS (Out-of-Sample) |
+|------|---------------|---------------------|
+| 용도 | 전략 개발, 파라미터 최적화 | 전략 검증 |
+| 데이터 | 학습에 사용 | 학습에 절대 사용 안 함 |
+| 비유 | 시험 문제로 공부 | 새로운 시험 응시 |
+| 위험 | 과최적화 가능 | 실전 성과의 대리 지표 |
+
+### Walk-Forward의 핵심 아이디어
+
+전체 데이터를 N개 폴드로 나누어, 각 폴드에서 IS로 전략을 학습하고 OOS에서 검증한다. 이 과정을 시간 순서대로 반복하여 **전략의 일관성**을 확인한다.
 
 ```
-Degradation = 1 - (OOS Sharpe / IS Sharpe)
+전체 데이터: [================================================]
 
-해석:
-  0%   = 과최적화 없음 (이상적)
-  50%  = 경고 (IS 성과의 절반만 OOS에서 유지)
-  80%+ = 위험 (거의 과최적화)
+Fold 1: [===== IS (Train) =====][== OOS (Test) ==]
+Fold 2:        [===== IS (Train) =====][== OOS (Test) ==]
+Fold 3:              [===== IS (Train) =====][== OOS (Test) ==]
+Fold 4:                    [===== IS (Train) =====][== OOS (Test) ==]
+Fold 5:                          [===== IS (Train) =====][== OOS (Test) ==]
 ```
 
-### 통과 기준
+---
 
-| 기준 | 값 | 설명 |
-|------|-----|------|
-| OOS 평균 Sharpe | >= 0.3 | 최소 비용 후 양의 알파 |
-| OOS 최악 MDD | >= -20% | 최악 폴드에서도 파산 안 함 |
-| 승률 | >= 40% | 5폴드 중 2개 이상 양의 OOS Sharpe |
+## 두 가지 윈도우 모드
 
-## 사용법
+### 1. N-Fold 롤링 윈도우 (Rolling Window)
+
+IS 윈도우가 고정된 크기로 이동한다. 각 폴드가 동일한 크기의 학습 데이터를 사용한다.
+
+```
+데이터: 2020-01 ~ 2025-12 (6년, 72개월)
+IS 크기: 36개월 (3년)
+OOS 크기: 12개월 (1년)
+Stride: 12개월
+
+Fold 1: IS [2020-01 ~ 2022-12] OOS [2023-01 ~ 2023-12]
+Fold 2: IS [2021-01 ~ 2023-12] OOS [2024-01 ~ 2024-12]
+Fold 3: IS [2022-01 ~ 2024-12] OOS [2025-01 ~ 2025-12]
+```
+
+**장점**: 최근 데이터에 동일한 가중치 부여, 레짐 변화 탐지에 유리
+**단점**: 오래된 데이터 폐기, 데이터 효율 낮음
+
+### 2. 확장 윈도우 (Anchored / Expanding Window)
+
+IS 윈도우의 시작점이 고정되고, 끝점이 점점 확장된다. 시간이 지날수록 더 많은 학습 데이터를 사용한다.
+
+```
+데이터: 2020-01 ~ 2025-12 (6년, 72개월)
+IS 시작: 2020-01 (고정)
+OOS 크기: 12개월
+
+Fold 1: IS [2020-01 ~ 2022-12] OOS [2023-01 ~ 2023-12]
+Fold 2: IS [2020-01 ~ 2023-12] OOS [2024-01 ~ 2024-12]
+Fold 3: IS [2020-01 ~ 2024-12] OOS [2025-01 ~ 2025-12]
+```
+
+**장점**: 모든 과거 데이터 활용, 안정적인 파라미터 추정
+**단점**: 과거 레짐에 과도한 가중치, 최근 변화 반영 느림
+
+### 모드 선택 기준
+
+| 상황 | 권장 모드 | 이유 |
+|------|----------|------|
+| 시장 구조 변화 의심 | Rolling | 최근 데이터 중심 |
+| 데이터가 부족 (< 5년) | Anchored | 데이터 효율 극대화 |
+| 팩터 전략 (장기 유효) | Anchored | 장기 프리미엄 추정 |
+| 모멘텀/단기 전략 | Rolling | 레짐 민감도 높음 |
+| 확신이 없을 때 | 둘 다 실행 | 결과 비교 |
+
+---
+
+## IS -> OOS Sharpe Degradation
+
+Walk-Forward 검증의 핵심 지표이다. IS에서의 성과가 OOS에서 얼마나 유지되는지를 측정한다.
+
+### 계산 방법
+
+```python
+def sharpe_degradation(is_sharpe: float, oos_sharpe: float) -> float:
+    """IS -> OOS Sharpe Degradation 계산
+    
+    Returns:
+        0.0 = 완벽한 일반화 (IS == OOS)
+        0.5 = IS 성과의 50%만 유지
+        1.0 = OOS에서 완전 실패 (Sharpe = 0)
+        >1.0 = OOS에서 음의 Sharpe
+    """
+    if is_sharpe <= 0:
+        return float("inf")  # IS에서도 실패한 전략
+    return 1 - (oos_sharpe / is_sharpe)
+```
+
+### 해석 기준
+
+| Degradation | 해석 | 판정 |
+|-------------|------|------|
+| 0% - 20% | 우수한 일반화 | PASS |
+| 20% - 40% | 양호 (약간의 과최적화) | PASS |
+| 40% - 60% | 주의 (유의미한 과최적화) | WARN |
+| 60% - 80% | 위험 (심각한 과최적화) | FAIL |
+| 80%+ | 전략 무효 (거의 순수 노이즈) | FAIL |
+
+### 폴드별 Degradation 분석 예시
+
+```
+Fold 1: IS Sharpe=1.80, OOS Sharpe=1.20, Degradation=33%  [PASS]
+Fold 2: IS Sharpe=1.65, OOS Sharpe=0.95, Degradation=42%  [WARN]
+Fold 3: IS Sharpe=2.10, OOS Sharpe=0.85, Degradation=60%  [FAIL]
+Fold 4: IS Sharpe=1.75, OOS Sharpe=1.10, Degradation=37%  [PASS]
+Fold 5: IS Sharpe=1.90, OOS Sharpe=0.70, Degradation=63%  [FAIL]
+
+평균 Degradation: 47% --> WARN
+OOS 평균 Sharpe: 0.96 --> PASS (>0.3)
+승률: 3/5 = 60% --> PASS (>=40%)
+```
+
+---
+
+## 과최적화 탐지 방법
+
+### 방법 1: Degradation 기반 (기본)
+
+위에서 설명한 IS/OOS Sharpe 비율을 사용한다.
+
+### 방법 2: 파라미터 민감도 분석
+
+최적 파라미터 근방에서 성과가 급변하면 과최적화 의심이다.
+
+```python
+def parameter_sensitivity(
+    strategy_fn,
+    base_params: dict,
+    param_name: str,
+    variations: list[float],
+    returns: pd.Series,
+) -> pd.DataFrame:
+    """파라미터 민감도 분석"""
+    results = []
+    for delta in variations:
+        params = {**base_params, param_name: base_params[param_name] + delta}
+        sharpe = strategy_fn(returns, **params)
+        results.append({"delta": delta, "sharpe": sharpe})
+
+    df = pd.DataFrame(results)
+    # 최적값 근방 변동폭
+    sensitivity = df["sharpe"].std() / df["sharpe"].mean()
+    return df, sensitivity
+
+# 사용 예시
+variations = [-0.05, -0.02, -0.01, 0, 0.01, 0.02, 0.05]
+df, sensitivity = parameter_sensitivity(
+    my_strategy, base_params, "lookback_months", variations, returns
+)
+
+if sensitivity > 0.5:
+    print("경고: 파라미터 민감도 높음 - 과최적화 의심")
+```
+
+**건전한 전략**: 파라미터가 약간 변해도 Sharpe가 안정적
+**과최적화 전략**: 파라미터가 조금만 변해도 Sharpe가 급변
+
+### 방법 3: Deflated Sharpe Ratio (Lopez de Prado)
+
+여러 전략을 테스트한 후 최고 Sharpe를 선택하면, 다중 검정(Multiple Testing) 편향이 발생한다. Deflated Sharpe Ratio는 이를 보정한다.
+
+```python
+def deflated_sharpe_ratio(
+    observed_sharpe: float,
+    n_trials: int,
+    n_observations: int,
+    skew: float = 0,
+    kurtosis: float = 3,
+) -> float:
+    """Deflated Sharpe Ratio (DSR)
+    
+    다중 검정 편향을 보정한 Sharpe Ratio의 p-value
+    """
+    from scipy.stats import norm
+
+    # Expected maximum Sharpe under null
+    e_max_sharpe = norm.ppf(1 - 1 / n_trials) * np.sqrt(
+        1 + (skew * observed_sharpe)
+        - ((kurtosis - 3) / 4) * observed_sharpe ** 2
+    )
+
+    # 보정된 검정 통계량
+    se = np.sqrt(
+        (1 - skew * observed_sharpe
+         + ((kurtosis - 1) / 4) * observed_sharpe ** 2)
+        / n_observations
+    )
+    z = (observed_sharpe - e_max_sharpe) / se
+
+    return norm.cdf(z)  # p-value
+
+# 예시: 100개 전략 테스트 후 최고 Sharpe 1.5 선택
+p_value = deflated_sharpe_ratio(
+    observed_sharpe=1.5,
+    n_trials=100,      # 테스트한 전략 수
+    n_observations=252, # 1년 일간 데이터
+)
+if p_value < 0.05:
+    print("Deflated Sharpe 유의: 과최적화 아님")
+else:
+    print("경고: 다중 검정 편향 의심")
+```
+
+### 방법 4: Combinatorially Symmetric Cross-Validation (CSCV)
+
+Lopez de Prado가 제안한 방법으로, IS/OOS 분할의 모든 조합을 테스트하여 과최적화 확률을 직접 추정한다.
+
+```
+N개 데이터 블록에서 가능한 모든 IS/OOS 조합 생성
+  --> 각 조합에서 IS 최적화 + OOS 성과 측정
+  --> OOS에서 음의 성과를 보이는 조합 비율 = 과최적화 확률
+
+과최적화 확률 > 50% --> 전략 기각
+```
+
+---
+
+## 통과 기준
+
+### WalkForwardValidator 설정
 
 ```python
 from kis_backtest.core.walk_forward import WalkForwardValidator, WFConfig
 
-# 기본 설정
+validator = WalkForwardValidator(WFConfig(
+    n_folds=5,            # 폴드 수
+    train_ratio=0.7,      # IS 비율 70%
+    min_sharpe=0.3,       # OOS 최소 Sharpe
+    max_oos_dd=-0.20,     # OOS 최대 MDD
+    anchored=False,       # Rolling 모드
+))
+```
+
+### 판정 기준 상세
+
+| 기준 | 값 | 근거 |
+|------|-----|------|
+| OOS 평균 Sharpe | >= 0.3 | 거래비용 차감 후 양의 알파 |
+| OOS 최악 Sharpe | >= -0.5 | 최악 폴드에서도 대참사 없음 |
+| OOS 최악 MDD | >= -20% | 최악 구간에서도 파산 안 함 |
+| 폴드 승률 | >= 40% | 5폴드 중 2개 이상 양의 OOS Sharpe |
+| 평균 Degradation | <= 60% | IS 성과의 40% 이상 유지 |
+
+### 3단계 판정
+
+```python
+def determine_verdict(result: WFResult) -> str:
+    """Walk-Forward 검증 판정"""
+    if (result.oos_mean_sharpe >= 0.3
+        and result.mean_degradation <= 0.4
+        and result.fold_win_rate >= 0.6):
+        return "PASS"
+
+    if (result.oos_mean_sharpe >= 0.1
+        and result.mean_degradation <= 0.6
+        and result.fold_win_rate >= 0.4):
+        return "WARN"  # 조건부 통과
+
+    return "FAIL"
+```
+
+| 판정 | 의미 | Capital Ladder |
+|------|------|---------------|
+| PASS | 검증 통과 | SEED 이상 진입 가능 |
+| WARN | 조건부 통과 | PAPER에서 추가 검증 |
+| FAIL | 검증 실패 | 전략 재설계 필요 |
+
+---
+
+## 사용법
+
+### 단일 종목 검증
+
+```python
+from kis_backtest.core.walk_forward import WalkForwardValidator, WFConfig
+
 validator = WalkForwardValidator(WFConfig(
     n_folds=5,
     train_ratio=0.7,
@@ -74,41 +314,135 @@ validator = WalkForwardValidator(WFConfig(
     anchored=False,
 ))
 
-# 단일 종목
 result = validator.validate(daily_returns)
 
-# 멀티 종목 포트폴리오
+print(f"판정: {result.verdict}")
+print(f"OOS 평균 Sharpe: {result.oos_mean_sharpe:.3f}")
+print(f"평균 Degradation: {result.mean_degradation:.1%}")
+```
+
+### 멀티 종목 포트폴리오 검증
+
+```python
 result = validator.validate_multi_asset(
-    returns_dict={"005930": [...], "000660": [...]},
+    returns_dict={
+        "005930": samsung_returns,
+        "000660": hynix_returns,
+    },
     weights={"005930": 0.6, "000660": 0.4},
 )
 
-# 결과 확인
-print(result.verdict)        # "PASS" or "FAIL: ..."
-print(result.oos_mean_sharpe)
-print(result.mean_degradation)
-
-# 폴드별 상세
+# 폴드별 상세 결과
 for fold in result.folds:
-    print(f"Fold {fold.fold_idx}: IS={fold.is_sharpe:.3f} → OOS={fold.oos_sharpe:.3f}")
+    print(
+        f"Fold {fold.fold_idx}: "
+        f"IS Sharpe={fold.is_sharpe:.3f} -> "
+        f"OOS Sharpe={fold.oos_sharpe:.3f} "
+        f"(Degradation={fold.degradation:.1%})"
+    )
 ```
 
-## Pipeline 통합
+### QuantPipeline 통합
 
 ```python
+from kis_backtest.core.pipeline import QuantPipeline
+
 pipeline = QuantPipeline(config)
 wf_result = pipeline.validate_oos(returns_dict, weights, n_folds=5)
 
 if wf_result.passed:
-    # 검증 통과 → 실행
+    # 검증 통과 --> Capital Ladder 진입
     result = pipeline.run(factor_scores, weights, returns_dict)
 else:
-    # 검증 실패 → 전략 조정 필요
+    # 검증 실패 --> 전략 조정 필요
     print(f"OOS 검증 실패: {wf_result.verdict}")
+    print(f"실패 원인: {wf_result.failure_reasons}")
 ```
+
+---
+
+## Capital Ladder와의 연동
+
+Walk-Forward 검증 결과는 Capital Ladder의 진입 조건과 직접 연동된다.
+
+### 연동 흐름
+
+```
+전략 개발 (IS)
+    |
+    v
+Walk-Forward 검증 (OOS)
+    |
+    +-- FAIL --> 전략 재설계 (파라미터/팩터 변경)
+    |
+    +-- WARN --> PAPER 단계 배포 (추가 검증)
+    |             |
+    |             +-- 20일 PAPER 실적 양호 --> SEED 승급
+    |             +-- 20일 PAPER 실적 부진 --> 전략 재설계
+    |
+    +-- PASS --> SEED 단계 직행
+                  |
+                  +-- 20일 SEED 실적 --> GROWTH 검토
+                  +-- ...
+                  +-- FULL 배포
+```
+
+### 검증 결과별 Capital Ladder 매핑
+
+| WF 판정 | OOS Sharpe | Capital Ladder 진입 | 최소 추가 검증 |
+|---------|-----------|-------------------|--------------|
+| PASS (Strong) | >= 0.8 | SEED 직행 | 20일 |
+| PASS | >= 0.3 | SEED 직행 | 30일 |
+| WARN | >= 0.1 | PAPER | 40일 |
+| FAIL | < 0.1 | 불가 | 전략 재설계 |
+
+### 자동 재검증 주기
+
+배포 중인 전략도 정기적으로 Walk-Forward 재검증을 수행한다.
+
+```python
+REVALIDATION_SCHEDULE = {
+    "PAPER": "2주마다",    # 빠른 피드백
+    "SEED": "월 1회",      # 정기 검증
+    "GROWTH": "월 1회",    # 정기 검증
+    "SCALE": "분기 1회",   # 안정기
+    "FULL": "분기 1회",    # 안정기
+}
+```
+
+재검증에서 FAIL이 나오면 한 단계 강등된다.
+
+---
+
+## 실전 팁
+
+### 1. 폴드 수 선택
+
+| 데이터 기간 | 권장 폴드 수 | OOS 크기 |
+|------------|-------------|---------|
+| 3년 | 3 | 6개월 |
+| 5년 | 5 | 6-12개월 |
+| 10년 | 5-8 | 12개월 |
+| 20년+ | 8-10 | 24개월 |
+
+최소 OOS 크기는 **6개월**(약 120 거래일)이다. 이보다 짧으면 통계적 유의성이 부족하다.
+
+### 2. Train/Test 비율
+
+기본값 70/30이 무난하다. 데이터가 부족하면 80/20까지 허용하되, OOS 기간이 6개월 미만이 되지 않도록 한다.
+
+### 3. 결과 해석 시 주의사항
+
+- **생존자 편향**: Walk-Forward도 전략 선택 자체에 편향이 있을 수 있다. Deflated Sharpe Ratio로 보정한다.
+- **레짐 변화**: 특정 폴드에서만 성과가 나쁜 경우, 해당 기간의 시장 레짐을 확인한다 (위기, 금리 급변 등).
+- **거래비용**: OOS 성과는 반드시 **비용 차감 후** 기준으로 판단한다.
+
+---
 
 ## 참고 문헌
 
-- Robert Pardo, *The Evaluation and Optimization of Trading Strategies* (2008)
-- David Aronson, *Evidence-Based Technical Analysis* (2006)
-- Marcos Lopez de Prado, *Advances in Financial Machine Learning* (2018) — Chapter 12
+- Robert Pardo, *The Evaluation and Optimization of Trading Strategies* (2008) -- Walk-Forward 원론
+- David Aronson, *Evidence-Based Technical Analysis* (2006) -- 통계적 검증 방법론
+- Marcos Lopez de Prado, *Advances in Financial Machine Learning* (2018) -- Ch.11 Deflated Sharpe, Ch.12 CSCV
+- Harvey et al., *... and the Cross-Section of Expected Returns* (2016) -- 다중 검정 문제
+- Bailey & Lopez de Prado, *The Deflated Sharpe Ratio* (2014) -- DSR 원논문
