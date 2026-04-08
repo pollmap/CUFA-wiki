@@ -603,6 +603,22 @@ const sidebars = {
       ],
     },
 
+    // ═════════════════════════════════════════════
+    // 대 카테고리: Luxon Quant System
+    // ═════════════════════════════════════════════
+    {
+      type: 'category',
+      label: 'Luxon Quant System',
+      collapsed: true,
+      items: [
+        'quant-system/intro',
+        'quant-system/pipeline',
+        'quant-system/risk-management',
+        'quant-system/strategies',
+        'quant-system/walk-forward',
+      ],
+    },
+
     // ─────────────────────────────────────────────
     // 커뮤니티
     // ─────────────────────────────────────────────
