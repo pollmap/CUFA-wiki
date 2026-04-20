@@ -17,6 +17,9 @@ const TickerTape: React.FC<TickerTapeProps> = ({ symbols }) => {
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
     script.async = true;
+    // SECURITY NOTE: script.innerHTML accepts only JSON-serialised static config.
+    // All props passed here come from trusted internal constants, NOT from user input.
+    // TODO: If any prop ever derives from user input, escape it before embedding.
     script.innerHTML = JSON.stringify({
       symbols: symbols,
       showSymbolLogo: true,

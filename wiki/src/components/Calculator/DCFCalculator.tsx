@@ -104,9 +104,21 @@ export const DCFCalculator: React.FC = () => {
 
   // FCF 입력 핸들러
   const handleFCFChange = (index: number, value: string) => {
+    const parsed = parseFloat(value);
+    if (Number.isNaN(parsed)) return;
     const newFCF = [...inputs.fcf];
-    newFCF[index] = parseFloat(value) || 0;
+    newFCF[index] = parsed;
     setInputs({ ...inputs, fcf: newFCF });
+  };
+
+  // 숫자 필드 핸들러 (극단값 차단)
+  const handleFieldChange = (field: keyof Omit<DCFInputs, 'fcf'>, value: string) => {
+    const parsed = parseFloat(value);
+    if (Number.isNaN(parsed)) return;
+    if (field === 'wacc' && (parsed < 0 || parsed > 100)) return;
+    if (field === 'terminalGrowth' && (parsed < -20 || parsed > 50)) return;
+    if (field === 'sharesOutstanding' && parsed <= 0) return;
+    setInputs({ ...inputs, [field]: parsed });
   };
 
   const formatNumber = (num: number) => {
@@ -153,7 +165,7 @@ export const DCFCalculator: React.FC = () => {
                 type="number"
                 step="0.1"
                 value={inputs.wacc}
-                onChange={(e) => setInputs({ ...inputs, wacc: parseFloat(e.target.value) || 0 })}
+                onChange={(e) => handleFieldChange('wacc', e.target.value)}
                 style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               />
             </div>
@@ -164,7 +176,7 @@ export const DCFCalculator: React.FC = () => {
                 type="number"
                 step="0.1"
                 value={inputs.terminalGrowth}
-                onChange={(e) => setInputs({ ...inputs, terminalGrowth: parseFloat(e.target.value) || 0 })}
+                onChange={(e) => handleFieldChange('terminalGrowth', e.target.value)}
                 style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               />
             </div>
@@ -174,7 +186,7 @@ export const DCFCalculator: React.FC = () => {
               <input
                 type="number"
                 value={inputs.sharesOutstanding}
-                onChange={(e) => setInputs({ ...inputs, sharesOutstanding: parseFloat(e.target.value) || 1 })}
+                onChange={(e) => handleFieldChange('sharesOutstanding', e.target.value)}
                 style={{ width: '100%', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem' }}
               />
             </div>

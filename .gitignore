@@ -1,0 +1,30 @@
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# TLS certificates and private keys — never commit
+*.pem
+*.key
+*.crt
+*.p12
+nginx/ssl/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docusaurus build output
+wiki/.docusaurus/
+wiki/build/
+dist/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

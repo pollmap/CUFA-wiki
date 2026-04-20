@@ -20,8 +20,11 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-# 필수 환경변수 확인
+# 필수 환경변수 로드 (set -a/+a 로 자동 export, 주석 라인 제외)
+set -a
+# shellcheck disable=SC1091
 source .env
+set +a
 if [ -z "$CLAUDE_API_KEY" ] || [ "$CLAUDE_API_KEY" == "sk-ant-api03-xxxxx" ]; then
     echo -e "${YELLOW}⚠️  경고: CLAUDE_API_KEY가 설정되지 않았습니다. AI 챗봇 기능이 작동하지 않습니다.${NC}"
 fi

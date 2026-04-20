@@ -26,6 +26,11 @@ interface CompanyData {
   dividend: number;
 }
 
+/**
+ * SAMPLE DATA — 2023년 기준 정적 데이터.
+ * 실시간 데이터가 아니며 학습 목적으로만 사용합니다.
+ * 투자 판단에 직접 활용을 금지합니다.
+ */
 const SAMPLE_COMPANIES: CompanyData[] = [
   { name: '삼성전자', ticker: '005930', sector: 'IT/반도체', per: 15.2, pbr: 1.3, evEbitda: 5.8, roe: 8.5, roa: 6.2, npm: 12.5, opm: 15.8, revenueGrowth: -14.3, earningsGrowth: -72.1, debtRatio: 35.2, currentRatio: 2.58, interestCoverage: 45.2, marketCap: 4500000, dividend: 2.1 },
   { name: 'SK하이닉스', ticker: '000660', sector: 'IT/반도체', per: -15.8, pbr: 1.8, evEbitda: 12.5, roe: -8.2, roa: -4.5, npm: -15.2, opm: -12.8, revenueGrowth: -32.5, earningsGrowth: -145.2, debtRatio: 48.5, currentRatio: 1.85, interestCoverage: -3.2, marketCap: 1200000, dividend: 1.0 },
@@ -91,6 +96,20 @@ const CompanyComparisonInner: React.FC = () => {
   return (
     <div style={{ padding: '1rem', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
       <h3 style={{ marginTop: 0 }}>기업 비교 도구</h3>
+
+      {/* 샘플 데이터 면책 배너 */}
+      <div style={{
+        marginBottom: '1rem',
+        padding: '0.6rem 1rem',
+        backgroundColor: 'rgba(251,191,36,0.1)',
+        border: '1px solid rgba(251,191,36,0.3)',
+        borderRadius: '6px',
+        fontSize: '0.8rem',
+        color: '#fbbf24',
+      }}>
+        데이터 기준: 2023년 정적 샘플 데이터입니다. 실시간 데이터가 아니며 학습 목적으로만 사용하세요.
+        실제 투자 판단에 직접 활용하지 마십시오.
+      </div>
 
       {/* 기업 선택 */}
       <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>

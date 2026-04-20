@@ -537,6 +537,18 @@ ${memoryContext}`;
   // --- 채팅 뷰 렌더링 ---
   const renderChatView = () => (
     <>
+      {/* 개인정보 보관 안내 배너 */}
+      <div style={{
+        padding: '6px 12px',
+        backgroundColor: 'rgba(99,102,241,0.08)',
+        borderBottom: '1px solid rgba(99,102,241,0.15)',
+        fontSize: '11px',
+        color: '#9ca3af',
+        textAlign: 'center',
+      }}>
+        대화 내역은 브라우저에 7일간 저장됩니다.
+      </div>
+
       <div style={messagesContainerStyle}>
         {messages.length === 0 ? (
           <div style={welcomeStyle}>

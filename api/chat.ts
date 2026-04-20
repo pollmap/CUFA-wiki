@@ -6,7 +6,7 @@
  *
  * 환경 변수 필요:
  * - CLAUDE_API_KEY: Anthropic Claude API 키
- * - ALLOWED_ORIGIN: 허용할 CORS 오리진 (선택, 미설정 시 와일드카드)
+ * - ALLOWED_ORIGIN: 허용할 CORS 오리진 (반드시 설정 필요, 미설정 시 500 반환)
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -32,6 +32,67 @@ interface ChatResponse {
 const MAX_MESSAGE_LENGTH = 4000;
 const MAX_MESSAGES_COUNT = 50;
 const MAX_CONTEXT_LENGTH = 2000;
+
+// ---------------------------------------------------------------------------
+// Prompt injection defense: strip dangerous instruction patterns
+// ---------------------------------------------------------------------------
+const INJECTION_PATTERNS = [
+  /---+/g,
+  /\[INST\]/gi,
+  /\[\/INST\]/gi,
+  /system:/gi,
+  /<\|im_start\|>/gi,
+  /<\|im_end\|>/gi,
+  /<<SYS>>/gi,
+  /<<\/SYS>>/gi,
+];
+
+function sanitizeClientContext(context: string): string {
+  let sanitized = context.slice(0, MAX_CONTEXT_LENGTH);
+  for (const pattern of INJECTION_PATTERNS) {
+    sanitized = sanitized.replace(pattern, '');
+  }
+  return sanitized;
+}
+
+// ---------------------------------------------------------------------------
+// In-memory rate limiter (60 requests per 60 seconds per IP)
+// ---------------------------------------------------------------------------
+interface RateLimitEntry {
+  count: number;
+  windowStart: number;
+}
+
+const rateLimitStore = new Map<string, RateLimitEntry>();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX = 20;              // 20 requests per minute
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitStore.get(ip);
+
+  if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
+    rateLimitStore.set(ip, { count: 1, windowStart: now });
+    return true; // allowed
+  }
+
+  if (entry.count >= RATE_LIMIT_MAX) {
+    return false; // blocked
+  }
+
+  entry.count += 1;
+  return true; // allowed
+}
+
+// Periodic cleanup of stale rate limit entries
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitStore.entries()) {
+    if (now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
+      rateLimitStore.delete(key);
+    }
+  }
+}, RATE_LIMIT_WINDOW_MS);
 
 const defaultSystemPrompt = `당신은 밸류에이션 전문 AI 튜터입니다.
 
@@ -79,9 +140,9 @@ function validateRequest(request: ChatRequest): void {
 function buildSystemPrompt(clientContext?: string): string {
   if (!clientContext) return defaultSystemPrompt;
 
-  // 클라이언트 컨텍스트는 보충 정보로만 추가 (기본 프롬프트는 항상 유지)
-  const truncatedContext = clientContext.slice(0, MAX_CONTEXT_LENGTH);
-  return `${defaultSystemPrompt}\n\n---\n추가 컨텍스트:\n${truncatedContext}`;
+  // sanitize to prevent prompt injection before appending
+  const sanitizedContext = sanitizeClientContext(clientContext);
+  return `${defaultSystemPrompt}\n\n---\n추가 컨텍스트:\n${sanitizedContext}`;
 }
 
 export async function handleChatRequest(request: ChatRequest): Promise<ChatResponse> {
@@ -132,7 +193,8 @@ export function createExpressHandler() {
       const result = await handleChatRequest(req.body);
       res.json(result);
     } catch (error: any) {
-      console.error('Chat API Error:', error);
+      const err = error instanceof Error ? error : new Error(String(error));
+      console.error('Chat API Error', { name: err.name, message: err.message });
       // 클라이언트에는 안전한 에러 메시지만 전달
       const safeMessages = [
         'API 설정 오류',
@@ -142,8 +204,8 @@ export function createExpressHandler() {
         '유효하지 않은 메시지 역할입니다.',
         '메시지가 너무 깁니다.',
       ];
-      const message = safeMessages.includes(error.message)
-        ? error.message
+      const message = safeMessages.includes(err.message)
+        ? err.message
         : '서버 오류가 발생했습니다.';
       res.status(500).json({ error: message });
     }
@@ -152,14 +214,28 @@ export function createExpressHandler() {
 
 // Vercel/Netlify Serverless 핸들러
 export default async function handler(req: any, res: any) {
-  // CORS 헤더 - 환경 변수로 오리진 제한 가능
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
+  // CORS — ALLOWED_ORIGIN must be explicitly configured; wildcard is not permitted
+  const allowedOrigin = process.env.ALLOWED_ORIGIN;
+  if (!allowedOrigin) {
+    console.error('ALLOWED_ORIGIN is not configured. Refusing request.');
+    return res.status(500).json({ error: 'Server misconfigured' });
+  }
   res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  // Rate limiting
+  const ip =
+    (req.headers['x-forwarded-for'] as string)?.split(',')[0].trim() ??
+    req.socket?.remoteAddress ??
+    '127.0.0.1';
+
+  if (!checkRateLimit(ip)) {
+    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
   return createExpressHandler()(req, res);

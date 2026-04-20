@@ -34,6 +34,7 @@ const STORAGE_KEY = 'value-alpha-chat-memory';
 const MAX_SESSIONS = 50;
 const MAX_MESSAGES_PER_SESSION = 100;
 const SUMMARY_THRESHOLD = 10; // 이 메시지 수 이후 요약 생성
+const TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7일
 
 function generateId(): string {
   return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
@@ -56,8 +57,15 @@ function loadState(): MemoryState {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      cachedState = JSON.parse(saved);
-      return cachedState!;
+      const parsed = JSON.parse(saved) as MemoryState & { _savedAt?: number };
+      // TTL check: discard state older than 7 days
+      if (parsed._savedAt && Date.now() - parsed._savedAt > TTL_MS) {
+        localStorage.removeItem(STORAGE_KEY);
+        cachedState = getInitialState();
+        return cachedState;
+      }
+      cachedState = parsed;
+      return cachedState;
     }
   } catch (e) {
     console.error('[ChatMemory] Failed to load state:', e);
@@ -69,7 +77,7 @@ function loadState(): MemoryState {
 function saveState(state: MemoryState): void {
   cachedState = state;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, _savedAt: Date.now() }));
   } catch (e) {
     console.error('[ChatMemory] Failed to save state:', e);
     // 저장 공간 부족 시 오래된 세션 정리 후 재시도

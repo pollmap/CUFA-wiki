@@ -1,3 +1,7 @@
+/**
+ * SAMPLE DATA — 프리셋 데이터는 학습 목적의 예시값입니다.
+ * 실시간 데이터가 아니며 투자 판단에 직접 활용을 금지합니다.
+ */
 import React, { useState, useMemo } from 'react';
 
 interface StepData {
@@ -178,6 +182,19 @@ export default function GuidedDCF(): JSX.Element {
 
   return (
     <div style={{ maxWidth: 800, margin: '0 auto' }}>
+      {/* 샘플 데이터 면책 배너 */}
+      <div style={{
+        marginBottom: '1rem',
+        padding: '0.6rem 1rem',
+        backgroundColor: 'rgba(251,191,36,0.1)',
+        border: '1px solid rgba(251,191,36,0.3)',
+        borderRadius: '6px',
+        fontSize: '0.8rem',
+        color: '#fbbf24',
+      }}>
+        프리셋 데이터는 학습용 예시값입니다. 실시간 데이터가 아니며 투자 판단에 직접 활용하지 마십시오.
+      </div>
+
       {/* Preset Selection */}
       <div style={{ marginBottom: 24 }}>
         <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>기업 선택</div>

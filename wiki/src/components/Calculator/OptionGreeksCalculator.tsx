@@ -64,6 +64,10 @@ export default function OptionGreeksCalculator() {
       return null;
     }
 
+    // Guard against extreme/invalid rate inputs
+    if (riskFreeRate < -50 || riskFreeRate > 100) return null;
+    if (dividendYield < 0 || dividendYield > 100) return null;
+
     const S = spotPrice;
     const K = strikePrice;
     const T = timeToMaturity;

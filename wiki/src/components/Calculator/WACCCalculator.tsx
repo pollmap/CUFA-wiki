@@ -55,7 +55,16 @@ export const WACCCalculator: React.FC = () => {
   }, [inputs]);
 
   const handleChange = (field: keyof WACCInputs, value: string) => {
-    setInputs({ ...inputs, [field]: parseFloat(value) || 0 });
+    const parsed = parseFloat(value);
+    if (Number.isNaN(parsed)) return;
+    if (field === 'taxRate' && (parsed < 0 || parsed > 100)) return;
+    if (field === 'beta' && (parsed < -5 || parsed > 5)) return;
+    if (field === 'equityValue' && parsed < 0) return;
+    if (field === 'debtValue' && parsed < 0) return;
+    if (field === 'riskFreeRate' && (parsed < -50 || parsed > 100)) return;
+    if (field === 'marketRiskPremium' && (parsed < -50 || parsed > 100)) return;
+    if (field === 'costOfDebt' && (parsed < 0 || parsed > 100)) return;
+    setInputs({ ...inputs, [field]: parsed });
   };
 
   return (
