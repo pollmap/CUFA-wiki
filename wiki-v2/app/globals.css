@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+/*
+ * CUFA Journal — Design Tokens (v2, UX-first revision)
+ * 실용 우선: 검색·진도·명료성. 장식은 보조.
+ * 상세: DESIGN-DECISIONS.md
+ */
+
+@theme {
+  /* Paper palette (light) */
+  --color-paper: #f7f3ec;
+  --color-paper-soft: #efeae0;
+  --color-paper-sunk: #e6dfd1;
+  --color-ink: #111111;
+  --color-ink-soft: #3a3a38;
+  --color-ink-muted: #6b665e;
+  --color-rule: #d5cfc3;
+  --color-vermilion: #c8372d;
+  --color-vermilion-ink: #8a1f18;
+  --color-vermilion-soft: #f0d6d1;
+  --color-success: #1f6b3f;
+  --color-warning: #8a5a1a;
+
+  /* Typography — 2 families only for speed */
+  --font-serif-kr: "Noto Serif KR", "Batang", "Apple SD Gothic Neo", Georgia,
+    serif;
+  --font-sans-kr: "Noto Sans KR", "Pretendard Variable",
+    "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+
+  /* Measures */
+  --measure-prose: 68ch;
+  --measure-with-margin: 88rem;
+  --leading-body: 1.75;
+  --leading-display: 1.15;
+  --tracking-body: -0.003em;
+  --tracking-display: -0.02em;
+  --tracking-caps: 0.1em;
+
+  --rule-hair: 1px;
+}
+
+/* Dark: Ink */
+.dark {
+  --color-paper: #0d1015;
+  --color-paper-soft: #161b22;
+  --color-paper-sunk: #1c222b;
+  --color-ink: #e8e4da;
+  --color-ink-soft: #b8b4aa;
+  --color-ink-muted: #8d8880;
+  --color-rule: #2a2f38;
+  --color-vermilion: #e85d4e;
+  --color-vermilion-ink: #f08778;
+  --color-vermilion-soft: #3a1f1c;
+  --color-success: #4fb07a;
+  --color-warning: #d4a557;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+/* ── Base ─────────────────────────────────────── */
+@layer base {
+  * {
+    border-color: var(--color-rule);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans-kr);
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: var(--tracking-body);
+    font-feature-settings: "liga", "kern";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 본문·학습 문서에서만 세리프 활성화 */
+  .prose-body {
+    font-family: var(--font-serif-kr);
+    font-size: 17px;
+    line-height: var(--leading-body);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans-kr);
+    font-weight: 700;
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 900; }
+  h2 { font-size: clamp(1.35rem, 2.2vw, 1.75rem); margin-top: 2em; }
+  h3 { font-size: 1.15rem; margin-top: 1.5em; }
+
+  p {
+    margin-block: 0.8em;
+  }
+
+  .prose-body p {
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-rule);
+    transition: color 0.1s ease, text-decoration-color 0.1s ease;
+  }
+  a:hover {
+    color: var(--color-vermilion);
+    text-decoration-color: var(--color-vermilion);
+  }
+
+  strong { font-weight: 700; }
+
+  code, pre, kbd, samp, var, .num {
+    font-family: var(--font-mono);
+    font-size: 0.94em;
+    font-feature-settings: "tnum", "zero";
+  }
+
+  pre {
+    background: var(--color-paper-soft);
+    border: 1px solid var(--color-rule);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-size: 0.85em;
+    line-height: 1.55;
+  }
+
+  blockquote {
+    border-inline-start: 2px solid var(--color-vermilion);
+    margin: 1.25em 0;
+    padding: 0.1em 0 0.1em 1em;
+    color: var(--color-ink-soft);
+  }
+
+  hr {
+    border: 0;
+    border-top: var(--rule-hair) solid var(--color-rule);
+    margin: 2.5em 0;
+  }
+
+  ::selection {
+    background: var(--color-vermilion);
+    color: var(--color-paper);
+  }
+
+  img, svg, video { max-width: 100%; height: auto; }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-vermilion);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    background: var(--color-paper-soft);
+    border: 1px solid var(--color-rule);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+}
+
+/* ── Layout primitives ────────────────────────── */
+@layer components {
+  .container-wide {
+    max-width: var(--measure-with-margin);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .prose-column {
+    max-width: var(--measure-prose);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .article-grid {
+      grid-template-columns: 14rem minmax(0, 62ch) 16rem;
+      justify-content: center;
+    }
+  }
+
+  .hairline { border-top: var(--rule-hair) solid var(--color-rule); }
+
+  /* 스몰캡스 라벨 */
+  .label-caps {
+    font-family: var(--font-sans-kr);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  /* Margin note — Tufte 스타일 (기능적) */
+  .margin-note {
+    font-family: var(--font-serif-kr);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+  }
+
+  @media (min-width: 1024px) {
+    .margin-note {
+      grid-column: 3;
+      position: relative;
+      margin-block: 0.25em;
+      padding-inline-start: 0.75rem;
+      border-inline-start: var(--rule-hair) solid var(--color-rule);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .margin-note {
+      display: block;
+      margin-block: 0.75rem;
+      padding: 0.6rem 0.9rem;
+      background: var(--color-paper-soft);
+      border-inline-start: 2px solid var(--color-vermilion);
+      font-size: 0.88rem;
+    }
+  }
+
+  /* Korea context */
+  .korea-context {
+    font-family: var(--font-serif-kr);
+    background: var(--color-paper-soft);
+    border-inline-start: 2px solid var(--color-vermilion);
+    padding: 0.9rem 1.1rem;
+    margin-block: 1.25rem;
+  }
+  .korea-context::before {
+    content: "韓 한국에서는";
+    display: block;
+    font-family: var(--font-sans-kr);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-vermilion);
+    margin-block-end: 0.3rem;
+  }
+
+  /* Difficulty badge (백준형) */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-sans-kr);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.18rem 0.5rem;
+    border: 1px solid var(--color-rule);
+    color: var(--color-ink-soft);
+    border-radius: 2px;
+  }
+  .badge--beginner { border-color: var(--color-success); color: var(--color-success); }
+  .badge--intermediate { border-color: var(--color-warning); color: var(--color-warning); }
+  .badge--advanced { border-color: var(--color-vermilion); color: var(--color-vermilion); }
+
+  /* 통계 숫자 */
+  .stat-number {
+    font-family: var(--font-sans-kr);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    font-feature-settings: "tnum", "zero";
+  }
+
+  /* 진도 바 */
+  .progress-track {
+    height: 3px;
+    background: var(--color-rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--color-vermilion);
+    transition: width 0.3s ease;
+  }
+
+  /* 키 단축키 힌트 */
+  .kbd-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+  }
+
+  /* Citation (source list) */
+  .citation {
+    font-family: var(--font-serif-kr);
+    font-size: 0.88rem;
+    color: var(--color-ink-soft);
+    padding-inline-start: 1.5ch;
+    text-indent: -1.5ch;
+  }
+
+  /* 각주 ref */
+  .fn-ref {
+    font-size: 0.72em;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--color-vermilion);
+    margin-inline-start: 0.1em;
+    text-decoration: none;
+    font-family: var(--font-sans-kr);
+    font-weight: 700;
+  }
+  .fn-ref:hover { color: var(--color-vermilion-ink); }
+}
+
+/* ── Subtle animation — 페이지 로드만 ─────────── */
+@layer utilities {
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(0.25rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise { animation: rise 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .rise-d1 { animation-delay: 0.03s; }
+  .rise-d2 { animation-delay: 0.06s; }
+  .rise-d3 { animation-delay: 0.09s; }
+  .rise-d4 { animation-delay: 0.12s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
