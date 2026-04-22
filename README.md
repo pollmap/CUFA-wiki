@@ -4,6 +4,14 @@
 
 **[pollmap.github.io/Value_Alpha](https://pollmap.github.io/Value_Alpha/)**
 
+> [!IMPORTANT]
+> **v2 는 별도 레포로 이동했습니다**
+>
+> - **v2 (Next.js 15 풀 리빌드)**: [github.com/pollmap/cufa-wiki-v2](https://github.com/pollmap/cufa-wiki-v2) · 배포 예정 `cufa-wiki-v2.vercel.app`
+> - **v1 (이 레포, Docusaurus 3.4)**: 현재 `pollmap.github.io/Value_Alpha` 서비스 유지 — SEO 보존
+>
+> v2 개발은 새 레포에서만 이루어집니다. v1 은 유지·보수 모드.
+
 [![GitHub Stars](https://img.shields.io/github/stars/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/network/members)
 [![Last Commit](https://img.shields.io/github/last-commit/pollmap/Value_Alpha?style=flat-square)](https://github.com/pollmap/Value_Alpha/commits)
