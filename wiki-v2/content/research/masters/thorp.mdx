@@ -1,0 +1,143 @@
+---
+title: "에드 소프 (Ed Thorp) — 확률론·Kelly 공식으로 시장을 해부한 수학자"
+description: "에드 소프의 Beat the Dealer, Kelly Criterion, Princeton/Newport Partners, 카드 카운팅에서 주식 차익거래로 학습"
+slug: "masters/thorp"
+track: "research"
+section: "masters"
+order: 15
+difficulty: "advanced"
+readingMinutes: 8
+tags: ["probability", "kelly-criterion", "arbitrage", "quant", "card-counting"]
+koreaContext: true
+draft: false
+sources:
+  - label: "A Man for All Markets — Ed Thorp (2017)"
+    accessed: "2026-04"
+  - label: "Beat the Dealer — Ed Thorp (1962)"
+    accessed: "2026-04"
+  - label: "Beat the Market — Thorp & Kassouf (1967)"
+    accessed: "2026-04"
+  - label: "The Kelly Capital Growth Investment Criterion — MacLean·Thorp·Ziemba (2010)"
+    accessed: "2026-04"
+  - label: "Princeton Newport Partners track record — published interviews"
+    accessed: "2026-04"
+---
+
+# 에드워드 소프 (Edward O. Thorp, 1932~)
+
+> "Edge is everything. Without edge, no bet size is safe. With edge, the right size matters more than the edge itself."
+
+## 인물 소개
+
+**에드워드 오클리 소프(1932.8.14~)** 는 미국의 수학자이자 투자자로, **수학을 사용해 카지노의 블랙잭을 깨뜨린 첫 인물**이자 **Kelly Criterion을 주식·파생상품 투자에 체계적으로 적용한 선구자**입니다. 그의 헤지펀드 Princeton/Newport Partners는 1969~1988년까지 19년 운용 기간 중 **단 한 분기의 손실도 없이** 운용된 것으로 알려져 있습니다.
+
+- **운용사**: Princeton/Newport Partners (1969~1988), Ridgeline Partners (1994~2002)
+- **학력**: UCLA 수학 박사(1958, 함수해석학)
+- **학술 경력**: MIT, New Mexico State, UC Irvine 수학·금융학 교수
+- **대표 저서**: 『Beat the Dealer』(1962), 『Beat the Market』(1967), 『A Man for All Markets』(2017)
+
+## 배경과 커리어
+
+시카고 출생의 소프는 UCLA에서 수학 박사학위를 받은 뒤 MIT에서 박사후 과정을 밟던 1960년, IBM 704 컴퓨터를 이용해 블랙잭의 **수학적 최적 전략(basic strategy)** 과 **카드 카운팅** 이론을 정립했습니다. 1962년 이를 『Beat the Dealer』로 출판했고, 이 책은 카지노 업계에 큰 충격을 주어 규칙 변경과 덱 개수 확대(1→6~8덱)의 계기가 되었습니다.
+
+1960년대 중반 소프는 **워런트(warrant)·전환사채**의 가격 오류에 주목해 『Beat the Market』(1967, Sheen Kassouf 공저)을 출판했습니다. 이 책은 Black-Scholes(1973) 이전에 **무위험 헤지(delta-neutral hedging)** 개념을 실제 투자에 적용한 선구적 저작입니다. 본인의 회고에 따르면, 소프는 1967년경 Black-Scholes와 유사한 옵션 가격 공식을 내부적으로 도출해 운용에 사용했으나 학술 논문으로 발표하지는 않았습니다.
+
+1969년 Jay Regan과 함께 **Princeton/Newport Partners**를 설립해 1988년까지 운용했고, 1994~2002년 Ridgeline Partners(통계적 차익거래)를 운용했습니다. MIT Blackjack Team(1980~90년대)의 정신적 원조로도 알려져 있습니다.
+
+## 투자 철학
+
+### 1. Edge × Bankroll — 수학적 우위가 있을 때만 참가
+
+소프의 핵심 원칙은 "내가 통계적으로 우위(edge)가 있는 게임에만 돈을 건다"입니다. 우위가 없는 게임은 크기·기간·기술에 관계없이 장기적으로 손실로 귀결된다는 것이 그의 입장입니다.
+
+### 2. Kelly Criterion — 최적 베팅 크기
+
+1956년 John L. Kelly Jr.가 유도한 **Kelly 공식**은 장기 자산 성장률을 최대화하는 베팅 비율을 수학적으로 정의합니다.
+
+$$
+f^* = \frac{bp - q}{b}
+$$
+
+여기서 $f^*$는 자본 대비 베팅 비율, $b$는 승리 시 배당률, $p$는 승리 확률, $q = 1-p$는 패배 확률입니다. 일반적인 투자 맥락(주식)에서는 다음과 같이 확장됩니다.
+
+$$
+f^* \approx \frac{\mu - r}{\sigma^2}
+$$
+
+($\mu$는 기대수익률, $r$은 무위험수익률, $\sigma^2$는 분산)
+
+소프는 『Beat the Dealer』와 후속 저서에서 Kelly의 이론을 실제 게임·투자에 적용한 첫 사례를 만들었고, 이후 **Kelly 공식은 정량투자의 표준 도구**가 되었습니다.
+
+### 3. Fractional Kelly — 추정 오차를 반영한 축소
+
+실제 투자에서는 $p$·$\mu$·$\sigma$ 추정에 오차가 있으므로, 소프는 **Half Kelly 또는 Quarter Kelly** 수준으로 축소 적용할 것을 권장합니다. 풀 Kelly는 이론적 최적이지만, 추정 오차가 있을 경우 드로다운이 극심해질 수 있기 때문입니다.
+
+### 4. Delta-Neutral Hedging — 시장 노출 제거
+
+『Beat the Market』에서 소프는 워런트 매수·주식 공매도 조합으로 방향성 리스크를 제거하고 **미스프라이싱(mispricing)의 수렴**에서만 수익을 얻는 전략을 제시했습니다. 이는 현대 Stat Arb, 컨버터블 아비트라지의 원형입니다.
+
+### 5. 감정·뉴스·직관 배제
+
+소프는 투자를 "확률과 통계의 게임"으로 단순화했습니다. 그의 자서전 『A Man for All Markets』(2017)는 이 원칙이 카지노·주식·부동산·개인 재무 전반에 어떻게 적용되는지를 보여줍니다.
+
+<KoreaContext>
+
+한국 투자에서 Kelly Criterion은 **퀀트 펀드·개인 시스템 트레이더의 포지션 사이징 표준**으로 자리잡고 있습니다.
+
+- **실무 적용**: 타임폴리오·쿼드자산운용 등 국내 헤지펀드의 Multi-Strategy 포지션 사이징
+- **개인 투자**: 한국 퀀트 커뮤니티(네이버 카페, 디스코드 채널, 퀀트매매 강의)에서 Half/Quarter Kelly 기반 포지션 결정이 일반화
+- **공모전·대회**: CUFA를 포함한 대학 퀀트 동아리의 백테스트·모의투자 대회에서 Kelly 기반 리스크 관리가 표준 요소로 채점됨
+
+이 위키의 [Kelly Criterion 계산기](/tools) 도구는 소프의 원칙을 직접 실험할 수 있도록 설계되어 있습니다. 한국 시장에서 주의할 점은 다음과 같습니다.
+
+1. **추정 파라미터의 불안정성**: 한국 증시는 정치·규제 이벤트로 $\sigma$가 급변하므로 Fractional Kelly가 더욱 권장됩니다.
+2. **거래세·양도세**: 고회전율 전략은 Kelly 이론이 가정하지 않는 비용을 발생시켜 실제 최적 비율이 공식 대비 낮아집니다.
+3. **공매도 제한**: Delta-neutral 전략 구현 시 공매도 금지 시기에 한쪽만 실행 가능한 제약이 있습니다.
+
+</KoreaContext>
+
+## 대표 트레이드와 성과
+
+### 블랙잭 카드 카운팅 (1961)
+
+라스베이거스와 리노의 카지노에서 Claude Shannon의 후원을 받아 소액 자본으로 실전 검증에 성공했습니다. 이후 카지노 업계는 다중 덱·셔플링·카운터 퇴출 관행을 도입하며 대응했습니다.
+
+### Princeton/Newport Partners (1969~1988)
+
+- **운용 기간**: 약 19년
+- **전략**: 전환사채·워런트 아비트라지, Statistical Arbitrage, Index Arbitrage
+- **수익률**: 수수료 차감 후 연평균 약 15% 내외로 알려져 있으며, **19년 동안 단 한 분기 손실도 없었음**(Thorp 본인 회고 및 다수 인터뷰)
+- **종료 사유**: 1987년 FBI의 Giuliani 주도 수사(Michael Milken 관련, 펀드 운영과는 무관하다고 소프는 주장), 파트너인 Jay Regan 측 인물에 대한 수사로 펀드 청산
+
+### Ridgeline Partners (1994~2002)
+
+통계적 차익거래 중심. 소프 본인에 따르면 이 기간에도 연 두 자릿수 수익률을 유지했으며, 2002년 사업 규모 축소와 은퇴 시점에 맞춰 청산했습니다.
+
+### Berkshire Hathaway 조기 투자
+
+소프는 1968년 Warren Buffett을 직접 만난 뒤 Berkshire Hathaway 주식을 매수해 수십 년간 보유했습니다. 『A Man for All Markets』에서 그는 "수학이 통하지 않는 영역에서는 Buffett이 하는 장기 품질 투자가 최선"이라고 인정합니다.
+
+## 평가와 한계
+
+### 강점
+
+- 학술과 실전을 모두 성공적으로 연결한 드문 사례
+- Kelly Criterion·Delta-Neutral Hedging의 실무 도입 선구자
+- MIT Blackjack Team, 현대 퀀트 투자 세대에게 미친 광범위한 영향
+
+### 한계
+
+- 1980~90년대 정량투자 인프라(데이터·컴퓨팅) 발전 이전 시대의 전략들이며, 현재는 동일 전략의 수익성이 크게 낮아짐
+- Kelly Criterion은 파라미터 추정 오차에 극도로 민감하며, 실제로는 Fractional Kelly가 필수
+- Delta-Neutral 전략은 블랙스완 이벤트(LTCM 1998, 2008년 리먼) 시 갑작스러운 상관관계 붕괴로 실패 가능
+
+## Related
+
+- [Jim Simons](/research/masters/simons) — 순수 정량투자의 기관화
+- [Warren Buffett](/research/masters/buffett) — 소프가 인정한 반대 축의 대가
+- [Tools — Kelly Criterion 계산기](/tools)
+- [Learn — 포지션 사이징과 리스크 관리](/learn)
+
+---
+
+_출처: Ed Thorp 『A Man for All Markets』(2017), 『Beat the Dealer』(1962), 『Beat the Market』(1967), 『The Kelly Capital Growth Investment Criterion』(MacLean·Thorp·Ziemba, 2010). Princeton/Newport 수익률은 외부 감사 문서가 공개된 것은 아니며, 소프 본인 회고와 다수 인터뷰를 교차 확인한 수치임._
