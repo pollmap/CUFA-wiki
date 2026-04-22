@@ -41,6 +41,12 @@ const config: NextConfig = {
   async redirects() {
     return [
       { source: "/docs/:path*", destination: "/learn/:path*", permanent: true },
+      // v1 top-level actuarial → v2 insurance 하위로 재분류된 경로 보존 (SEO)
+      {
+        source: "/actuarial/:path*",
+        destination: "/industries/insurance/actuarial/:path*",
+        permanent: true,
+      },
     ];
   },
 };
