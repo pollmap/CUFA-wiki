@@ -58,3 +58,6 @@ _quarantine/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# Pagefind root artifact
+pagefind.json

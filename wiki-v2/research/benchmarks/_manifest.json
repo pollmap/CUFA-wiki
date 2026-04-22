@@ -1,0 +1,28 @@
+{
+  "fetchedAt": "2026-04-21T15:24:55Z",
+  "targets": {
+    "baekjoon_step": {
+      "ok": true,
+      "status": 200
+    },
+    "investopedia_dcf": {
+      "ok": true,
+      "status": 200
+    },
+    "damodaran": {
+      "ok": true,
+      "status": 200
+    },
+    "fred_popular": {
+      "ok": true,
+      "status": 200
+    },
+    "bok_ecos": {
+      "ok": true,
+      "status": 200
+    },
+    "kdi": {
+      "ok": false
+    }
+  }
+}

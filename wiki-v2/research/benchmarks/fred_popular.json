@@ -1,0 +1,7 @@
+{
+  "source": "https://fred.stlouisfed.org/tags/series?t=popular",
+  "status": 200,
+  "itemCount": 0,
+  "sample": [],
+  "notes": "FRED = CUFA 거시경제 섹션 1차 출처 화이트리스트"
+}
