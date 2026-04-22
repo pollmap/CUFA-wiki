@@ -12,9 +12,9 @@
 - **스타일**: Tailwind v4 · shadcn/ui (new-york)
 - **차트**: Recharts · Lightweight Charts
 - **검색**: Pagefind (Phase 1)
-- **인증/DB**: NextAuth + Supabase (Phase 4)
-- **실시간 데이터**: Luxon nexus-finance-mcp 398도구 (Phase 2)
-- **댓글**: Giscus (Phase 6)
+- **인증/DB**: 없음 (zero-config · localStorage 전용)
+- **실시간 데이터**: Luxon nexus-finance-mcp 398도구 (env-guarded fallback)
+- **댓글**: Giscus (env-guarded fallback)
 
 ## 6축 IA
 
@@ -26,6 +26,25 @@
 | 도구·데이터 | `/tools` | 35+ 계산기 + Live 대시보드 |
 | 리서치 ★ | `/research` | CUFA 5 리서치 + 254 현장 노트 |
 | MY | `/my` | 진도/북마크/배지 (보호) |
+
+## Vercel 배포 (Production)
+
+**1회성 대시보드 작업** (Vercel CLI/API로 자동화 불가):
+
+1. Vercel Dashboard → 해당 프로젝트 → **Settings → General**
+2. **Root Directory** 섹션에서 `wiki` → `wiki-v2` 로 변경 후 Save
+3. (선택) **Build & Development Settings** 의 Override 항목이 있으면 **모두 체크 해제** — `wiki-v2/vercel.json` + `package.json` 자동 감지됨
+4. **Deployments** 탭에서 "Redeploy" 클릭
+
+이후 `main` branch push 는 자동 재배포됩니다. `wiki-v2/vercel.json`이 Next.js 프레임워크 선언과 build/install 명령을 담고 있어 대시보드 변경 직후부터 유효합니다.
+
+### env 주입 (모두 선택 · 없어도 배포 성공)
+
+- `MCP_VPS_HOST`, `MCP_AUTH_TOKEN` — Luxon 라이브 데이터 활성
+- `NEXT_PUBLIC_GISCUS_REPO`, `_REPO_ID`, `_CATEGORY_ID` — 댓글 활성
+- `NEXT_PUBLIC_MAPBOX_TOKEN` — 현장 노트 맵 활성
+
+주입하지 않아도 placeholder UI로 빌드는 성공합니다. Supabase/NextAuth/OAuth는 v2에서 모두 제거되어 env 0건으로 운영 가능합니다.
 
 ## 로컬 개발
 
